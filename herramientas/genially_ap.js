@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v13, cuarta pasada (25/11/2026).
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v13c, cuarta pasada y SCORM (25/11/2026).
    Se inyecta en el editor y deja window.AP. Cambios de esta pasada, con el estándar del taller (docs/mediaciones-aprobadas.md §3):
    · la lección empieza en su portadita (se ocultan la portada del curso, la tapita de unidad, la introducción y el índice de temas);
    · portadita sin los botoncitos «En esta lección»; un solo «Comenzar»;
@@ -6,12 +6,15 @@
      mapas, figuras y videos;
    · ilustración solo donde el manifiesto la asigna (la que corresponde al tema); si no, se retira del lienzo;
    · cabecera: título de la lección legible; flecha «siguiente» resaltada; contador «Página k de n»;
-   · pie en una sola línea: Curso · nombre | Unidad N · nombre.
+   · pie: «Curso» y su nombre a la izquierda; «Unidad N» y su nombre a la derecha (desde x = 712). El centro del pie (518 a 700)
+     queda libre para el botón «Pantalla completa» que el reproductor SCORM del taller pone en todas las páginas
+     (herramientas/genially_scorm.py, .ova-pc: left 528, ancho 172). v13c, 25/11/2026: el pie de la v13b lo tapaba.
    Cuarta pasada (revisión como usuario y pedido de Sebastián: «no quiero tres o cuatro diapositivas de inicio»):
    · las páginas de plantilla ocultas (portada del curso, tapita de unidad, introducción, índice de temas) salen del arranque y van
      al final, después del «Fin» (siguen ocultas; no se borran);
-   · arranque según lo que la lección necesita: su portadita y, solo si la lección es larga (14 páginas o más), el índice; en las
-     cortas el índice queda oculto y «Comenzar» lleva a la primera página;
+   · arranque: su portadita y el índice, en todas las lecciones (v13c: el SCORM solo lleva las páginas visibles; con el índice
+     oculto, el botón de menú de la cabecera y «Ir al índice» del fin quedaban sin destino en el aula; además el estándar del
+     taller pide índice en cada lección);
    · índice: cada apartado en su casilla (la barra de «Inicio de la lección» ya no pasa por debajo de la columna derecha) y el
      texto centrado en la casilla con su alto medido;
    · el dibujo de la columna izquierda no se aprieta: si el título y la frase clave no le dejan sitio, la página va sin dibujo;
@@ -71,8 +74,9 @@ async function marco(I,M,k,n){let c=0;
  const tf=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y>600),tt=i=>pl(A.getTextHtml(i.id));
  const cur=tf.find(i=>/^Curso$/.test(tt(i))),uni=tf.find(i=>/^Unidad \d+$/.test(tt(i))),nom=tf.filter(i=>i!==cur&&i!==uni&&tt(i).length>12).sort((a,b)=>a.position.x-b.position.x);
  const pu=I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i.position.y>600&&i.size.height<44&&i.size.width<120&&i.position.x>300)[0];
- const limpio=async(it,x,w)=>{const t=tt(it),h=A.getTextHtml(it.id);let m=0;if(/<br/i.test(h)||/text-align:\s*right/.test(h)){A.updateTextContent(it.id,'<p data-node-text-align="left" dir="ltr" style="text-align: left;"><strong>'+esc_(t)+'</strong></p>');m++}m+=fsz(it.id,13);m+=anc(it,w);if(m)await d(90);m+=pos(it,x,alto(it)>27?625:633);return m};
- if(nom.length>=2&&uni&&pu){c+=await limpio(nom[0],104,388);c+=pos(pu,500,626);c+=pos(uni,504,632);c+=await limpio(nom[nom.length-1],594,581)}
+ const limpio=async(it,x,w)=>{const t=tt(it),h=A.getTextHtml(it.id);let m=0;if(/<br/i.test(h)||/text-align:\s*right/.test(h)){A.updateTextContent(it.id,'<p data-node-text-align="left" dir="ltr" style="text-align: left;"><strong>'+esc_(t)+'</strong></p>');m++}m+=fsz(it.id,13);m+=anc(it,w);if(m)await d(90);m+=pos(it,x,Math.round(643-alto(it)/2));return m};
+ /* centro del pie libre para el botón «Pantalla completa» del SCORM (528 a 700): unidad desde 712, su nombre en dos renglones */
+ if(nom.length>=2&&uni&&pu){c+=await limpio(nom[0],104,388);c+=pos(pu,712,626);c+=pos(uni,716,632);c+=await limpio(nom[nom.length-1],806,369)}
  /* contador de páginas, bajo las flechas */
  if(k!=null){const txt='Página '+(k+1)+' de '+n;let ct=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y>58&&i.position.y<90&&i.position.x>880&&i.position.x<1080)[0];
   if(!ct){try{A.createText({x:918,y:63,width:130,height:20,fontSize:13,color:'#FFFFFF',fontFamily:'Montserrat',text:'<p><strong>'+txt+'</strong></p>',selectAndEdit:false});c++}catch(e){}}
@@ -97,7 +101,7 @@ async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.select
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
 
 /* 5. Portadita (sin botoncitos) e índice por apartado, con la guía del estándar. */
-async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=P.length>=14;P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
+async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=true;P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
  const sl=A.getSlides(),por=sl.find(s=>/· Portada$/.test(s.name)),ind=sl.find(s=>/· Índice$/.test(s.name)),fin=sl.find(s=>/· Fin$/.test(s.name)),U=secs.length,r=[];
  if(por){A.selectSlide(por.id);await d(650);const I=its(por.id),hijos=g=>its(por.id).filter(i=>i.parentGroupId===g.id);
   const C=I.filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width<60&&hijos(i).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id)))));
@@ -156,4 +160,4 @@ function estado(){const E=esc(),P=(window.APM||{paginas:[]}).paginas,sl=A.getSli
 /* 8. Todo en orden para una creación; deja el avance en window.__ap_log (para seguirlo desde fuera). */
 async function todo(u,l){const L=window.__ap_log=[];try{L.push(await montar(u,l));L.push(await ilustrar());const n=window.APM.paginas.length;for(let a=0;a<n;a+=12)L.push(await acomodar(window.APM,a,a+12));
  L.push(await indice(l,window.APM));L.push(revisar());L.push('guardado: '+(await A.saveNow()).status);L.push(estado());L.push('FIN')}catch(e){L.push('ERROR '+String(e&&e.stack||e).slice(0,220))}return L.join(' · ')}
-return{montar,cargar,estructura,revisar,todo,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13b'
+return{montar,cargar,estructura,revisar,todo,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13c'
