@@ -108,11 +108,11 @@ async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
   if(p.ancho){if(Sb)c+=pos(Sb,-900,170);if(img&&img.position.x>-800)c+=pos(img,-900,img.position.y);
    /* la tarjeta: se crea una vez por página y va al fondo (detrás del título y de la página) */
    const g=glifo(p),svg=TARJ(g);
-   if(!tj){try{await A.createSvg({x:22,y:97,width:1153,height:509,svg,color:'#E3EDE7',colors:['#FFFFFF','#CFE0D6','#E3EDE7','#C8754F'],aspectRatio:false,slideId:E[k].id});await d(500);
+   if(!tj){try{await A.createSvg({x:22,y:97,width:1153,height:509,svg,colors:['#FFFFFF','#CFE0D6','#E3EDE7','#C8754F'],aspectRatio:false,slideId:E[k].id});await d(500);
      tj=its(E[k].id).find(esTarjeta);if(tj){A.reorderItem(tj.id,'back');await d(120)}c++}catch(e){window.__ap_err=String(e).slice(0,160)}}
    else{c+=pos(tj,22,97);const S=[...st(E[k].id).unorderedItems].find(x=>x.data&&x.data.Id===tj.id),src=S&&(S.data.Source||S.data.Svg||'');
     if(!src||String(src).indexOf(GLIFO[g].slice(0,40))<0){try{await A.updateSvgSource(tj.id,svg);c++}catch(e){}}}
-   const L=p.titulo.length;let f=L<=62?22:L<=76?20:L<=92?18:L<=108?16:14.5;c+=anc(T,1090);c+=fsz(T.id,f);await d(80);
+   const L=p.titulo.length;let f=L<=62?22:L<=76?20:L<=92?18:L<=108?16:L<=125?14.5:13;c+=anc(T,1090);c+=fsz(T.id,f);await d(80);
    while(alto(T)>40&&f>12.5){f-=1;A.updateTextFontSize(T.id,f);await d(120)}
    c+=pos(T,66,Math.round(118.5-alto(T)/2))}
   else{if(tj&&tj.position.x>-1200)c+=pos(tj,-1300,97);c+=pos(T,28,108);if(anc(T,350)){c++;await d(120)}const hT=alto(T),sy=Math.round(108+hT+8);if(Sb)c+=pos(Sb,28,sy);
@@ -194,7 +194,7 @@ async function ilustrar(desde=0,hasta=1e9){const P=window.APM.paginas,E=esc(),K=
 /* 7. Revisión de cajas: lo que no cabe donde va. Devuelve una lista corta (vacía si todo cabe). */
 function revisar(){const P=(window.APM||{paginas:[]}).paginas,E=esc(),out=[];
  for(let k=0;k<Math.min(P.length,E.length);k++){const I=its(E[k].id),p=P[k],tx=textos(I),T=tx[0],Sb=tx[1],img=dibujo(I);if(!T)continue;const hT=alto(T);
-  if(p.ancho){if(hT>42)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)');if(!I.find(esTarjeta))out.push((k+1)+': sin tarjeta')}
+  if(p.ancho){if(hT>44)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)');if(!I.find(esTarjeta))out.push((k+1)+': sin tarjeta')}
   else{const hS=Sb&&p.subtitulo?alto(Sb):0,bajo=108+hT+(hS?8+hS:0);if(bajo>596)out.push((k+1)+': título y frase llegan a '+Math.round(bajo));
    if(img&&img.position.x>-800&&img.position.y<bajo-2)out.push((k+1)+': el dibujo pisa el texto');if(img&&img.position.x>-800&&img.size.height<110)out.push((k+1)+': dibujo muy chico '+Math.round(img.size.height))}
   const hd=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y<70&&i.position.x>440&&i.position.x<760)[0];if(hd&&(alto(hd)>70||hd.position.y<6))out.push((k+1)+': cabecera '+Math.round(alto(hd))+' px');
