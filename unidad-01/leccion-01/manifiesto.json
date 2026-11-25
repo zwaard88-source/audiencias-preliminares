@@ -6,19 +6,6 @@
  "paginas": [
   {
    "tipo": "video",
-   "src": "../videos/index.html?video=ap-presentacion",
-   "titulo": "Presentación del curso",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-presentacion",
-   "nav": "Presentación del curso",
-   "indice": "Presentación del curso",
-   "ilus": "",
-   "ancho": true
-  },
-  {
-   "tipo": "video",
    "src": "../videos/index.html?video=ap-u1-presentacion",
    "titulo": "Presentación de la unidad 1",
    "subtitulo": "Video con su transcripción",

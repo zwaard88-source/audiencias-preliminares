@@ -30,18 +30,6 @@
    "ancho": true
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=3",
-   "titulo": "Procedimiento penal abreviado",
-   "subtitulo": "Traslado de la acusación",
-   "seccion": "5.1. Procedimiento penal abreviado",
-   "escena": 3,
-   "id": "AP-U2-L5-E03",
-   "nav": "Procedimiento penal abreviado",
-   "indice": "Procedimiento penal abreviado",
-   "ilus": ""
-  },
-  {
    "tipo": "mapa",
    "src": "mapa.html?m=4",
    "titulo": "El acusador privado",

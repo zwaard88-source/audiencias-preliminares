@@ -205,13 +205,13 @@
    "tipo": "escena",
    "src": "index.html?escena=17",
    "titulo": "Marco normativo internacional, transnacional y nacional",
-   "subtitulo": "Registro de dispositivos de almacenamiento masivo",
+   "subtitulo": "Ley 906 de 2004 (CPP) · Ley 1273 de 2009",
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
    "escena": 17,
    "id": "AP-U3-L3-E17",
    "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "m-dispositivos"
+   "ilus": ""
   },
   {
    "tipo": "mapa",
@@ -260,7 +260,7 @@
    "id": "AP-U3-L3-E21",
    "nav": "Registro remoto sobre equipos informáticos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "investigacion-lupa",
+   "ilus": "m-dispositivos",
    "ancho": true
   },
   {
@@ -577,7 +577,7 @@
    "id": "AP-U3-L3-E47",
    "nav": "Agente encubierto informático (TEI típica emergente)",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "m-dispositivos"
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -589,7 +589,7 @@
    "id": "AP-U3-L3-E48",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "figura",
@@ -605,8 +605,8 @@
    "ilus": ""
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=49",
+   "tipo": "matriz",
+   "src": "matriz.html?m=49",
    "titulo": "Representación gráfica No. 2: Síntesis sobre las TEI",
    "subtitulo": "Vigilancia electrónica y otras formas de vigilancia (Art. 235 CPP; CNUDOT - Típica Nominada)",
    "seccion": "3.6. Representación gráfica No. 2: Síntesis sobre las TEI",
@@ -614,7 +614,8 @@
    "id": "AP-U3-L3-E49",
    "nav": "Representación gráfica No. 2: Síntesis sobre las TEI",
    "indice": "Representación gráfica No. 2: Síntesis sobre las TEI",
-   "ilus": "m-vigilancia"
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

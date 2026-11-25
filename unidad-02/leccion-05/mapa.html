@@ -5,7 +5,7 @@
 <title>Mapa conceptual · Lección 5. Particularidades de la ley 1826 de 2017</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=0a6c1249">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=2f8d7cdf">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -15,8 +15,8 @@
   <div class="pie"><button class="btn-chico" data-pantalla></button></div>
   <div class="avance" id="avance"></div>
 </main>
-<script type="application/json" id="datos">{"2": {"t": "Procedimiento penal abreviado", "r": [{"h": "Reducción de etapas", "p": [["vin", "Reducción de etapas: Suprime la audiencia de formulación de imputación y la sustituye por el traslado del escrito de acusación, mediante el cual la Fiscalía comunica los cargos al indiciado en presencia de su defensor, en el despacho del fiscal, dejando constancia de ello en un acta. Asimismo, fusiona la audiencia de acusación con la preparatoria en una sola diligencia denominada audiencia concentrada."]]}, {"h": "Menos audiencias", "p": [["vin", "Menos audiencias: Pasa del sistema ordinario (5 audiencias) a un esquema de dos fases principales: la audiencia concentrada y el juicio oral."]]}, {"h": "Delitos aplicables", "p": [["vin", "Delitos aplicables: Aplica para conductas querellables y delitos oficiosos específicos de menor impacto como lesiones personales leves, hurto, estafa, injuria y falsedad en documento privado, excluyendo intereses del Estado o delitos que requieren de una atención célere por parte de la administración de justicia, como la violencia intrafamiliar."]]}, {"h": "Tiempos y plazos", "p": [["vin", "Tiempos y plazos:"]]}], "ilus": "", "raiz": ""}, "4": {"t": "El acusador privado", "r": [{"h": "Facultad de la víctima", "p": [["vin", "Facultad de la víctima: Permite a la víctima asumir la investigación y la acusación delegando funciones de la Fiscalía a través de un abogado de confianza o un consultorio jurídico."]]}, {"h": "Restricciones", "p": [["vin", "Restricciones: No procede cuando el delito afecta los intereses o el patrimonio del Estado."]]}, {"h": "Responsabilidad", "p": [["vin", "Responsabilidad: El acusador privado asume responsabilidades penales y disciplinarias equivalentes a las de un fiscal durante su gestión transitoria."]]}], "ilus": "p-dialogo-carpeta.webp", "raiz": ""}}</script>
-<script src="../comun/ap-propio.js?v=0a6c1249"></script>
+<script type="application/json" id="datos">{"2": {"t": "Procedimiento penal abreviado", "r": [{"h": "Reducción de etapas", "p": [["vin", "Reducción de etapas: Suprime la audiencia de formulación de imputación y la sustituye por el traslado del escrito de acusación, mediante el cual la Fiscalía comunica los cargos al indiciado en presencia de su defensor, en el despacho del fiscal, dejando constancia de ello en un acta. Asimismo, fusiona la audiencia de acusación con la preparatoria en una sola diligencia denominada audiencia concentrada."]]}, {"h": "Menos audiencias", "p": [["vin", "Menos audiencias: Pasa del sistema ordinario (5 audiencias) a un esquema de dos fases principales: la audiencia concentrada y el juicio oral."]]}, {"h": "Delitos aplicables", "p": [["vin", "Delitos aplicables: Aplica para conductas querellables y delitos oficiosos específicos de menor impacto como lesiones personales leves, hurto, estafa, injuria y falsedad en documento privado, excluyendo intereses del Estado o delitos que requieren de una atención célere por parte de la administración de justicia, como la violencia intrafamiliar."]]}, {"h": "Tiempos y plazos", "p": [["vin", "Tiempos y plazos:"], ["vin", "Traslado de la acusación otorga 60 días para preparar la defensa."], ["vin", "Medidas de aseguramiento privativas de la libertad tienen un límite máximo de 180 días."]]}], "ilus": "", "raiz": ""}, "4": {"t": "El acusador privado", "r": [{"h": "Facultad de la víctima", "p": [["vin", "Facultad de la víctima: Permite a la víctima asumir la investigación y la acusación delegando funciones de la Fiscalía a través de un abogado de confianza o un consultorio jurídico."]]}, {"h": "Restricciones", "p": [["vin", "Restricciones: No procede cuando el delito afecta los intereses o el patrimonio del Estado."]]}, {"h": "Responsabilidad", "p": [["vin", "Responsabilidad: El acusador privado asume responsabilidades penales y disciplinarias equivalentes a las de un fiscal durante su gestión transitoria."]]}], "ilus": "p-dialogo-carpeta.webp", "raiz": ""}}</script>
+<script src="../comun/ap-propio.js?v=2f8d7cdf"></script>
 <script>
 /* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página y todas sus ramas a la vista. Si el texto cabe, se
    lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana pequeña junto a ella.
@@ -25,14 +25,31 @@
    Tercera pasada (Sebastián, 24/11/2026): en la franja ancha de Genially el mapa va con la idea al centro y las ramas a los dos
    lados; el rótulo que ya está en el arranque del párrafo no se repite (va resaltado dentro del texto); el nodo central no repite
    el título de la diapositiva; la última parte de una ventana lleva al concepto siguiente o termina (no hay botón que no lleve a nada). */
+/* Cuarta pasada (revisión como usuario, 25/11/2026): la frase que anuncia la lista va arriba (intro) y no como un concepto más; si
+   los conceptos ya vienen numerados en el texto («1. …»), el círculo lleva ese número y el texto no lo repite; las llamadas de nota
+   al pie («[^3]») van como superíndice y la nota, marcada como nota; ningún renglón empieza con un guion suelto. */
 (function () {
   var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
   var lz = document.getElementById('lienzo'), mc = document.getElementById('mc'), svg = document.getElementById('svg'), G = document.getElementById('globo');
   if (!d) { mc.textContent = ''; return; }
+  var propios = 0;
+  d.r.forEach(function (r) {
+    r.p.forEach(function (x) { x[1] = String(x[1]).replace(/^[-–]\s+/, ''); });
+    var t0 = r.p.length ? r.p[0][1] : '', mn = /^\[\^(\d+)\]\s*/.exec(t0), mp = /^(\d{1,2})\.\s+(?=\S)/.exec(t0) || /^\(([a-z])\)\s+(?=\S)/.exec(t0);
+    if (mn) { r.nota = mn[1]; r.p[0][1] = t0.slice(mn[0].length); }
+    else if (mp) { r.propio = mp[1]; r.corte = mp[0].length; propios++; }
+  });
+  /* la lista ya viene numerada o con letras en el texto («1. …», «(a) …»): el círculo lleva esa marca y el texto no la repite */
+  if (propios >= 2) d.r.forEach(function (r) { if (r.propio) { r.p[0][1] = r.p[0][1].slice(r.corte); r.h = String(r.h).replace(/^\(([a-z])\)\s+|^\d{1,2}\.\s+/, ''); } }); else d.r.forEach(function (r) { r.propio = null; });
+  function numero(r, k) {
+    if (r.nota) return '<span class="num nnota" title="Nota al pie ' + r.nota + '">' + r.nota + '</span>';
+    if (propios >= 2) return r.propio ? '<span class="num">' + r.propio + '</span>' : '<span class="num sin-n" aria-hidden="true"><i class="fas fa-angle-right"></i></span>';
+    return '<span class="num">' + (k + 1) + '</span>';
+  }
   var ANCHO = document.documentElement.classList.contains('ancho'), N = d.r.length;
   lz.setAttribute('aria-label', 'Mapa conceptual: ' + d.t);
   function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
-  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\[\^(\d+)\]/g, '<sup>$1</sup>'); }
   function corta(t, n) { if (t.length <= n) return t; var c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:\s(]+$/, '') + '…'; }
   /* ¿El rótulo está en el arranque del párrafo (hasta 70 caracteres adentro)? Entonces no va aparte: se resalta donde está. */
   function donde(r) { var t = r.p.length ? r.p[0][1] : '', i = t.toLowerCase().indexOf(String(r.h).toLowerCase()); return r.h && r.h.length > 3 && i >= 0 && i <= 70 ? i : -1; }
@@ -45,27 +62,36 @@
     (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : (d.raiz ? '' : '<span class="rico" aria-hidden="true"><i class="fas fa-diagram-project"></i></span>'));
   var ramas = document.createElement('div'); ramas.className = 'ramas';
   mc.appendChild(raiz); mc.appendChild(ramas);
+  var altoIntro = 0;
+  if (d.intro) {
+    var pi = document.createElement('p'); pi.className = 'intro'; pi.innerHTML = esc(d.intro); lz.insertBefore(pi, mc);
+    altoIntro = pi.offsetHeight + 8; mc.style.paddingTop = (altoIntro + 14) + 'px';
+  }
   var leidos = {}, nodos = [];
   function pintar(resumen) {
     ramas.innerHTML = ''; nodos = [];
     mc.classList.toggle('resumen', resumen);
     d.r.forEach(function (r, k) {
-      var e = document.createElement(resumen ? 'button' : 'div'); e.className = 'rama' + (leidos[k] ? ' visto' : '');
-      if (resumen) e.type = 'button';
-      if (centro) { e.style.gridColumn = k < mitad ? 1 : 3; e.style.gridRow = (k < mitad ? k : k - mitad) + 1; }
       var todo = r.p.map(function (x) { return x[1]; }).join(' ');
       var lim = ANCHO ? (N >= 7 ? 120 : 190) : (arriba ? 78 : (N >= 5 ? 105 : 190));
-      var breve = !resumen && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
+      /* cuarta pasada: en el mapa por ventanas, el concepto que ya cabe entero se lee ahí mismo (no lleva «Clic para leer completo») */
+      var entero = resumen && r.p.length === 1 && todo.length <= lim;
+      r.entero = entero; if (entero) leidos[k] = 1;
+      var boton = resumen && !entero;
+      var e = document.createElement(boton ? 'button' : 'div'); e.className = 'rama' + (leidos[k] && boton ? ' visto' : '') + (r.nota ? ' es-nota' : '');
+      if (boton) e.type = 'button';
+      if (centro) { e.style.gridColumn = k < mitad ? 1 : 3; e.style.gridRow = (k < mitad ? k : k - mitad) + 1; }
+      var breve = (!resumen || entero) && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
       var i = donde(r), rep = i >= 0;
-      e.innerHTML = breve ? '<h3 class="solo' + (rep ? ' sin' : '') + '"><span class="num">' + (k + 1) + '</span><span>' + (rep ? marca(todo, r.h, i) : esc(may(todo))) + '</span></h3>' :
-        (rep ? '<h3 class="solo sin"><span class="num">' + (k + 1) + '</span><span>' + marca(resumen ? corta(todo, Math.max(lim + 60, i + r.h.length + 40)) : r.p[0][1], r.h, i) + '</span></h3>'
-             : '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>') +
-        (resumen ? (rep ? '' : '<p>' + esc(corta(todo, lim)) + '</p>') + '<span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(rep ? r.p.slice(1) : r.p));
-      if (resumen) e.addEventListener('click', function () { abrir(e, r, k); });
+      e.innerHTML = breve ? '<h3 class="solo' + (rep ? ' sin' : '') + '">' + numero(r, k) + '<span>' + (rep ? marca(todo, r.h, i) : esc(may(todo))) + '</span></h3>' :
+        (rep ? '<h3 class="solo sin">' + numero(r, k) + '<span>' + marca(boton ? corta(todo, Math.max(lim + 60, i + r.h.length + 40)) : r.p[0][1], r.h, i) + '</span></h3>'
+             : '<h3>' + numero(r, k) + '<span>' + esc(may(r.h)) + '</span></h3>') +
+        (boton ? (rep ? '' : '<p>' + esc(corta(todo, lim)) + '</p>') + '<span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(rep ? r.p.slice(1) : r.p));
+      if (boton) e.addEventListener('click', function () { abrir(e, r, k); });
       ramas.appendChild(e); nodos.push(e);
     });
   }
-  var TOPE = lz.clientHeight - (arriba ? 110 : 58);
+  var TOPE = lz.clientHeight - (arriba ? 110 : 58) - altoIntro;
   function pasa() { return ramas.scrollHeight > TOPE || mc.scrollHeight > mc.clientHeight + 1; }
   pintar(false);
   var total = d.r.reduce(function (a, r) { return a + r.p.reduce(function (b, x) { return b + x[1].length; }, 0); }, 0);
@@ -80,9 +106,10 @@
   /* ventana pequeña junto a la rama; el texto largo se lee por partes */
   var partes = [], parte = 0, actual = null;
   function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function prox(k) { for (var j = k + 1; j < N; j++) if (!d.r[j].entero) return j; return N; }
   function sigue() {   /* al terminar un concepto: pasar al siguiente o terminar; nunca un botón que no lleva a nada */
-    return actual.k < N - 1
-      ? '<button class="btn-chico" id="psig">Clic para leer el concepto ' + (actual.k + 2) + ' <i class="fas fa-arrow-right" aria-hidden="true"></i></button>'
+    return prox(actual.k) < N
+      ? '<button class="btn-chico" id="psig">Clic para leer el concepto ' + (prox(actual.k) + 1) + ' <i class="fas fa-arrow-right" aria-hidden="true"></i></button>'
       : '<button class="btn-chico" id="psig"><i class="fas fa-check" aria-hidden="true"></i> Clic para terminar</button>';
   }
   function mostrar() {
@@ -93,7 +120,7 @@
     var a = document.getElementById('pa'), s = document.getElementById('ps'), sg = document.getElementById('psig');
     if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
     if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
-    if (sg) sg.onclick = function () { var k = actual.k + 1; if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
+    if (sg) sg.onclick = function () { var k = prox(actual.k); if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
     if (ult) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
   }
   function ubicar() {

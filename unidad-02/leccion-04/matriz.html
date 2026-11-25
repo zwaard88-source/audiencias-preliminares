@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matriz · Lección 4. Libertad por vencimiento de términos</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=2f8d7cdf">
+</head>
+<body>
+<main class="lienzo" id="lienzo">
+  <div class="mz" id="mz"><div class="lista" id="lista" role="tablist" aria-orientation="vertical"></div><div class="panel" id="panel" role="tabpanel" aria-live="polite"></div></div>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+  <div class="avance" id="avance"></div>
+</main>
+<script type="application/json" id="datos">{"8": {"cab": "Figura", "filas": [{"g": "", "n": "Revocatoria (Art. 318)", "c": [["Fundamento Principal", "Desaparición de los requisitos de autoría o fines constitucionales."], ["Consecuencia", "Libertad plena dentro del proceso."]]}, {"g": "", "n": "Sustitución (Art. 314)", "c": [["Fundamento Principal", "Causales objetivas y personales (enfermedad grave, edad avanzada, embarazo)."], ["Consecuencia", "Cambio de cárcel por detención domiciliaria u otra medida."]]}, {"g": "", "n": "Vencimiento de Términos (Art. 317)", "c": [["Fundamento Principal", "Transcurso del tiempo de ley sin que se avance en las etapas procesales (p. ej. sin presentar acusación)."], ["Consecuencia", "Libertad inmediata por mora judicial sin evaluar pruebas."]]}], "t": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"}}</script>
+<script src="../comun/ap-propio.js?v=2f8d7cdf"></script>
+<script>
+/* Matriz de la fuente (cuarta pasada, 25/11/2026). Una tabla del documento se muestra entera si cabe con letra legible; si no, se
+   recorre por filas: a la izquierda, la lista de filas (agrupadas si la tabla trae grupos) y a la derecha, todas las columnas de la
+   fila elegida, cada una con su encabezado. Así no se pierde qué va con qué (antes la tabla iba en pestañas por columna) y nada
+   queda cortado ni con barra de desplazamiento.
+   datos[m] = {t: título, cab: encabezado de la primera columna, filas: [{g: grupo o '', n: nombre de la fila, c: [[encabezado, texto], …]}]}. */
+(function () {
+  var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
+  var lz = document.getElementById('lienzo'), Z = document.getElementById('mz'), L = document.getElementById('lista'), P = document.getElementById('panel'), AV = document.getElementById('avance');
+  if (!d) return;
+  lz.setAttribute('aria-label', 'Tabla: ' + d.t);
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\[\^(\d+)\]/g, '<sup>$1</sup>'); }
+  function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function parr(t) { return String(t).split('\n').map(function (x) { return '<p>' + esc(x) + '</p>'; }).join(''); }
+  /* nombre corto para la lista: sin el paréntesis de equivalencias o artículos; el nombre completo va en el panel */
+  function corto(t) { var i = t.indexOf(' ('); return i > 12 ? t.slice(0, i) : t; }
+  var N = d.filas.length, C = d.filas[0].c.map(function (c) { return c[0]; });
+
+  /* 1) entera, como tabla, si cabe */
+  function entera() {
+    var cols = '<div class="th">' + esc(may(d.cab || '')) + '</div>' + C.map(function (c) { return '<div class="th">' + esc(may(c.toLowerCase())) + '</div>'; }).join('');
+    var g0 = null, cuerpo = d.filas.map(function (f) {
+      var grupo = f.g && f.g !== g0 ? '<div class="tg">' + esc(f.g) + '</div>' : ''; g0 = f.g;
+      return grupo + '<div class="tn">' + esc(f.n) + '</div>' + f.c.map(function (c) { return '<div class="td">' + parr(c[1]) + '</div>'; }).join('');
+    }).join('');
+    var T = document.createElement('div'); T.className = 'mzt'; T.style.gridTemplateColumns = 'minmax(150px,.8fr) repeat(' + C.length + ',1fr)'; T.innerHTML = cols + cuerpo;
+    Z.style.display = 'none'; lz.insertBefore(T, Z);
+    var fz = 15.4; T.style.setProperty('--fz', fz + 'px');
+    while (T.scrollHeight > T.clientHeight + 1 && fz > 12.6) { fz -= 0.4; T.style.setProperty('--fz', fz + 'px'); }
+    if (T.scrollHeight > T.clientHeight + 1) { T.remove(); Z.style.display = ''; return false; }
+    AV.innerHTML = '<i class="fas fa-table-list" aria-hidden="true"></i> Tabla completa: ' + N + ' filas';
+    return true;
+  }
+  if (N <= 5 && entera()) return;
+
+  /* 2) por filas */
+  var vistos = {}, botones = [], g0 = null;
+  d.filas.forEach(function (f, k) {
+    if (f.g && f.g !== g0) { var h = document.createElement('h4'); h.textContent = corto(f.g); L.appendChild(h); }
+    g0 = f.g;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'fila' + (f.g ? ' en-grupo' : ''); b.setAttribute('role', 'tab');
+    b.innerHTML = '<span class="n">' + (k + 1) + '</span><span>' + esc(corto(f.n)) + '</span>';
+    b.addEventListener('click', function () { ver(k); });
+    L.appendChild(b); botones.push(b);
+  });
+  /* la lista completa a la vista: se aprieta de a poco hasta caber */
+  ['c1', 'c2', 'c3'].some(function (c) { if (L.scrollHeight <= L.clientHeight + 1) return true; L.classList.add(c); return false; });
+  function ver(k) {
+    var f = d.filas[k];
+    botones.forEach(function (b, i) { b.classList.toggle('activa', i === k); b.setAttribute('aria-selected', i === k ? 'true' : 'false'); });
+    vistos[k] = 1; botones[k].classList.add('visto');
+    var ceja = f.g ? f.g : (d.cab || '');
+    P.innerHTML = '<h3>' + (ceja ? '<small>' + esc(ceja) + '</small>' : '') + esc(f.n) + '</h3><div class="celdas' + (f.c.length < 2 ? ' una' : '') + '">' +
+      f.c.map(function (c) { return '<div class="celda"><h5>' + esc(c[0]) + '</h5>' + parr(c[1]) + '</div>'; }).join('') + '</div>';
+    /* todo a la vista: la letra baja de a poco hasta que las columnas de la fila quepan en el panel */
+    var X = P.querySelector('.celdas'), fz = 15;
+    X.style.setProperty('--fz', fz + 'px');
+    while (X.scrollHeight > X.clientHeight + 1 && fz > 11.8) { fz -= 0.3; X.style.setProperty('--fz', fz + 'px'); }
+    X.style.overflow = X.scrollHeight > X.clientHeight + 1 ? 'auto' : '';
+    var n = Object.keys(vistos).length;
+    AV.innerHTML = n >= N
+      ? '<i class="fas fa-circle-check" aria-hidden="true"></i> <b>Recorrió las ' + N + ' filas.</b> Continúe con la flecha de arriba.'
+      : '<i class="fas fa-table-list" aria-hidden="true"></i> Elija cada fila de la izquierda · vistas: <b>' + n + ' de ' + N + '</b>';
+  }
+  ver(0);
+  window.addEventListener('resize', function () { setTimeout(function () { var a = botones.findIndex(function (b) { return b.classList.contains('activa'); }); ver(a < 0 ? 0 : a); }, 150); });
+})();
+</script>
+</body>
+</html>

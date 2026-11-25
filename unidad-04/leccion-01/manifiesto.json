@@ -69,18 +69,6 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
-   "titulo": "Una aproximación al concepto “motivos fundados”",
-   "subtitulo": "Orden de registro y allanamiento",
-   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
-   "escena": 5,
-   "id": "AP-U4-L1-E05",
-   "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”",
-   "ilus": "m-inferencia"
-  },
-  {
-   "tipo": "escena",
    "src": "index.html?escena=6",
    "titulo": "Una aproximación al concepto “motivos fundados”",
    "subtitulo": "Ley 906 de 2004",
@@ -89,7 +77,7 @@
    "id": "AP-U4-L1-E06",
    "nav": "Una aproximación al concepto “motivos fundados”",
    "indice": "Una aproximación al concepto “motivos fundados”",
-   "ilus": "p-lee-libro"
+   "ilus": "m-inferencia"
   },
   {
    "tipo": "escena",
@@ -113,7 +101,7 @@
    "id": "AP-U4-L1-E08",
    "nav": "Una aproximación al concepto “motivos fundados”",
    "indice": "Una aproximación al concepto “motivos fundados”",
-   "ilus": "m-inferencia",
+   "ilus": "fundamento-documento",
    "ancho": true
   }
  ]

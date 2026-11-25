@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v12, tercera pasada (25/11/2026).
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v13, cuarta pasada (25/11/2026).
    Se inyecta en el editor y deja window.AP. Cambios de esta pasada, con el estándar del taller (docs/mediaciones-aprobadas.md §3):
    · la lección empieza en su portadita (se ocultan la portada del curso, la tapita de unidad, la introducción y el índice de temas);
    · portadita sin los botoncitos «En esta lección»; un solo «Comenzar»;
@@ -7,6 +7,15 @@
    · ilustración solo donde el manifiesto la asigna (la que corresponde al tema); si no, se retira del lienzo;
    · cabecera: título de la lección legible; flecha «siguiente» resaltada; contador «Página k de n»;
    · pie en una sola línea: Curso · nombre | Unidad N · nombre.
+   Cuarta pasada (revisión como usuario y pedido de Sebastián: «no quiero tres o cuatro diapositivas de inicio»):
+   · las páginas de plantilla ocultas (portada del curso, tapita de unidad, introducción, índice de temas) salen del arranque y van
+     al final, después del «Fin» (siguen ocultas; no se borran);
+   · arranque según lo que la lección necesita: su portadita y, solo si la lección es larga (14 páginas o más), el índice; en las
+     cortas el índice queda oculto y «Comenzar» lleva a la primera página;
+   · índice: cada apartado en su casilla (la barra de «Inicio de la lección» ya no pasa por debajo de la columna derecha) y el
+     texto centrado en la casilla con su alto medido;
+   · el dibujo de la columna izquierda no se aprieta: si el título y la frase clave no le dejan sitio, la página va sin dibujo;
+   · AP.revisar(): textos que no caben en su caja (título, frase clave, cabecera, pie).
    No publica: solo guarda. Nada se borra: lo que sobra se oculta o sale del lienzo. */
 window.AP=(()=>{const A=window.geniallyAPI,RS=window.rootStore,d=ms=>new Promise(r=>setTimeout(r,ms));
 const BASE='https://zwaard88-source.github.io/audiencias-preliminares/';
@@ -32,7 +41,12 @@ const dibujo=I=>I.filter(i=>i.type==='image'&&!i.parentGroupId&&i.position.x<300
 function estructura(){let n=0;const s0=A.getSlides(),por=s0.find(s=>/· Portada$/.test(s.name||''));
  /* Genially no deja ocultar la primera página: la portadita de la lección pasa a ser la primera y la del curso queda oculta detrás */
  if(por&&s0[0].id!==por.id){try{A.reorderSlide(por.id,s0[0].id,null);n++}catch(e){}}
- for(const s of A.getSlides()){const nm=(s.name||'').trim();if(nm==='Portada'||/^Unidad \d+$/.test(nm)||/^Introducci[oó]n$/.test(nm)||nm==='Índice'){const S=st(s.id);if(!S.data.Hidden){S.data.setHidden(true);n++}}}return 'preludio oculto '+n}
+ const pre=s=>{const nm=(s.name||'').trim();return nm==='Portada'||/^Unidad \d+$/.test(nm)||/^Introducci[oó]n$/.test(nm)||nm==='Índice'};
+ for(const s of A.getSlides())if(pre(s)){const S=st(s.id);if(!S.data.Hidden){S.data.setHidden(true);n++}}
+ /* fuera del arranque: detrás del «Fin», en su orden */
+ let m=0;const fin=A.getSlides().find(s=>/· Fin$/.test(s.name||''));
+ if(fin){let ancla=fin.id;for(const s of A.getSlides().filter(pre)){const L=A.getSlides(),iF=L.findIndex(x=>x.id===fin.id),iS=L.findIndex(x=>x.id===s.id);if(iS<iF){try{A.reorderSlide(s.id,null,ancla);m++}catch(e){}}ancla=s.id}}
+ return 'preludio oculto '+n+' · al final '+m}
 
 /* 2. Una página por entrada del manifiesto: iframe con su forma, título y frase clave. */
 async function paginas(u,l,M){const P=M.paginas,n=P.length;A.selectSlide(A.getSlides()[0].id);await d(200);
@@ -72,6 +86,7 @@ async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
   else{c+=pos(T,28,108);if(anc(T,350)){c++;await d(120)}const hT=alto(T),sy=Math.round(108+hT+8);if(Sb)c+=pos(Sb,28,sy);
    const bajo=Sb&&p.subtitulo?sy+alto(Sb):108+hT;
    if(img){if(!p.ilus){if(img.position.x>-800)c+=pos(img,-900,img.position.y)}
+    else if(592-(bajo+12)<130){if(img.position.x>-800)c+=pos(img,-900,img.position.y)}
     else{const top=bajo+12,mh=592-top,r=img.size.width/img.size.height;let h=Math.min(329,mh),w=h*r;if(w>359){w=359;h=w/r}
      if(Math.abs(img.size.height-h)>3){A.updateItemSize(img.id,{width:w,height:h});await d(50);c++}
      c+=pos(img,28+(359-w)/2,top+(mh-h)/2)}}}
@@ -82,7 +97,7 @@ async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.select
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
 
 /* 5. Portadita (sin botoncitos) e índice por apartado, con la guía del estándar. */
-async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
+async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=P.length>=14;P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
  const sl=A.getSlides(),por=sl.find(s=>/· Portada$/.test(s.name)),ind=sl.find(s=>/· Índice$/.test(s.name)),fin=sl.find(s=>/· Fin$/.test(s.name)),U=secs.length,r=[];
  if(por){A.selectSlide(por.id);await d(650);const I=its(por.id),hijos=g=>its(por.id).filter(i=>i.parentGroupId===g.id);
   const C=I.filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width<60&&hijos(i).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id)))));
@@ -93,8 +108,9 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{c
   const by=Math.round(bajo+16);if(fil)A.updateItemPosition(fil.id,{x:80,y:by});if(eti&&eti.position.x>-800)A.updateItemPosition(eti.id,{x:-900,y:eti.position.y});
   for(const ln of I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i!==fil&&i.size.height<9&&i.size.width>60&&i.position.x<200&&i.position.x>=0&&i.position.y>200))A.updateItemPosition(ln.id,{x:-900,y:ln.position.y});
   const bot=I.find(i=>i.type==='group'&&!i.parentGroupId&&hijos(i).some(h=>h.type==='text'&&/^Comenzar/.test(pl(A.getTextHtml(h.id)))));
-  if(bot){A.updateItemPosition(bot.id,{x:80,y:Math.min(596-bot.size.height,by+32)});if(ind)ir(bot.id,ind.id)}
+  if(bot){A.updateItemPosition(bot.id,{x:80,y:Math.min(596-bot.size.height,by+32)});if(ind&&largo)ir(bot.id,ind.id);else if(E[0])ir(bot.id,E[0].id)}
   await marco(I,M,null,0);r.push('portadita')}
+ if(ind){const Si=st(ind.id);if(!!Si.data.Hidden===largo)Si.data.setHidden(!largo);r.push(largo?'índice a la vista':'índice oculto (lección corta)')}
  if(ind&&U<=14){A.selectSlide(ind.id);await d(500);const hijos=g=>its(ind.id).filter(i=>i.parentGroupId===g.id),txt=g=>hijos(g).filter(h=>h.type==='text').map(h=>pl(A.getTextHtml(h.id)));
   const guia=its(ind.id).find(i=>i.type==='text'&&!i.parentGroupId&&/^Elija una p/.test(pl(A.getTextHtml(i.id))));
   if(guia){pon(guia.id,'Elija una página para ir directamente a ella o utilice las flechas de arriba para avanzar de forma continua.');anc(guia,1100)}
@@ -106,7 +122,11 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{c
   const orden=[ini,...N.slice(0,U),fg].filter(Boolean),filas=Math.ceil(orden.length/2),H=Math.min(102,Math.floor(427/filas)-7);
   for(let i=0;i<N.length;i++){const gr=N[i];if(i>=U){A.updateItemPosition(gr.id,{x:-900,y:173});continue}const hs=hijos(gr),num=hs.find(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id)))),tit=hs.find(h=>h.type==='text'&&h!==num);if(num)pon(num.id,String(i+1));if(tit)pon(tit.id,secs[i].t);ir(gr.id,E[secs[i].k].id);await d(40)}
   await d(350);
-  for(let i=0;i<orden.length;i++){const gr=orden[i];for(const h of hijos(gr)){const w=Math.round(h.size.width),a=h.size.height;if(h.type==='svg'&&w>400){if(Math.abs(a-H)>1)A.updateItemSize(h.id,{width:h.size.width,height:H})}else A.updateItemPosition(h.id,{x:h.position.x,y:(H-a)/2});await d(25)}
+  for(let i=0;i<orden.length;i++){const gr=orden[i];
+   /* cada apartado en su casilla de 570: fondo y texto (la barra de «Inicio» venía de 1152 y pasaba bajo la columna derecha) */
+   for(const h of hijos(gr)){const w=Math.round(h.size.width);if(h.type==='svg'&&w>400){if(Math.abs(h.size.height-H)>1||Math.abs(w-570)>1){A.updateItemSize(h.id,{width:570,height:H});await d(40)}}else if(h.type==='text'&&w>100&&Math.abs(w-488)>1){A.updateItemSize(h.id,{width:488,height:h.size.height});await d(60)}}
+   await d(120);
+   for(const h of hijos(gr)){if(h.type==='svg'&&h.size.width>400)continue;const a=h.type==='text'?alto(h):h.size.height;A.updateItemPosition(h.id,{x:h.position.x,y:Math.round((H-a)/2)});await d(25)}
    await d(80);A.updateItemPosition(gr.id,{x:i<filas?24:607,y:173+(i%filas)*(H+7)});await d(40)}
   await marco(its(ind.id),M,null,0);r.push('índice '+U+' apartados, alto '+H)}else if(ind)r.push('índice sin tocar: '+U+' apartados');
  if(fin){A.selectSlide(fin.id);await d(450);await marco(its(fin.id),M,null,0);r.push('fin')}
@@ -119,8 +139,17 @@ async function ilustrar(desde=0,hasta=1e9){const P=window.APM.paginas,E=esc(),K=
   try{await A.replaceImage(img.id,cache[n]||url,{box:'fit'});await d(220);const s=it&&it.data.Source;if(s&&s!==url&&!cache[n]){cache[n]=s;try{localStorage.setItem(K,JSON.stringify(cache))}catch(e){}}c++}catch(e){f++;err=String(e).slice(0,80)}}
  return 'ilustraciones '+c+(f?' · fallas '+f+' '+err:'')}
 
+/* 7. Revisión de cajas: lo que no cabe donde va. Devuelve una lista corta (vacía si todo cabe). */
+function revisar(){const P=(window.APM||{paginas:[]}).paginas,E=esc(),out=[];
+ for(let k=0;k<Math.min(P.length,E.length);k++){const I=its(E[k].id),p=P[k],tx=textos(I),T=tx[0],Sb=tx[1],img=dibujo(I);if(!T)continue;const hT=alto(T);
+  if(p.ancho){if(hT>38)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)')}
+  else{const hS=Sb&&p.subtitulo?alto(Sb):0,bajo=108+hT+(hS?8+hS:0);if(bajo>596)out.push((k+1)+': título y frase llegan a '+Math.round(bajo));
+   if(img&&img.position.x>-800&&img.position.y<bajo+4)out.push((k+1)+': el dibujo pisa el texto');if(img&&img.position.x>-800&&img.size.height<110)out.push((k+1)+': dibujo muy chico '+Math.round(img.size.height))}
+  const hd=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y<70&&i.position.x>440&&i.position.x<760)[0];if(hd&&(alto(hd)>70||hd.position.y<6))out.push((k+1)+': cabecera '+Math.round(alto(hd))+' px');
+  for(const f of I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y>600)){const a=alto(f);if(f.position.y+a>668)out.push((k+1)+': pie baja a '+Math.round(f.position.y+a))}}
+ return out.length?out.slice(0,14).join(' | ')+(out.length>14?' … +'+(out.length-14):''):'cajas bien ('+Math.min(P.length,E.length)+' páginas)'}
 async function cargar(u,l){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;return M.paginas.length}
 async function montar(u,l){const n=await cargar(u,l),a=estructura(),b=await paginas(u,l,window.APM);return n+' páginas · '+a+' · '+b}
 function estado(){const E=esc(),P=(window.APM||{paginas:[]}).paginas,sl=A.getSlides(),vis=sl.filter(s=>!st(s.id).data.Hidden);
  return JSON.stringify({visibles:vis.map(s=>s.name).slice(0,3),nVis:vis.length,escenasVisibles:E.filter(s=>!st(s.id).data.Hidden).length,manifiesto:P.length})}
-return{montar,cargar,estructura,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v12c'
+return{montar,cargar,estructura,revisar,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13'

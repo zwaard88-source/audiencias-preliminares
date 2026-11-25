@@ -631,7 +631,7 @@
    "tipo": "escena",
    "src": "index.html?escena=52",
    "titulo": "Inspección corporal",
-   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 1 de 3",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 1 de 2",
    "seccion": "2.2.2. Inspección corporal",
    "escena": 52,
    "id": "AP-U3-L2-E52",
@@ -640,28 +640,16 @@
    "ilus": "investigacion-lupa"
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=53",
+   "tipo": "mapa",
+   "src": "mapa.html?m=53",
    "titulo": "Inspección corporal",
-   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 2 de 3",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 2 de 2",
    "seccion": "2.2.2. Inspección corporal",
    "escena": 53,
    "id": "AP-U3-L2-E53",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Inspección corporal",
-   "ilus": "p-alto-documento"
-  },
-  {
-   "tipo": "mapa",
-   "src": "mapa.html?m=54",
-   "titulo": "Inspección corporal",
-   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 3 de 3",
-   "seccion": "2.2.2. Inspección corporal",
-   "escena": 54,
-   "id": "AP-U3-L2-E54",
-   "nav": "¿Cuáles son sus requisitos de procedencia?",
-   "indice": "Inspección corporal",
-   "ilus": "m-muestras-adn",
+   "ilus": "p-alto-documento",
    "ancho": true
   },
   {
@@ -674,7 +662,7 @@
    "id": "AP-U3-L2-E55",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Inspección corporal",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-muestras-adn"
   },
   {
    "tipo": "mapa",
@@ -699,7 +687,7 @@
    "id": "AP-U3-L2-E57",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Obtención de muestras",
-   "ilus": "m-muestras-adn"
+   "ilus": ""
   },
   {
    "tipo": "escena",
@@ -711,7 +699,7 @@
    "id": "AP-U3-L2-E58",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Obtención de muestras",
-   "ilus": "p-explica-brazos"
+   "ilus": "m-muestras-adn"
   },
   {
    "tipo": "mapa",
@@ -765,8 +753,8 @@
    "ilus": ""
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=61",
+   "tipo": "matriz",
+   "src": "matriz.html?m=61",
    "titulo": "Matriz comparativa de TOI",
    "subtitulo": "FINALIDAD",
    "seccion": "2.4. Matriz comparativa de TOI",
@@ -774,7 +762,8 @@
    "id": "AP-U3-L2-E61",
    "nav": "Matriz comparativa de TOI",
    "indice": "Matriz comparativa de TOI",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

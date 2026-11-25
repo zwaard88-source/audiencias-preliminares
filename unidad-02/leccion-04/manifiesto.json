@@ -92,8 +92,8 @@
    "ilus": "captura-detenido"
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=8",
+   "tipo": "matriz",
+   "src": "matriz.html?m=8",
    "titulo": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "subtitulo": "Figura",
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
@@ -101,7 +101,8 @@
    "id": "AP-U2-L4-E08",
    "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
-   "ilus": "entrega-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -119,7 +120,7 @@
    "tipo": "mapa",
    "src": "mapa.html?m=10",
    "titulo": "Causales de Procedencia",
-   "subtitulo": "Reclusión en establecimiento carcelario",
+   "subtitulo": "Suficiencia de la medida",
    "seccion": "4.6.1. Causales de Procedencia",
    "escena": 10,
    "id": "AP-U2-L4-E10",

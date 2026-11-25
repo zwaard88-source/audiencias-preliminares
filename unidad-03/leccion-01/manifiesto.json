@@ -68,40 +68,29 @@
    "ancho": true
   },
   {
-   "tipo": "escena",
-   "src": "index.html?escena=5",
+   "tipo": "mapa",
+   "src": "mapa.html?m=5",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Segunda fase",
+   "subtitulo": "Segunda fase: los pasos de la solicitud",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 5,
    "id": "AP-U3-L1-E05",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "p-dialogo-carpeta-2"
-  },
-  {
-   "tipo": "escena",
-   "src": "index.html?escena=6",
-   "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Fundamentar la solicitud",
-   "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "escena": 6,
-   "id": "AP-U3-L1-E06",
-   "nav": "Intervención de la fiscalía",
-   "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "p-explica-brazos"
+   "ilus": "p-dialogo-carpeta-2",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=7",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Concluir con una petición concreta al juez",
+   "subtitulo": "Dos tipos de intervenciones hipotéticas",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 7,
    "id": "AP-U3-L1-E07",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "sustentacion-audiencia"
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "escena",
@@ -113,19 +102,19 @@
    "id": "AP-U3-L1-E08",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "p-dialogo-carpeta-2"
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=9",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "(b) idoneidad",
+   "subtitulo": "(a) Fin legítimo · (b) Idoneidad · (c) Necesidad · (d) Proporcionalidad",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 9,
    "id": "AP-U3-L1-E09",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": ""
+   "ilus": "p-dialogo-carpeta-2"
   },
   {
    "tipo": "escena",

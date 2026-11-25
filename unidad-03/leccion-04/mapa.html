@@ -5,7 +5,7 @@
 <title>Mapa conceptual · Lección 4. Comprensión, práctica y control judicial de nuevas técnicas de investigación</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=0a6c1249">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=2f8d7cdf">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -16,7 +16,7 @@
   <div class="avance" id="avance"></div>
 </main>
 <script type="application/json" id="datos">{"1": {"t": "¿En qué consiste la técnica y para qué se utiliza?", "r": [{"h": "lucha eficiente contra la DOT", "p": [["", "De cara a la lucha eficiente contra la DOT, se ha considerado pertinente la implementación de metodologías investigativas como el análisis en contexto y la priorización de casos, las cuales fueron diseñadas para investigar delitos graves ejecutados de manera articulada y sistemática por este tipo de organizaciones, en donde concurren investigaciones por delitos pasados y delitos que se siguen cometiendo, precisamente, por la proyección de permanencia de la criminalidad organizada."]]}, {"h": "uso y la gestión de información", "p": [["vin", "Su utilización implica el uso y la gestión de información pública y privada de los miembros de las organizaciones, de las víctimas y de otros factores sociales y económicos que implican relaciones necesarias con los derechos fundamentales."]]}, {"h": "técnicas de investigación articuladas", "p": [["", "Desde el punto de vista normativo, las dos son técnicas de investigación articuladas y que se desarrollan a partir de criterios metodológicos en concreto:"], ["vin", "En conjunto, estas dos estrategias tienen como finalidad encontrar “relaciones entre diferentes casos para resolver conjuntos de hechos delictuales concretos”, de manera que se optimicen recursos humanos, físicos y se haga más eficiente la investigación, también con la idea de asociar casos, reconstruir situaciones, investigar aparatos, máquinas o redes de criminalidad que actúan en contextos complejos."], ["vin", "Una muestra de ello es que la estrategia de priorización de casos implica la implementación y el desarrollo de estrategias de investigación criminal en contexto."]]}], "ilus": "investigacion-lupa.webp", "raiz": "¿En qué consiste la técnica y para qué se utiliza?"}, "6": {"t": "¿Qué debe fundamentar el fiscal ante el JCG?", "r": [{"h": "resolución 00562 de 2024 de la FGN", "p": [["", "Al respecto, es de obligatoria consultar la resolución 00562 de 2024 de la FGN \"Por medio de la cual se define la política de priorización con enfoque territorial\"; en cuyos artículos tres y cuatro desarrolla tanto los criterios como los niveles de priorización de situaciones y casos:"]]}, {"h": "Art. 3 de la Resolución 00562/2024", "p": [["", "Art. 3 de la Resolución 00562/2024:"]]}, {"h": "Criterios objetivos", "p": [["vin", "Criterios objetivos:"], ["vin", "Gravedad de las conductas delictivas."], ["vin", "Impacto económico y financiero del delito en la esfera local, regional, nacional y transnacional."], ["vin", "Impacto para una comunidad o territorio específico con el ejercicio de la acción penal, en términos de la importancia que esta tiene en ese territorio."]]}, {"h": "Criterios subjetivos", "p": [["vin", "Criterios subjetivos:"], ["vin", "Calidad del sujeto activo (posición o cargo que ostenta en la comunidad, o por su pertenencia a una organización o grupo armado, o el rol que ejerza dentro de esta)."], ["vin", "Calidad de la víctima (condiciones especiales de protección)."]]}, {"h": "Criterios complementarios", "p": [["vin", "Criterios complementarios:"], ["vin", "Cuando hay un caso en litigio ante instancias internacionales."], ["vin", "Cuando hay un caso o fenómeno complejo que exige actividades investigativas especializadas o innovación en la práctica probatoria."], ["vin", "Cuando hay un caso en particular cuyas características se repiten en otros casos en la misma o en varias ciudades o regiones."], ["vin", "Cuando no hay ningún caso, pero hay información disponible que da cuenta de la comisión de uno o varios delitos cuyas características se repiten, que impactan el territorio y que no son denunciados, tales como:"], ["vin", "Graves infracciones a los derechos humanos o al Derecho Internacional Humanitario."], ["vin", "Delitos asociados a corrupción judicial o administrativa."], ["vin", "Delitos contra el medio ambiente."], ["vin", "Delitos asociados al actuar de organizaciones armadas ilegales u organizaciones criminales de alto o medio impacto."]]}], "ilus": "clasificacion-carpetas.webp", "raiz": "¿Qué debe fundamentar el fiscal ante el JCG?"}}</script>
-<script src="../comun/ap-propio.js?v=0a6c1249"></script>
+<script src="../comun/ap-propio.js?v=2f8d7cdf"></script>
 <script>
 /* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página y todas sus ramas a la vista. Si el texto cabe, se
    lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana pequeña junto a ella.
@@ -25,14 +25,31 @@
    Tercera pasada (Sebastián, 24/11/2026): en la franja ancha de Genially el mapa va con la idea al centro y las ramas a los dos
    lados; el rótulo que ya está en el arranque del párrafo no se repite (va resaltado dentro del texto); el nodo central no repite
    el título de la diapositiva; la última parte de una ventana lleva al concepto siguiente o termina (no hay botón que no lleve a nada). */
+/* Cuarta pasada (revisión como usuario, 25/11/2026): la frase que anuncia la lista va arriba (intro) y no como un concepto más; si
+   los conceptos ya vienen numerados en el texto («1. …»), el círculo lleva ese número y el texto no lo repite; las llamadas de nota
+   al pie («[^3]») van como superíndice y la nota, marcada como nota; ningún renglón empieza con un guion suelto. */
 (function () {
   var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
   var lz = document.getElementById('lienzo'), mc = document.getElementById('mc'), svg = document.getElementById('svg'), G = document.getElementById('globo');
   if (!d) { mc.textContent = ''; return; }
+  var propios = 0;
+  d.r.forEach(function (r) {
+    r.p.forEach(function (x) { x[1] = String(x[1]).replace(/^[-–]\s+/, ''); });
+    var t0 = r.p.length ? r.p[0][1] : '', mn = /^\[\^(\d+)\]\s*/.exec(t0), mp = /^(\d{1,2})\.\s+(?=\S)/.exec(t0) || /^\(([a-z])\)\s+(?=\S)/.exec(t0);
+    if (mn) { r.nota = mn[1]; r.p[0][1] = t0.slice(mn[0].length); }
+    else if (mp) { r.propio = mp[1]; r.corte = mp[0].length; propios++; }
+  });
+  /* la lista ya viene numerada o con letras en el texto («1. …», «(a) …»): el círculo lleva esa marca y el texto no la repite */
+  if (propios >= 2) d.r.forEach(function (r) { if (r.propio) { r.p[0][1] = r.p[0][1].slice(r.corte); r.h = String(r.h).replace(/^\(([a-z])\)\s+|^\d{1,2}\.\s+/, ''); } }); else d.r.forEach(function (r) { r.propio = null; });
+  function numero(r, k) {
+    if (r.nota) return '<span class="num nnota" title="Nota al pie ' + r.nota + '">' + r.nota + '</span>';
+    if (propios >= 2) return r.propio ? '<span class="num">' + r.propio + '</span>' : '<span class="num sin-n" aria-hidden="true"><i class="fas fa-angle-right"></i></span>';
+    return '<span class="num">' + (k + 1) + '</span>';
+  }
   var ANCHO = document.documentElement.classList.contains('ancho'), N = d.r.length;
   lz.setAttribute('aria-label', 'Mapa conceptual: ' + d.t);
   function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
-  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\[\^(\d+)\]/g, '<sup>$1</sup>'); }
   function corta(t, n) { if (t.length <= n) return t; var c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:\s(]+$/, '') + '…'; }
   /* ¿El rótulo está en el arranque del párrafo (hasta 70 caracteres adentro)? Entonces no va aparte: se resalta donde está. */
   function donde(r) { var t = r.p.length ? r.p[0][1] : '', i = t.toLowerCase().indexOf(String(r.h).toLowerCase()); return r.h && r.h.length > 3 && i >= 0 && i <= 70 ? i : -1; }
@@ -45,27 +62,36 @@
     (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : (d.raiz ? '' : '<span class="rico" aria-hidden="true"><i class="fas fa-diagram-project"></i></span>'));
   var ramas = document.createElement('div'); ramas.className = 'ramas';
   mc.appendChild(raiz); mc.appendChild(ramas);
+  var altoIntro = 0;
+  if (d.intro) {
+    var pi = document.createElement('p'); pi.className = 'intro'; pi.innerHTML = esc(d.intro); lz.insertBefore(pi, mc);
+    altoIntro = pi.offsetHeight + 8; mc.style.paddingTop = (altoIntro + 14) + 'px';
+  }
   var leidos = {}, nodos = [];
   function pintar(resumen) {
     ramas.innerHTML = ''; nodos = [];
     mc.classList.toggle('resumen', resumen);
     d.r.forEach(function (r, k) {
-      var e = document.createElement(resumen ? 'button' : 'div'); e.className = 'rama' + (leidos[k] ? ' visto' : '');
-      if (resumen) e.type = 'button';
-      if (centro) { e.style.gridColumn = k < mitad ? 1 : 3; e.style.gridRow = (k < mitad ? k : k - mitad) + 1; }
       var todo = r.p.map(function (x) { return x[1]; }).join(' ');
       var lim = ANCHO ? (N >= 7 ? 120 : 190) : (arriba ? 78 : (N >= 5 ? 105 : 190));
-      var breve = !resumen && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
+      /* cuarta pasada: en el mapa por ventanas, el concepto que ya cabe entero se lee ahí mismo (no lleva «Clic para leer completo») */
+      var entero = resumen && r.p.length === 1 && todo.length <= lim;
+      r.entero = entero; if (entero) leidos[k] = 1;
+      var boton = resumen && !entero;
+      var e = document.createElement(boton ? 'button' : 'div'); e.className = 'rama' + (leidos[k] && boton ? ' visto' : '') + (r.nota ? ' es-nota' : '');
+      if (boton) e.type = 'button';
+      if (centro) { e.style.gridColumn = k < mitad ? 1 : 3; e.style.gridRow = (k < mitad ? k : k - mitad) + 1; }
+      var breve = (!resumen || entero) && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
       var i = donde(r), rep = i >= 0;
-      e.innerHTML = breve ? '<h3 class="solo' + (rep ? ' sin' : '') + '"><span class="num">' + (k + 1) + '</span><span>' + (rep ? marca(todo, r.h, i) : esc(may(todo))) + '</span></h3>' :
-        (rep ? '<h3 class="solo sin"><span class="num">' + (k + 1) + '</span><span>' + marca(resumen ? corta(todo, Math.max(lim + 60, i + r.h.length + 40)) : r.p[0][1], r.h, i) + '</span></h3>'
-             : '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>') +
-        (resumen ? (rep ? '' : '<p>' + esc(corta(todo, lim)) + '</p>') + '<span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(rep ? r.p.slice(1) : r.p));
-      if (resumen) e.addEventListener('click', function () { abrir(e, r, k); });
+      e.innerHTML = breve ? '<h3 class="solo' + (rep ? ' sin' : '') + '">' + numero(r, k) + '<span>' + (rep ? marca(todo, r.h, i) : esc(may(todo))) + '</span></h3>' :
+        (rep ? '<h3 class="solo sin">' + numero(r, k) + '<span>' + marca(boton ? corta(todo, Math.max(lim + 60, i + r.h.length + 40)) : r.p[0][1], r.h, i) + '</span></h3>'
+             : '<h3>' + numero(r, k) + '<span>' + esc(may(r.h)) + '</span></h3>') +
+        (boton ? (rep ? '' : '<p>' + esc(corta(todo, lim)) + '</p>') + '<span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(rep ? r.p.slice(1) : r.p));
+      if (boton) e.addEventListener('click', function () { abrir(e, r, k); });
       ramas.appendChild(e); nodos.push(e);
     });
   }
-  var TOPE = lz.clientHeight - (arriba ? 110 : 58);
+  var TOPE = lz.clientHeight - (arriba ? 110 : 58) - altoIntro;
   function pasa() { return ramas.scrollHeight > TOPE || mc.scrollHeight > mc.clientHeight + 1; }
   pintar(false);
   var total = d.r.reduce(function (a, r) { return a + r.p.reduce(function (b, x) { return b + x[1].length; }, 0); }, 0);
@@ -80,9 +106,10 @@
   /* ventana pequeña junto a la rama; el texto largo se lee por partes */
   var partes = [], parte = 0, actual = null;
   function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function prox(k) { for (var j = k + 1; j < N; j++) if (!d.r[j].entero) return j; return N; }
   function sigue() {   /* al terminar un concepto: pasar al siguiente o terminar; nunca un botón que no lleva a nada */
-    return actual.k < N - 1
-      ? '<button class="btn-chico" id="psig">Clic para leer el concepto ' + (actual.k + 2) + ' <i class="fas fa-arrow-right" aria-hidden="true"></i></button>'
+    return prox(actual.k) < N
+      ? '<button class="btn-chico" id="psig">Clic para leer el concepto ' + (prox(actual.k) + 1) + ' <i class="fas fa-arrow-right" aria-hidden="true"></i></button>'
       : '<button class="btn-chico" id="psig"><i class="fas fa-check" aria-hidden="true"></i> Clic para terminar</button>';
   }
   function mostrar() {
@@ -93,7 +120,7 @@
     var a = document.getElementById('pa'), s = document.getElementById('ps'), sg = document.getElementById('psig');
     if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
     if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
-    if (sg) sg.onclick = function () { var k = actual.k + 1; if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
+    if (sg) sg.onclick = function () { var k = prox(actual.k); if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
     if (ult) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
   }
   function ubicar() {
