@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v10.
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v11.
    Se pega en la consola del editor (o lo inyecta Claude) y deja window.AP: AP.color() pasa la plantilla a «Salvia y terracota»;
    AP.montar(u, l) deja una página por entrada del manifiesto (iframe, título, subtítulo), la portadita y el índice por apartado.
    No publica: solo guarda. Las páginas que sobran se ocultan, no se borran. */
@@ -37,8 +37,8 @@ async function paginas(u,l,M,desde=0,hasta=1e9){const P=M.paginas,n=P.length;A.s
   if(T){c+=pon(T.id,p.titulo);const L=p.titulo.length,fs=L<=30?30:L<=48?26:L<=75?22:19;try{if(A.getTextItemDetails(T.id).fontSize!==fs)A.updateTextFontSize(T.id,fs)}catch(e){}}if(Sb){if(p.subtitulo){c+=pon(Sb.id,p.subtitulo);A.updateItemOpacity(Sb.id,1)}else A.updateItemOpacity(Sb.id,0)}await d(60)}
  return 'páginas '+n+' de '+E.length+' · cambios '+c}
 /* Alto real de un texto: el del párrafo dibujado en el lienzo del editor (la caja conserva el alto de un texto anterior más largo).
-   Las miniaturas de la tira de páginas también son texto: se descartan por su escala. */
-const alto=it=>{try{const tx=pl(A.getTextHtml(it.id));if(tx){const r=[...document.querySelectorAll('p')].filter(e=>(e.textContent||'').replace(/\s+/g,' ').trim()===tx).map(e=>e.getBoundingClientRect()).filter(r=>r.width/it.size.width>0.35&&r.height>4).sort((a,b)=>a.left-b.left)[0];if(r){const h=r.height/(r.width/it.size.width);if(h>8&&h<it.size.height+6)return h}}}catch(e){}return it.size.height};
+   Las miniaturas de la tira de páginas también son texto: se descartan por su tamaño (el lienzo es el dibujo más grande). */
+const alto=it=>{try{const tx=pl(A.getTextHtml(it.id));if(tx){const R=[...document.querySelectorAll('p')].filter(e=>(e.textContent||'').replace(/\s+/g,' ').trim()===tx).map(e=>e.getBoundingClientRect()).filter(r=>r.height>4),mx=Math.max(0,...R.map(r=>r.width)),r=R.filter(r=>r.width>=mx*0.6&&r.width/it.size.width>0.45).sort((a,b)=>a.left-b.left)[0];if(r){const h=r.height/(r.width/it.size.width);if(h>8&&h<it.size.height+6)return h}}}catch(e){}return it.size.height};
 async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
  for(let k=desde;k<Math.min(P.length,E.length,hasta);k++){A.selectSlide(E[k].id);await d(480);const I=its(E[k].id),tx=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<300&&i.position.y>90&&i.position.y<330).sort((a,b)=>a.position.y-b.position.y),T=tx[0],Sb=tx[1];if(!T)continue;
   const img=I.filter(i=>i.type==='image'&&!i.parentGroupId&&i.position.x<300&&i.position.y>140&&i.size.width>150)[0];
@@ -98,4 +98,4 @@ async function portadas(){const MM=[[197,233,226,207,224,214],[170,218,205,168,1
  return 'portadas '+c+(f?' · sin leer '+f:'')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,ilustrar,portadas,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v10'
+return{color,montar,ilustrar,portadas,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v11'
