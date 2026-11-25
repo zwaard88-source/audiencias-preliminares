@@ -7,8 +7,8 @@
   {
    "tipo": "mapa",
    "src": "mapa.html?m=1",
-   "titulo": "Construcción de inferencias razonables de autoría y participación",
-   "subtitulo": "Evidencia física y la información legalmente · Hechos indicadores · Regla de conexión · Hecho indicado",
+   "titulo": "Evidencia física y la información legalmente",
+   "subtitulo": "Hechos indicadores · Regla de conexión · Hecho indicado",
    "seccion": "Lección 3. Construcción de inferencias razonables de autoría y participación",
    "escena": 1,
    "id": "AP-U4-L3-E01"
@@ -16,8 +16,8 @@
   {
    "tipo": "escena",
    "src": "index.html?escena=2",
-   "titulo": "Construcción de inferencias razonables de autoría y participación",
-   "subtitulo": "STP9521-2021 · Inferencias razonables · Esquemas procesales compensatorios",
+   "titulo": "STP9521-2021",
+   "subtitulo": "Inferencias razonables · Esquemas procesales compensatorios",
    "seccion": "Lección 3. Construcción de inferencias razonables de autoría y participación",
    "escena": 2,
    "id": "AP-U4-L3-E02"

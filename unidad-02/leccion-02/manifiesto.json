@@ -7,8 +7,8 @@
   {
    "tipo": "escena",
    "src": "index.html?escena=1",
-   "titulo": "Control de legalidad de captura (orden judicial y flagrancia)",
-   "subtitulo": "Control de legalidad de la captura",
+   "titulo": "Control de legalidad de la captura",
+   "subtitulo": "",
    "seccion": "Lección 2. Control de legalidad de captura (orden judicial y flagrancia)",
    "escena": 1,
    "id": "AP-U2-L2-E01"

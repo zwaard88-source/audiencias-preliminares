@@ -22,7 +22,7 @@ async function color(desde=0,hasta=1e9){let n=0;try{A.setDocumentPalette({primar
    else if(it.type==='text'){let t=A.getTextHtml(it.id),t0=t;for(const k in MP){const a=rgb(k),b=rgb(MP[k]);t=t.split('rgb('+a+')').join('rgb('+b+')').split('rgba('+a+', 1)').join('rgba('+b+', 1)')}
     const cx=x+w/2,cy=y+h/2,enFicha=fichas.some(f=>cx>f.position.x&&cx<f.position.x+f.size.width&&cy>f.position.y&&cy<f.position.y+f.size.height);
     if(barra&&cy<80&&!it.parentGroupId&&!enFicha){if(/color/.test(t))t=t.replace(/rgba\(\d+, \d+, \d+, 1\)/g,'rgba(255, 255, 255, 1)').replace(/rgb\(\d+, \d+, \d+\)/g,'rgb(255, 255, 255)');
-     if(t!==t0){A.updateTextContent(it.id,t);n++;await d(12)}if(!/color/.test(t)){A.updateTextColor(it.id,'#FFFFFF');n++;await d(12)}continue}
+     if(t!==t0){A.updateTextContent(it.id,t);n++;await d(12)}if(!/255, 255, 255/.test(A.getTextHtml(it.id))){A.updateTextColor(it.id,'#FFFFFF');n++;await d(12)}continue}
     if(t!==t0){A.updateTextContent(it.id,t);n++;await d(12)}}}}
  return n}
 const esc=()=>A.getSlides().filter(s=>/Escena \d+( Copy)*$/.test(s.name||''));
@@ -63,5 +63,5 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{i
   r.push('índice '+U+' apartados, alto '+H)}else if(ind)r.push('índice sin tocar: '+U+' apartados');
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
- const a=await paginas(u,l,M,desde,hasta);await d(450);const b=await acomodar(M,desde,hasta);return a+' · '+b}
+ const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
 return{color,montar,indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo'

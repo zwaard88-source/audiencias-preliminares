@@ -7,8 +7,8 @@
   {
    "tipo": "mapa",
    "src": "mapa.html?m=1",
-   "titulo": "Comprensión, práctica y control judicial de técnicas especiales de investigación",
-   "subtitulo": "Injerencias en los derechos fundamentales · Lucha contra la criminalidad organizada · …",
+   "titulo": "Injerencias en los derechos fundamentales",
+   "subtitulo": "Lucha contra la criminalidad organizada · Técnicas Especiales de Investigación (TEI) · …",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 1,
    "id": "AP-U3-L3-E01"
@@ -16,8 +16,8 @@
   {
    "tipo": "escena",
    "src": "index.html?escena=2",
-   "titulo": "Comprensión, práctica y control judicial de técnicas especiales de investigación",
-   "subtitulo": "Grado de reconocimiento jurídico · Instrumentos internacionales de referencia",
+   "titulo": "Grado de reconocimiento jurídico",
+   "subtitulo": "Instrumentos internacionales de referencia",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 2,
    "id": "AP-U3-L3-E02"
@@ -25,8 +25,8 @@
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
-   "titulo": "Comprensión, práctica y control judicial de técnicas especiales de investigación",
-   "subtitulo": "Típicas nominadas · Típicas emergentes · Atípicas o innominadas",
+   "titulo": "Típicas nominadas",
+   "subtitulo": "Típicas emergentes · Atípicas o innominadas",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 3,
    "id": "AP-U3-L3-E03"
@@ -34,8 +34,8 @@
   {
    "tipo": "escena",
    "src": "index.html?escena=4",
-   "titulo": "Comprensión, práctica y control judicial de técnicas especiales de investigación",
-   "subtitulo": "Primera aproximación · A abordar determinadas TEI cuya selección atiende",
+   "titulo": "Primera aproximación",
+   "subtitulo": "A abordar determinadas TEI cuya selección atiende",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 4,
    "id": "AP-U3-L3-E04"
