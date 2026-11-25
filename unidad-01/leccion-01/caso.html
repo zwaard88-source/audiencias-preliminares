@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caso de estudio · Lección 1. Fundamentos constitucionales y legales de las audiencias preliminares</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css">
+</head>
+<body>
+<main class="lienzo" aria-label="Caso de estudio: Beatriz Elena Morales">
+  <div class="caso">
+    <div class="caso-izq">
+      <div class="caso-fig"><img src="../comun/ilustraciones-audiencias/p-dialogo-carpeta.webp" alt="Una mujer entrega una carpeta a una funcionaria"></div>
+      <div class="audio" id="audio">
+        <div class="fila">
+          <button class="play" id="play" aria-label="Clic para escuchar el caso"><i class="fas fa-play" aria-hidden="true"></i></button>
+          <div><div class="tit">Escuche el caso</div><div class="sub" id="estado">Clic en el botón para escucharlo</div></div>
+        </div>
+        <div class="barra" id="barra" role="slider" tabindex="0" aria-label="Avance del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="lleno" id="lleno"></div></div>
+        <div class="tiempos"><span id="t0">0:00</span><span id="t1">0:00</span></div>
+        <audio id="voz" preload="metadata"></audio>
+      </div>
+    </div>
+    <section class="lectura" aria-live="polite">
+      <div class="lectura-cab"><span class="rot" id="rot">Parte 1 de 5</span><div class="puntos" id="puntos"></div></div>
+      <div class="texto"><p id="parrafo"></p></div>
+      <div class="lectura-pie">
+        <button class="btn claro" id="ant"><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button>
+        <span class="aviso" id="aviso">La lectura avanza con el audio</span>
+        <button class="btn" id="sig">Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </section>
+  </div>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+</main>
+<script type="application/json" id="datos">{"parrafos": ["A las 8:30 a.m. del día 15 de marzo de 2026, Beatriz Elena Morales, comerciante de víveres en el municipio de Soacha, acude a las instalaciones de la FGN para denunciar una serie de hechos que comprometen su seguridad, al igual que la continuidad de su actividad económica.", "Previo a esta fecha, desde hace aproximadamente tres semanas, ha recibido mensajes a través de la red social WhatsApp de personas que se identifican como integrantes de una estructura delincuencial conocida como “Bloque de Los Patios”. En dichas conversaciones, los presuntos cabecillas de la banda delincuencial le exigen el pago de cinco millones de pesos MCTE, y le advierten que atentarían contra su vida y su establecimiento comercial en caso de que se niegue a entregar el dinero.", "Durante la entrevista, la comerciante manifiesta que uno de los mensajes que recibió contiene instrucciones específicas para la realización del pago mediante una billetera digital. Al revisar las comunicaciones que conversa, la FGN advierte que en ella se hace mención a un número telefónico —destinatario de la transferencia— que podría contribuir a la identificación de los presuntos responsables. La denunciante sostiene que ese mismo número figura en una publicación comercial en las redes sociales de un establecimiento de comercio ubicado en el sector de San Mateo, dedicado a la venta y reparación de teléfonos celulares. Si bien aclara que desconoce quién utiliza efectivamente la línea así como el administrador del establecimiento de comercio, indica que este último podría utilizarse para coordinar comunicaciones y canalizar los pagos exigidos a comerciantes de la zona.", "Recibida la denuncia, la información se registra en el Sistema Penal Oral Acusatorio (SPOA) y se da apertura a la indagación. La FGN debe actuar con diligencia a fin de establecer las circunstancias del hecho, la identificación de los responsables y adoptar aquellas medidas que resulten procedentes. Al mismo tiempo debe determinar qué información necesita recaudar y a través de qué actos de investigación.", "El equipo de la FGN identifica varias líneas de trabajo: (i) documentar y preservar los mensajes y las notas entregadas por Beatriz; (ii) establecer si existen otros comerciantes afectados; (iii) verificar la información relacionada con el establecimiento ubicado en San Mateo; y (iv) evaluar si resulta necesario acudir a fuentes de información reservada o solicitar medidas que puedan afectar derechos fundamentales. Sin embargo, concluye que no todas las actuaciones de investigación siguen el mismo procedimiento, ni están sometidas a un control judicial o, al menos, idéntico."], "audio": "../medios/ap-u1-l1-caso.mp3", "inicios": [0.0, 20.67, 52.25, 108.31, 137.34]}</script>
+<script src="../comun/ap-propio.js"></script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('datos').textContent), P = D.parrafos, n = 0, visto = {};
+  var voz = document.getElementById('voz'), caja = document.getElementById('audio');
+  voz.src = D.audio;
+  var $ = function (id) { return document.getElementById(id); };
+  var pts = $('puntos');
+  P.forEach(function (_, k) {
+    var b = document.createElement('button');
+    b.textContent = k + 1; b.setAttribute('aria-label', 'Clic para leer la parte ' + (k + 1));
+    b.onclick = function () { ir(k, true); };
+    pts.appendChild(b);
+  });
+  function mmss(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+  function ir(k, saltar) {
+    n = Math.max(0, Math.min(P.length - 1, k)); visto[n] = 1;
+    var p = $('parrafo'); p.textContent = P[n]; p.className = P[n].length > 640 ? 'largo' : (P[n].length < 320 ? 'corto' : '');
+    $('rot').textContent = 'Parte ' + (n + 1) + ' de ' + P.length;
+    [].forEach.call(pts.children, function (b, j) { b.className = (j === n ? 'actual' : '') + (visto[j] ? ' visto' : ''); });
+    $('ant').disabled = n === 0; $('sig').disabled = n === P.length - 1;
+    $('aviso').textContent = n === P.length - 1 ? 'Fin del caso: siga con la diapositiva siguiente' : (voz.paused ? 'Clic en «Siguiente» para seguir leyendo' : 'La lectura avanza con el audio');
+    if (saltar && !voz.paused && D.inicios[n] !== undefined) voz.currentTime = D.inicios[n];
+  }
+  $('ant').onclick = function () { ir(n - 1, true); };
+  $('sig').onclick = function () { ir(n + 1, true); };
+  $('play').onclick = function () { voz.paused ? voz.play() : voz.pause(); };
+  voz.addEventListener('play', function () { caja.classList.add('sonando'); $('play').innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>'; $('play').setAttribute('aria-label', 'Clic para pausar el audio'); $('estado').textContent = 'Clic para pausar'; ir(n, false); });
+  voz.addEventListener('pause', function () { caja.classList.remove('sonando'); $('play').innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>'; $('play').setAttribute('aria-label', 'Clic para escuchar el caso'); $('estado').textContent = voz.ended ? 'Escuchado · clic para repetir' : 'Clic para seguir escuchando'; });
+  voz.addEventListener('ended', function () { caja.classList.add('oido'); });
+  voz.addEventListener('loadedmetadata', function () {
+    $('t1').textContent = mmss(voz.duration);
+    D.inicios.forEach(function (t, k) { if (!k || !voz.duration) return; var m = document.createElement('span'); m.className = 'marca'; m.style.left = (100 * t / voz.duration) + '%'; $('barra').appendChild(m); });
+  });
+  voz.addEventListener('timeupdate', function () {
+    var d = voz.duration || 1; $('lleno').style.width = (100 * voz.currentTime / d) + '%'; $('t0').textContent = mmss(voz.currentTime);
+    $('barra').setAttribute('aria-valuenow', Math.round(100 * voz.currentTime / d));
+    var k = 0; D.inicios.forEach(function (t, j) { if (voz.currentTime + 0.05 >= t) k = j; });
+    if (k !== n && !voz.paused) ir(k, false);
+  });
+  function buscar(x) { var r = $("barra").getBoundingClientRect(); voz.currentTime = Math.max(0, Math.min(1, (x - r.left) / r.width)) * (voz.duration || 0); }
+  $('barra').addEventListener('click', function (e) { buscar(e.clientX); });
+  $('barra').addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') voz.currentTime += 5; if (e.key === 'ArrowLeft') voz.currentTime -= 5; });
+  ir(0, false);
+})();
+</script>
+</body>
+</html>
