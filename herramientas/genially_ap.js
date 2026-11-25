@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v7.
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v8.
    Se pega en la consola del editor (o lo inyecta Claude) y deja window.AP: AP.color() pasa la plantilla a «Salvia y terracota»;
    AP.montar(u, l) deja una página por entrada del manifiesto (iframe, título, subtítulo), la portadita y el índice por apartado.
    No publica: solo guarda. Las páginas que sobran se ocultan, no se borran. */
@@ -54,11 +54,16 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{c
   const tot=U<=16?U:0;let g=0;while(C.length<tot&&C.length&&g++<16){const nv=await pegar(por.id,C[C.length-1].id);if(!nv)break;C.push(nv)}
   /* el bloque va debajo del título, sin pisarse: filete, «En esta lección» y los círculos; las dos líneas grises sueltas salen del lienzo */
   const T=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<120&&i.position.y>150&&i.position.y<215).sort((a,b)=>a.position.y-b.position.y)[0];
-  let bajo=386;if(T){let fs=23;try{fs=A.getTextItemDetails(T.id).fontSize||23}catch(e){}const n=pl(A.getTextHtml(T.id)).length,lin=Math.max(1,Math.ceil(n/Math.floor(T.size.width/(fs*0.62))+0.12));bajo=T.position.y+lin*fs*1.2}
+  let bajo=386;if(T){const tx=pl(A.getTextHtml(T.id));let fs=23;try{fs=A.getTextItemDetails(T.id).fontSize||23}catch(e){}
+   /* alto real del título: el del párrafo dibujado en el editor; si no se halla, renglones estimados palabra a palabra */
+   const cpl=Math.floor(T.size.width/(fs*0.56));let lin=1,c=0;for(const w of tx.split(' ')){if(c&&c+1+w.length>cpl){lin++;c=w.length}else c+=(c?1:0)+w.length}let alto=lin*fs*1.2;
+   try{const el=[...document.querySelectorAll('p')].filter(e=>(e.textContent||'').replace(/\s+/g,' ').trim()===tx).map(e=>e.getBoundingClientRect()).filter(r=>r.width>60).sort((a,b)=>b.width-a.width)[0];if(el){const h=el.height/(el.width/T.size.width);if(h>fs&&h<fs*8)alto=h}}catch(e){}
+   bajo=T.position.y+alto}
   const fil=I.find(i=>i.type==='svg'&&!i.parentGroupId&&i.size.height<9&&i.size.width<130&&i.position.x<130&&i.position.y>150),eti=I.find(i=>i.type==='text'&&!i.parentGroupId&&/^En esta lecci/.test(pl(A.getTextHtml(i.id))));
   const by=Math.round(bajo+14),ey=by+20,cy=ey+(eti?34:6);
   if(fil)A.updateItemPosition(fil.id,{x:80,y:by});if(eti){A.updateItemPosition(eti.id,{x:tot?77:-900,y:ey})}
-  for(const ln of I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i.size.height<9&&i.size.width>300&&i.position.x<130&&i.position.y>300))A.updateItemPosition(ln.id,{x:-900,y:ln.position.y});
+  for(const ln of I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i!==fil&&i.size.height<9&&i.size.width>60&&i.position.x<200&&i.position.x>=0&&i.position.y>200))A.updateItemPosition(ln.id,{x:-900,y:ln.position.y});
+  const bot=I.find(i=>i.type==='group'&&!i.parentGroupId&&hijos(i).some(h=>h.type==='text'&&/^Comenzar/.test(pl(A.getTextHtml(h.id)))));if(bot){const yb=Math.min(600-bot.size.height,(tot?cy+42*Math.ceil(tot/8):ey)+14);A.updateItemPosition(bot.id,{x:bot.position.x,y:yb})}
   for(let i=0;i<C.length;i++){if(i>=tot){A.updateItemPosition(C[i].id,{x:-400,y:386});continue}A.updateItemPosition(C[i].id,{x:77+46*(i%8),y:cy+42*Math.floor(i/8)});
    for(const h of hijos(C[i])){if(h.type==='svg'){try{await A.updateSvgSource(h.id,CIRC)}catch(e){}}else if(h.type==='text')pon(h.id,String(i+1))}ir(C[i].id,E[secs[i].k].id);await d(40)}r.push('círculos '+tot)}
  if(ind&&U<=14){const hijos=g=>its(ind.id).filter(i=>i.parentGroupId===g.id),txt=g=>hijos(g).filter(h=>h.type==='text').map(h=>pl(A.getTextHtml(h.id)));
@@ -90,4 +95,4 @@ async function portadas(){const MM=[[197,233,226,207,224,214],[170,218,205,168,1
  return 'portadas '+c+(f?' · sin leer '+f:'')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,ilustrar,portadas,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v7'
+return{color,montar,ilustrar,portadas,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v8'
