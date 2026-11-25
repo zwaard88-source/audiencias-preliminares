@@ -5,19 +5,19 @@
 <title>Representación gráfica · Lección 5. Particularidades de la ley 1826 de 2017</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=0a6c1249">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=c9bd5421">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
   <div class="fig">
     <div class="marco" id="marco" tabindex="0" role="img"><img id="img" alt=""></div>
-    <div class="pie-fig"><span id="fuente"></span>
+    <div class="pie-fig"><span><span id="fuente"></span><span id="aviso" hidden> · <i class="fas fa-up-down-left-right" aria-hidden="true"></i> Arrastre la figura para recorrerla</span></span>
       <span class="ctrl"><button class="btn-chico" id="menos"><i class="fas fa-magnifying-glass-minus" aria-hidden="true"></i> Clic para alejar</button><button class="btn-chico" id="mas"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> Clic para acercar</button><a class="btn-chico" id="baja" download style="text-decoration:none"><i class="fas fa-file-pdf" aria-hidden="true"></i> Clic para descargar en PDF</a></span></div>
   </div>
   <div class="pie"><button class="btn-chico" data-pantalla></button></div>
 </main>
 <script type="application/json" id="datos">{"1": {"src": "../medios/fig-u2-l5-03.png", "alt": "Mapa conceptual. Libertad por vencimiento de términos y solicitudes de libertad", "fuente": "Fuente: Elaboración propia", "pdf": "../medios/fig-u2-l5-03.pdf"}, "2": {"src": "../medios/fig-u2-l5-04.png", "alt": "Diagrama de flujo. Audiencia preliminar de libertad por vencimiento de términos", "fuente": "Fuente: Elaboración propia", "pdf": "../medios/fig-u2-l5-04.pdf"}}</script>
-<script src="../comun/ap-propio.js?v=0a6c1249"></script>
+<script src="../comun/ap-propio.js?v=c9bd5421"></script>
 <script>
 /* Representación gráfica del autor, tal como viene en el documento: entera al abrir; se acerca con clic o con los botones y se
    arrastra para recorrerla. No se redibuja ni se resume. */
@@ -35,7 +35,17 @@
     im.style.width = im.naturalWidth * base * k + 'px'; im.style.transform = 'translate(' + x + 'px,' + y + 'px)';
     m.classList.toggle('zoom', k > 1);
   }
-  function ajusta() { base = Math.min(m.clientWidth / im.naturalWidth, m.clientHeight / im.naturalHeight); pinta(); }
+  /* Una figura vertical (un cuadro con mucho texto) entera queda diminuta: abre ya acercada, a lo ancho, desde arriba, y se
+     recorre arrastrando; «Clic para alejar» la muestra entera. Tercera pasada, 25/11/2026. */
+  var primera = true;
+  function ajusta() {
+    base = Math.min(m.clientWidth / im.naturalWidth, m.clientHeight / im.naturalHeight);
+    if (primera && im.naturalHeight / im.naturalWidth > 0.85) {
+      k = Math.max(1, Math.min(4, (m.clientWidth * 0.74) / (im.naturalWidth * base))); y = 0; x = 0;
+      var av = document.getElementById('aviso'); if (av && k > 1.2) av.hidden = false;
+    }
+    primera = false; pinta();
+  }
   function acercar(f, cx, cy) { var W = m.clientWidth, H = m.clientHeight; cx = cx === undefined ? W / 2 : cx; cy = cy === undefined ? H / 2 : cy; var k2 = Math.max(1, Math.min(5, k * f)); x = cx - (cx - x) * k2 / k; y = cy - (cy - y) * k2 / k; k = k2; pinta(); }
   im.onload = ajusta; window.addEventListener('resize', function () { setTimeout(ajusta, 80); });
   document.getElementById('mas').onclick = function () { acercar(1.6); };
