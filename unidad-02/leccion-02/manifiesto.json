@@ -31,7 +31,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "Requisitos",
    "subtitulo": "Presupuestos materiales",
    "seccion": "2.2. Requisitos",
@@ -39,7 +39,8 @@
    "id": "AP-U2-L2-E03",
    "nav": "Requisitos",
    "indice": "Requisitos",
-   "ilus": "p-alto-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -55,7 +56,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Captura en flagrancia",
    "subtitulo": "Individualización y/o identificación del capturado",
    "seccion": "2.3. Trámite de la audiencia",
@@ -63,7 +64,8 @@
    "id": "AP-U2-L2-E05",
    "nav": "Captura en flagrancia",
    "indice": "Trámite de la audiencia",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -91,7 +93,7 @@
   },
   {
    "tipo": "actividad",
-   "src": "index.html?escena=8",
+   "src": "index.html?escena=8&ancho=1",
    "titulo": "Aplicación al expediente del curso",
    "subtitulo": "",
    "seccion": "Aplicación al expediente del curso",
@@ -99,7 +101,8 @@
    "id": "AP-U2-L2-E08",
    "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

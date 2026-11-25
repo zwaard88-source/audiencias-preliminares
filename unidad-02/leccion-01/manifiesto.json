@@ -5,19 +5,6 @@
  "heading": "Lección 1. Solicitud de orden de captura",
  "paginas": [
   {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u2-presentacion",
-   "titulo": "Presentación de la unidad 2",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u2-presentacion",
-   "nav": "Presentación de la unidad 2",
-   "indice": "Presentación de la unidad 2",
-   "ilus": "",
-   "ancho": true
-  },
-  {
    "tipo": "escena",
    "src": "index.html?escena=1",
    "titulo": "Solicitud de orden de captura",
@@ -31,7 +18,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Fundamento",
    "subtitulo": "",
    "seccion": "1.1. Fundamento",
@@ -39,11 +26,12 @@
    "id": "AP-U2-L1-E02",
    "nav": "Fundamento",
    "indice": "Fundamento",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "Requisitos",
    "subtitulo": "Orden escrita",
    "seccion": "1.2. Requisitos",
@@ -51,7 +39,8 @@
    "id": "AP-U2-L1-E03",
    "nav": "Requisitos",
    "indice": "Requisitos",
-   "ilus": "revisan-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",

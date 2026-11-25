@@ -204,3 +204,5 @@ mark.ref-texto{background:#F6DDCB;box-shadow:inset 0 -2px 0 #C8754F}
 /* Al completar la exploración la cabecera decía dos veces «Exploración» («Exploración» + «Exploración completa»); la instrucción
    pasaba a dos renglones, el panel perdía alto y su texto ya no cabía. Con la etiqueta de más oculta, la cabecera no cambia de alto. */
 .avance.completo .avance-rotulo{display:none}
+/* Franja ancha de las escenas del motor (25/11/2026): en pantalla completa conserva su marco de 1150 × 462. */
+html.en-pantalla-completa.ap-ancho .ova{width:1150px;height:462px}

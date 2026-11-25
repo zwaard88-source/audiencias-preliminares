@@ -69,7 +69,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=6",
+   "src": "index.html?escena=6&ancho=1",
    "titulo": "Categorías habituales de objeciones",
    "subtitulo": "Principales objeciones",
    "seccion": "2.4.1. Categorías habituales de objeciones",
@@ -77,11 +77,12 @@
    "id": "AP-U4-L2-E06",
    "nav": "Categorías habituales de objeciones",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Categorías habituales de objeciones",
    "subtitulo": "Identificar las equivocaciones más habituales",
    "seccion": "2.4.1. Categorías habituales de objeciones",
@@ -89,7 +90,8 @@
    "id": "AP-U4-L2-E07",
    "nav": "Categorías habituales de objeciones",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -131,7 +133,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=11",
+   "src": "index.html?escena=11&ancho=1",
    "titulo": "Reglas de Oro en Sala",
    "subtitulo": "Dirigirse siempre al Juez",
    "seccion": "2.4.5. Reglas de Oro en Sala",
@@ -139,7 +141,8 @@
    "id": "AP-U4-L2-E11",
    "nav": "Reglas de Oro en Sala",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa",
-   "ilus": "p-trio-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "figura",
@@ -169,7 +172,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=13",
+   "src": "index.html?escena=13&ancho=1",
    "titulo": "Fundamento de la reserva judicial",
    "subtitulo": "Validez general del principio de reserva",
    "seccion": "2.5. Fundamento de la reserva judicial",
@@ -177,7 +180,8 @@
    "id": "AP-U4-L2-E13",
    "nav": "Fundamento de la reserva judicial",
    "indice": "Fundamento de la reserva judicial",
-   "ilus": "fundamento-documento"
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

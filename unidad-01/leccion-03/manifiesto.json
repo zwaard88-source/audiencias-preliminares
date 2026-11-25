@@ -19,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Función del JCG en el proceso penal con tendencia acusatoria",
    "subtitulo": "Diversidad de escenarios",
    "seccion": "3.1. Función del JCG en el proceso penal con tendencia acusatoria",
@@ -27,7 +27,8 @@
    "id": "AP-U1-L3-E02",
    "nav": "Función del JCG en el proceso penal con tendencia acusatoria",
    "indice": "Función del JCG en el proceso penal con tendencia acusatoria",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -56,7 +57,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Enfoque diferencial",
    "subtitulo": "Características y necesidades particulares",
    "seccion": "1. Enfoque diferencial",
@@ -64,11 +65,12 @@
    "id": "AP-U1-L3-E05",
    "nav": "Enfoque diferencial",
    "indice": "Aplicación del enfoque de género en las audiencias preliminares",
-   "ilus": "p-lee-libro-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=6",
+   "src": "index.html?escena=6&ancho=1",
    "titulo": "Enfoque diferencial",
    "subtitulo": "Discapacidad",
    "seccion": "1. Enfoque diferencial",
@@ -76,11 +78,12 @@
    "id": "AP-U1-L3-E06",
    "nav": "Enfoque diferencial",
    "indice": "Aplicación del enfoque de género en las audiencias preliminares",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Enfoque interseccional",
    "subtitulo": "Confluencia de dos o más categorías de discriminación",
    "seccion": "2. Enfoque interseccional",
@@ -88,7 +91,8 @@
    "id": "AP-U1-L3-E07",
    "nav": "Enfoque interseccional",
    "indice": "Aplicación del enfoque de género en las audiencias preliminares",
-   "ilus": "dialogo-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -101,19 +105,6 @@
    "nav": "Enfoque territorial",
    "indice": "Aplicación del enfoque de género en las audiencias preliminares",
    "ilus": "p-lee-libro-2",
-   "ancho": true
-  },
-  {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u1-cierre",
-   "titulo": "Cierre de la unidad 1",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u1-cierre",
-   "nav": "Cierre de la unidad 1",
-   "indice": "Cierre de la unidad 1",
-   "ilus": "",
    "ancho": true
   }
  ]

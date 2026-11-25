@@ -5,19 +5,6 @@
  "heading": "Lección 1. Fundamentos constitucionales y legales de las audiencias preliminares",
  "paginas": [
   {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u1-presentacion",
-   "titulo": "Presentación de la unidad 1",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u1-presentacion",
-   "nav": "Presentación de la unidad 1",
-   "indice": "Presentación de la unidad 1",
-   "ilus": "",
-   "ancho": true
-  },
-  {
    "tipo": "escena",
    "src": "index.html?escena=1",
    "titulo": "Audiencias preliminares",
@@ -73,12 +60,13 @@
   },
   {
    "tipo": "actividad",
-   "src": "index.html?escena=6",
+   "src": "index.html?escena=6&ancho=1",
    "titulo": "Aplicación al caso práctico",
    "subtitulo": "",
    "id": "AP-U1-L1-E07",
    "indice": "Aplicación al caso práctico",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

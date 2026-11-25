@@ -19,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Grado de reconocimiento jurídico",
    "subtitulo": "Instrumentos internacionales de referencia",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
@@ -27,11 +27,12 @@
    "id": "AP-U3-L3-E02",
    "nav": "Grado de reconocimiento jurídico",
    "indice": "Grado de reconocimiento jurídico",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "Clasificación de TEI",
    "subtitulo": "Típicas nominadas · Típicas emergentes · Atípicas o innominadas",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
@@ -39,11 +40,12 @@
    "id": "AP-U3-L3-E03",
    "nav": "Clasificación de TEI",
    "indice": "Clasificación de TEI",
-   "ilus": "clasificacion-carpetas"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=4",
+   "src": "index.html?escena=4&ancho=1",
    "titulo": "Clasificación de TEI",
    "subtitulo": "Primera aproximación",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
@@ -51,7 +53,8 @@
    "id": "AP-U3-L3-E04",
    "nav": "Clasificación de TEI",
    "indice": "Clasificación de TEI",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -80,7 +83,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Intervención de las comunicaciones telefónicas y telemáticas",
    "subtitulo": "Ley 1142 de 2007",
    "seccion": "3.1.1. Intervención de las comunicaciones telefónicas y telemáticas",
@@ -88,7 +91,8 @@
    "id": "AP-U3-L3-E07",
    "nav": "Intervención de las comunicaciones telefónicas y telemáticas",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "fundamento-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -130,7 +134,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=11",
+   "src": "index.html?escena=11&ancho=1",
    "titulo": "Registro de dispositivos de almacenamiento masivo de información",
    "subtitulo": "Acceder, examinar e incautar los datos",
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
@@ -138,11 +142,12 @@
    "id": "AP-U3-L3-E11",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "m-dispositivos"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=12",
+   "src": "index.html?escena=12&ancho=1",
    "titulo": "Registro de dispositivos de almacenamiento masivo de información",
    "subtitulo": "Soporte digital",
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
@@ -150,7 +155,8 @@
    "id": "AP-U3-L3-E12",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -191,7 +197,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=16",
+   "src": "index.html?escena=16&ancho=1",
    "titulo": "Marco normativo internacional, transnacional y nacional",
    "subtitulo": "Medida excepcional",
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
@@ -199,11 +205,12 @@
    "id": "AP-U3-L3-E16",
    "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "fundamento-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=17",
+   "src": "index.html?escena=17&ancho=1",
    "titulo": "Marco normativo internacional, transnacional y nacional",
    "subtitulo": "Ley 906 de 2004 (CPP) · Ley 1273 de 2009",
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
@@ -211,7 +218,8 @@
    "id": "AP-U3-L3-E17",
    "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -228,7 +236,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=19",
+   "src": "index.html?escena=19&ancho=1",
    "titulo": "Análisis jurisprudencial",
    "subtitulo": "Jurisprudencia colombiana",
    "seccion": "3.1.4.3. Análisis jurisprudencial",
@@ -236,11 +244,12 @@
    "id": "AP-U3-L3-E19",
    "nav": "Análisis jurisprudencial",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "lee-libro-explica"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=20",
+   "src": "index.html?escena=20&ancho=1",
    "titulo": "Análisis jurisprudencial",
    "subtitulo": "Peculado por apropiación",
    "seccion": "3.1.4.3. Análisis jurisprudencial",
@@ -248,7 +257,8 @@
    "id": "AP-U3-L3-E20",
    "nav": "Análisis jurisprudencial",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "p-lee-libro"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -265,7 +275,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=22",
+   "src": "index.html?escena=22&ancho=1",
    "titulo": "Registro remoto sobre equipos informáticos",
    "subtitulo": "Ejemplo para el caso del curso (Art. 248 CPP)",
    "seccion": "3.1.5. Registro remoto sobre equipos informáticos",
@@ -273,7 +283,8 @@
    "id": "AP-U3-L3-E22",
    "nav": "Ejemplo para el caso del curso (Art. 248 CPP)",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "trio-dialogo"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -290,7 +301,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=24",
+   "src": "index.html?escena=24&ancho=1",
    "titulo": "Agentes encubiertos",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "3.2. Agentes encubiertos",
@@ -298,11 +309,12 @@
    "id": "AP-U3-L3-E24",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Agentes encubiertos",
-   "ilus": "revisan-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=25",
+   "src": "index.html?escena=25&ancho=1",
    "titulo": "Agentes encubiertos",
    "subtitulo": "Precisiones",
    "seccion": "3.2. Agentes encubiertos",
@@ -310,7 +322,8 @@
    "id": "AP-U3-L3-E25",
    "nav": "Precisiones",
    "indice": "Agentes encubiertos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -326,7 +339,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=27",
+   "src": "index.html?escena=27&ancho=1",
    "titulo": "Agentes encubiertos",
    "subtitulo": "Otras reglas",
    "seccion": "3.2. Agentes encubiertos",
@@ -334,11 +347,12 @@
    "id": "AP-U3-L3-E27",
    "nav": "Agentes encubiertos",
    "indice": "Agentes encubiertos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=28",
+   "src": "index.html?escena=28&ancho=1",
    "titulo": "Agentes encubiertos",
    "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "3.2. Agentes encubiertos",
@@ -346,7 +360,8 @@
    "id": "AP-U3-L3-E28",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Agentes encubiertos",
-   "ilus": "p-alto-documento-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -411,7 +426,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=34",
+   "src": "index.html?escena=34&ancho=1",
    "titulo": "Entrega vigilada",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "3.3. Entrega vigilada",
@@ -419,11 +434,12 @@
    "id": "AP-U3-L3-E34",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Entrega vigilada",
-   "ilus": "entrega-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=35",
+   "src": "index.html?escena=35&ancho=1",
    "titulo": "Entrega vigilada",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 1 de 2",
    "seccion": "3.3. Entrega vigilada",
@@ -431,7 +447,8 @@
    "id": "AP-U3-L3-E35",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Entrega vigilada",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -447,7 +464,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=37",
+   "src": "index.html?escena=37&ancho=1",
    "titulo": "Entrega vigilada",
    "subtitulo": "Jurisprudencia",
    "seccion": "3.3. Entrega vigilada",
@@ -455,7 +472,8 @@
    "id": "AP-U3-L3-E37",
    "nav": "Jurisprudencia",
    "indice": "Entrega vigilada",
-   "ilus": "entrega-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -472,7 +490,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=39",
+   "src": "index.html?escena=39&ancho=1",
    "titulo": "Entrega vigilada",
    "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "3.3. Entrega vigilada",
@@ -480,11 +498,12 @@
    "id": "AP-U3-L3-E39",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Entrega vigilada",
-   "ilus": "m-entrega-vigilada"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=40",
+   "src": "index.html?escena=40&ancho=1",
    "titulo": "Entrega vigilada",
    "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Ejemplo para el caso del curso (Art. 243 CPP; CNUDOT)",
    "seccion": "3.3. Entrega vigilada",
@@ -492,7 +511,8 @@
    "id": "AP-U3-L3-E40",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Entrega vigilada",
-   "ilus": "p-dialogo-carpeta-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -545,7 +565,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=45",
+   "src": "index.html?escena=45&ancho=1",
    "titulo": "Agente encubierto informático (TEI típica emergente)",
    "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
@@ -553,7 +573,8 @@
    "id": "AP-U3-L3-E45",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "m-encubierto"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -581,7 +602,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=48",
+   "src": "index.html?escena=48&ancho=1",
    "titulo": "Agente encubierto informático (TEI típica emergente)",
    "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Ejemplo para el caso del curso (Art. 242B CPP)",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
@@ -589,7 +610,8 @@
    "id": "AP-U3-L3-E48",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "m-dispositivos"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "figura",

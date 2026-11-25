@@ -43,7 +43,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=4",
+   "src": "index.html?escena=4&ancho=1",
    "titulo": "Del control de un concepto jurídico indeterminado",
    "subtitulo": "Concreción de probabilidad circunscrita",
    "seccion": "4.1.2. Del control de un concepto jurídico indeterminado",
@@ -51,11 +51,12 @@
    "id": "AP-U4-L4-E04",
    "nav": "Del control de un concepto jurídico indeterminado",
    "indice": "Limitaciones del control judicial de los motivos fundados",
-   "ilus": "p-trio-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Del control de un concepto jurídico indeterminado",
    "subtitulo": "Margen de discrecionalidad",
    "seccion": "4.1.2. Del control de un concepto jurídico indeterminado",
@@ -63,7 +64,8 @@
    "id": "AP-U4-L4-E05",
    "nav": "Del control de un concepto jurídico indeterminado",
    "indice": "Limitaciones del control judicial de los motivos fundados",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -153,7 +155,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=13",
+   "src": "index.html?escena=13&ancho=1",
    "titulo": "Técnicas de argumentación jurídica y construcción de teoría del caso para la sustentación de solicitudes y la controversia en audiencias preliminares",
    "subtitulo": "Respuesta a las posibles objeciones",
    "seccion": "4.2. Técnicas de argumentación jurídica y construcción de teoría del caso para la sustentación de solicitudes y la controversia en audiencias preliminares",
@@ -161,7 +163,8 @@
    "id": "AP-U4-L4-E13",
    "nav": "Técnicas de argumentación jurídica y construcción de teoría del caso para la sustentación de solicitudes y la controversia en audiencias preliminares",
    "indice": "Técnicas de argumentación jurídica y construcción de teoría del caso para la sustentación de solicitudes y la controversia en audiencias preliminares",
-   "ilus": "entrega-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -178,7 +181,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=15",
+   "src": "index.html?escena=15&ancho=1",
    "titulo": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
    "subtitulo": "Solución de las cuestiones derivadas de la actuación delictiva",
    "seccion": "4.3. Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
@@ -186,7 +189,8 @@
    "id": "AP-U4-L4-E15",
    "nav": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": "m-restaurativa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -202,7 +206,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=17",
+   "src": "index.html?escena=17&ancho=1",
    "titulo": "Mecanismos de justicia restaurativa en el proceso penal",
    "subtitulo": "Artículo 521 del CPP",
    "seccion": "4.3.2. Mecanismos de justicia restaurativa en el proceso penal",
@@ -210,7 +214,8 @@
    "id": "AP-U4-L4-E17",
    "nav": "Mecanismos de justicia restaurativa en el proceso penal",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -227,7 +232,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=19",
+   "src": "index.html?escena=19&ancho=1",
    "titulo": "Conciliación en el incidente de reparación integral (Art. 521 CPP)",
    "subtitulo": "Reparación de los daños",
    "seccion": "4.3.2.2. Conciliación en el incidente de reparación integral (Art. 521 CPP)",
@@ -235,7 +240,8 @@
    "id": "AP-U4-L4-E19",
    "nav": "Conciliación en el incidente de reparación integral (Art. 521 CPP)",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -261,19 +267,6 @@
    "nav": "Alcance de la justicia restaurativa en las audiencias preliminares",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
    "ilus": "m-restaurativa"
-  },
-  {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u4-cierre",
-   "titulo": "Cierre de la unidad 4",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u4-cierre",
-   "nav": "Cierre de la unidad 4",
-   "indice": "Cierre de la unidad 4",
-   "ilus": "",
-   "ancho": true
   }
  ]
 }

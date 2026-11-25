@@ -43,7 +43,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=4",
+   "src": "index.html?escena=4&ancho=1",
    "titulo": "Principio de proporcionalidad",
    "subtitulo": "(d) Proporcionalidad (en estricto sentido)",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
@@ -51,11 +51,12 @@
    "id": "AP-U1-L2-E04",
    "nav": "Principio de proporcionalidad",
    "indice": "Principio de proporcionalidad",
-   "ilus": "p-explica-brazos"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "actividad",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Aplicación al expediente del curso",
    "subtitulo": "",
    "seccion": "Aplicación al expediente del curso",
@@ -63,7 +64,8 @@
    "id": "AP-U1-L2-E05",
    "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

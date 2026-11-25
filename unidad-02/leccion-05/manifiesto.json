@@ -6,7 +6,7 @@
  "paginas": [
   {
    "tipo": "escena",
-   "src": "index.html?escena=1",
+   "src": "index.html?escena=1&ancho=1",
    "titulo": "Ley 1826 de 2017",
    "subtitulo": "",
    "seccion": "Lección 5. Particularidades de la ley 1826 de 2017",
@@ -14,7 +14,8 @@
    "id": "AP-U2-L5-E01",
    "nav": "Ley 1826 de 2017",
    "indice": "Ley 1826 de 2017",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -44,7 +45,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Beneficios punitivos por aceptación de cargos",
    "subtitulo": "Reducción de pena de hasta el 50%",
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
@@ -52,11 +53,12 @@
    "id": "AP-U2-L5-E05",
    "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=6",
+   "src": "index.html?escena=6&ancho=1",
    "titulo": "Beneficios punitivos por aceptación de cargos",
    "subtitulo": "Delitos cometidos contra niños, niñas y adolescentes",
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
@@ -64,7 +66,8 @@
    "id": "AP-U2-L5-E06",
    "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "figura",
@@ -91,19 +94,6 @@
    "nav": "Diagrama de flujo",
    "indice": "Diagrama de flujo",
    "ilus": ""
-  },
-  {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u2-cierre",
-   "titulo": "Cierre de la unidad 2",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u2-cierre",
-   "nav": "Cierre de la unidad 2",
-   "indice": "Cierre de la unidad 2",
-   "ilus": "",
-   "ancho": true
   }
  ]
 }

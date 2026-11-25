@@ -31,7 +31,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
@@ -39,11 +39,12 @@
    "id": "AP-U3-L4-E03",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "¿Cuáles son sus requisitos de procedencia?",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=4",
+   "src": "index.html?escena=4&ancho=1",
    "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
    "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
@@ -51,11 +52,12 @@
    "id": "AP-U3-L4-E04",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "¿Cómo se desarrolla la actuación?",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
    "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
@@ -63,7 +65,8 @@
    "id": "AP-U3-L4-E05",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "¿Qué tipo de control judicial requiere?",
-   "ilus": "p-alto-documento-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -80,7 +83,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
    "subtitulo": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
    "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
@@ -88,7 +91,8 @@
    "id": "AP-U3-L4-E07",
    "nav": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
    "indice": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "figura",
@@ -102,19 +106,6 @@
    "nav": "Técnicas especiales de investigación (TEI)",
    "indice": "Técnicas especiales de investigación (TEI)",
    "ilus": ""
-  },
-  {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u3-cierre",
-   "titulo": "Cierre de la unidad 3",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u3-cierre",
-   "nav": "Cierre de la unidad 3",
-   "indice": "Cierre de la unidad 3",
-   "ilus": "",
-   "ancho": true
   }
  ]
 }

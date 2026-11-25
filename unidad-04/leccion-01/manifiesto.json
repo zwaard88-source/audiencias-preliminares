@@ -5,19 +5,6 @@
  "heading": "Lección 1. Los motivos fundados y audiencias preliminares",
  "paginas": [
   {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-u4-presentacion",
-   "titulo": "Presentación de la unidad 4",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-u4-presentacion",
-   "nav": "Presentación de la unidad 4",
-   "indice": "Presentación de la unidad 4",
-   "ilus": "",
-   "ancho": true
-  },
-  {
    "tipo": "mapa",
    "src": "mapa.html?m=1",
    "titulo": "Diligencias de afectación a derechos fundamentales",
@@ -32,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "La relevancia de los motivos fundados",
    "subtitulo": "Afectación a derechos fundamentales en la fase de investigación",
    "seccion": "1.1. La relevancia de los motivos fundados",
@@ -40,11 +27,12 @@
    "id": "AP-U4-L1-E02",
    "nav": "La relevancia de los motivos fundados",
    "indice": "La relevancia de los motivos fundados",
-   "ilus": "m-inferencia"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "La relevancia de los motivos fundados",
    "subtitulo": "Referencias al umbral probatorio",
    "seccion": "1.1. La relevancia de los motivos fundados",
@@ -52,7 +40,8 @@
    "id": "AP-U4-L1-E03",
    "nav": "La relevancia de los motivos fundados",
    "indice": "La relevancia de los motivos fundados",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -81,7 +70,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Una aproximación al concepto “motivos fundados”",
    "subtitulo": "Sentencia C-024 de 1994",
    "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
@@ -89,7 +78,8 @@
    "id": "AP-U4-L1-E07",
    "nav": "Una aproximación al concepto “motivos fundados”",
    "indice": "Una aproximación al concepto “motivos fundados”",
-   "ilus": "lee-libro-explica"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",

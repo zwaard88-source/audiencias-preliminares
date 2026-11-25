@@ -19,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -27,11 +27,12 @@
    "id": "AP-U3-L2-E02",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Registro y allanamiento",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=3",
+   "src": "index.html?escena=3&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 1 de 6",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -39,7 +40,8 @@
    "id": "AP-U3-L2-E03",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Registro y allanamiento",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -55,7 +57,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=5",
+   "src": "index.html?escena=5&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 3 de 6",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -63,11 +65,12 @@
    "id": "AP-U3-L2-E05",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Registro y allanamiento",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=6",
+   "src": "index.html?escena=6&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 4 de 6",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -75,7 +78,8 @@
    "id": "AP-U3-L2-E06",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Registro y allanamiento",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -92,7 +96,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=8",
+   "src": "index.html?escena=8&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 6 de 6",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -100,7 +104,8 @@
    "id": "AP-U3-L2-E08",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Registro y allanamiento",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -141,7 +146,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=12",
+   "src": "index.html?escena=12&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · 2 de 2",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -149,11 +154,12 @@
    "id": "AP-U3-L2-E12",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Registro y allanamiento",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=13",
+   "src": "index.html?escena=13&ancho=1",
    "titulo": "Registro y allanamiento",
    "subtitulo": "Ejemplo para el caso del curso (Art. 219-232 CPP)",
    "seccion": "2.1.1. Registro y allanamiento",
@@ -161,11 +167,12 @@
    "id": "AP-U3-L2-E13",
    "nav": "Ejemplo para el caso del curso (Art. 219-232 CPP)",
    "indice": "Registro y allanamiento",
-   "ilus": "m-allanamiento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=14",
+   "src": "index.html?escena=14&ancho=1",
    "titulo": "Búsqueda selectiva en bases de datos",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
@@ -173,11 +180,12 @@
    "id": "AP-U3-L2-E14",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": "m-bases-datos"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=15",
+   "src": "index.html?escena=15&ancho=1",
    "titulo": "Búsqueda selectiva en bases de datos",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 1 de 2",
    "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
@@ -185,7 +193,8 @@
    "id": "AP-U3-L2-E15",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -226,7 +235,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=19",
+   "src": "index.html?escena=19&ancho=1",
    "titulo": "Búsqueda selectiva en bases de datos",
    "subtitulo": "¿Cómo se desarrolla la actuación? · 3 de 3",
    "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
@@ -234,7 +243,8 @@
    "id": "AP-U3-L2-E19",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -250,7 +260,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=21",
+   "src": "index.html?escena=21&ancho=1",
    "titulo": "Búsqueda selectiva en bases de datos",
    "subtitulo": "¿Qué tipo de control judicial requiere? · 2 de 3",
    "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
@@ -258,7 +268,8 @@
    "id": "AP-U3-L2-E21",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -287,7 +298,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=24",
+   "src": "index.html?escena=24&ancho=1",
    "titulo": "Interceptación de comunicaciones",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "2.1.3. Interceptación de comunicaciones",
@@ -295,11 +306,12 @@
    "id": "AP-U3-L2-E24",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Interceptación de comunicaciones",
-   "ilus": "m-interceptacion"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=25",
+   "src": "index.html?escena=25&ancho=1",
    "titulo": "Interceptación de comunicaciones",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia? · ¿Cómo se desarrolla la actuación?",
    "seccion": "2.1.3. Interceptación de comunicaciones",
@@ -307,7 +319,8 @@
    "id": "AP-U3-L2-E25",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Interceptación de comunicaciones",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -372,7 +385,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=31",
+   "src": "index.html?escena=31&ancho=1",
    "titulo": "Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · ¿Cuáles son sus requisitos de procedencia?",
    "seccion": "2.1.4. Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
@@ -380,7 +393,8 @@
    "id": "AP-U3-L2-E31",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
-   "ilus": "m-dispositivos"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -409,7 +423,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=34",
+   "src": "index.html?escena=34&ancho=1",
    "titulo": "Retención de correspondencia",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "2.1.5. Retención de correspondencia",
@@ -417,7 +431,8 @@
    "id": "AP-U3-L2-E34",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Retención de correspondencia",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -434,7 +449,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=36",
+   "src": "index.html?escena=36&ancho=1",
    "titulo": "Retención de correspondencia",
    "subtitulo": "¿Cómo se desarrolla la actuación? · ¿Qué tipo de control judicial requiere?",
    "seccion": "2.1.5. Retención de correspondencia",
@@ -442,7 +457,8 @@
    "id": "AP-U3-L2-E36",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Retención de correspondencia",
-   "ilus": "p-alto-documento-2"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -459,7 +475,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=38",
+   "src": "index.html?escena=38&ancho=1",
    "titulo": "Vigilancia y seguimiento de personas",
    "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "2.1.6. Vigilancia y seguimiento de personas",
@@ -467,11 +483,12 @@
    "id": "AP-U3-L2-E38",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Vigilancia y seguimiento de personas",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=39",
+   "src": "index.html?escena=39&ancho=1",
    "titulo": "Vigilancia y seguimiento de personas",
    "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "2.1.6. Vigilancia y seguimiento de personas",
@@ -479,7 +496,8 @@
    "id": "AP-U3-L2-E39",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Vigilancia y seguimiento de personas",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -495,7 +513,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=41",
+   "src": "index.html?escena=41&ancho=1",
    "titulo": "Vigilancia y seguimiento de personas",
    "subtitulo": "Precisión importante · 2 de 2",
    "seccion": "2.1.6. Vigilancia y seguimiento de personas",
@@ -503,11 +521,12 @@
    "id": "AP-U3-L2-E41",
    "nav": "Precisión importante",
    "indice": "Vigilancia y seguimiento de personas",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=42",
+   "src": "index.html?escena=42&ancho=1",
    "titulo": "Vigilancia y seguimiento de personas",
    "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Ejemplo para el caso del curso (Art. 239 CPP; Sentencia C-881/14)",
    "seccion": "2.1.6. Vigilancia y seguimiento de personas",
@@ -515,7 +534,8 @@
    "id": "AP-U3-L2-E42",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Vigilancia y seguimiento de personas",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -568,7 +588,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=47",
+   "src": "index.html?escena=47&ancho=1",
    "titulo": "Registro personal",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "2.2.1. Registro personal",
@@ -576,11 +596,12 @@
    "id": "AP-U3-L2-E47",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Registro personal",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=48",
+   "src": "index.html?escena=48&ancho=1",
    "titulo": "Registro personal",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "2.2.1. Registro personal",
@@ -588,11 +609,12 @@
    "id": "AP-U3-L2-E48",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Registro personal",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=49",
+   "src": "index.html?escena=49&ancho=1",
    "titulo": "Registro personal",
    "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "2.2.1. Registro personal",
@@ -600,7 +622,8 @@
    "id": "AP-U3-L2-E49",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Registro personal",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -617,7 +640,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=51",
+   "src": "index.html?escena=51&ancho=1",
    "titulo": "Inspección corporal",
    "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "2.2.2. Inspección corporal",
@@ -625,11 +648,12 @@
    "id": "AP-U3-L2-E51",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Inspección corporal",
-   "ilus": "m-muestras-adn"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=52",
+   "src": "index.html?escena=52&ancho=1",
    "titulo": "Inspección corporal",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia? · 1 de 2",
    "seccion": "2.2.2. Inspección corporal",
@@ -637,7 +661,8 @@
    "id": "AP-U3-L2-E52",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Inspección corporal",
-   "ilus": "investigacion-lupa"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -679,7 +704,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=57",
+   "src": "index.html?escena=57&ancho=1",
    "titulo": "Obtención de muestras",
    "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "2.2.3. Obtención de muestras",
@@ -687,7 +712,8 @@
    "id": "AP-U3-L2-E57",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Obtención de muestras",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -716,7 +742,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=60",
+   "src": "index.html?escena=60&ancho=1",
    "titulo": "Exámenes de ADN que involucren al indiciado o al imputado",
    "subtitulo": "¿Cuáles son sus requisitos de procedencia? · ¿Cómo se desarrolla la actuación? · ¿Qué tipo de control judicial requiere?",
    "seccion": "2.2.4. Exámenes de ADN que involucren al indiciado o al imputado",
@@ -724,7 +750,8 @@
    "id": "AP-U3-L2-E60",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Exámenes de ADN que involucren al indiciado o al imputado",
-   "ilus": "captura-detenido"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "figura",

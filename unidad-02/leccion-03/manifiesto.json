@@ -19,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Requisitos de procedibilidad y materiales",
    "subtitulo": "Requisito previo",
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
@@ -27,7 +27,8 @@
    "id": "AP-U2-L3-E02",
    "nav": "Requisitos de procedibilidad y materiales",
    "indice": "Requisitos de procedibilidad y materiales",
-   "ilus": "revisan-documento"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -80,7 +81,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=7",
+   "src": "index.html?escena=7&ancho=1",
    "titulo": "Medidas no privativas de la libertad",
    "subtitulo": "Prohibición de salir del país",
    "seccion": "3.3.2. Medidas no privativas de la libertad",
@@ -88,7 +89,8 @@
    "id": "AP-U2-L3-E07",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -105,7 +107,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=9",
+   "src": "index.html?escena=9&ancho=1",
    "titulo": "Particularidades del artículo 307 CPP",
    "subtitulo": "Parágrafo 2.º del artículo 307",
    "seccion": "3.4. Particularidades del artículo 307 CPP",
@@ -113,7 +115,8 @@
    "id": "AP-U2-L3-E09",
    "nav": "Particularidades del artículo 307 CPP",
    "indice": "Particularidades del artículo 307 CPP",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -167,7 +170,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=14",
+   "src": "index.html?escena=14&ancho=1",
    "titulo": "Solicitud de la Fiscalía",
    "subtitulo": "Peligro para la comunidad",
    "seccion": "3.7. Solicitud de la Fiscalía",
@@ -175,7 +178,8 @@
    "id": "AP-U2-L3-E14",
    "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",

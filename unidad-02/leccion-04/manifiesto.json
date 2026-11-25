@@ -19,7 +19,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=2",
+   "src": "index.html?escena=2&ancho=1",
    "titulo": "Requisitos y plazos (Ley 906 de 2004)",
    "subtitulo": "Plazos desde la detención preventiva",
    "seccion": "4.2. Requisitos y plazos (Ley 906 de 2004)",
@@ -27,7 +27,8 @@
    "id": "AP-U2-L4-E02",
    "nav": "Requisitos y plazos (Ley 906 de 2004)",
    "indice": "Requisitos y plazos (Ley 906 de 2004)",
-   "ilus": "terminos-reloj"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
@@ -131,7 +132,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=11",
+   "src": "index.html?escena=11&ancho=1",
    "titulo": "Causales de Procedencia",
    "subtitulo": "Enfermedad grave",
    "seccion": "4.6.1. Causales de Procedencia",
@@ -139,11 +140,12 @@
    "id": "AP-U2-L4-E11",
    "nav": "Causales de Procedencia",
    "indice": "Sustitución de la detención preventiva (art. 314)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=12",
+   "src": "index.html?escena=12&ancho=1",
    "titulo": "Exclusiones y Prohibiciones (Parágrafo)",
    "subtitulo": "Delitos de alto impacto",
    "seccion": "4.6.2. Exclusiones y Prohibiciones (Parágrafo)",
@@ -151,7 +153,8 @@
    "id": "AP-U2-L4-E12",
    "nav": "Exclusiones y Prohibiciones (Parágrafo)",
    "indice": "Sustitución de la detención preventiva (art. 314)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -180,7 +183,7 @@
   },
   {
    "tipo": "escena",
-   "src": "index.html?escena=15",
+   "src": "index.html?escena=15&ancho=1",
    "titulo": "Prórroga del término inicial",
    "subtitulo": "Plazo inicial de un año",
    "seccion": "4.7.1. Prórroga del término inicial",
@@ -188,7 +191,8 @@
    "id": "AP-U2-L4-E15",
    "nav": "Prórroga del término inicial",
    "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
-   "ilus": ""
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "mapa",
