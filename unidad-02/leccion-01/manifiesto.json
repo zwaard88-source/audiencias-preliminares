@@ -5,6 +5,19 @@
  "heading": "Lección 1. Solicitud de orden de captura",
  "paginas": [
   {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-u2-presentacion",
+   "titulo": "Presentación de la unidad 2",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-u2-presentacion",
+   "nav": "Presentación de la unidad 2",
+   "indice": "Presentación de la unidad 2",
+   "ilus": "",
+   "ancho": true
+  },
+  {
    "tipo": "escena",
    "src": "index.html?escena=1",
    "titulo": "Solicitud de orden de captura",
@@ -20,19 +33,19 @@
    "tipo": "escena",
    "src": "index.html?escena=2",
    "titulo": "Fundamento",
-   "subtitulo": "Fundamento legal",
+   "subtitulo": "",
    "seccion": "1.1. Fundamento",
    "escena": 2,
    "id": "AP-U2-L1-E02",
    "nav": "Fundamento",
    "indice": "Fundamento",
-   "ilus": "captura-detenido"
+   "ilus": ""
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Requisitos",
-   "subtitulo": "Orden escrita · Motivos razonablemente fundados · Individualización · Delito susceptible",
+   "subtitulo": "Orden escrita",
    "seccion": "1.2. Requisitos",
    "escena": 3,
    "id": "AP-U2-L1-E03",
@@ -44,13 +57,14 @@
    "tipo": "mapa",
    "src": "mapa.html?m=4",
    "titulo": "Trámite",
-   "subtitulo": "Solicitud de la Fiscalía · Audiencia preliminar · Emisión y vigencia · Ejecución y control",
+   "subtitulo": "Solicitud de la Fiscalía",
    "seccion": "1.3. Trámite",
    "escena": 4,
    "id": "AP-U2-L1-E04",
    "nav": "Trámite",
    "indice": "Trámite",
-   "ilus": "entrega-carpeta"
+   "ilus": "entrega-carpeta",
+   "ancho": true
   }
  ]
 }

@@ -8,19 +8,20 @@
    "tipo": "mapa",
    "src": "mapa.html?m=1",
    "titulo": "Fundamento legal",
-   "subtitulo": "Artículos 28 · CPP (Ley 906 de 2004)",
+   "subtitulo": "CN: Artículos 28 y 250",
    "seccion": "3.1. Fundamento legal",
    "escena": 1,
    "id": "AP-U2-L3-E01",
    "nav": "Fundamento legal",
    "indice": "Fundamento legal",
-   "ilus": "p-explica-brazos"
+   "ilus": "p-explica-brazos",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=2",
    "titulo": "Requisitos de procedibilidad y materiales",
-   "subtitulo": "Requisito previo · Inferencia razonable · Fines constitucionales · Peligro para la comunidad",
+   "subtitulo": "Requisito previo",
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 2,
    "id": "AP-U2-L3-E02",
@@ -32,7 +33,7 @@
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Requisitos de procedibilidad y materiales",
-   "subtitulo": "Peligro para las víctimas · Obstrucción de la justicia · No comparecencia al proceso",
+   "subtitulo": "Peligro para las víctimas",
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 3,
    "id": "AP-U2-L3-E03",
@@ -44,7 +45,7 @@
    "tipo": "escena",
    "src": "index.html?escena=4",
    "titulo": "Requisitos de procedibilidad y materiales",
-   "subtitulo": "Test de proporcionalidad · Persigue un fin legítimo · Es necesaria · Es idónea · …",
+   "subtitulo": "Test de proporcionalidad",
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 4,
    "id": "AP-U2-L3-E04",
@@ -56,85 +57,88 @@
    "tipo": "mapa",
    "src": "mapa.html?m=5",
    "titulo": "Medidas privativas de la libertad",
-   "subtitulo": "Detención preventiva en establecimiento de reclusión · Detención preventiva en la residencia señalada",
+   "subtitulo": "Detención preventiva en establecimiento de reclusión",
    "seccion": "3.3.1. Medidas privativas de la libertad",
    "escena": 5,
    "id": "AP-U2-L3-E05",
    "nav": "Medidas privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "clasificacion-carpetas"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=6",
    "titulo": "Medidas no privativas de la libertad",
-   "subtitulo": "Obligación de someterse a un mecanismo · Obligación de someterse a la vigilancia · …",
+   "subtitulo": "Mecanismo de vigilancia electrónica",
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 6,
    "id": "AP-U2-L3-E06",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "p-trio-2"
+   "ilus": ""
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=7",
    "titulo": "Medidas no privativas de la libertad",
-   "subtitulo": "Del lugar en el cual reside · Prohibición de concurrir a determinadas reuniones · …",
+   "subtitulo": "Prohibición de salir del país",
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 7,
    "id": "AP-U2-L3-E07",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "terminos-reloj"
+   "ilus": ""
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=8",
    "titulo": "Medidas no privativas de la libertad",
-   "subtitulo": "Prohibición de salir del lugar · Oficios o profesiones · Artículo 314 del CPP · Sentencia C-567 de 2019",
+   "subtitulo": "Prohibición de salir del lugar",
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 8,
    "id": "AP-U2-L3-E08",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "p-lee-libro"
+   "ilus": "alto-documento",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=9",
    "titulo": "Particularidades del artículo 307 CPP",
-   "subtitulo": "Parágrafo 2.º del artículo 307 · Siguientes aspectos · Podría comprenderse mejor a partir de un caso · …",
+   "subtitulo": "Parágrafo 2.º del artículo 307",
    "seccion": "3.4. Particularidades del artículo 307 CPP",
    "escena": 9,
    "id": "AP-U2-L3-E09",
    "nav": "Particularidades del artículo 307 CPP",
    "indice": "Particularidades del artículo 307 CPP",
-   "ilus": "captura-detenido"
+   "ilus": ""
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=10",
    "titulo": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "subtitulo": "En punto a la solicitud de medidas · Prevalencia de la libertad · Naturaleza cautelar · …",
+   "subtitulo": "Reglas institucionales",
    "seccion": "3.5. Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "escena": 10,
    "id": "AP-U2-L3-E10",
    "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "ilus": "entrega-carpeta"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=11",
    "titulo": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "subtitulo": "Preferencia por medidas no privativas de la libertad · Motivación individualizada · …",
+   "subtitulo": "Preferencia por medidas no privativas de la libertad",
    "seccion": "3.5. Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "escena": 11,
    "id": "AP-U2-L3-E11",
    "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "ilus": "fundamento-documento"
+   "ilus": ""
   },
   {
    "tipo": "escena",
@@ -152,31 +156,32 @@
    "tipo": "mapa",
    "src": "mapa.html?m=13",
    "titulo": "Solicitud de la Fiscalía",
-   "subtitulo": "En el desarrollo de la audiencia preliminar · …",
+   "subtitulo": "Orden metodológico estricto",
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 13,
    "id": "AP-U2-L3-E13",
    "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía",
-   "ilus": "p-dialogo-carpeta-2"
+   "ilus": "p-dialogo-carpeta-2",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=14",
    "titulo": "Solicitud de la Fiscalía",
-   "subtitulo": "Peligro para la comunidad · Peligro para la víctima · No comparecencia o no cumplimiento de sentencia · …",
+   "subtitulo": "Peligro para la comunidad",
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 14,
    "id": "AP-U2-L3-E14",
    "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía",
-   "ilus": "dialogo-carpeta"
+   "ilus": ""
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=15",
    "titulo": "Solicitud de la Fiscalía",
-   "subtitulo": "Criterios especiales en investigaciones contra Grupo · Realizar juicio de proporcionalidad",
+   "subtitulo": "Integrantes de GDO o GAO",
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 15,
    "id": "AP-U2-L3-E15",
@@ -188,37 +193,38 @@
    "tipo": "escena",
    "src": "index.html?escena=16",
    "titulo": "Intervención de otros sujetos",
-   "subtitulo": "Concede la palabra al Ministerio Público",
+   "subtitulo": "Ministerio Público y a la víctima o su apoderado",
    "seccion": "3.8. Intervención de otros sujetos",
    "escena": 16,
    "id": "AP-U2-L3-E16",
    "nav": "Intervención de otros sujetos",
    "indice": "Intervención de otros sujetos",
-   "ilus": "p-trio-3"
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=17",
    "titulo": "Controversia de la defensa",
-   "subtitulo": "Abogado defensor refuta los argumentos",
+   "subtitulo": "Abogado defensor",
    "seccion": "3.9. Controversia de la defensa",
    "escena": 17,
    "id": "AP-U2-L3-E17",
    "nav": "Controversia de la defensa",
    "indice": "Controversia de la defensa",
-   "ilus": "p-explica-brazos-2"
+   "ilus": "p-trio-1"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=18",
    "titulo": "Decisión del juez",
-   "subtitulo": "Negar o modular la medida solicitada · De no imponer medida de aseguramiento · Privativa de la libertad · …",
+   "subtitulo": "Negar o modular la medida solicitada",
    "seccion": "3.10. Decisión del juez",
    "escena": 18,
    "id": "AP-U2-L3-E18",
    "nav": "Decisión del juez",
    "indice": "Decisión del juez",
-   "ilus": "captura-detenido"
+   "ilus": "sustentacion-audiencia",
+   "ancho": true
   }
  ]
 }

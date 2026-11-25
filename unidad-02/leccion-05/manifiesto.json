@@ -14,67 +14,69 @@
    "id": "AP-U2-L5-E01",
    "nav": "Ley 1826 de 2017",
    "indice": "Ley 1826 de 2017",
-   "ilus": "clasificacion-carpetas"
+   "ilus": ""
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=2",
    "titulo": "Procedimiento penal abreviado",
-   "subtitulo": "Reducción de etapas · Menos audiencias · Delitos aplicables · Tiempos y plazos",
+   "subtitulo": "Reducción de etapas",
    "seccion": "5.1. Procedimiento penal abreviado",
    "escena": 2,
    "id": "AP-U2-L5-E02",
    "nav": "Procedimiento penal abreviado",
    "indice": "Procedimiento penal abreviado",
-   "ilus": "terminos-reloj"
+   "ilus": "",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Procedimiento penal abreviado",
-   "subtitulo": "Traslado de la acusación otorga 60 días · Medidas de aseguramiento privativas de la libertad",
+   "subtitulo": "Traslado de la acusación",
    "seccion": "5.1. Procedimiento penal abreviado",
    "escena": 3,
    "id": "AP-U2-L5-E03",
    "nav": "Procedimiento penal abreviado",
    "indice": "Procedimiento penal abreviado",
-   "ilus": "sustentacion-audiencia"
+   "ilus": ""
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=4",
    "titulo": "El acusador privado",
-   "subtitulo": "Facultad de la víctima · Restricciones · Responsabilidad",
+   "subtitulo": "Facultad de la víctima",
    "seccion": "5.2. El acusador privado",
    "escena": 4,
    "id": "AP-U2-L5-E04",
    "nav": "El acusador privado",
    "indice": "El acusador privado",
-   "ilus": "dialogo-carpeta"
+   "ilus": "p-dialogo-carpeta",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=5",
    "titulo": "Beneficios punitivos por aceptación de cargos",
-   "subtitulo": "Reducción de pena de hasta el 50% · Reducción de hasta el 33% · Reducción del 16.6% · …",
+   "subtitulo": "Reducción de pena de hasta el 50%",
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
    "escena": 5,
    "id": "AP-U2-L5-E05",
    "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos",
-   "ilus": "p-explica-brazos-2"
+   "ilus": ""
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=6",
    "titulo": "Beneficios punitivos por aceptación de cargos",
-   "subtitulo": "Delitos cometidos contra niños, niñas y adolescentes · Terrorismo · Feminicidio",
+   "subtitulo": "Delitos cometidos contra niños, niñas y adolescentes",
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
    "escena": 6,
    "id": "AP-U2-L5-E06",
    "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos",
-   "ilus": "fundamento-documento"
+   "ilus": ""
   },
   {
    "tipo": "figura",
@@ -84,9 +86,10 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U2-L5-F1",
+   "ancho": true,
    "nav": "Mapa conceptual",
    "indice": "Mapa conceptual",
-   "ilus": "entrega-carpeta"
+   "ilus": ""
   },
   {
    "tipo": "figura",
@@ -96,9 +99,23 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U2-L5-F2",
+   "ancho": true,
    "nav": "Diagrama de flujo",
    "indice": "Diagrama de flujo",
-   "ilus": "terminos-reloj"
+   "ilus": ""
+  },
+  {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-u2-cierre",
+   "titulo": "Cierre de la unidad 2",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-u2-cierre",
+   "nav": "Cierre de la unidad 2",
+   "indice": "Cierre de la unidad 2",
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

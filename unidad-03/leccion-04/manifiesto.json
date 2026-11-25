@@ -14,7 +14,8 @@
    "id": "AP-U3-L4-E01",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "¿En qué consiste la técnica y para qué se utiliza?",
-   "ilus": "investigacion-lupa"
+   "ilus": "investigacion-lupa",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -38,7 +39,7 @@
    "id": "AP-U3-L4-E03",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "¿Cuáles son sus requisitos de procedencia?",
-   "ilus": "terminos-reloj"
+   "ilus": ""
   },
   {
    "tipo": "escena",
@@ -50,7 +51,7 @@
    "id": "AP-U3-L4-E04",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "¿Cómo se desarrolla la actuación?",
-   "ilus": "dialogo-carpeta"
+   "ilus": ""
   },
   {
    "tipo": "escena",
@@ -74,7 +75,8 @@
    "id": "AP-U3-L4-E06",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "¿Qué debe fundamentar el fiscal ante el JCG?",
-   "ilus": "fundamento-documento"
+   "ilus": "clasificacion-carpetas",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -86,7 +88,7 @@
    "id": "AP-U3-L4-E07",
    "nav": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
    "indice": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
-   "ilus": "captura-detenido"
+   "ilus": ""
   },
   {
    "tipo": "figura",
@@ -96,9 +98,23 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U3-L4-F1",
+   "ancho": true,
    "nav": "Técnicas especiales de investigación (TEI)",
    "indice": "Técnicas especiales de investigación (TEI)",
-   "ilus": "investigacion-lupa"
+   "ilus": ""
+  },
+  {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-u3-cierre",
+   "titulo": "Cierre de la unidad 3",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-u3-cierre",
+   "nav": "Cierre de la unidad 3",
+   "indice": "Cierre de la unidad 3",
+   "ilus": "",
+   "ancho": true
   }
  ]
 }

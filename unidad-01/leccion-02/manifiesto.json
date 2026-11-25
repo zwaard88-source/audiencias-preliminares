@@ -8,19 +8,20 @@
    "tipo": "mapa",
    "src": "mapa.html?m=1",
    "titulo": "Finalidad de las audiencias preliminares",
-   "subtitulo": "Exclusiva de los jueces de la República",
+   "subtitulo": "Escenarios procesales propios del sistema penal acusatorio",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 1,
    "id": "AP-U1-L2-E01",
    "nav": "Finalidad de las audiencias preliminares",
    "indice": "Finalidad de las audiencias preliminares",
-   "ilus": "sustentacion-audiencia"
+   "ilus": "sustentacion-audiencia",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=2",
    "titulo": "Principios y garantías que las orientan",
-   "subtitulo": "Presunción de inocencia · Principio de no autoincriminación · Principio de celeridad · …",
+   "subtitulo": "Desarrollo de las audiencias preliminares",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 2,
    "id": "AP-U1-L2-E02",
@@ -62,7 +63,7 @@
    "id": "AP-U1-L2-E05",
    "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso",
-   "ilus": "clasificacion-carpetas"
+   "ilus": ""
   }
  ]
 }

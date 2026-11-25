@@ -5,7 +5,7 @@
 <title>Mapa conceptual · Lección 5. Particularidades de la ley 1826 de 2017</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=da35bed3">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=72dda63c">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -15,25 +15,34 @@
   <div class="pie"><button class="btn-chico" data-pantalla></button></div>
   <div class="avance" id="avance"></div>
 </main>
-<script type="application/json" id="datos">{"2": {"t": "Procedimiento penal abreviado", "r": [{"h": "Reducción de etapas", "p": [["vin", "Reducción de etapas: Suprime la audiencia de formulación de imputación y la sustituye por el traslado del escrito de acusación, mediante el cual la Fiscalía comunica los cargos al indiciado en presencia de su defensor, en el despacho del fiscal, dejando constancia de ello en un acta. Asimismo, fusiona la audiencia de acusación con la preparatoria en una sola diligencia denominada audiencia concentrada."]]}, {"h": "Menos audiencias", "p": [["vin", "Menos audiencias: Pasa del sistema ordinario (5 audiencias) a un esquema de dos fases principales: la audiencia concentrada y el juicio oral."]]}, {"h": "Delitos aplicables", "p": [["vin", "Delitos aplicables: Aplica para conductas querellables y delitos oficiosos específicos de menor impacto como lesiones personales leves, hurto, estafa, injuria y falsedad en documento privado, excluyendo intereses del Estado o delitos que requieren de una atención célere por parte de la administración de justicia, como la violencia intrafamiliar."]]}, {"h": "Tiempos y plazos", "p": [["vin", "Tiempos y plazos:"]]}], "ilus": "clasificacion-carpetas.webp"}, "4": {"t": "El acusador privado", "r": [{"h": "Facultad de la víctima", "p": [["vin", "Facultad de la víctima: Permite a la víctima asumir la investigación y la acusación delegando funciones de la Fiscalía a través de un abogado de confianza o un consultorio jurídico."]]}, {"h": "Restricciones", "p": [["vin", "Restricciones: No procede cuando el delito afecta los intereses o el patrimonio del Estado."]]}, {"h": "Responsabilidad", "p": [["vin", "Responsabilidad: El acusador privado asume responsabilidades penales y disciplinarias equivalentes a las de un fiscal durante su gestión transitoria."]]}], "ilus": "clasificacion-carpetas.webp"}}</script>
-<script src="../comun/ap-propio.js?v=da35bed3"></script>
+<script type="application/json" id="datos">{"2": {"t": "Procedimiento penal abreviado", "r": [{"h": "Reducción de etapas", "p": [["vin", "Reducción de etapas: Suprime la audiencia de formulación de imputación y la sustituye por el traslado del escrito de acusación, mediante el cual la Fiscalía comunica los cargos al indiciado en presencia de su defensor, en el despacho del fiscal, dejando constancia de ello en un acta. Asimismo, fusiona la audiencia de acusación con la preparatoria en una sola diligencia denominada audiencia concentrada."]]}, {"h": "Menos audiencias", "p": [["vin", "Menos audiencias: Pasa del sistema ordinario (5 audiencias) a un esquema de dos fases principales: la audiencia concentrada y el juicio oral."]]}, {"h": "Delitos aplicables", "p": [["vin", "Delitos aplicables: Aplica para conductas querellables y delitos oficiosos específicos de menor impacto como lesiones personales leves, hurto, estafa, injuria y falsedad en documento privado, excluyendo intereses del Estado o delitos que requieren de una atención célere por parte de la administración de justicia, como la violencia intrafamiliar."]]}, {"h": "Tiempos y plazos", "p": [["vin", "Tiempos y plazos:"]]}], "ilus": "", "raiz": ""}, "4": {"t": "El acusador privado", "r": [{"h": "Facultad de la víctima", "p": [["vin", "Facultad de la víctima: Permite a la víctima asumir la investigación y la acusación delegando funciones de la Fiscalía a través de un abogado de confianza o un consultorio jurídico."]]}, {"h": "Restricciones", "p": [["vin", "Restricciones: No procede cuando el delito afecta los intereses o el patrimonio del Estado."]]}, {"h": "Responsabilidad", "p": [["vin", "Responsabilidad: El acusador privado asume responsabilidades penales y disciplinarias equivalentes a las de un fiscal durante su gestión transitoria."]]}], "ilus": "p-dialogo-carpeta.webp", "raiz": ""}}</script>
+<script src="../comun/ap-propio.js?v=72dda63c"></script>
 <script>
-/* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página a la izquierda y todas sus ramas a la vista.
-   Si el texto cabe, se lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana
-   pequeña junto a ella. Texto literal de la escena: datos[m] = {t: título, r: [{h: rótulo, p: [[clase, texto], …]}]}. */
+/* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página y todas sus ramas a la vista. Si el texto cabe, se
+   lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana pequeña junto a ella.
+   Texto literal de la escena: datos[m] = {t: título, raiz: texto del nodo central ('' si Genially ya lo dice), ilus, r: [{h: rótulo,
+   p: [[clase, texto], …]}]}.
+   Tercera pasada (Sebastián, 24/11/2026): en la franja ancha de Genially el mapa va con la idea al centro y las ramas a los dos
+   lados; el rótulo que ya está en el arranque del párrafo no se repite (va resaltado dentro del texto); el nodo central no repite
+   el título de la diapositiva; la última parte de una ventana lleva al concepto siguiente o termina (no hay botón que no lleve a nada). */
 (function () {
   var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
   var lz = document.getElementById('lienzo'), mc = document.getElementById('mc'), svg = document.getElementById('svg'), G = document.getElementById('globo');
   if (!d) { mc.textContent = ''; return; }
+  var ANCHO = document.documentElement.classList.contains('ancho'), N = d.r.length;
   lz.setAttribute('aria-label', 'Mapa conceptual: ' + d.t);
   function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function corta(t, n) { if (t.length <= n) return t; var c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:\s(]+$/, '') + '…'; }
-  function parrafos(p) { return p.map(function (x) { return '<p class="' + x[0] + '">' + esc(x[1]) + '</p>'; }).join(''); }
-  var arriba = d.r.length > 6;
-  mc.className = 'mc' + (arriba ? ' arriba' : '');
-  var raiz = document.createElement('div'); raiz.className = 'raiz';
-  raiz.innerHTML = '<h2>' + esc(may(d.t)) + '</h2>' + (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : '');
+  /* ¿El rótulo está en el arranque del párrafo (hasta 70 caracteres adentro)? Entonces no va aparte: se resalta donde está. */
+  function donde(r) { var t = r.p.length ? r.p[0][1] : '', i = t.toLowerCase().indexOf(String(r.h).toLowerCase()); return r.h && r.h.length > 3 && i >= 0 && i <= 70 ? i : -1; }
+  function marca(texto, h, i) { return i < 0 ? esc(texto) : esc(texto.slice(0, i)) + '<b>' + esc(texto.slice(i, i + h.length)) + '</b>' + esc(texto.slice(i + h.length)); }
+  function parrafos(p, h, i) { return p.map(function (x, k) { return '<p class="' + x[0] + '">' + (h && k === 0 ? marca(x[1], h, i) : esc(x[1])) + '</p>'; }).join(''); }
+  var centro = ANCHO && N >= 4, arriba = !ANCHO && N > 6, mitad = Math.ceil(N / 2);
+  mc.className = 'mc' + (arriba ? ' arriba' : '') + (centro ? ' centro' : '');
+  var raiz = document.createElement('div'); raiz.className = 'raiz' + (d.raiz ? '' : ' muda');
+  raiz.innerHTML = (d.raiz ? '<h2>' + esc(may(d.raiz)) + '</h2>' : '') +
+    (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : (d.raiz ? '' : '<span class="rico" aria-hidden="true"><i class="fas fa-diagram-project"></i></span>'));
   var ramas = document.createElement('div'); ramas.className = 'ramas';
   mc.appendChild(raiz); mc.appendChild(ramas);
   var leidos = {}, nodos = [];
@@ -43,61 +52,82 @@
     d.r.forEach(function (r, k) {
       var e = document.createElement(resumen ? 'button' : 'div'); e.className = 'rama' + (leidos[k] ? ' visto' : '');
       if (resumen) e.type = 'button';
+      if (centro) { e.style.gridColumn = k < mitad ? 1 : 3; e.style.gridRow = (k < mitad ? k : k - mitad) + 1; }
       var todo = r.p.map(function (x) { return x[1]; }).join(' ');
-      var lim = arriba ? 78 : (d.r.length >= 5 ? 105 : 190);
+      var lim = ANCHO ? (N >= 7 ? 120 : 190) : (arriba ? 78 : (N >= 5 ? 105 : 190));
       var breve = !resumen && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
-      e.innerHTML = breve ? '<h3 class="solo"><span class="num">' + (k + 1) + '</span><span>' + esc(may(todo)) + '</span></h3>' :
-        '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>' +
-        (resumen ? '<p>' + esc(corta(todo, lim)) + '</p><span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(r.p));
+      var i = donde(r), rep = i >= 0;
+      e.innerHTML = breve ? '<h3 class="solo' + (rep ? ' sin' : '') + '"><span class="num">' + (k + 1) + '</span><span>' + (rep ? marca(todo, r.h, i) : esc(may(todo))) + '</span></h3>' :
+        (rep ? '<h3 class="solo sin"><span class="num">' + (k + 1) + '</span><span>' + marca(resumen ? corta(todo, Math.max(lim + 60, i + r.h.length + 40)) : r.p[0][1], r.h, i) + '</span></h3>'
+             : '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>') +
+        (resumen ? (rep ? '' : '<p>' + esc(corta(todo, lim)) + '</p>') + '<span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(rep ? r.p.slice(1) : r.p));
       if (resumen) e.addEventListener('click', function () { abrir(e, r, k); });
       ramas.appendChild(e); nodos.push(e);
     });
   }
-  function cabe() { return mc.scrollHeight <= mc.clientHeight + 1 && ramas.scrollHeight <= ramas.clientHeight + 1 && nodos.every(function (n) { return n.offsetTop + n.offsetHeight <= ramas.offsetTop + ramas.clientHeight + 2 || arriba; }); }
+  var TOPE = lz.clientHeight - (arriba ? 110 : 58);
+  function pasa() { return ramas.scrollHeight > TOPE || mc.scrollHeight > mc.clientHeight + 1; }
   pintar(false);
   var total = d.r.reduce(function (a, r) { return a + r.p.reduce(function (b, x) { return b + x[1].length; }, 0); }, 0);
-  var alto = ramas.scrollHeight;
-  var resumen = total > 1250 || alto > (arriba ? 400 : 452) || mc.scrollHeight > mc.clientHeight + 1;
+  var resumen = total > (ANCHO ? 2300 : 1250) || pasa();
   if (resumen) pintar(true);
-  /* sin huecos: si el mapa ocupa poco, la letra crece (hasta tres pasos) mientras quepa */
-  ['g1', 'g2', 'g3'].some(function (c) {
+  /* sin huecos: si el mapa ocupa poco, la letra crece (hasta cuatro pasos) mientras quepa */
+  ['g1', 'g2', 'g3', 'g4'].some(function (c) {
     mc.classList.add(c);
-    if (ramas.scrollHeight > (arriba ? 400 : 440) || mc.scrollHeight > mc.clientHeight + 1) { mc.classList.remove(c); return true; }
+    if (ramas.scrollHeight > TOPE - 12 || mc.scrollHeight > mc.clientHeight + 1) { mc.classList.remove(c); return true; }
     return false;
   });
   /* ventana pequeña junto a la rama; el texto largo se lee por partes */
   var partes = [], parte = 0, actual = null;
   function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function sigue() {   /* al terminar un concepto: pasar al siguiente o terminar; nunca un botón que no lleva a nada */
+    return actual.k < N - 1
+      ? '<button class="btn-chico" id="psig">Clic para leer el concepto ' + (actual.k + 2) + ' <i class="fas fa-arrow-right" aria-hidden="true"></i></button>'
+      : '<button class="btn-chico" id="psig"><i class="fas fa-check" aria-hidden="true"></i> Clic para terminar</button>';
+  }
   function mostrar() {
-    document.getElementById('gp').innerHTML = parrafos(partes[parte]) + (partes.length > 1 ? '<div class="partes"><button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span><button class="btn-chico" id="ps"' + (parte < partes.length - 1 ? '' : ' disabled') + '>Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>' : '');
-    var a = document.getElementById('pa'), s = document.getElementById('ps');
+    var ult = parte === partes.length - 1;
+    document.getElementById('gp').innerHTML = parrafos(partes[parte], parte === 0 && actual.i >= 0 ? actual.r.h : null, actual.i) +
+      '<div class="partes">' + (partes.length > 1 ? '<button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span>' : '<span></span>') +
+      (ult ? sigue() : '<button class="btn-chico" id="ps">Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button>') + '</div>';
+    var a = document.getElementById('pa'), s = document.getElementById('ps'), sg = document.getElementById('psig');
     if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
     if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
-    if (parte === partes.length - 1 && actual) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
+    if (sg) sg.onclick = function () { var k = actual.k + 1; if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
+    if (ult) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
   }
   function ubicar() {
     var e = actual.e, W = lz.clientWidth, H = lz.clientHeight, r = e.getBoundingClientRect(), b = lz.getBoundingClientRect(), z = b.width / W;
-    var x = (r.left - b.left) / z, y = (r.top - b.top) / z, gw = G.offsetWidth, gh = G.offsetHeight;
-    var gx = Math.min(Math.max(10, x + e.offsetWidth / 2 - gw / 2), W - gw - 10), gy = y + e.offsetHeight + 6;
-    if (gy + gh > H - 8) gy = Math.max(8, y - gh - 6);
-    if (gy < 8 || (gy < y + e.offsetHeight && gy + gh > y)) { gy = Math.max(8, Math.min(H - gh - 8, y)); gx = x - gw - 8 > 8 ? x - gw - 8 : Math.min(W - gw - 8, x + 30); }
+    var x = (r.left - b.left) / z, y = (r.top - b.top) / z, gw = G.offsetWidth, gh = G.offsetHeight, ew = e.offsetWidth;
+    /* al lado de la rama si hay sitio (en la franja ancha casi siempre lo hay); si no, debajo o encima */
+    var gx, gy = Math.max(8, Math.min(H - gh - 8, y + e.offsetHeight / 2 - gh / 2));
+    if (x + ew + 10 + gw <= W - 8) gx = x + ew + 10;
+    else if (x - 10 - gw >= 8) gx = x - 10 - gw;
+    else { gx = Math.min(Math.max(10, x + ew / 2 - gw / 2), W - gw - 10); gy = y + e.offsetHeight + 6; if (gy + gh > H - 8) gy = Math.max(8, y - gh - 6); if (gy < 8 || (gy < y + e.offsetHeight && gy + gh > y)) gy = Math.max(8, Math.min(H - gh - 8, y)); }
     G.style.left = gx + 'px'; G.style.top = gy + 'px';
   }
-  function abrir(e, r, k) { actual = { e: e, k: k }; partes = trozos(r.p); parte = 0; document.getElementById('gh').textContent = may(r.h); G.classList.add('abierto'); mostrar(); ubicar(); document.getElementById('gx').focus(); }
+  function abrir(e, r, k) { actual = { e: e, k: k, r: r, i: donde(r) }; partes = trozos(r.p); parte = 0; document.getElementById('gh').textContent = actual.i >= 0 ? 'Concepto ' + (k + 1) + ' de ' + N : may(r.h); G.classList.add('abierto'); mostrar(); ubicar(); document.getElementById('gx').focus(); }
   function cerrar() { G.classList.remove('abierto'); if (actual) actual.e.focus(); }
   document.getElementById('gx').onclick = cerrar;
   document.addEventListener('keydown', function (k) { if (k.key === 'Escape') cerrar(); });
   lz.addEventListener('click', function (ev) { if (!G.contains(ev.target) && !ev.target.closest('.rama')) G.classList.remove('abierto'); });
-  function avance() { if (!resumen) return; var n = Object.keys(leidos).length; document.getElementById('avance').innerHTML = '<i class="fas fa-book-open-reader" aria-hidden="true"></i> Leído: <b>' + n + ' de ' + d.r.length + '</b>'; }
+  function avance() {
+    if (!resumen) return;
+    var n = Object.keys(leidos).length;
+    document.getElementById('avance').innerHTML = n >= N
+      ? '<i class="fas fa-circle-check" aria-hidden="true"></i> <b>Leyó los ' + N + ' conceptos.</b> Continúe con la flecha de arriba.'
+      : '<i class="fas fa-book-open-reader" aria-hidden="true"></i> Leído: <b>' + n + ' de ' + N + '</b>';
+  }
   avance();
   function trazar() {
-    var b = lz.getBoundingClientRect(), z = b.width / lz.clientWidth, R = raiz.getBoundingClientRect(), s = '';
+    var b = lz.getBoundingClientRect(), z = b.width / lz.clientWidth, s = '';
     function P(r) { return { l: (r.left - b.left) / z, t: (r.top - b.top) / z, w: r.width / z, h: r.height / z }; }
-    var a = P(R);
+    var a = P(raiz.getBoundingClientRect());
     nodos.forEach(function (n, k) {
-      var c = P(n.getBoundingClientRect());
-      if (!arriba) { var x1 = a.l + a.w, y1 = a.t + a.h / 2, x2 = c.l, y2 = c.t + c.h / 2, xm = (x1 + x2) / 2; s += '<path d="M' + x1 + ',' + y1 + ' C' + xm + ',' + y1 + ' ' + xm + ',' + y2 + ' ' + x2 + ',' + y2 + '" />'; }
-      else { var xc = a.l + a.w / 2, izq = c.l + c.w / 2 < xc, y = c.t + c.h / 2, xb = izq ? c.l + c.w : c.l; s += '<path d="M' + xc + ',' + (a.t + a.h) + ' L' + xc + ',' + y + ' L' + xb + ',' + y + '" />'; }
+      var c = P(n.getBoundingClientRect()), x1, y1, x2, y2, xm;
+      if (centro) { var izq = k < mitad; x1 = izq ? a.l : a.l + a.w; y1 = a.t + a.h / 2; x2 = izq ? c.l + c.w : c.l; y2 = c.t + c.h / 2; xm = (x1 + x2) / 2; s += '<path d="M' + x1 + ',' + y1 + ' C' + xm + ',' + y1 + ' ' + xm + ',' + y2 + ' ' + x2 + ',' + y2 + '" />'; }
+      else if (!arriba) { x1 = a.l + a.w; y1 = a.t + a.h / 2; x2 = c.l; y2 = c.t + c.h / 2; xm = (x1 + x2) / 2; s += '<path d="M' + x1 + ',' + y1 + ' C' + xm + ',' + y1 + ' ' + xm + ',' + y2 + ' ' + x2 + ',' + y2 + '" />'; }
+      else { var xc = a.l + a.w / 2, iz = c.l + c.w / 2 < xc, y = c.t + c.h / 2, xb = iz ? c.l + c.w : c.l; s += '<path d="M' + xc + ',' + (a.t + a.h) + ' L' + xc + ',' + y + ' L' + xb + ',' + y + '" />'; }
     });
     svg.innerHTML = '<g fill="none" stroke="#587E6D" stroke-width="2" stroke-linecap="round">' + s + '</g>';
   }

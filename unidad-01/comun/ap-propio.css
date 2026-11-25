@@ -174,3 +174,34 @@ svg.trazos{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
 .arr-nota p:first-child{font-weight:700}
 .arr-fuente{font-size:11px;color:var(--suave)}
 @media (prefers-reduced-motion:reduce){.arr-ficha.error{animation:none}}
+
+/* rama cuyo rótulo es el arranque del párrafo: el texto va una sola vez, con ese arranque en negrita */
+.mc .rama h3.sin{font-weight:400;font-size:12.3px;line-height:1.42;color:var(--tinta)}
+.mc .rama h3.sin b{font-weight:800;color:var(--petroleo)}
+.mc .rama p b,.globo p b{font-weight:800;color:var(--petroleo)}
+
+/* ---------- Franja ancha (tercera pasada, 25/11/2026): lienzo de 1150 × 462 para mapas, figuras y videos ---------- */
+html.ancho .lienzo{width:1150px;height:462px}
+html.ancho .mc{padding:14px 20px 40px;gap:44px}
+html.ancho .mc .raiz{flex:0 0 250px}
+html.ancho .mc .raiz h2{font-size:17px;padding:15px 14px}
+html.ancho .mc .raiz .rilus{max-height:230px}
+.mc .raiz.muda{flex:0 0 150px}
+html.ancho .mc .raiz.muda{flex:0 0 190px}
+.mc .raiz.muda .rico{width:92px;height:92px;border-radius:50%;background:var(--petroleo);color:#fff;display:grid;place-items:center;font-size:36px;margin:0}
+.mc.centro{display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);column-gap:46px;align-items:center}
+.mc.centro .raiz{grid-column:2;grid-row:1;justify-self:center;width:100%}
+.mc.centro .ramas{grid-column:1/4;grid-row:1;display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);column-gap:46px;row-gap:9px;align-content:center;align-items:center}
+.mc.centro .raiz h2{font-size:15.5px;padding:13px 12px}
+.mc.centro .raiz .rilus{max-height:200px}
+.mc.g4 .rama p{font-size:18px}.mc.g4 .rama h3{font-size:17.6px}.mc.g4 .rama h3.solo{font-size:19px}.mc.g4 .rama{padding:18px 19px 19px}.mc.g4 .ramas{gap:20px}
+.mc.g4 .rama h3 .num{width:26px;height:26px;font-size:13px}
+.mc.centro.g1 .ramas{row-gap:12px}.mc.centro.g2 .ramas{row-gap:15px}.mc.centro.g3 .ramas{row-gap:18px}.mc.centro.g4 .ramas{row-gap:20px}
+.mc .rama h3.sin{font-weight:400;color:var(--tinta)}
+.mc.g1 .rama h3.sin{font-size:13.6px}.mc.g2 .rama h3.sin{font-size:15px}.mc.g3 .rama h3.sin{font-size:16.4px}.mc.g4 .rama h3.sin{font-size:18px}
+html.ancho .globo{width:470px;max-height:410px}
+.globo .partes{gap:10px}
+.avance b{font-weight:800}
+.mc .rama h3.sin,.mc .rama h3.solo.sin{font-family:Roboto,system-ui,sans-serif;font-size:12.3px;line-height:1.42}
+.mc.g1 .rama h3.sin{font-size:13.6px}.mc.g2 .rama h3.sin{font-size:15px}.mc.g3 .rama h3.sin{font-size:16.4px}.mc.g4 .rama h3.sin{font-size:18px}
+.mc .rama h3.sin b{font-weight:700}

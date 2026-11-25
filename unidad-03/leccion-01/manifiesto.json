@@ -5,16 +5,30 @@
  "heading": "Lección 1. Caja de herramientas: presentación general de técnicas de investigación",
  "paginas": [
   {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-u3-presentacion",
+   "titulo": "Presentación de la unidad 3",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-u3-presentacion",
+   "nav": "Presentación de la unidad 3",
+   "indice": "Presentación de la unidad 3",
+   "ilus": "",
+   "ancho": true
+  },
+  {
    "tipo": "mapa",
    "src": "mapa.html?m=1",
    "titulo": "Técnicas de investigación y control judicial",
-   "subtitulo": "Técnicas de investigación · Alcance del control judicial · Divergencias entre ambas modalidades · …",
+   "subtitulo": "Divergencias entre ambas modalidades",
    "seccion": "1.1. Técnicas de investigación y control judicial",
    "escena": 1,
    "id": "AP-U3-L1-E01",
    "nav": "Técnicas de investigación y control judicial",
    "indice": "Técnicas de investigación y control judicial",
-   "ilus": "p-alto-documento-2"
+   "ilus": "p-alto-documento-2",
+   "ancho": true
   },
   {
    "tipo": "escena",
@@ -32,121 +46,123 @@
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Clasificación de las técnicas de investigación según el control judicial procedente",
-   "subtitulo": "Actuaciones de iniciativa propia del fiscal (No requieren control judicial) · …",
+   "subtitulo": "Actuaciones de iniciativa propia del fiscal (No requieren control judicial)",
    "seccion": "1.2. Clasificación de las técnicas de investigación según el control judicial procedente",
    "escena": 3,
    "id": "AP-U3-L1-E03",
    "nav": "Clasificación de las técnicas de investigación según el control judicial procedente",
    "indice": "Clasificación de las técnicas de investigación según el control judicial procedente",
-   "ilus": "p-dialogo-carpeta-2"
+   "ilus": "p-trio-2"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=4",
    "titulo": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "subtitulo": "Desarrollo propiamente dicho de las audiencias preliminares · Proceder jurisdiccional",
+   "subtitulo": "Tres fases",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 4,
    "id": "AP-U3-L1-E04",
    "nav": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "sustentacion-audiencia"
+   "ilus": "sustentacion-audiencia",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=5",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Segunda fase · Contextualizar sobre la actuación investigativa · Identificar la técnica de investigación · …",
+   "subtitulo": "Segunda fase",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 5,
    "id": "AP-U3-L1-E05",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "p-explica-brazos-2"
+   "ilus": "p-dialogo-carpeta-2"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=6",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Fundamentar la solicitud · Delimitar el objeto de la diligencia · …",
+   "subtitulo": "Fundamentar la solicitud",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 6,
    "id": "AP-U3-L1-E06",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "corren-carpetas"
+   "ilus": "p-explica-brazos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=7",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Concluir con una petición concreta al juez · Dos tipos de intervenciones hipotéticas · …",
+   "subtitulo": "Concluir con una petición concreta al juez",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 7,
    "id": "AP-U3-L1-E07",
-   "nav": "Intervención de la fiscalía",
-   "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "clasificacion-carpetas"
-  },
-  {
-   "tipo": "escena",
-   "src": "index.html?escena=8",
-   "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Artículo 14 · Ente acusador · Artículo 222 · (a) fin legítimo, para establecer",
-   "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "escena": 8,
-   "id": "AP-U3-L1-E08",
-   "nav": "Intervención de la fiscalía",
-   "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "investigacion-lupa"
-  },
-  {
-   "tipo": "escena",
-   "src": "index.html?escena=9",
-   "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Medida resulte adecuada para lograr · No existe otra medida menos restrictiva · …",
-   "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "escena": 9,
-   "id": "AP-U3-L1-E09",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
+   "src": "index.html?escena=8",
+   "titulo": "Intervención de la fiscalía",
+   "subtitulo": "Orden escrita de registro y allanamiento",
+   "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
+   "escena": 8,
+   "id": "AP-U3-L1-E08",
+   "nav": "Intervención de la fiscalía",
+   "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
+   "ilus": "p-dialogo-carpeta-2"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=9",
+   "titulo": "Intervención de la fiscalía",
+   "subtitulo": "(b) idoneidad",
+   "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
+   "escena": 9,
+   "id": "AP-U3-L1-E09",
+   "nav": "Intervención de la fiscalía",
+   "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
+   "ilus": ""
+  },
+  {
+   "tipo": "escena",
    "src": "index.html?escena=10",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Es necesario · Audiencia de control posterior · Actuación efectivamente ejecutada · …",
+   "subtitulo": "Autorización de la diligencia",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 10,
    "id": "AP-U3-L1-E10",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "p-trio-2"
+   "ilus": "corren-carpetas"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=11",
    "titulo": "Intervención de la fiscalía",
-   "subtitulo": "Acta de la diligencia · Informe de policía judicial",
+   "subtitulo": "Acta de la diligencia",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 11,
    "id": "AP-U3-L1-E11",
    "nav": "Intervención de la fiscalía",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "corren-carpetas"
+   "ilus": "sustentacion-audiencia",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=12",
    "titulo": "Decisión judicial",
-   "subtitulo": "Tercera fase · Ley 1098 de 2006",
+   "subtitulo": "Tercera fase",
    "seccion": "1.3. Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
    "escena": 12,
    "id": "AP-U3-L1-E12",
    "nav": "Decisión judicial",
    "indice": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación",
-   "ilus": "fundamento-documento"
+   "ilus": "p-trio-2"
   }
  ]
 }

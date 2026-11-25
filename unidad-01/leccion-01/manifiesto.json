@@ -5,13 +5,39 @@
  "heading": "Lección 1. Fundamentos constitucionales y legales de las audiencias preliminares",
  "paginas": [
   {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-presentacion",
+   "titulo": "Presentación del curso",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-presentacion",
+   "nav": "Presentación del curso",
+   "indice": "Presentación del curso",
+   "ilus": "",
+   "ancho": true
+  },
+  {
+   "tipo": "video",
+   "src": "../videos/index.html?video=ap-u1-presentacion",
+   "titulo": "Presentación de la unidad 1",
+   "subtitulo": "Video con su transcripción",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-V-ap-u1-presentacion",
+   "nav": "Presentación de la unidad 1",
+   "indice": "Presentación de la unidad 1",
+   "ilus": "",
+   "ancho": true
+  },
+  {
    "tipo": "escena",
    "src": "index.html?escena=1",
    "titulo": "Audiencias preliminares",
    "subtitulo": "Le corresponden siempre a un juez con funciones de control de garantías",
    "id": "AP-U1-L1-E01",
    "indice": "Audiencias preliminares",
-   "ilus": "clasificacion-carpetas"
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "mapa",
@@ -56,7 +82,7 @@
    "subtitulo": "El caso de Beatriz Elena Morales",
    "id": "AP-U1-L1-E06",
    "indice": "Caso de estudio",
-   "ilus": "captura-detenido"
+   "ilus": ""
   },
   {
    "tipo": "actividad",
@@ -65,7 +91,7 @@
    "subtitulo": "",
    "id": "AP-U1-L1-E07",
    "indice": "Aplicación al caso práctico",
-   "ilus": "terminos-reloj"
+   "ilus": ""
   }
  ]
 }

@@ -1,0 +1,12 @@
+Medios de los casos en video · Unidad 4
+
+Aquí van los archivos definitivos que entregue JP o la rama audiovisual, con estos nombres exactos (rutas relativas,
+portables dentro del paquete de Genially y del SCORM):
+- ap-u4-presentacion (Presentación de la unidad 4 · John Zuluaga Taborda, autor del curso): medios/ap-u4-presentacion.mp4, medios/ap-u4-presentacion.es.vtt, medios/ap-u4-presentacion-lsc.mp4, medios/ap-u4-presentacion-lsc.es.vtt
+- ap-u4-cierre (Cierre de la unidad 4 · John Zuluaga Taborda, autor del curso): medios/ap-u4-cierre.mp4, medios/ap-u4-cierre.es.vtt, medios/ap-u4-cierre-lsc.mp4, medios/ap-u4-cierre-lsc.es.vtt
+- ap-cierre (Cierre del curso · John Zuluaga Taborda, autor del curso): medios/ap-cierre.mp4, medios/ap-cierre.es.vtt, medios/ap-cierre-lsc.mp4, medios/ap-cierre-lsc.es.vtt
+
+Formato previsto: video MP4 (H.264 + AAC) y subtítulos WebVTT en español (.vtt, UTF-8).
+El reproductor los toma en cuanto están aquí; mientras falten, dice «Video en producción». Los copia
+herramientas/integrar_entregas.py (solo lo aprobado). Después: cambiar el estado del caso a «entregado», volver a
+generar el reproductor y probar ambas versiones con subtítulos en el iframe y en el paquete antes de declararlos integrados.

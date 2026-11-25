@@ -20,25 +20,26 @@
    "tipo": "mapa",
    "src": "mapa.html?m=2",
    "titulo": "Fundamento constitucional y legal",
-   "subtitulo": "Artículo 28 · Ley 906 de 2004 (CPP)",
+   "subtitulo": "CN: Artículo 28",
    "seccion": "2.1. Fundamento constitucional y legal",
    "escena": 2,
    "id": "AP-U2-L2-E02",
    "nav": "Fundamento constitucional y legal",
    "indice": "Fundamento constitucional y legal",
-   "ilus": "p-explica-brazos"
+   "ilus": "p-explica-brazos",
+   "ancho": true
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Requisitos",
-   "subtitulo": "Presupuestos materiales · Derechos fundamentales · Término perentorio",
+   "subtitulo": "Presupuestos materiales",
    "seccion": "2.2. Requisitos",
    "escena": 3,
    "id": "AP-U2-L2-E03",
    "nav": "Requisitos",
    "indice": "Requisitos",
-   "ilus": "dialogo-carpeta"
+   "ilus": "p-alto-documento"
   },
   {
    "tipo": "escena",
@@ -56,37 +57,37 @@
    "tipo": "escena",
    "src": "index.html?escena=5",
    "titulo": "Captura en flagrancia",
-   "subtitulo": "Individualización y/o identificación del capturado · Estricta flagrancia · Cuasiflagrancia · …",
+   "subtitulo": "Individualización y/o identificación del capturado",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 5,
    "id": "AP-U2-L2-E05",
    "nav": "Captura en flagrancia",
    "indice": "Trámite de la audiencia",
-   "ilus": "terminos-reloj"
+   "ilus": ""
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=6",
    "titulo": "Captura en flagrancia",
-   "subtitulo": "Videoflagrancia · Flagrancia por huida en vehículo",
+   "subtitulo": "Videoflagrancia",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 6,
    "id": "AP-U2-L2-E06",
    "nav": "Captura en flagrancia",
    "indice": "Trámite de la audiencia",
-   "ilus": "sustentacion-audiencia"
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=7",
    "titulo": "Trámite de la audiencia",
-   "subtitulo": "Intervención de la defensa · Decisión del juez · Recursos",
+   "subtitulo": "Intervención de la defensa",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 7,
    "id": "AP-U2-L2-E07",
    "nav": "Trámite de la audiencia",
    "indice": "Trámite de la audiencia",
-   "ilus": "p-trio-1"
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "actividad",
@@ -98,7 +99,7 @@
    "id": "AP-U2-L2-E08",
    "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso",
-   "ilus": "investigacion-lupa"
+   "ilus": ""
   }
  ]
 }

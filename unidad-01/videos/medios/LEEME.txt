@@ -1,10 +1,12 @@
 Medios de los casos en video · Unidad 1
 
-Aquí van los archivos definitivos que entregue JP, con estos nombres exactos (rutas relativas, portables en SCORM):
-- u1-l1-e06 (Lección 1 · Aplicación al expediente del curso (caso de Beatriz Elena Morales)): medios/u1-l1-e06.mp4, medios/u1-l1-e06.es.vtt, medios/u1-l1-e06-lsc.mp4, medios/u1-l1-e06-lsc.es.vtt
-- u1-l2-e06 (Lección 2 · Aplicación al expediente del curso (caso de Beatriz Elena Morales)): medios/u1-l2-e06.mp4, medios/u1-l2-e06.es.vtt, medios/u1-l2-e06-lsc.mp4, medios/u1-l2-e06-lsc.es.vtt
-- u1-l3-e12 (Lección 3 · Aplicación al expediente del curso (caso de Beatriz Elena Morales)): medios/u1-l3-e12.mp4, medios/u1-l3-e12.es.vtt, medios/u1-l3-e12-lsc.mp4, medios/u1-l3-e12-lsc.es.vtt
+Aquí van los archivos definitivos que entregue JP o la rama audiovisual, con estos nombres exactos (rutas relativas,
+portables dentro del paquete de Genially y del SCORM):
+- ap-presentacion (Presentación del curso · John Zuluaga Taborda, autor del curso): medios/ap-presentacion.mp4, medios/ap-presentacion.es.vtt, medios/ap-presentacion-lsc.mp4, medios/ap-presentacion-lsc.es.vtt
+- ap-u1-presentacion (Presentación de la unidad 1 · John Zuluaga Taborda, autor del curso): medios/ap-u1-presentacion.mp4, medios/ap-u1-presentacion.es.vtt, medios/ap-u1-presentacion-lsc.mp4, medios/ap-u1-presentacion-lsc.es.vtt
+- ap-u1-cierre (Cierre de la unidad 1 · John Zuluaga Taborda, autor del curso): medios/ap-u1-cierre.mp4, medios/ap-u1-cierre.es.vtt, medios/ap-u1-cierre-lsc.mp4, medios/ap-u1-cierre-lsc.es.vtt
 
 Formato previsto: video MP4 (H.264 + AAC) y subtítulos WebVTT en español (.vtt, UTF-8).
-Al recibirlos: copiarlos aquí, cambiar el estado del caso a «entregado» en herramientas/videos_casos.py, ejecutar el
-script y probar ambas versiones con subtítulos en el iframe y en el paquete SCORM antes de declararlos integrados.
+El reproductor los toma en cuanto están aquí; mientras falten, dice «Video en producción». Los copia
+herramientas/integrar_entregas.py (solo lo aprobado). Después: cambiar el estado del caso a «entregado», volver a
+generar el reproductor y probar ambas versiones con subtítulos en el iframe y en el paquete antes de declararlos integrados.
