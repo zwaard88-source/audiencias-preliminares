@@ -11,7 +11,8 @@
    "subtitulo": "Reproducido la definición prevista por la sentencia · Expone sintéticamente las consideraciones esenciales",
    "seccion": "Lección 2. Sustentación probatoria y respuesta estratégica a las controversias de las partes",
    "escena": 1,
-   "id": "AP-U4-L2-E01"
+   "id": "AP-U4-L2-E01",
+   "indice": "Implementación del modelo procesal penal acusatorio"
   },
   {
    "tipo": "escena",
@@ -20,7 +21,8 @@
    "subtitulo": "Posibilidad de fundamentar afectaciones a derechos · Nivel de motivación",
    "seccion": "2.1. Finalidad y concreción de los motivos fundados",
    "escena": 2,
-   "id": "AP-U4-L2-E02"
+   "id": "AP-U4-L2-E02",
+   "indice": "Finalidad y concreción de los motivos fundados"
   },
   {
    "tipo": "mapa",
@@ -29,7 +31,8 @@
    "subtitulo": "Sentencia C-637 de 2005 · Art. 221 inc. 2 CPP · Credibilidad del testigo · …",
    "seccion": "2.2. Respaldo probatorio a los motivos fundados",
    "escena": 3,
-   "id": "AP-U4-L2-E03"
+   "id": "AP-U4-L2-E03",
+   "indice": "Respaldo probatorio a los motivos fundados"
   },
   {
    "tipo": "escena",
@@ -38,7 +41,8 @@
    "subtitulo": "Reserva de datos del informante · Bajo el argumento de la seguridad",
    "seccion": "2.3. De la reserva en las audiencias de control de legalidad",
    "escena": 4,
-   "id": "AP-U4-L2-E04"
+   "id": "AP-U4-L2-E04",
+   "indice": "De la reserva en las audiencias de control de legalidad"
   },
   {
    "tipo": "mapa",
@@ -47,7 +51,8 @@
    "subtitulo": "Facultad procesal · Para responder de manera efectiva",
    "seccion": "2.4. Cómo responder en audiencia a las objeciones de la defensa",
    "escena": 5,
-   "id": "AP-U4-L2-E05"
+   "id": "AP-U4-L2-E05",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "escena",
@@ -56,7 +61,8 @@
    "subtitulo": "Antes de intervenir con una objeción · Improcedencia · Relevancia o Pertinencia · Especulación",
    "seccion": "2.4.1. Categorías habituales de objeciones",
    "escena": 6,
-   "id": "AP-U4-L2-E06"
+   "id": "AP-U4-L2-E06",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "escena",
@@ -65,7 +71,8 @@
    "subtitulo": "Identificar las equivocaciones más habituales · Argumenta con precisión · Estrategia para responder en sala",
    "seccion": "2.4.1. Categorías habituales de objeciones",
    "escena": 7,
-   "id": "AP-U4-L2-E07"
+   "id": "AP-U4-L2-E07",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "mapa",
@@ -74,7 +81,8 @@
    "subtitulo": "Defender la pregunta (No ha lugar) · Ejemplo",
    "seccion": "2.4.2. Formas técnicas de contestar:",
    "escena": 8,
-   "id": "AP-U4-L2-E08"
+   "id": "AP-U4-L2-E08",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "escena",
@@ -83,7 +91,8 @@
    "subtitulo": "Comete un error técnico en la estructura · Ejemplo",
    "seccion": "2.4.3. Reformular la pregunta:",
    "escena": 9,
-   "id": "AP-U4-L2-E09"
+   "id": "AP-U4-L2-E09",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "mapa",
@@ -92,7 +101,8 @@
    "subtitulo": "Se te · Ejemplo",
    "seccion": "2.4.4. Retirar la pregunta:",
    "escena": 10,
-   "id": "AP-U4-L2-E10"
+   "id": "AP-U4-L2-E10",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "escena",
@@ -101,7 +111,8 @@
    "subtitulo": "Dirigirse siempre al Juez · Esperar el turno · Ser breve y contundente · Control sobre el lenguaje corporal",
    "seccion": "2.4.5. Reglas de Oro en Sala",
    "escena": 11,
-   "id": "AP-U4-L2-E11"
+   "id": "AP-U4-L2-E11",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "figura",
@@ -110,7 +121,8 @@
    "subtitulo": "",
    "seccion": "",
    "escena": null,
-   "id": "AP-U4-L2-F1"
+   "id": "AP-U4-L2-F1",
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "mapa",
@@ -119,7 +131,8 @@
    "subtitulo": "Discusiones de la Corte Constitucional · Estricta proporcionalidad · Fundamento de la reserva judicial · …",
    "seccion": "2.5. Fundamento de la reserva judicial",
    "escena": 12,
-   "id": "AP-U4-L2-E12"
+   "id": "AP-U4-L2-E12",
+   "indice": "Fundamento de la reserva judicial"
   },
   {
    "tipo": "escena",
@@ -128,7 +141,8 @@
    "subtitulo": "Validez general del principio de reserva · Oportunidad de recaudo de la información",
    "seccion": "2.5. Fundamento de la reserva judicial",
    "escena": 13,
-   "id": "AP-U4-L2-E13"
+   "id": "AP-U4-L2-E13",
+   "indice": "Fundamento de la reserva judicial"
   }
  ]
 }

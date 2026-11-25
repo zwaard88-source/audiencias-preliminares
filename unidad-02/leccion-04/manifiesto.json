@@ -11,7 +11,8 @@
    "subtitulo": "Artículo 1",
    "seccion": "4.1. Fundamento constitucional y legal",
    "escena": 1,
-   "id": "AP-U2-L4-E01"
+   "id": "AP-U2-L4-E01",
+   "indice": "Fundamento constitucional y legal"
   },
   {
    "tipo": "escena",
@@ -20,7 +21,8 @@
    "subtitulo": "Plazos desde la detención preventiva",
    "seccion": "4.2. Requisitos y plazos (Ley 906 de 2004)",
    "escena": 2,
-   "id": "AP-U2-L4-E02"
+   "id": "AP-U2-L4-E02",
+   "indice": "Requisitos y plazos (Ley 906 de 2004)"
   },
   {
    "tipo": "mapa",
@@ -29,7 +31,8 @@
    "subtitulo": "Duplicación de términos · Proceso sea de competencia · Existan tres o más imputados o acusados · …",
    "seccion": "4.3. Duplicación y excepciones",
    "escena": 3,
-   "id": "AP-U2-L4-E03"
+   "id": "AP-U2-L4-E03",
+   "indice": "Duplicación y excepciones"
   },
   {
    "tipo": "escena",
@@ -38,7 +41,8 @@
    "subtitulo": "Ley 599 de 2000 · Artículo 103A · Exclusión de términos · Restablecimiento",
    "seccion": "4.3. Duplicación y excepciones",
    "escena": 4,
-   "id": "AP-U2-L4-E04"
+   "id": "AP-U2-L4-E04",
+   "indice": "Duplicación y excepciones"
   },
   {
    "tipo": "mapa",
@@ -47,7 +51,8 @@
    "subtitulo": "Radicación de la petición · Legitimación · Pruebas y soporte probatorio · Audiencia pública",
    "seccion": "4.4. Trámite de la solicitud",
    "escena": 5,
-   "id": "AP-U2-L4-E05"
+   "id": "AP-U2-L4-E05",
+   "indice": "Trámite de la solicitud"
   },
   {
    "tipo": "escena",
@@ -56,7 +61,8 @@
    "subtitulo": "Solicitudes en el ámbito · Legitimación · Límite de solicitudes · Competencia",
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 6,
-   "id": "AP-U2-L4-E06"
+   "id": "AP-U2-L4-E06",
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
    "tipo": "escena",
@@ -65,7 +71,8 @@
    "subtitulo": "Recursos · Artículo 308 · Muy común confundir esta audiencia con otros",
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 7,
-   "id": "AP-U2-L4-E07"
+   "id": "AP-U2-L4-E07",
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
    "tipo": "escena",
@@ -74,7 +81,8 @@
    "subtitulo": "Figura · Fundamento Principal · Consecuencia",
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 8,
-   "id": "AP-U2-L4-E08"
+   "id": "AP-U2-L4-E08",
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
    "tipo": "escena",
@@ -83,7 +91,8 @@
    "subtitulo": "Artículo 314 del Código de Procedimiento",
    "seccion": "4.6. Sustitución de la detención preventiva (art. 314).",
    "escena": 9,
-   "id": "AP-U2-L4-E09"
+   "id": "AP-U2-L4-E09",
+   "indice": "Sustitución de la detención preventiva (art. 314)."
   },
   {
    "tipo": "mapa",
@@ -92,7 +101,8 @@
    "subtitulo": "Reclusión en establecimiento carcelario · Suficiencia de la medida · Edad avanzada · Maternidad",
    "seccion": "4.6.1. Causales de Procedencia",
    "escena": 10,
-   "id": "AP-U2-L4-E10"
+   "id": "AP-U2-L4-E10",
+   "indice": "Sustitución de la detención preventiva (art. 314)."
   },
   {
    "tipo": "escena",
@@ -101,7 +111,8 @@
    "subtitulo": "Enfermedad grave · Madre o padre cabeza de familia",
    "seccion": "4.6.1. Causales de Procedencia",
    "escena": 11,
-   "id": "AP-U2-L4-E11"
+   "id": "AP-U2-L4-E11",
+   "indice": "Sustitución de la detención preventiva (art. 314)."
   },
   {
    "tipo": "escena",
@@ -110,7 +121,8 @@
    "subtitulo": "Ley prohíbe la sustitución domiciliaria",
    "seccion": "4.6.2. Exclusiones y Prohibiciones (Parágrafo)",
    "escena": 12,
-   "id": "AP-U2-L4-E12"
+   "id": "AP-U2-L4-E12",
+   "indice": "Sustitución de la detención preventiva (art. 314)."
   },
   {
    "tipo": "escena",
@@ -119,7 +131,8 @@
    "subtitulo": "Acta comprometiéndose a permanecer",
    "seccion": "4.6.3. Obligaciones y control",
    "escena": 13,
-   "id": "AP-U2-L4-E13"
+   "id": "AP-U2-L4-E13",
+   "indice": "Sustitución de la detención preventiva (art. 314)."
   },
   {
    "tipo": "mapa",
@@ -128,7 +141,8 @@
    "subtitulo": "Según el parágrafo 1º del artículo 307 · Derecho a solicitar la sustitución",
    "seccion": "4.7. El término máximo de las medidas privativas (art. 307, parágrafo 1).",
    "escena": 14,
-   "id": "AP-U2-L4-E14"
+   "id": "AP-U2-L4-E14",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
   },
   {
    "tipo": "escena",
@@ -137,7 +151,8 @@
    "subtitulo": "Plazo inicial de un año",
    "seccion": "4.7.1. Prórroga del término inicial",
    "escena": 15,
-   "id": "AP-U2-L4-E15"
+   "id": "AP-U2-L4-E15",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
   },
   {
    "tipo": "mapa",
@@ -146,7 +161,8 @@
    "subtitulo": "Maniobras dilatorias · Acuerdos o aceptación de cargos · Grupos delictivos organizados",
    "seccion": "4.7.2. Excepciones y suspensiones de términos",
    "escena": 16,
-   "id": "AP-U2-L4-E16"
+   "id": "AP-U2-L4-E16",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
   }
  ]
 }

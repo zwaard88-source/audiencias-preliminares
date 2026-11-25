@@ -11,7 +11,8 @@
    "subtitulo": "",
    "seccion": "Lección 2. Control de legalidad de captura (orden judicial y flagrancia)",
    "escena": 1,
-   "id": "AP-U2-L2-E01"
+   "id": "AP-U2-L2-E01",
+   "indice": "Control de legalidad de la captura"
   },
   {
    "tipo": "mapa",
@@ -20,7 +21,8 @@
    "subtitulo": "Artículo 28 · Ley 906 de 2004 (CPP)",
    "seccion": "2.1. Fundamento constitucional y legal",
    "escena": 2,
-   "id": "AP-U2-L2-E02"
+   "id": "AP-U2-L2-E02",
+   "indice": "Fundamento constitucional y legal"
   },
   {
    "tipo": "escena",
@@ -29,7 +31,8 @@
    "subtitulo": "Presupuestos materiales · Derechos fundamentales · Término perentorio",
    "seccion": "2.2. Requisitos",
    "escena": 3,
-   "id": "AP-U2-L2-E03"
+   "id": "AP-U2-L2-E03",
+   "indice": "Requisitos"
   },
   {
    "tipo": "escena",
@@ -38,7 +41,8 @@
    "subtitulo": "Instalación",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 4,
-   "id": "AP-U2-L2-E04"
+   "id": "AP-U2-L2-E04",
+   "indice": "Trámite de la audiencia"
   },
   {
    "tipo": "escena",
@@ -47,7 +51,8 @@
    "subtitulo": "Individualización y/o identificación del capturado · Estricta flagrancia · Cuasiflagrancia · …",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 5,
-   "id": "AP-U2-L2-E05"
+   "id": "AP-U2-L2-E05",
+   "indice": "Trámite de la audiencia"
   },
   {
    "tipo": "escena",
@@ -56,7 +61,8 @@
    "subtitulo": "Videoflagrancia · Flagrancia por huida en vehículo",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 6,
-   "id": "AP-U2-L2-E06"
+   "id": "AP-U2-L2-E06",
+   "indice": "Trámite de la audiencia"
   },
   {
    "tipo": "escena",
@@ -65,7 +71,8 @@
    "subtitulo": "Intervención de la defensa · Decisión del juez · Recursos",
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 7,
-   "id": "AP-U2-L2-E07"
+   "id": "AP-U2-L2-E07",
+   "indice": "Trámite de la audiencia"
   },
   {
    "tipo": "actividad",
@@ -74,7 +81,8 @@
    "subtitulo": "",
    "seccion": "Aplicación al expediente del curso",
    "escena": 8,
-   "id": "AP-U2-L2-E08"
+   "id": "AP-U2-L2-E08",
+   "indice": "Aplicación al expediente del curso"
   }
  ]
 }

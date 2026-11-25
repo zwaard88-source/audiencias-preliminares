@@ -11,7 +11,8 @@
    "subtitulo": "Exclusiva de los jueces de la República",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 1,
-   "id": "AP-U1-L2-E01"
+   "id": "AP-U1-L2-E01",
+   "indice": "Audiencias preliminares corresponden a escenarios procesales"
   },
   {
    "tipo": "escena",
@@ -20,7 +21,8 @@
    "subtitulo": "Presunción de inocencia · Principio de no autoincriminación · Principio de celeridad · …",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 2,
-   "id": "AP-U1-L2-E02"
+   "id": "AP-U1-L2-E02",
+   "indice": "Desarrollo de las audiencias preliminares"
   },
   {
    "tipo": "escena",
@@ -29,7 +31,8 @@
    "subtitulo": "Medidas de aseguramiento · (b) idoneidad o utilidad · Pueda acceder a otro medio menos gravoso",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 3,
-   "id": "AP-U1-L2-E03"
+   "id": "AP-U1-L2-E03",
+   "indice": "(a) fin legítimo"
   },
   {
    "tipo": "escena",
@@ -38,7 +41,8 @@
    "subtitulo": "Merece la pena indicar · Relaciona con un método intermedio",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 4,
-   "id": "AP-U1-L2-E04"
+   "id": "AP-U1-L2-E04",
+   "indice": "(d) proporcionalidad (en estricto sentido)"
   },
   {
    "tipo": "actividad",
@@ -47,7 +51,8 @@
    "subtitulo": "",
    "seccion": "Aplicación al expediente del curso",
    "escena": 5,
-   "id": "AP-U1-L2-E05"
+   "id": "AP-U1-L2-E05",
+   "indice": "Aplicación al expediente del curso"
   }
  ]
 }

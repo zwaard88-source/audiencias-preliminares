@@ -11,7 +11,8 @@
    "subtitulo": "Conviene precisar · Figura del juez con funciones · Corte Constitucional (2014) · Control judicial ejercido",
    "seccion": "3.1. Función del JCG en el proceso penal con tendencia acusatoria",
    "escena": 1,
-   "id": "AP-U1-L3-E01"
+   "id": "AP-U1-L3-E01",
+   "indice": "Función del JCG en el proceso penal con tendencia acusatoria"
   },
   {
    "tipo": "escena",
@@ -20,7 +21,8 @@
    "subtitulo": "Diversidad de escenarios · Audiencias relacionadas con la libertad personal · …",
    "seccion": "3.1. Función del JCG en el proceso penal con tendencia acusatoria",
    "escena": 2,
-   "id": "AP-U1-L3-E02"
+   "id": "AP-U1-L3-E02",
+   "indice": "Función del JCG en el proceso penal con tendencia acusatoria"
   },
   {
    "tipo": "mapa",
@@ -29,7 +31,8 @@
    "subtitulo": "Ley 2126 de 2021 · Artículo 20 de la Ley 2126 · Jueces con función de control · …",
    "seccion": "3.2 Articulación entre las comisarías de familia y la jurisdicción penal",
    "escena": 3,
-   "id": "AP-U1-L3-E03"
+   "id": "AP-U1-L3-E03",
+   "indice": "Articulación entre las comisarías de familia y la jurisdicción penal"
   },
   {
    "tipo": "escena",
@@ -38,7 +41,8 @@
    "subtitulo": "Adecuada comprensión e interpretación · Enfoques diferencial",
    "seccion": "3.3 aplicación del enfoque de género en las audiencias preliminares",
    "escena": 4,
-   "id": "AP-U1-L3-E04"
+   "id": "AP-U1-L3-E04",
+   "indice": "Aplicación del enfoque de género en las audiencias preliminares"
   },
   {
    "tipo": "escena",
@@ -47,7 +51,8 @@
    "subtitulo": "Permite reconocer cómo las características y necesidades · Siguientes aspectos · Género · …",
    "seccion": "1. Enfoque diferencial",
    "escena": 5,
-   "id": "AP-U1-L3-E05"
+   "id": "AP-U1-L3-E05",
+   "indice": "Aplicación del enfoque de género en las audiencias preliminares"
   },
   {
    "tipo": "escena",
@@ -56,7 +61,8 @@
    "subtitulo": "Discapacidad · Ciclo vital o curso de vida · Étnico-indígena · Étnico-antirracista",
    "seccion": "1. Enfoque diferencial",
    "escena": 6,
-   "id": "AP-U1-L3-E06"
+   "id": "AP-U1-L3-E06",
+   "indice": "Aplicación del enfoque de género en las audiencias preliminares"
   },
   {
    "tipo": "escena",
@@ -65,7 +71,8 @@
    "subtitulo": "Permite analizar la confluencia de dos",
    "seccion": "2. Enfoque interseccional",
    "escena": 7,
-   "id": "AP-U1-L3-E07"
+   "id": "AP-U1-L3-E07",
+   "indice": "Aplicación del enfoque de género en las audiencias preliminares"
   },
   {
    "tipo": "mapa",
@@ -74,7 +81,8 @@
    "subtitulo": "Estudia las relaciones e interacciones sociales · Actuación de la FGN · Centralidad de sus derechos",
    "seccion": "3. Enfoque territorial",
    "escena": 8,
-   "id": "AP-U1-L3-E08"
+   "id": "AP-U1-L3-E08",
+   "indice": "Aplicación del enfoque de género en las audiencias preliminares"
   }
  ]
 }

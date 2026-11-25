@@ -46,7 +46,7 @@ async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
  A.selectSlide(A.getSlides()[0].id);await d(250);return 'acomodadas '+c}
 async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.selectSlide(slideId);await d(350);A.copyItems([gid]);await d(250);A.pasteItems();await d(1100);return its(slideId).filter(i=>!antes.includes(i.id)&&i.type==='group'&&!i.parentGroupId)[0]}
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
-async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{if(!secs.length||secs[secs.length-1].t!==p.titulo)secs.push({t:p.titulo,k})});
+async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
  const sl=A.getSlides(),por=sl.find(s=>/· Portada$/.test(s.name)),ind=sl.find(s=>/· Índice$/.test(s.name)),U=secs.length,r=[];
  if(por){const hijos=g=>its(por.id).filter(i=>i.parentGroupId===g.id);let C=its(por.id).filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width<60&&hijos(i).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id))))).sort((a,b)=>a.position.x-b.position.x);
   const tot=U<=9?U:0;let g=0;while(C.length<tot&&C.length&&g++<12){const nv=await pegar(por.id,C[C.length-1].id);if(!nv)break;C.push(nv)}
@@ -64,4 +64,4 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{i
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v3'
+return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v4'
