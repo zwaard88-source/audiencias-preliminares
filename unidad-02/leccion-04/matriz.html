@@ -5,7 +5,7 @@
 <title>Matriz · Lección 4. Libertad por vencimiento de términos</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=2f8d7cdf">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=101baedd">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -14,7 +14,7 @@
   <div class="avance" id="avance"></div>
 </main>
 <script type="application/json" id="datos">{"8": {"cab": "Figura", "filas": [{"g": "", "n": "Revocatoria (Art. 318)", "c": [["Fundamento Principal", "Desaparición de los requisitos de autoría o fines constitucionales."], ["Consecuencia", "Libertad plena dentro del proceso."]]}, {"g": "", "n": "Sustitución (Art. 314)", "c": [["Fundamento Principal", "Causales objetivas y personales (enfermedad grave, edad avanzada, embarazo)."], ["Consecuencia", "Cambio de cárcel por detención domiciliaria u otra medida."]]}, {"g": "", "n": "Vencimiento de Términos (Art. 317)", "c": [["Fundamento Principal", "Transcurso del tiempo de ley sin que se avance en las etapas procesales (p. ej. sin presentar acusación)."], ["Consecuencia", "Libertad inmediata por mora judicial sin evaluar pruebas."]]}], "t": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"}}</script>
-<script src="../comun/ap-propio.js?v=2f8d7cdf"></script>
+<script src="../comun/ap-propio.js?v=101baedd"></script>
 <script>
 /* Matriz de la fuente (cuarta pasada, 25/11/2026). Una tabla del documento se muestra entera si cabe con letra legible; si no, se
    recorre por filas: a la izquierda, la lista de filas (agrupadas si la tabla trae grupos) y a la derecha, todas las columnas de la
@@ -42,10 +42,13 @@
     }).join('');
     var T = document.createElement('div'); T.className = 'mzt'; T.style.gridTemplateColumns = 'minmax(150px,.8fr) repeat(' + C.length + ',1fr)'; T.innerHTML = cols + cuerpo;
     Z.style.display = 'none'; lz.insertBefore(T, Z);
-    var fz = 15.4; T.style.setProperty('--fz', fz + 'px');
-    while (T.scrollHeight > T.clientHeight + 1 && fz > 12.6) { fz -= 0.4; T.style.setProperty('--fz', fz + 'px'); }
-    if (T.scrollHeight > T.clientHeight + 1) { T.remove(); Z.style.display = ''; return false; }
+    function medir(min) { var fz = 15.4; T.style.setProperty('--fz', fz + 'px'); while (T.scrollHeight > T.clientHeight - 2 && fz > min) { fz -= 0.4; T.style.setProperty('--fz', fz + 'px'); } return T.scrollHeight <= T.clientHeight + 1; }
+    if (!medir(12.6)) { T.remove(); Z.style.display = ''; return false; }
     AV.innerHTML = '<i class="fas fa-table-list" aria-hidden="true"></i> Tabla completa: ' + N + ' filas';
+    /* la letra del curso llega después de la primera medida, y el marco puede cambiar de tamaño: se vuelve a medir */
+    function otra() { medir(11.6); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(otra, 40); });
+    window.addEventListener('resize', function () { setTimeout(otra, 160); }); setTimeout(otra, 900);
     return true;
   }
   if (N <= 5 && entera()) return;
@@ -60,8 +63,9 @@
     b.addEventListener('click', function () { ver(k); });
     L.appendChild(b); botones.push(b);
   });
-  /* la lista completa a la vista: se aprieta de a poco hasta caber */
-  ['c1', 'c2', 'c3'].some(function (c) { if (L.scrollHeight <= L.clientHeight + 1) return true; L.classList.add(c); return false; });
+  /* la lista completa a la vista: se aprieta de a poco hasta caber (con dos píxeles de aire, por los redondeos del zoom) */
+  function apretar() { L.classList.remove('c1', 'c2', 'c3', 'c4'); ['c1', 'c2', 'c3', 'c4'].some(function (c) { if (L.scrollHeight <= L.clientHeight - 2) return true; L.classList.add(c); return false; }); }
+  apretar();
   function ver(k) {
     var f = d.filas[k];
     botones.forEach(function (b, i) { b.classList.toggle('activa', i === k); b.setAttribute('aria-selected', i === k ? 'true' : 'false'); });
@@ -72,7 +76,7 @@
     /* todo a la vista: la letra baja de a poco hasta que las columnas de la fila quepan en el panel */
     var X = P.querySelector('.celdas'), fz = 15;
     X.style.setProperty('--fz', fz + 'px');
-    while (X.scrollHeight > X.clientHeight + 1 && fz > 11.8) { fz -= 0.3; X.style.setProperty('--fz', fz + 'px'); }
+    while (X.scrollHeight > X.clientHeight - 1 && fz > 11.8) { fz -= 0.3; X.style.setProperty('--fz', fz + 'px'); }
     X.style.overflow = X.scrollHeight > X.clientHeight + 1 ? 'auto' : '';
     var n = Object.keys(vistos).length;
     AV.innerHTML = n >= N
@@ -80,7 +84,10 @@
       : '<i class="fas fa-table-list" aria-hidden="true"></i> Elija cada fila de la izquierda · vistas: <b>' + n + ' de ' + N + '</b>';
   }
   ver(0);
-  window.addEventListener('resize', function () { setTimeout(function () { var a = botones.findIndex(function (b) { return b.classList.contains('activa'); }); ver(a < 0 ? 0 : a); }, 150); });
+  /* la letra del curso llega después de la primera medida, y el marco puede cambiar de tamaño: se vuelve a medir */
+  function otra() { apretar(); var a = botones.findIndex(function (b) { return b.classList.contains('activa'); }); ver(a < 0 ? 0 : a); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(otra, 40); });
+  window.addEventListener('resize', function () { setTimeout(otra, 160); }); setTimeout(otra, 900);
 })();
 </script>
 </body>
