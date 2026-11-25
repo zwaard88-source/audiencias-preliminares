@@ -217,9 +217,9 @@ html.ancho .lienzo .intro{font-size:14.2px}
 .mc .rama p.nota{font-size:11.8px;line-height:1.38;color:var(--suave);border-top:1px dashed var(--menta);padding-top:3px;margin-top:5px}
 .globo p.nota{font-size:12.2px;line-height:1.42;color:var(--suave);border-top:1px dashed var(--menta);padding-top:5px;margin-top:7px}
 /* matriz: la tabla del documento, entera si cabe (.mzt) o una fila a la vez con todas sus columnas (.mz) */
-.mzt{position:absolute;left:16px;right:16px;top:14px;bottom:42px;display:grid;gap:5px;align-content:center;overflow:hidden;font-size:var(--fz,14px)}
-.mzt>div{border-radius:9px;padding:7px 11px;min-width:0;line-height:1.38}
-.mzt .th{background:var(--petroleo);color:#fff;font:800 12px/1.25 Montserrat,sans-serif;letter-spacing:.03em;display:flex;align-items:center}
+.mzt{position:absolute;left:16px;right:16px;top:14px;bottom:42px;display:grid;gap:7px;align-content:center;overflow:hidden;font-size:var(--fz,14px)}
+.mzt>div{border-radius:10px;padding:.62em .85em;min-width:0;line-height:1.4}
+.mzt .th{background:var(--petroleo);color:#fff;font:800 .82em/1.25 Montserrat,sans-serif;letter-spacing:.03em;display:flex;align-items:center}
 .mzt .tn{background:var(--niebla);color:var(--petroleo);font:800 .92em/1.3 Montserrat,sans-serif;display:flex;align-items:center}
 .mzt .td{background:#fff;border:1.4px solid var(--verde)}
 .mzt .td p{margin:0}.mzt .td p+p{margin-top:4px}
