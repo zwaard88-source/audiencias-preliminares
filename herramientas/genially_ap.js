@@ -1,4 +1,14 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v13c, cuarta pasada y SCORM (25/11/2026).
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián) · v14, contraste con ambiental (25/11/2026, noche).
+   v14 (pedido de Sebastián: «aprovechar más la horizontalidad… reconoce patrones [de ambiental] y aplícalos a nuestro curso AP
+   manteniendo nuestra esencia»):
+   · franja ancha como la tarjeta de ambiental: tarjeta blanca con su franja de título (Salvia y terracota), el icono de la página
+     y el título en la franja; la página de 1153 × 462 de borde a borde con el pie (x 22 a 1175, la regla de alineación del
+     validador del taller). Va en las páginas que el manifiesto marca «ancho» (mapas, matrices, figuras y las 100 de texto largo
+     de anchas.json); las demás siguen divididas (título e ilustración a la izquierda);
+   · índice: el botón «Ver instrucciones de navegación» (instrucciones.html?modo=boton, 300 × 44), como en ambiental;
+   · «Fin»: fin.html a todo el ancho entre la cabecera y el pie (el caminante llega a la meta, nivel, puntos y tramos; en U4 L4
+     «Fin del curso» con las cuatro unidades); lo de la plantilla sale del lienzo (no se borra).
+   v13c, cuarta pasada y SCORM (25/11/2026):
    Se inyecta en el editor y deja window.AP. Cambios de esta pasada, con el estándar del taller (docs/mediaciones-aprobadas.md §3):
    · la lección empieza en su portadita (se ocultan la portada del curso, la tapita de unidad, la introducción y el índice de temas);
    · portadita sin los botoncitos «En esta lección»; un solo «Comenzar»;
@@ -28,6 +38,14 @@ const PREV='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle 
 /* la flecha «siguiente» de la plantilla es la misma «anterior» girada 180°: el dibujo apunta a la izquierda y el giro lo voltea */
 const NEXT=g=>'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="25" fill="#B05A36"/><path d="'+(g?'M28.5 15.5L19 25l9.5 9.5':'M21.5 15.5L31 25l-9.5 9.5')+'" fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const its=id=>A.getSlideItems(id),st=id=>RS.slidesStore.findSlideById(id);
+/* v14: tarjeta de la franja ancha (ambiental: franja de título con icono sobre la tarjeta blanca), con los colores del curso */
+const GLIFO={escena:'<path d="M0-9.5a6.6 6.6 0 0 1 3.9 11.9V4.6h-7.8V2.4A6.6 6.6 0 0 1 0-9.5z" fill="#FFFFFF"/><rect x="-3.9" y="5.9" width="7.8" height="2.4" rx="1.2" fill="#FFFFFF"/>',
+ mapa:'<rect x="-3.5" y="-9" width="7" height="6" rx="1.4" fill="#FFFFFF"/><rect x="-9.5" y="3" width="7" height="6" rx="1.4" fill="#FFFFFF"/><rect x="2.5" y="3" width="7" height="6" rx="1.4" fill="#FFFFFF"/><path d="M0-3v3M-6 3V0h12v3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>',
+ actividad:'<path d="M-6.5 0.5l4.2 4.2 8.8-9.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+ figura:'<rect x="-9" y="-7" width="18" height="14" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/><circle cx="-3.5" cy="-2.2" r="2" fill="#FFFFFF"/><path d="M-8 6l5-5 3.5 3.5 3-3L8 6z" fill="#FFFFFF"/>'};
+const TARJ=g=>'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1153 509" width="1153" height="509"><rect x="1" y="1" width="1151" height="507" rx="14" fill="#FFFFFF" stroke="#CFE0D6" stroke-width="2"/><path d="M15 1H1138A14 14 0 0 1 1152 15V42H1V15A14 14 0 0 1 15 1Z" fill="#E3EDE7"/><rect x="1" y="41" width="1151" height="2" fill="#CFE0D6"/><circle cx="27" cy="21.5" r="15" fill="#C8754F"/><g transform="translate(27 21.5)">'+(GLIFO[g]||GLIFO.escena)+'</g></svg>';
+const glifo=p=>p.tipo==='mapa'||p.tipo==='matriz'?'mapa':p.tipo==='actividad'||p.tipo==='arrastrar'?'actividad':p.tipo==='figura'?'figura':'escena';
+const esTarjeta=i=>i.type==='svg'&&!i.parentGroupId&&Math.abs(i.size.width-1153)<3&&Math.abs(i.size.height-509)<3;
 const esc_=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const conTexto=(html,nuevo)=>{const doc=new DOMParser().parseFromString('<div>'+html+'</div>','text/html'),r=doc.body.firstChild;[...r.querySelectorAll('p')].slice(1).forEach(x=>x.remove());[...r.querySelectorAll('br')].forEach(x=>x.remove());const ts=[],w=doc.createTreeWalker(r,NodeFilter.SHOW_TEXT);while(w.nextNode())ts.push(w.currentNode);const p=ts.find(t=>t.nodeValue.trim())||ts[0];if(!p)return html;p.nodeValue=nuevo;ts.filter(t=>t!==p).forEach(t=>t.remove());return r.innerHTML};
 const pon=(id,t)=>{const h=A.getTextHtml(id);if(pl(h)!==t||/<br/i.test(h)){A.updateTextContent(id,conTexto(h,t));return 1}return 0};
@@ -56,7 +74,7 @@ async function paginas(u,l,M){const P=M.paginas,n=P.length;A.selectSlide(A.getSl
  let E=esc(),g=0;while(E.length<n&&g++<200){A.duplicateSlide(E[E.length-1].id);await d(380);E=esc()}
  let c=0;for(let k=0;k<E.length;k++){const S=st(E[k].id);if(k>=n){if(!S.data.Hidden)S.data.setHidden(true);continue}if(S.data.Hidden)S.data.setHidden(false);
   const p=P[k],sid=E[k].id,nom='L'+l+' · Escena '+(k+1);if(E[k].name!==nom)A.setSlideName(sid,nom);
-  const an=!!p.ancho,R=an?{x:25,y:139,w:1150,h:462}:{x:409,y:97,w:766,h:509},W=an?1150:767,H=an?462:510;
+  const an=!!p.ancho,R=an?{x:22,y:139,w:1153,h:462}:{x:409,y:97,w:766,h:509},W=an?1153:767,H=an?462:510;
   const rc=[...S.unorderedItems].find(i=>i.data&&i.data.setSource),ifr='<iframe src="'+href(u,l,p.src)+'" width="'+W+'" height="'+H+'" style="border:0" title="'+p.id+'" allowfullscreen allow="fullscreen; autoplay"></iframe>';
   if(rc){if(String(rc.data.Source).indexOf(ifr)<0){rc.data.setSource('<div class="card-iframe">'+ifr+'</div>');if(rc.data.setOriginalUrl)rc.data.setOriginalUrl(ifr);c++}
    const ri=its(sid).find(i=>i.id===rc.data.Id);if(ri){c+=pos(ri,R.x,R.y);if(Math.abs(ri.size.width-R.w)>1.5||Math.abs(ri.size.height-R.h)>1.5){A.updateItemSize(ri.id,{width:R.w,height:R.h});c++}}}
@@ -86,8 +104,18 @@ async function marco(I,M,k,n){let c=0;
 /* 4. Acomodo de cada página: franja ancha o dividida; ilustración solo si el manifiesto la trae. */
 async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
  for(let k=desde;k<Math.min(P.length,E.length,hasta);k++){A.selectSlide(E[k].id);await d(420);let I=its(E[k].id);const p=P[k],tx=textos(I),T=tx[0],Sb=tx[1],img=dibujo(I);if(!T)continue;
-  if(p.ancho){c+=pos(T,28,99);c+=anc(T,1144);if(Sb)c+=pos(Sb,-900,170);if(img&&img.position.x>-800)c+=pos(img,-900,img.position.y)}
-  else{c+=pos(T,28,108);if(anc(T,350)){c++;await d(120)}const hT=alto(T),sy=Math.round(108+hT+8);if(Sb)c+=pos(Sb,28,sy);
+  let tj=I.find(esTarjeta);
+  if(p.ancho){if(Sb)c+=pos(Sb,-900,170);if(img&&img.position.x>-800)c+=pos(img,-900,img.position.y);
+   /* la tarjeta: se crea una vez por página y va al fondo (detrás del título y de la página) */
+   const g=glifo(p),svg=TARJ(g);
+   if(!tj){try{await A.createSvg({x:22,y:97,width:1153,height:509,svg,color:'#E3EDE7',colors:['#FFFFFF','#CFE0D6','#E3EDE7','#C8754F'],aspectRatio:false,slideId:E[k].id});await d(500);
+     tj=its(E[k].id).find(esTarjeta);if(tj){A.reorderItem(tj.id,'back');await d(120)}c++}catch(e){window.__ap_err=String(e).slice(0,160)}}
+   else{c+=pos(tj,22,97);const S=[...st(E[k].id).unorderedItems].find(x=>x.data&&x.data.Id===tj.id),src=S&&(S.data.Source||S.data.Svg||'');
+    if(!src||String(src).indexOf(GLIFO[g].slice(0,40))<0){try{await A.updateSvgSource(tj.id,svg);c++}catch(e){}}}
+   const L=p.titulo.length;let f=L<=62?22:L<=76?20:L<=92?18:L<=108?16:14.5;c+=anc(T,1090);c+=fsz(T.id,f);await d(80);
+   while(alto(T)>40&&f>12.5){f-=1;A.updateTextFontSize(T.id,f);await d(120)}
+   c+=pos(T,66,Math.round(118.5-alto(T)/2))}
+  else{if(tj&&tj.position.x>-1200)c+=pos(tj,-1300,97);c+=pos(T,28,108);if(anc(T,350)){c++;await d(120)}const hT=alto(T),sy=Math.round(108+hT+8);if(Sb)c+=pos(Sb,28,sy);
    const bajo=Sb&&p.subtitulo?sy+alto(Sb):108+hT;
    if(img){if(!p.ilus){if(img.position.x>-800)c+=pos(img,-900,img.position.y)}
     else if(592-(bajo+12)<130){if(img.position.x>-800)c+=pos(img,-900,img.position.y)}
@@ -99,6 +127,16 @@ async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
 
 async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.selectSlide(slideId);await d(350);A.copyItems([gid]);await d(250);A.pasteItems();await d(1100);return its(slideId).filter(i=>!antes.includes(i.id)&&i.type==='group'&&!i.parentGroupId)[0]}
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
+
+/* v14: caja de HTML (rich-content) en una página de plantilla: se copia la de la primera escena y se le pone su iframe */
+async function pegarHtml(desde,hacia){const src=its(desde).find(i=>i.type==='rich-content'&&!i.parentGroupId);if(!src)return null;const antes=its(hacia).map(i=>i.id);
+ A.selectSlide(desde);await d(450);A.copyItems([src.id]);await d(300);A.selectSlide(hacia);await d(550);A.pasteItems();await d(1400);
+ return its(hacia).find(i=>!antes.includes(i.id)&&i.type==='rich-content'&&!i.parentGroupId)}
+async function cajaHtml(slideId,url,R,titulo){let rc=its(slideId).find(i=>i.type==='rich-content'&&!i.parentGroupId);const E=esc();if(!rc&&E[0])rc=await pegarHtml(E[0].id,slideId);if(!rc)return -1;
+ const ifr='<iframe src="'+url+'" width="'+R.w+'" height="'+R.h+'" style="border:0" title="'+titulo+'" allowfullscreen allow="fullscreen; autoplay"></iframe>';
+ const S=[...st(slideId).unorderedItems].find(x=>x.data&&x.data.Id===rc.id);let c=0;
+ if(S&&String(S.data.Source).indexOf(ifr)<0){S.data.setSource('<div class="card-iframe">'+ifr+'</div>');if(S.data.setOriginalUrl)S.data.setOriginalUrl(ifr);c++}
+ c+=pos(rc,R.x,R.y);if(Math.abs(rc.size.width-R.w)>1.5||Math.abs(rc.size.height-R.h)>1.5){A.updateItemSize(rc.id,{width:R.w,height:R.h});c++}return c}
 
 /* 5. Portadita (sin botoncitos) e índice por apartado, con la guía del estándar. */
 async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=true;P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
@@ -134,7 +172,16 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=true;P.forEac
    for(const h of hijos(gr)){if(h.type==='svg'&&h.size.width>400)continue;const a=h.type==='text'?alto(h):h.size.height;A.updateItemPosition(h.id,{x:h.position.x,y:Math.round((H-a)/2)});await d(25)}
    await d(80);A.updateItemPosition(gr.id,{x:i<filas?24:607,y:173+(i%filas)*(H+7)});await d(40)}
   await marco(its(ind.id),M,null,0);r.push('índice '+U+' apartados, alto '+H)}else if(ind)r.push('índice sin tocar: '+U+' apartados');
- if(fin){A.selectSlide(fin.id);await d(450);await marco(its(fin.id),M,null,0);r.push('fin')}
+ /* v14: «Ver instrucciones de navegación» arriba a la derecha del índice (ambiental: 300 × 44); el título y la guía le dejan sitio */
+ if(ind){A.selectSlide(ind.id);await d(450);const I=its(ind.id),T0=I.find(i=>i.type==='text'&&!i.parentGroupId&&/^Índice de la lecci/.test(pl(A.getTextHtml(i.id))));if(T0)anc(T0,820);
+  const gu=I.find(i=>i.type==='text'&&!i.parentGroupId&&/^Elija una p/.test(pl(A.getTextHtml(i.id))));
+  if(gu){anc(gu,840);await d(150);let f=15;try{f=A.getTextItemDetails(gu.id).fontSize||15}catch(e){}while(alto(gu)>22&&f>12){f-=0.5;A.updateTextFontSize(gu.id,f);await d(120)}}
+  r.push('instrucciones '+await cajaHtml(ind.id,href(M.unidad,l,'instrucciones.html?modo=boton'),{x:875,y:104,w:300,h:44},'Ver instrucciones de navegación'))}
+ /* v14: «Fin» = fin.html entre la cabecera y el pie; lo de la plantilla sale del lienzo (no se borra) */
+ if(fin){A.selectSlide(fin.id);await d(450);
+  for(const i of its(fin.id).filter(i=>!i.parentGroupId&&i.type!=='rich-content'&&i.position.y>95&&i.position.y<600&&i.position.x>-1000))A.updateItemPosition(i.id,{x:i.position.x-1500,y:i.position.y});
+  await d(200);r.push('fin '+await cajaHtml(fin.id,href(M.unidad,l,'fin.html'),{x:0,y:89,w:1198,h:521},M.unidad===4&&l===4?'Fin del curso':'Fin de la lección'));
+  await marco(its(fin.id),M,null,0)}
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
 
 /* 6. Ilustración de la columna izquierda: solo la que el manifiesto asigna (corresponde al tema). */
@@ -147,7 +194,7 @@ async function ilustrar(desde=0,hasta=1e9){const P=window.APM.paginas,E=esc(),K=
 /* 7. Revisión de cajas: lo que no cabe donde va. Devuelve una lista corta (vacía si todo cabe). */
 function revisar(){const P=(window.APM||{paginas:[]}).paginas,E=esc(),out=[];
  for(let k=0;k<Math.min(P.length,E.length);k++){const I=its(E[k].id),p=P[k],tx=textos(I),T=tx[0],Sb=tx[1],img=dibujo(I);if(!T)continue;const hT=alto(T);
-  if(p.ancho){if(hT>44)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)')}
+  if(p.ancho){if(hT>42)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)');if(!I.find(esTarjeta))out.push((k+1)+': sin tarjeta')}
   else{const hS=Sb&&p.subtitulo?alto(Sb):0,bajo=108+hT+(hS?8+hS:0);if(bajo>596)out.push((k+1)+': título y frase llegan a '+Math.round(bajo));
    if(img&&img.position.x>-800&&img.position.y<bajo-2)out.push((k+1)+': el dibujo pisa el texto');if(img&&img.position.x>-800&&img.size.height<110)out.push((k+1)+': dibujo muy chico '+Math.round(img.size.height))}
   const hd=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y<70&&i.position.x>440&&i.position.x<760)[0];if(hd&&(alto(hd)>70||hd.position.y<6))out.push((k+1)+': cabecera '+Math.round(alto(hd))+' px');
@@ -160,4 +207,4 @@ function estado(){const E=esc(),P=(window.APM||{paginas:[]}).paginas,sl=A.getSli
 /* 8. Todo en orden para una creación; deja el avance en window.__ap_log (para seguirlo desde fuera). */
 async function todo(u,l){const L=window.__ap_log=[];try{L.push(await montar(u,l));L.push(await ilustrar());const n=window.APM.paginas.length;for(let a=0;a<n;a+=12)L.push(await acomodar(window.APM,a,a+12));
  L.push(await indice(l,window.APM));L.push(revisar());L.push('guardado: '+(await A.saveNow()).status);L.push(estado());L.push('FIN')}catch(e){L.push('ERROR '+String(e&&e.stack||e).slice(0,220))}return L.join(' · ')}
-return{montar,cargar,estructura,revisar,todo,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13c'
+return{montar,cargar,estructura,revisar,todo,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v14'
