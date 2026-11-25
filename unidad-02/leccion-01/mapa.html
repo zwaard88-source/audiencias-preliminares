@@ -5,7 +5,7 @@
 <title>Mapa conceptual · Lección 1. Solicitud de orden de captura</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=72dda63c">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=0a6c1249">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -16,7 +16,7 @@
   <div class="avance" id="avance"></div>
 </main>
 <script type="application/json" id="datos">{"4": {"t": "Trámite", "r": [{"h": "Solicitud de la Fiscalía", "p": [["", "El fiscal asignado solicita de manera motivada y, por regla general, en audiencia reservada, la expedición de la orden. El fiscal debe identificar o individualizar al indiciado. Indicar que el delito por el que se hace la solicitud tiene prevista medida de aseguramiento privativa de la libertad (art. 313 del CPP). Acreditar los hechos jurídicamente relevantes. Argumentar por qué se infiere que el indiciado es autor o participe del delito investigado (art. 221 del CPP). Realizar juicio de proporcionalidad. Señalar el término de vigencia de la orden de captura (art. 298 del CPP)."], ["", "Sustentar la necesidad o no, de que la orden sea divulgada por la Policía Judicial a través de los medios de comunicación."]]}, {"h": "Audiencia preliminar", "p": [["", "El juez evalúa la necesidad, razonabilidad y suficiencia de los elementos materiales probatorios presentados por el ente acusador."]]}, {"h": "Emisión y vigencia", "p": [["", "De ordenar la captura, el mandamiento escrito debe ser librado por secretaría, y contener de forma clara y sucinta los requisitos que indica el art. 298 del CPP, así como la vigencia de la orden (máximo 1 año, según el artículo 298 del C.P.P.)."]]}, {"h": "Ejecución y control", "p": [["", "La Policía Nacional materializa la aprehensión y conduce al ciudadano, disponiéndolo ante un JCG en un plazo máximo de 36 horas para llevar a cabo la audiencia de control de legalidad y, de ser el caso, imputación y solicitud de medida de aseguramiento."]]}], "ilus": "entrega-carpeta.webp", "raiz": ""}}</script>
-<script src="../comun/ap-propio.js?v=72dda63c"></script>
+<script src="../comun/ap-propio.js?v=0a6c1249"></script>
 <script>
 /* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página y todas sus ramas a la vista. Si el texto cabe, se
    lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana pequeña junto a ella.
@@ -131,6 +131,8 @@
     });
     svg.innerHTML = '<g fill="none" stroke="#587E6D" stroke-width="2" stroke-linecap="round">' + s + '</g>';
   }
+  /* si el marco cambia de forma (dividida ↔ franja ancha) después de cargar, el mapa se vuelve a armar para esa forma */
+  window.addEventListener('resize', function () { setTimeout(function () { if (document.documentElement.classList.contains('ancho') !== ANCHO) location.reload(); }, 200); });
   window.addEventListener('load', trazar); window.addEventListener('resize', function () { setTimeout(trazar, 80); }); setTimeout(trazar, 250); setTimeout(trazar, 900);
 })();
 </script>

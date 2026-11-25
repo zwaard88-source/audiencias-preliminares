@@ -13,7 +13,8 @@ const BASE='https://zwaard88-source.github.io/audiencias-preliminares/';
 const pl=h=>{const e=document.createElement('div');e.innerHTML=String(h||'').replace(/<br\s*\/?>/gi,' ');return(e.textContent||'').replace(/\s+/g,' ').trim()};
 const hx=c=>{const m=/rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(c||'');return m?'#'+[1,2,3].map(i=>(+m[i]).toString(16).padStart(2,'0')).join('').toUpperCase():String(c||'').toUpperCase()};
 const PREV='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22.6" fill="none" stroke="#FFFFFF" stroke-width="2.6"/><path d="M28.5 15.5L19 25l9.5 9.5" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const NEXT='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="25" fill="#B05A35"/><path d="M21.5 15.5L31 25l-9.5 9.5" fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+/* la flecha «siguiente» de la plantilla es la misma «anterior» girada 180°: el dibujo apunta a la izquierda y el giro lo voltea */
+const NEXT=g=>'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="25" fill="#B05A36"/><path d="'+(g?'M28.5 15.5L19 25l9.5 9.5':'M21.5 15.5L31 25l-9.5 9.5')+'" fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const its=id=>A.getSlideItems(id),st=id=>RS.slidesStore.findSlideById(id);
 const esc_=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const conTexto=(html,nuevo)=>{const doc=new DOMParser().parseFromString('<div>'+html+'</div>','text/html'),r=doc.body.firstChild;[...r.querySelectorAll('p')].slice(1).forEach(x=>x.remove());[...r.querySelectorAll('br')].forEach(x=>x.remove());const ts=[],w=doc.createTreeWalker(r,NodeFilter.SHOW_TEXT);while(w.nextNode())ts.push(w.currentNode);const p=ts.find(t=>t.nodeValue.trim())||ts[0];if(!p)return html;p.nodeValue=nuevo;ts.filter(t=>t!==p).forEach(t=>t.remove());return r.innerHTML};
@@ -28,7 +29,10 @@ const textos=I=>I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<300&
 const dibujo=I=>I.filter(i=>i.type==='image'&&!i.parentGroupId&&i.position.x<300&&i.position.y>140&&i.size.width>100)[0];
 
 /* 1. La lección empieza en su portadita: el preludio del curso y de la unidad se oculta (no se borra). */
-function estructura(){let n=0;for(const s of A.getSlides()){const nm=(s.name||'').trim();if(nm==='Portada'||/^Unidad \d+$/.test(nm)||/^Introducci[oó]n$/.test(nm)||nm==='Índice'){const S=st(s.id);if(!S.data.Hidden){S.data.setHidden(true);n++}}}return 'preludio oculto '+n}
+function estructura(){let n=0;const s0=A.getSlides(),por=s0.find(s=>/· Portada$/.test(s.name||''));
+ /* Genially no deja ocultar la primera página: la portadita de la lección pasa a ser la primera y la del curso queda oculta detrás */
+ if(por&&s0[0].id!==por.id){try{A.reorderSlide(por.id,s0[0].id,null);n++}catch(e){}}
+ for(const s of A.getSlides()){const nm=(s.name||'').trim();if(nm==='Portada'||/^Unidad \d+$/.test(nm)||/^Introducci[oó]n$/.test(nm)||nm==='Índice'){const S=st(s.id);if(!S.data.Hidden){S.data.setHidden(true);n++}}}return 'preludio oculto '+n}
 
 /* 2. Una página por entrada del manifiesto: iframe con su forma, título y frase clave. */
 async function paginas(u,l,M){const P=M.paginas,n=P.length;A.selectSlide(A.getSlides()[0].id);await d(200);
@@ -47,7 +51,7 @@ async function paginas(u,l,M){const P=M.paginas,n=P.length;A.selectSlide(A.getSl
 /* 3. Cabecera y pie, iguales en todas las páginas. */
 async function marco(I,M,k,n){let c=0;
  const ar=I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i.position.y<24&&i.size.width>40&&i.size.width<60&&i.position.x>880&&i.position.x<1070).sort((a,b)=>a.position.x-b.position.x);
- if(ar.length===2&&!(ar[1].colors||[]).map(hx).includes('#B05A35')){try{await A.updateSvgSource(ar[0].id,PREV);await A.updateSvgSource(ar[1].id,NEXT);c+=2}catch(e){}}
+ if(ar.length===2&&!(ar[1].colors||[]).map(hx).includes('#B05A36')){try{await A.updateSvgSource(ar[0].id,PREV);await A.updateSvgSource(ar[1].id,NEXT(Math.abs((ar[1].rotation||0)%360)===180));c+=2}catch(e){}}
  const hd=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y<70&&i.position.x>440&&i.position.x<760)[0];
  if(hd){const t=M.titulo,L=t.length,fs=L<=40?20:L<=62?18:L<=92?16:14.5;c+=pon(hd.id,t);c+=fsz(hd.id,fs);c+=anc(hd,449);const lin=Math.ceil(L*fs*0.57/449),h=lin*fs*1.22;c+=pos(hd,467,Math.round(44.5-h/2))}
  const tf=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y>600),tt=i=>pl(A.getTextHtml(i.id));
@@ -119,4 +123,4 @@ async function cargar(u,l){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion
 async function montar(u,l){const n=await cargar(u,l),a=estructura(),b=await paginas(u,l,window.APM);return n+' páginas · '+a+' · '+b}
 function estado(){const E=esc(),P=(window.APM||{paginas:[]}).paginas,sl=A.getSlides(),vis=sl.filter(s=>!st(s.id).data.Hidden);
  return JSON.stringify({visibles:vis.map(s=>s.name).slice(0,3),nVis:vis.length,escenasVisibles:E.filter(s=>!st(s.id).data.Hidden).length,manifiesto:P.length})}
-return{montar,cargar,estructura,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v12'
+return{montar,cargar,estructura,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v12c'
