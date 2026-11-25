@@ -12,6 +12,7 @@
    "seccion": "Lección 2. Control de legalidad de captura (orden judicial y flagrancia)",
    "escena": 1,
    "id": "AP-U2-L2-E01",
+   "nav": "Control de legalidad de la captura",
    "indice": "Control de legalidad de la captura"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "2.1. Fundamento constitucional y legal",
    "escena": 2,
    "id": "AP-U2-L2-E02",
+   "nav": "Fundamento constitucional y legal",
    "indice": "Fundamento constitucional y legal"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "2.2. Requisitos",
    "escena": 3,
    "id": "AP-U2-L2-E03",
+   "nav": "Requisitos",
    "indice": "Requisitos"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 4,
    "id": "AP-U2-L2-E04",
+   "nav": "Trámite de la audiencia",
    "indice": "Trámite de la audiencia"
   },
   {
@@ -52,6 +56,7 @@
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 5,
    "id": "AP-U2-L2-E05",
+   "nav": "Captura en flagrancia",
    "indice": "Trámite de la audiencia"
   },
   {
@@ -62,6 +67,7 @@
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 6,
    "id": "AP-U2-L2-E06",
+   "nav": "Captura en flagrancia",
    "indice": "Trámite de la audiencia"
   },
   {
@@ -72,6 +78,7 @@
    "seccion": "2.3. Trámite de la audiencia",
    "escena": 7,
    "id": "AP-U2-L2-E07",
+   "nav": "Trámite de la audiencia",
    "indice": "Trámite de la audiencia"
   },
   {
@@ -82,6 +89,7 @@
    "seccion": "Aplicación al expediente del curso",
    "escena": 8,
    "id": "AP-U2-L2-E08",
+   "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso"
   }
  ]

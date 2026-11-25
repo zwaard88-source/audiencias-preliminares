@@ -12,6 +12,7 @@
    "seccion": "4.1. Fundamento constitucional y legal",
    "escena": 1,
    "id": "AP-U2-L4-E01",
+   "nav": "Fundamento constitucional y legal",
    "indice": "Fundamento constitucional y legal"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "4.2. Requisitos y plazos (Ley 906 de 2004)",
    "escena": 2,
    "id": "AP-U2-L4-E02",
+   "nav": "Requisitos y plazos (Ley 906 de 2004)",
    "indice": "Requisitos y plazos (Ley 906 de 2004)"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "4.3. Duplicación y excepciones",
    "escena": 3,
    "id": "AP-U2-L4-E03",
+   "nav": "Duplicación y excepciones",
    "indice": "Duplicación y excepciones"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "4.3. Duplicación y excepciones",
    "escena": 4,
    "id": "AP-U2-L4-E04",
+   "nav": "Duplicación y excepciones",
    "indice": "Duplicación y excepciones"
   },
   {
@@ -52,6 +56,7 @@
    "seccion": "4.4. Trámite de la solicitud",
    "escena": 5,
    "id": "AP-U2-L4-E05",
+   "nav": "Trámite de la solicitud",
    "indice": "Trámite de la solicitud"
   },
   {
@@ -62,6 +67,7 @@
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 6,
    "id": "AP-U2-L4-E06",
+   "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
@@ -72,6 +78,7 @@
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 7,
    "id": "AP-U2-L4-E07",
+   "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
@@ -82,17 +89,19 @@
    "seccion": "4.5. Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "escena": 8,
    "id": "AP-U2-L4-E08",
+   "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
    "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=9",
-   "titulo": "Sustitución de la detención preventiva (art. 314).",
+   "titulo": "Sustitución de la detención preventiva (art. 314)",
    "subtitulo": "Artículo 314 del Código de Procedimiento",
    "seccion": "4.6. Sustitución de la detención preventiva (art. 314).",
    "escena": 9,
    "id": "AP-U2-L4-E09",
-   "indice": "Sustitución de la detención preventiva (art. 314)."
+   "nav": "Sustitución de la detención preventiva (art. 314)",
+   "indice": "Sustitución de la detención preventiva (art. 314)"
   },
   {
    "tipo": "mapa",
@@ -102,7 +111,8 @@
    "seccion": "4.6.1. Causales de Procedencia",
    "escena": 10,
    "id": "AP-U2-L4-E10",
-   "indice": "Sustitución de la detención preventiva (art. 314)."
+   "nav": "Causales de Procedencia",
+   "indice": "Sustitución de la detención preventiva (art. 314)"
   },
   {
    "tipo": "escena",
@@ -112,7 +122,8 @@
    "seccion": "4.6.1. Causales de Procedencia",
    "escena": 11,
    "id": "AP-U2-L4-E11",
-   "indice": "Sustitución de la detención preventiva (art. 314)."
+   "nav": "Causales de Procedencia",
+   "indice": "Sustitución de la detención preventiva (art. 314)"
   },
   {
    "tipo": "escena",
@@ -122,7 +133,8 @@
    "seccion": "4.6.2. Exclusiones y Prohibiciones (Parágrafo)",
    "escena": 12,
    "id": "AP-U2-L4-E12",
-   "indice": "Sustitución de la detención preventiva (art. 314)."
+   "nav": "Exclusiones y Prohibiciones (Parágrafo)",
+   "indice": "Sustitución de la detención preventiva (art. 314)"
   },
   {
    "tipo": "escena",
@@ -132,17 +144,19 @@
    "seccion": "4.6.3. Obligaciones y control",
    "escena": 13,
    "id": "AP-U2-L4-E13",
-   "indice": "Sustitución de la detención preventiva (art. 314)."
+   "nav": "Obligaciones y control",
+   "indice": "Sustitución de la detención preventiva (art. 314)"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=14",
-   "titulo": "El término máximo de las medidas privativas (art. 307, parágrafo 1).",
+   "titulo": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
    "subtitulo": "Según el parágrafo 1º del artículo 307 · Derecho a solicitar la sustitución",
    "seccion": "4.7. El término máximo de las medidas privativas (art. 307, parágrafo 1).",
    "escena": 14,
    "id": "AP-U2-L4-E14",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
+   "nav": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
   },
   {
    "tipo": "escena",
@@ -152,7 +166,8 @@
    "seccion": "4.7.1. Prórroga del término inicial",
    "escena": 15,
    "id": "AP-U2-L4-E15",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
+   "nav": "Prórroga del término inicial",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
   },
   {
    "tipo": "mapa",
@@ -162,7 +177,8 @@
    "seccion": "4.7.2. Excepciones y suspensiones de términos",
    "escena": 16,
    "id": "AP-U2-L4-E16",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)."
+   "nav": "Excepciones y suspensiones de términos",
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
   }
  ]
 }

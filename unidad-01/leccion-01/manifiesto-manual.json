@@ -1,0 +1,11 @@
+{"unidad": 1, "leccion": 1, "titulo": "Fundamentos constitucionales y legales de las audiencias preliminares",
+ "heading": "Lección 1. Fundamentos constitucionales y legales de las audiencias preliminares",
+ "paginas": [
+  {"tipo": "escena", "src": "index.html?escena=1", "titulo": "Audiencias preliminares", "subtitulo": "Le corresponden siempre a un juez con funciones de control de garantías", "id": "AP-U1-L1-E01"},
+  {"tipo": "mapa", "src": "mapa.html?m=2", "titulo": "El control previo y el control posterior", "subtitulo": "Someter a control y autorización judicial", "id": "AP-U1-L1-E02"},
+  {"tipo": "escena", "src": "index.html?escena=3", "titulo": "Principio de publicidad", "subtitulo": "El carácter reservado de ciertos tipos de audiencias preliminares", "id": "AP-U1-L1-E03"},
+  {"tipo": "mapa", "src": "mapa.html?m=4", "titulo": "Sentencia SU-141/20", "subtitulo": "Una acción de tutela contra un juzgado", "id": "AP-U1-L1-E04"},
+  {"tipo": "mapa", "src": "mapa.html?m=5", "titulo": "Juicio sesudo a nivel constitucional", "subtitulo": "(a) La legalidad, (b) la razonabilidad, (c) la necesidad y (d) la proporcionalidad", "id": "AP-U1-L1-E05"},
+  {"tipo": "caso", "src": "caso.html", "titulo": "Caso de estudio", "subtitulo": "El caso de Beatriz Elena Morales", "id": "AP-U1-L1-E06"},
+  {"tipo": "actividad", "src": "index.html?escena=6", "titulo": "Aplicación al caso práctico", "subtitulo": "", "id": "AP-U1-L1-E07"}
+ ]}

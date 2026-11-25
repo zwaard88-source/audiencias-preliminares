@@ -12,6 +12,7 @@
    "seccion": "Lección 1. Solicitud de orden de captura",
    "escena": 1,
    "id": "AP-U2-L1-E01",
+   "nav": "Solicitud de orden de captura",
    "indice": "Solicitud de orden de captura"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "1.1. Fundamento",
    "escena": 2,
    "id": "AP-U2-L1-E02",
+   "nav": "Fundamento",
    "indice": "Fundamento"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "1.2. Requisitos",
    "escena": 3,
    "id": "AP-U2-L1-E03",
+   "nav": "Requisitos",
    "indice": "Requisitos"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "1.3. Trámite",
    "escena": 4,
    "id": "AP-U2-L1-E04",
+   "nav": "Trámite",
    "indice": "Trámite"
   }
  ]

@@ -12,6 +12,7 @@
    "seccion": "Lección 5. Particularidades de la ley 1826 de 2017",
    "escena": 1,
    "id": "AP-U2-L5-E01",
+   "nav": "Ley 1826 de 2017",
    "indice": "Ley 1826 de 2017"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "5.1. Procedimiento penal abreviado",
    "escena": 2,
    "id": "AP-U2-L5-E02",
+   "nav": "Procedimiento penal abreviado",
    "indice": "Procedimiento penal abreviado"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "5.1. Procedimiento penal abreviado",
    "escena": 3,
    "id": "AP-U2-L5-E03",
+   "nav": "Procedimiento penal abreviado",
    "indice": "Procedimiento penal abreviado"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "5.2. El acusador privado",
    "escena": 4,
    "id": "AP-U2-L5-E04",
+   "nav": "El acusador privado",
    "indice": "El acusador privado"
   },
   {
@@ -52,6 +56,7 @@
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
    "escena": 5,
    "id": "AP-U2-L5-E05",
+   "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos"
   },
   {
@@ -62,6 +67,7 @@
    "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
    "escena": 6,
    "id": "AP-U2-L5-E06",
+   "nav": "Beneficios punitivos por aceptación de cargos",
    "indice": "Beneficios punitivos por aceptación de cargos"
   },
   {
@@ -72,6 +78,7 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U2-L5-F1",
+   "nav": "Mapa conceptual",
    "indice": "Mapa conceptual"
   },
   {
@@ -82,6 +89,7 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U2-L5-F2",
+   "nav": "Diagrama de flujo",
    "indice": "Diagrama de flujo"
   }
  ]

@@ -12,6 +12,7 @@
    "seccion": "3.1. Fundamento legal",
    "escena": 1,
    "id": "AP-U2-L3-E01",
+   "nav": "Fundamento legal",
    "indice": "Fundamento legal"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 2,
    "id": "AP-U2-L3-E02",
+   "nav": "Requisitos de procedibilidad y materiales",
    "indice": "Requisitos de procedibilidad y materiales"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 3,
    "id": "AP-U2-L3-E03",
+   "nav": "Requisitos de procedibilidad y materiales",
    "indice": "Requisitos de procedibilidad y materiales"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "3.2. Requisitos de procedibilidad y materiales",
    "escena": 4,
    "id": "AP-U2-L3-E04",
+   "nav": "Requisitos de procedibilidad y materiales",
    "indice": "Requisitos de procedibilidad y materiales"
   },
   {
@@ -52,7 +56,8 @@
    "seccion": "3.3.1. Medidas privativas de la libertad",
    "escena": 5,
    "id": "AP-U2-L3-E05",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "nav": "Medidas privativas de la libertad",
+   "indice": "Tipos de medidas no privativas y la sustitución"
   },
   {
    "tipo": "escena",
@@ -62,7 +67,8 @@
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 6,
    "id": "AP-U2-L3-E06",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "nav": "Medidas no privativas de la libertad",
+   "indice": "Tipos de medidas no privativas y la sustitución"
   },
   {
    "tipo": "escena",
@@ -72,7 +78,8 @@
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 7,
    "id": "AP-U2-L3-E07",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "nav": "Medidas no privativas de la libertad",
+   "indice": "Tipos de medidas no privativas y la sustitución"
   },
   {
    "tipo": "mapa",
@@ -82,7 +89,8 @@
    "seccion": "3.3.2. Medidas no privativas de la libertad",
    "escena": 8,
    "id": "AP-U2-L3-E08",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "nav": "Medidas no privativas de la libertad",
+   "indice": "Tipos de medidas no privativas y la sustitución"
   },
   {
    "tipo": "escena",
@@ -92,6 +100,7 @@
    "seccion": "3.4. Particularidades del artículo 307 CPP",
    "escena": 9,
    "id": "AP-U2-L3-E09",
+   "nav": "Particularidades del artículo 307 CPP",
    "indice": "Particularidades del artículo 307 CPP"
   },
   {
@@ -102,6 +111,7 @@
    "seccion": "3.5. Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "escena": 10,
    "id": "AP-U2-L3-E10",
+   "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN"
   },
   {
@@ -112,6 +122,7 @@
    "seccion": "3.5. Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "escena": 11,
    "id": "AP-U2-L3-E11",
+   "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN"
   },
   {
@@ -122,6 +133,7 @@
    "seccion": "3.6. Trámite de la audiencia",
    "escena": 12,
    "id": "AP-U2-L3-E12",
+   "nav": "Trámite de la audiencia",
    "indice": "Trámite de la audiencia"
   },
   {
@@ -132,6 +144,7 @@
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 13,
    "id": "AP-U2-L3-E13",
+   "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía"
   },
   {
@@ -142,6 +155,7 @@
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 14,
    "id": "AP-U2-L3-E14",
+   "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía"
   },
   {
@@ -152,6 +166,7 @@
    "seccion": "3.7. Solicitud de la Fiscalía",
    "escena": 15,
    "id": "AP-U2-L3-E15",
+   "nav": "Solicitud de la Fiscalía",
    "indice": "Solicitud de la Fiscalía"
   },
   {
@@ -162,6 +177,7 @@
    "seccion": "3.8. Intervención de otros sujetos",
    "escena": 16,
    "id": "AP-U2-L3-E16",
+   "nav": "Intervención de otros sujetos",
    "indice": "Intervención de otros sujetos"
   },
   {
@@ -172,6 +188,7 @@
    "seccion": "3.9. Controversia de la defensa",
    "escena": 17,
    "id": "AP-U2-L3-E17",
+   "nav": "Controversia de la defensa",
    "indice": "Controversia de la defensa"
   },
   {
@@ -182,6 +199,7 @@
    "seccion": "3.10. Decisión del juez",
    "escena": 18,
    "id": "AP-U2-L3-E18",
+   "nav": "Decisión del juez",
    "indice": "Decisión del juez"
   }
  ]

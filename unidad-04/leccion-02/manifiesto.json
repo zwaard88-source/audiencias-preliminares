@@ -12,6 +12,7 @@
    "seccion": "Lección 2. Sustentación probatoria y respuesta estratégica a las controversias de las partes",
    "escena": 1,
    "id": "AP-U4-L2-E01",
+   "nav": "Implementación del modelo procesal penal acusatorio",
    "indice": "Implementación del modelo procesal penal acusatorio"
   },
   {
@@ -22,6 +23,7 @@
    "seccion": "2.1. Finalidad y concreción de los motivos fundados",
    "escena": 2,
    "id": "AP-U4-L2-E02",
+   "nav": "Finalidad y concreción de los motivos fundados",
    "indice": "Finalidad y concreción de los motivos fundados"
   },
   {
@@ -32,6 +34,7 @@
    "seccion": "2.2. Respaldo probatorio a los motivos fundados",
    "escena": 3,
    "id": "AP-U4-L2-E03",
+   "nav": "Respaldo probatorio a los motivos fundados",
    "indice": "Respaldo probatorio a los motivos fundados"
   },
   {
@@ -42,6 +45,7 @@
    "seccion": "2.3. De la reserva en las audiencias de control de legalidad",
    "escena": 4,
    "id": "AP-U4-L2-E04",
+   "nav": "De la reserva en las audiencias de control de legalidad",
    "indice": "De la reserva en las audiencias de control de legalidad"
   },
   {
@@ -52,6 +56,7 @@
    "seccion": "2.4. Cómo responder en audiencia a las objeciones de la defensa",
    "escena": 5,
    "id": "AP-U4-L2-E05",
+   "nav": "Cómo responder en audiencia a las objeciones de la defensa",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
@@ -62,6 +67,7 @@
    "seccion": "2.4.1. Categorías habituales de objeciones",
    "escena": 6,
    "id": "AP-U4-L2-E06",
+   "nav": "Categorías habituales de objeciones",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
@@ -72,36 +78,40 @@
    "seccion": "2.4.1. Categorías habituales de objeciones",
    "escena": 7,
    "id": "AP-U4-L2-E07",
+   "nav": "Categorías habituales de objeciones",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=8",
-   "titulo": "Formas técnicas de contestar:",
+   "titulo": "Formas técnicas de contestar",
    "subtitulo": "Defender la pregunta (No ha lugar) · Ejemplo",
    "seccion": "2.4.2. Formas técnicas de contestar:",
    "escena": 8,
    "id": "AP-U4-L2-E08",
+   "nav": "Formas técnicas de contestar",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=9",
-   "titulo": "Reformular la pregunta:",
+   "titulo": "Reformular la pregunta",
    "subtitulo": "Comete un error técnico en la estructura · Ejemplo",
    "seccion": "2.4.3. Reformular la pregunta:",
    "escena": 9,
    "id": "AP-U4-L2-E09",
+   "nav": "Reformular la pregunta",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=10",
-   "titulo": "Retirar la pregunta:",
-   "subtitulo": "Se te · Ejemplo",
+   "titulo": "Retirar la pregunta",
+   "subtitulo": "Ejemplo",
    "seccion": "2.4.4. Retirar la pregunta:",
    "escena": 10,
    "id": "AP-U4-L2-E10",
+   "nav": "Retirar la pregunta",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
@@ -112,6 +122,7 @@
    "seccion": "2.4.5. Reglas de Oro en Sala",
    "escena": 11,
    "id": "AP-U4-L2-E11",
+   "nav": "Reglas de Oro en Sala",
    "indice": "Cómo responder en audiencia a las objeciones de la defensa"
   },
   {
@@ -122,6 +133,7 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U4-L2-F1",
+   "nav": "Estrategia para responder objeciones en sala",
    "indice": "Estrategia para responder objeciones en sala"
   },
   {
@@ -132,6 +144,7 @@
    "seccion": "2.5. Fundamento de la reserva judicial",
    "escena": 12,
    "id": "AP-U4-L2-E12",
+   "nav": "Fundamento de la reserva judicial",
    "indice": "Fundamento de la reserva judicial"
   },
   {
@@ -142,6 +155,7 @@
    "seccion": "2.5. Fundamento de la reserva judicial",
    "escena": 13,
    "id": "AP-U4-L2-E13",
+   "nav": "Fundamento de la reserva judicial",
    "indice": "Fundamento de la reserva judicial"
   }
  ]

@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026).
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v5.
    Se pega en la consola del editor (o lo inyecta Claude) y deja window.AP: AP.color() pasa la plantilla a «Salvia y terracota»;
    AP.montar(u, l) deja una página por entrada del manifiesto (iframe, título, subtítulo), la portadita y el índice por apartado.
    No publica: solo guarda. Las páginas que sobran se ocultan, no se borran. */
@@ -48,11 +48,22 @@ async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.select
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
 async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{const t=p.indice||p.titulo;if(!secs.length||secs[secs.length-1].t!==t)secs.push({t,k})});
  const sl=A.getSlides(),por=sl.find(s=>/· Portada$/.test(s.name)),ind=sl.find(s=>/· Índice$/.test(s.name)),U=secs.length,r=[];
- if(por){const hijos=g=>its(por.id).filter(i=>i.parentGroupId===g.id);let C=its(por.id).filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width<60&&hijos(i).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id))))).sort((a,b)=>a.position.x-b.position.x);
-  const tot=U<=9?U:0;let g=0;while(C.length<tot&&C.length&&g++<12){const nv=await pegar(por.id,C[C.length-1].id);if(!nv)break;C.push(nv)}
-  for(let i=0;i<C.length;i++){if(i>=tot){A.updateItemPosition(C[i].id,{x:-400,y:386});continue}A.updateItemPosition(C[i].id,{x:77+56*i,y:386});const t=hijos(C[i]).find(h=>h.type==='text');if(t)pon(t.id,String(i+1));ir(C[i].id,E[secs[i].k].id);await d(40)}r.push('círculos '+tot)}
+ if(por){A.selectSlide(por.id);await d(650);const I=its(por.id),hijos=g=>its(por.id).filter(i=>i.parentGroupId===g.id);
+  let C=I.filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width<60&&hijos(i).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id))))).sort((a,b)=>(b.position.x>=0)-(a.position.x>=0)||a.position.x-b.position.x);
+  const tot=U<=16?U:0;let g=0;while(C.length<tot&&C.length&&g++<16){const nv=await pegar(por.id,C[C.length-1].id);if(!nv)break;C.push(nv)}
+  /* el bloque va debajo del título, sin pisarse: filete, «En esta lección» y los círculos; las dos líneas grises sueltas salen del lienzo */
+  const T=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<120&&i.position.y>150&&i.position.y<215).sort((a,b)=>a.position.y-b.position.y)[0];
+  let bajo=386;if(T){let fs=30;try{fs=A.getTextItemDetails(T.id).fontSize||30}catch(e){}const n=pl(A.getTextHtml(T.id)).length,lin=Math.max(1,Math.ceil(n/Math.floor(T.size.width/(fs*0.54))));bajo=T.position.y+Math.min(lin*fs*1.24,T.size.height>20&&T.size.height<lin*fs*1.24+40?T.size.height:1e9)}
+  const fil=I.find(i=>i.type==='svg'&&!i.parentGroupId&&i.size.height<9&&i.size.width<130&&i.position.x<130&&i.position.y>150),eti=I.find(i=>i.type==='text'&&!i.parentGroupId&&/^En esta lecci/.test(pl(A.getTextHtml(i.id))));
+  const by=Math.round(bajo+14),ey=by+20,cy=ey+(eti?34:6);
+  if(fil)A.updateItemPosition(fil.id,{x:80,y:by});if(eti){A.updateItemPosition(eti.id,{x:tot?77:-900,y:ey})}
+  for(const ln of I.filter(i=>i.type==='svg'&&!i.parentGroupId&&i.size.height<9&&i.size.width>300&&i.position.x<130&&i.position.y>300))A.updateItemPosition(ln.id,{x:-900,y:ln.position.y});
+  for(let i=0;i<C.length;i++){if(i>=tot){A.updateItemPosition(C[i].id,{x:-400,y:386});continue}A.updateItemPosition(C[i].id,{x:77+46*(i%8),y:cy+42*Math.floor(i/8)});
+   for(const h of hijos(C[i])){if(h.type==='svg'&&(h.colors||[]).some(k=>hx(k)!=='#587E6D'))A.updateSvgColors(h.id,(h.colors||[]).map(()=>'#587E6D'));else if(h.type==='text')pon(h.id,String(i+1))}ir(C[i].id,E[secs[i].k].id);await d(40)}r.push('círculos '+tot)}
  if(ind&&U<=14){const hijos=g=>its(ind.id).filter(i=>i.parentGroupId===g.id),txt=g=>hijos(g).filter(h=>h.type==='text').map(h=>pl(A.getTextHtml(h.id)));
   let G=its(ind.id).filter(i=>i.type==='group'&&!i.parentGroupId&&i.size.width>400),ini=G.find(g=>txt(g).some(t=>/^Inicio/.test(t))),fin=G.find(g=>txt(g).some(t=>/^Fin de/.test(t)));
+  if(!fin){fin=G.find(g=>g!==ini&&g.position.x>-100&&!hijos(g).some(h=>h.type==='text'&&/^\d+$/.test(pl(A.getTextHtml(h.id)))));if(fin){const tt=hijos(fin).find(h=>h.type==='text');if(tt)pon(tt.id,'Fin de la lección')}}
+  if(fin){const sf=sl.find(s=>/· Fin$/.test(s.name));if(sf)ir(fin.id,sf.id)}if(ini&&por)ir(ini.id,por.id);
   let N=G.filter(g=>g!==ini&&g!==fin).sort((a,b)=>(a.position.x-b.position.x)||(a.position.y-b.position.y)),g=0;
   while(N.length<U&&N.length&&g++<16){const nv=await pegar(ind.id,N[N.length-1].id);if(!nv)break;N.push(nv)}
   const orden=[ini,...N.slice(0,U),fin].filter(Boolean),filas=Math.ceil(orden.length/2),H=Math.min(102,Math.floor(427/filas)-7);
@@ -64,4 +75,4 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{c
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v4'
+return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v5'

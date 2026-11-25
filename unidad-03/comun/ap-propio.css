@@ -131,3 +131,46 @@ svg.trazos{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
 .mc.g2 .rama p{font-size:15px}.mc.g2 .rama h3{font-size:15px}.mc.g2 .rama h3.solo{font-size:16.2px}.mc.g2 .rama{padding:13px 15px 14px}.mc.g2 .ramas{gap:15px}
 .mc.g3 .rama p{font-size:16.4px}.mc.g3 .rama h3{font-size:16.2px}.mc.g3 .rama h3.solo{font-size:17.6px}.mc.g3 .rama{padding:16px 17px 17px}.mc.g3 .ramas{gap:18px}
 .mc.g1 .rama h3 .num,.mc.g2 .rama h3 .num,.mc.g3 .rama h3 .num{width:24px;height:24px;font-size:12px}
+
+/* ---------- Arrastrar y soltar (U4 L3 · Ejercicio No. 1: Silogismo probatorio) ----------
+   Conceptos en gris y fichas en verde, como los describe el autor («figuras flotantes (verdes)… conceptos (grises)»). */
+.arr-pant{position:absolute;inset:0;padding:14px 16px 44px;display:flex;flex-direction:column}
+.arr-pant[hidden]{display:none}
+.arr-intro{justify-content:center;align-items:flex-start;gap:12px;padding:26px 46px 50px;background:linear-gradient(160deg,var(--hielo) 0%,#fff 60%)}
+.arr-ceja{font-family:Montserrat,sans-serif;font-size:12px;font-weight:800;color:var(--coral-osc);letter-spacing:.3px;text-transform:uppercase}
+.arr-intro h1{margin:0;font-family:Montserrat,sans-serif;font-size:23px;line-height:1.2;color:var(--petroleo)}
+.arr-texto{font-size:16px;line-height:1.5;color:var(--tinta);display:flex;flex-direction:column;gap:8px}
+.arr-intro .btn{font-size:14px;padding:10px 20px;margin-top:4px}
+.arr-barra{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 2px 8px}
+.arr-barra strong{font-family:Montserrat,sans-serif;font-size:14px;color:var(--petroleo)}
+.arr-cuenta{font-size:12px;font-weight:700;color:var(--verde);white-space:nowrap}
+.arr-cuerpo{flex:1;min-height:0;display:grid;grid-template-columns:1.28fr 1fr;gap:10px}
+.arr-ranuras{display:flex;flex-direction:column;gap:8px;min-height:0}
+.arr-ranura{flex:1;min-height:0;border:2px dashed #AEB7B3;border-radius:12px;background:#F1F3F2;padding:6px 8px 8px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:background .15s,border-color .15s}
+.arr-ranura h2{margin:0;align-self:flex-start;font-family:Montserrat,sans-serif;font-size:13px;font-weight:800;color:#fff;background:#56625D;border-radius:8px;padding:4px 11px}
+.arr-ranura.sobre{background:var(--niebla);border-color:var(--verde);border-style:solid}
+.arr-ranura.acierto{background:#DDEBE3;border-color:var(--verde)}
+.arr-hueco{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px;align-content:start}
+.arr-pila-caja{display:flex;flex-direction:column;gap:5px;min-height:0;border:1.5px solid var(--menta);border-radius:12px;background:var(--hielo);padding:7px 7px 6px}
+.arr-rot{font-size:11.5px;font-weight:800;color:var(--verde);display:flex;gap:6px;align-items:center}
+.arr-pila{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:4px}
+.arr-ficha{border:0;border-radius:9px;background:var(--verde);color:#fff;font-family:Roboto,system-ui,sans-serif;font-size:12.6px;font-weight:600;line-height:1.2;text-align:left;padding:4px 9px;cursor:grab;touch-action:none;box-shadow:0 2px 0 #00000022;transition:transform .12s,background .15s}
+.arr-ficha:hover{background:#4B6F5F}
+.arr-ficha.elegida{background:var(--coral-osc);transform:translateX(-4px)}
+.arr-ficha.puesta{background:var(--petroleo);cursor:default;box-shadow:none;font-size:12.2px;padding:5px 8px;opacity:1}
+.arr-ficha.saliendo{opacity:.35}
+.arr-ficha.fantasma{position:absolute;z-index:20;pointer-events:none;box-shadow:0 10px 22px #2F4F4555;transform:rotate(-2deg)}
+.arr-ficha.error{background:var(--coral-osc);animation:arr-no .5s}
+@keyframes arr-no{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
+.arr-aviso{min-height:17px;margin-top:5px!important;font-size:12.5px;font-weight:700;color:var(--suave);text-align:center}
+.arr-aviso.bien{color:var(--verde)}.arr-aviso.mal{color:var(--coral-osc)}
+.arr-pie2{position:absolute;right:12px;bottom:9px;display:flex;gap:8px;z-index:5}
+.arr-sol{gap:6px}
+.arr-ok{font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;color:var(--verde)}
+.arr-sol .marco{flex:1;min-height:0;border:1.5px solid var(--menta);border-radius:12px;background:#20252A;overflow:hidden;position:relative;cursor:zoom-in}
+.arr-sol .marco.zoom{cursor:grab}
+.arr-sol .marco img{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+.arr-nota{font-size:12.5px;line-height:1.35;color:var(--tinta)}
+.arr-nota p:first-child{font-weight:700}
+.arr-fuente{font-size:11px;color:var(--suave)}
+@media (prefers-reduced-motion:reduce){.arr-ficha.error{animation:none}}

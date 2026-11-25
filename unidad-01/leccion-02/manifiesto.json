@@ -7,42 +7,46 @@
   {
    "tipo": "mapa",
    "src": "mapa.html?m=1",
-   "titulo": "Audiencias preliminares corresponden a escenarios procesales",
+   "titulo": "Finalidad de las audiencias preliminares",
    "subtitulo": "Exclusiva de los jueces de la República",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 1,
    "id": "AP-U1-L2-E01",
-   "indice": "Audiencias preliminares corresponden a escenarios procesales"
+   "nav": "Finalidad de las audiencias preliminares",
+   "indice": "Finalidad de las audiencias preliminares"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=2",
-   "titulo": "Desarrollo de las audiencias preliminares",
+   "titulo": "Principios y garantías que las orientan",
    "subtitulo": "Presunción de inocencia · Principio de no autoincriminación · Principio de celeridad · …",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 2,
    "id": "AP-U1-L2-E02",
-   "indice": "Desarrollo de las audiencias preliminares"
+   "nav": "Principios y garantías que las orientan",
+   "indice": "Principios y garantías que las orientan"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
-   "titulo": "(a) fin legítimo",
-   "subtitulo": "Medidas de aseguramiento · (b) idoneidad o utilidad · Pueda acceder a otro medio menos gravoso",
+   "titulo": "Principio de proporcionalidad",
+   "subtitulo": "(a) Fin legítimo · (b) Idoneidad o utilidad · (c) Necesidad",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 3,
    "id": "AP-U1-L2-E03",
-   "indice": "(a) fin legítimo"
+   "nav": "Principio de proporcionalidad",
+   "indice": "Principio de proporcionalidad"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=4",
-   "titulo": "(d) proporcionalidad (en estricto sentido)",
-   "subtitulo": "Merece la pena indicar · Relaciona con un método intermedio",
+   "titulo": "Principio de proporcionalidad",
+   "subtitulo": "(d) Proporcionalidad (en estricto sentido)",
    "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
    "escena": 4,
    "id": "AP-U1-L2-E04",
-   "indice": "(d) proporcionalidad (en estricto sentido)"
+   "nav": "Principio de proporcionalidad",
+   "indice": "Principio de proporcionalidad"
   },
   {
    "tipo": "actividad",
@@ -52,6 +56,7 @@
    "seccion": "Aplicación al expediente del curso",
    "escena": 5,
    "id": "AP-U1-L2-E05",
+   "nav": "Aplicación al expediente del curso",
    "indice": "Aplicación al expediente del curso"
   }
  ]

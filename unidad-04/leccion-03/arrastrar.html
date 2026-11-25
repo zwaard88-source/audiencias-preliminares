@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrastrar y soltar · Lección 3. Construcción de inferencias razonables de autoría y participación</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=da35bed3">
+</head>
+<body>
+<main class="lienzo arr" id="lienzo">
+  <!-- 1. Instrucciones del autor -->
+  <section class="arr-pant arr-intro" id="p-intro">
+    <p class="arr-ceja"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> <span id="ceja"></span></p>
+    <h1 id="nombre"></h1>
+    <div class="arr-texto" id="instruccion"></div>
+    <button class="btn" id="comenzar">Comenzar el ejercicio <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+  </section>
+  <!-- 2. Tablero -->
+  <section class="arr-pant arr-tablero" id="p-tablero" hidden>
+    <div class="arr-barra"><strong id="raiz"></strong><span class="arr-cuenta" id="cuenta" aria-live="polite"></span></div>
+    <div class="arr-cuerpo">
+      <div class="arr-ranuras" id="ranuras"></div>
+      <div class="arr-pila-caja"><p class="arr-rot"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Fichas: arrastre cada una a su concepto</p><div class="arr-pila" id="pila"></div></div>
+    </div>
+    <p class="arr-aviso" id="aviso" aria-live="assertive"></p>
+    <div class="arr-pie2"><button class="btn-chico" id="reinicia"><i class="fas fa-rotate-left" aria-hidden="true"></i> Clic para empezar de nuevo</button><button class="btn-chico" id="ver"><i class="fas fa-eye" aria-hidden="true"></i> Clic para ver la solución del autor</button></div>
+  </section>
+  <!-- 3. Solución: el gráfico del autor, entero -->
+  <section class="arr-pant arr-sol" id="p-sol" hidden>
+    <p class="arr-ok" id="logro"></p>
+    <div class="marco" id="marco" tabindex="0" role="img"><img id="img" alt=""></div>
+    <div class="arr-nota"><p id="solucion"></p><p class="arr-fuente" id="fuente"></p></div>
+    <div class="arr-pie2"><button class="btn-chico" id="volver"><i class="fas fa-arrow-left" aria-hidden="true"></i> Clic para volver al ejercicio</button><button class="btn-chico" id="mas"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> Clic para acercar</button></div>
+  </section>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+</main>
+<script type="application/json" id="datos">{"ceja": "Ejercicio integrador: comprensión de conceptos · Instrucciones", "titulo": "Ejercicio No. 1: Silogismo probatorio", "raiz": "Silogismo Probatorio: Inferencia Razonable (Art. 308 CPP)", "ranuras": [["Hechos Indicadores", ["Datos objetivos de EMP, EF e ILO", "Informes oficiales de policía judicial", "Entrevistas y extracciones con control", "Prohibición de meras sospechas o conjeturas"]], ["Regla de Conexión", ["Máxima de la experiencia común", "Principio técnico o científico aplicable", "Razonamiento lógico formal", "Vinculación entre indicador e indicado"]], ["Hecho Indicado", ["Hipótesis fáctica de autoría o participación", "Delito concreto objeto de investigación", "Presupuestos de procedencia del Art. 313 CPP", "Pronóstico retrospectivo de probabilidad intermedia"]]], "instruccion": ["A continuación, podrá encontrar un ejercicio relacionado con los conceptos vistos en esta lección, denominado “Arrastrar y soltar” (“Drag and Drop”). Para completar la actividad, debe arrastrar cada ficha flotante desde la columna derecha hasta la ranura fija que le corresponda a la izquierda. En este caso, corresponde encajas de forma lógica los conceptos con sus connotación y denotación."], "solucion": "Esta es la forma correcta de ubicar las figuras flotantes (verdes) con relación a los tres conceptos sobre los cuales se pretende generar una adecuada comprensión (grises).", "fuente": "Fuente: elaboración propia.", "imagen": "../medios/fig-u4-l3-20.png", "alt": "Silogismo Probatorio: Inferencia Razonable (Art. 308 CPP): Hechos Indicadores (Datos objetivos de EMP, EF e ILO, Informes oficiales de policía judicial, Entrevistas y extracciones con control, Prohibición de meras sospechas o conjeturas); Regla de Conexión (Máxima de la experiencia común, Principio técnico o científico aplicable, Razonamiento lógico formal, Vinculación entre indicador e indicado); Hecho Indicado (Hipótesis fáctica de autoría o participación, Delito concreto objeto de investigación, Presupuestos de procedencia del Art. 313 CPP, Pronóstico retrospectivo de probabilidad intermedia)"}</script>
+<script src="../comun/ap-propio.js?v=da35bed3"></script>
+<script>
+/* Ejercicio de «Arrastrar y soltar» que pide el diseño instruccional: las fichas flotantes (verdes) van a la ranura de su concepto
+   (gris). Los textos de las fichas y de los conceptos son los del gráfico del autor; la solución es ese gráfico, entero.
+   Se puede arrastrar (ratón o dedo) o usar clic/teclado: se elige una ficha y luego el concepto. La ficha que no corresponde
+   vuelve a la pila y se puede intentar otra vez. */
+(function () {
+  var D = JSON.parse(document.getElementById('datos').textContent), $ = function (i) { return document.getElementById(i); };
+  var L = $('lienzo'), z = function () { return L.getBoundingClientRect().width / L.clientWidth; };
+  var esc = function (t) { return String(t).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+  $('ceja').textContent = D.ceja; $('nombre').textContent = D.titulo; $('raiz').textContent = D.raiz;
+  $('instruccion').innerHTML = D.instruccion.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
+  $('solucion').textContent = D.solucion; $('fuente').textContent = D.fuente; $('img').src = D.imagen; $('img').alt = D.alt; $('marco').setAttribute('aria-label', D.alt);
+  var fichas = [], total = 0, elegida = null, fallos = 0;
+  D.ranuras.forEach(function (r, i) { r[1].forEach(function (t) { fichas.push({ t: t, r: i }); total++; }); });
+  function baraja(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; } return a; }
+  function pantalla(id) { ['p-intro', 'p-tablero', 'p-sol'].forEach(function (p) { $(p).hidden = p !== id; }); }
+  function cuenta() { var n = document.querySelectorAll('.arr-ranura .arr-ficha').length; $('cuenta').textContent = n + ' de ' + total + ' fichas en su lugar'; return n; }
+  function aviso(t, bien) { var a = $('aviso'); a.textContent = t; a.className = 'arr-aviso' + (t ? (bien ? ' bien' : ' mal') : ''); }
+  function arma() {
+    fallos = 0; elegida = null; aviso('');
+    $('ranuras').innerHTML = D.ranuras.map(function (r, i) {
+      return '<div class="arr-ranura" data-r="' + i + '" tabindex="0" role="button" aria-label="Concepto: ' + esc(r[0]) + '. Pulse para poner aquí la ficha elegida."><h2>' + esc(r[0]) + '</h2><div class="arr-hueco"></div></div>';
+    }).join('');
+    $('pila').innerHTML = baraja(fichas.slice()).map(function (f) {
+      return '<button type="button" class="arr-ficha" data-r="' + f.r + '">' + esc(f.t) + '</button>';
+    }).join('');
+    cuenta();
+  }
+  function soltar(f, ran) {
+    if (!f || !ran) return;
+    var nombre = D.ranuras[Number(ran.dataset.r)][0];
+    if (f.dataset.r === ran.dataset.r) {
+      ran.querySelector('.arr-hueco').appendChild(f); f.classList.remove('elegida'); f.classList.add('puesta'); f.disabled = true;
+      ran.classList.add('acierto'); setTimeout(function () { ran.classList.remove('acierto'); }, 500);
+      var n = cuenta();
+      if (n === total) { aviso('¡Muy bien! Todas las fichas están en su concepto.', true); $('logro').textContent = '¡Muy bien! Ubicó las ' + total + ' fichas en su concepto.'; setTimeout(function () { pantalla('p-sol'); ajusta(); }, 1100); }
+      else aviso('Correcto: «' + f.textContent + '» corresponde a «' + nombre + '».', true);
+    } else {
+      fallos++; f.classList.remove('elegida'); f.classList.add('error'); setTimeout(function () { f.classList.remove('error'); }, 600);
+      aviso('«' + f.textContent + '» no corresponde a «' + nombre + '». Vuelva a intentarlo con otro concepto.', false);
+    }
+    elegida = null;
+  }
+  /* clic o teclado: elegir ficha y luego concepto */
+  $('pila').addEventListener('click', function (e) {
+    var f = e.target.closest('.arr-ficha'); if (!f || arrastre && arrastre.movio) return;
+    document.querySelectorAll('.arr-ficha.elegida').forEach(function (x) { x.classList.remove('elegida'); });
+    if (elegida === f) { elegida = null; aviso(''); return; }
+    elegida = f; f.classList.add('elegida'); aviso('Ficha elegida. Ahora pulse el concepto al que corresponde.', true);
+  });
+  $('ranuras').addEventListener('click', function (e) { var r = e.target.closest('.arr-ranura'); if (r && elegida) soltar(elegida, r); });
+  $('ranuras').addEventListener('keydown', function (e) { var r = e.target.closest('.arr-ranura'); if (r && elegida && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); soltar(elegida, r); } });
+  /* arrastre con ratón o dedo */
+  var arrastre = null;
+  $('pila').addEventListener('pointerdown', function (e) {
+    var f = e.target.closest('.arr-ficha'); if (!f) return;
+    arrastre = { f: f, x: e.clientX, y: e.clientY, movio: false, fantasma: null };
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!arrastre) return;
+    var dx = e.clientX - arrastre.x, dy = e.clientY - arrastre.y;
+    if (!arrastre.movio && Math.abs(dx) + Math.abs(dy) < 7) return;
+    if (!arrastre.movio) {
+      arrastre.movio = true; var r = arrastre.f.getBoundingClientRect(), g = arrastre.f.cloneNode(true), k = z();
+      g.className = 'arr-ficha fantasma'; g.style.width = r.width / k + 'px'; L.appendChild(g); arrastre.fantasma = g; arrastre.f.classList.add('saliendo');
+    }
+    var R = L.getBoundingClientRect(), k2 = z(), g2 = arrastre.fantasma;
+    g2.style.left = (e.clientX - R.left) / k2 - g2.offsetWidth / 2 + 'px'; g2.style.top = (e.clientY - R.top) / k2 - g2.offsetHeight / 2 + 'px';
+    var bajo = document.elementFromPoint(e.clientX, e.clientY), ran = bajo && bajo.closest ? bajo.closest('.arr-ranura') : null;
+    document.querySelectorAll('.arr-ranura.sobre').forEach(function (x) { if (x !== ran) x.classList.remove('sobre'); });
+    if (ran) ran.classList.add('sobre');
+  });
+  window.addEventListener('pointerup', function (e) {
+    if (!arrastre) return;
+    var a = arrastre; setTimeout(function () { arrastre = null; }, 0);
+    if (!a.movio) { arrastre = null; return; }
+    a.fantasma.remove(); a.f.classList.remove('saliendo');
+    var bajo = document.elementFromPoint(e.clientX, e.clientY), ran = bajo && bajo.closest ? bajo.closest('.arr-ranura') : null;
+    document.querySelectorAll('.arr-ranura.sobre').forEach(function (x) { x.classList.remove('sobre'); });
+    if (ran) soltar(a.f, ran);
+  });
+  $('comenzar').onclick = function () { pantalla('p-tablero'); };
+  $('reinicia').onclick = arma;
+  $('ver').onclick = function () { $('logro').textContent = 'Solución del autor'; pantalla('p-sol'); ajusta(); };
+  $('volver').onclick = function () { pantalla('p-tablero'); };
+  /* solución: el gráfico entero; clic para acercar y arrastrar para recorrerlo */
+  var m = $('marco'), im = $('img'), kz = 1, x = 0, y = 0, base = 1, mov = null, movio = false;
+  function pinta() { var W = m.clientWidth, H = m.clientHeight, w = im.naturalWidth * base * kz, h = im.naturalHeight * base * kz; x = w <= W ? (W - w) / 2 : Math.min(0, Math.max(W - w, x)); y = h <= H ? (H - h) / 2 : Math.min(0, Math.max(H - h, y)); im.style.width = w + 'px'; im.style.transform = 'translate(' + x + 'px,' + y + 'px)'; m.classList.toggle('zoom', kz > 1); }
+  function ajusta() { if (!im.naturalWidth || !m.clientWidth) return; base = Math.min(m.clientWidth / im.naturalWidth, m.clientHeight / im.naturalHeight); pinta(); }
+  function acercar(f, cx, cy) { var W = m.clientWidth, H = m.clientHeight; cx = cx === undefined ? W / 2 : cx; cy = cy === undefined ? H / 2 : cy; var k2 = Math.max(1, Math.min(4, kz * f)); x = cx - (cx - x) * k2 / kz; y = cy - (cy - y) * k2 / kz; kz = k2; pinta(); }
+  im.onload = ajusta; window.addEventListener('resize', function () { setTimeout(ajusta, 80); });
+  $('mas').onclick = function () { acercar(kz >= 3.9 ? 1 / 4 : 1.6); };
+  m.addEventListener('pointerdown', function (e) { mov = { x: e.clientX, y: e.clientY, x0: x, y0: y }; movio = false; m.setPointerCapture(e.pointerId); });
+  m.addEventListener('pointermove', function (e) { if (!mov) return; var dx = (e.clientX - mov.x) / z(), dy = (e.clientY - mov.y) / z(); if (Math.abs(dx) + Math.abs(dy) > 4) movio = true; x = mov.x0 + dx; y = mov.y0 + dy; pinta(); });
+  m.addEventListener('pointerup', function (e) { if (mov && !movio) { var r = m.getBoundingClientRect(); acercar(kz >= 3.9 ? 1 / 4 : 1.8, (e.clientX - r.left) / z(), (e.clientY - r.top) / z()); } mov = null; });
+  m.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === 'Enter') acercar(1.6); if (e.key === '-') acercar(1 / 1.6); });
+  arma();
+})();
+</script>
+</body>
+</html>

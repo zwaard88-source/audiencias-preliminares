@@ -12,6 +12,7 @@
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 1,
    "id": "AP-U3-L3-E01",
+   "nav": "Injerencias en los derechos fundamentales",
    "indice": "Injerencias en los derechos fundamentales"
   },
   {
@@ -22,27 +23,30 @@
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 2,
    "id": "AP-U3-L3-E02",
+   "nav": "Grado de reconocimiento jurídico",
    "indice": "Grado de reconocimiento jurídico"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
-   "titulo": "Típicas nominadas",
-   "subtitulo": "Típicas emergentes · Atípicas o innominadas",
+   "titulo": "Clasificación de TEI",
+   "subtitulo": "Típicas nominadas · Típicas emergentes · Atípicas o innominadas",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 3,
    "id": "AP-U3-L3-E03",
-   "indice": "Típicas nominadas"
+   "nav": "Clasificación de TEI",
+   "indice": "Clasificación de TEI"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=4",
-   "titulo": "Primera aproximación",
-   "subtitulo": "A abordar determinadas TEI cuya selección atiende",
+   "titulo": "Clasificación de TEI",
+   "subtitulo": "Primera aproximación",
    "seccion": "Lección 3. Comprensión, práctica y control judicial de técnicas especiales de investigación",
    "escena": 4,
    "id": "AP-U3-L3-E04",
-   "indice": "Primera aproximación"
+   "nav": "Clasificación de TEI",
+   "indice": "Clasificación de TEI"
   },
   {
    "tipo": "mapa",
@@ -52,6 +56,7 @@
    "seccion": "3.1. Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
    "escena": 5,
    "id": "AP-U3-L3-E05",
+   "nav": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -62,6 +67,7 @@
    "seccion": "3.1.1. Intervención de las comunicaciones telefónicas y telemáticas",
    "escena": 6,
    "id": "AP-U3-L3-E06",
+   "nav": "Intervención de las comunicaciones telefónicas y telemáticas",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -72,6 +78,7 @@
    "seccion": "3.1.1. Intervención de las comunicaciones telefónicas y telemáticas",
    "escena": 7,
    "id": "AP-U3-L3-E07",
+   "nav": "Intervención de las comunicaciones telefónicas y telemáticas",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -82,6 +89,7 @@
    "seccion": "3.1.2. Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "escena": 8,
    "id": "AP-U3-L3-E08",
+   "nav": "Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -92,6 +100,7 @@
    "seccion": "3.1.2. Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "escena": 9,
    "id": "AP-U3-L3-E09",
+   "nav": "Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -102,6 +111,7 @@
    "seccion": "3.1.3. Utilización de dispositivos técnicos de captación de imagen, de seguimiento y de localización",
    "escena": 10,
    "id": "AP-U3-L3-E10",
+   "nav": "Utilización de dispositivos técnicos de captación de imagen, de seguimiento y de localización",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -112,6 +122,7 @@
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
    "escena": 11,
    "id": "AP-U3-L3-E11",
+   "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -122,6 +133,7 @@
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
    "escena": 12,
    "id": "AP-U3-L3-E12",
+   "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -132,6 +144,7 @@
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
    "escena": 13,
    "id": "AP-U3-L3-E13",
+   "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -142,6 +155,7 @@
    "seccion": "3.1.4. Registro de dispositivos de almacenamiento masivo de información",
    "escena": 14,
    "id": "AP-U3-L3-E14",
+   "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -152,6 +166,7 @@
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
    "escena": 15,
    "id": "AP-U3-L3-E15",
+   "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -162,6 +177,7 @@
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
    "escena": 16,
    "id": "AP-U3-L3-E16",
+   "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -172,6 +188,7 @@
    "seccion": "3.1.4.1. Marco normativo internacional, transnacional y nacional",
    "escena": 17,
    "id": "AP-U3-L3-E17",
+   "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -182,6 +199,7 @@
    "seccion": "3.1.4.2. Legislación comparada",
    "escena": 18,
    "id": "AP-U3-L3-E18",
+   "nav": "Legislación comparada",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -192,6 +210,7 @@
    "seccion": "3.1.4.3. Análisis jurisprudencial",
    "escena": 19,
    "id": "AP-U3-L3-E19",
+   "nav": "Análisis jurisprudencial",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -202,6 +221,7 @@
    "seccion": "3.1.4.3. Análisis jurisprudencial",
    "escena": 20,
    "id": "AP-U3-L3-E20",
+   "nav": "Análisis jurisprudencial",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
@@ -212,76 +232,84 @@
    "seccion": "3.1.5. Registro remoto sobre equipos informáticos",
    "escena": 21,
    "id": "AP-U3-L3-E21",
+   "nav": "Registro remoto sobre equipos informáticos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=22",
-   "titulo": "Ejemplo para el caso del curso (Art. 248 CPP)",
-   "subtitulo": "Subcategoría 1 · Subcategoría 2 · Subcategoría 3 · Subcategoría 4 · …",
+   "titulo": "Registro remoto sobre equipos informáticos",
+   "subtitulo": "Ejemplo para el caso del curso (Art. 248 CPP)",
    "seccion": "3.1.5. Registro remoto sobre equipos informáticos",
    "escena": 22,
    "id": "AP-U3-L3-E22",
+   "nav": "Ejemplo para el caso del curso (Art. 248 CPP)",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=23",
    "titulo": "Agentes encubiertos",
-   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · Uno o varios agentes con funciones · …",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 23,
    "id": "AP-U3-L3-E23",
+   "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=24",
-   "titulo": "¿Cuáles son sus requisitos de procedencia?",
-   "subtitulo": "Motivos razonablemente fundados · Actos extrapenales con trascendencia jurídica",
+   "titulo": "Agentes encubiertos",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 24,
    "id": "AP-U3-L3-E24",
+   "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=25",
-   "titulo": "Precisiones 🡪",
-   "subtitulo": "Agente encubierto · Calidad de agente encubierto · Fiscalía ya conozca la identidad",
+   "titulo": "Agentes encubiertos",
+   "subtitulo": "Precisiones",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 25,
    "id": "AP-U3-L3-E25",
+   "nav": "Precisiones",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=26",
-   "titulo": "¿Cómo se desarrolla la actuación?",
-   "subtitulo": "Actos extrapenales con trascendencia jurídica · Artículo 239 del CPP · Utilización de agentes encubiertos",
+   "titulo": "Agentes encubiertos",
+   "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 26,
    "id": "AP-U3-L3-E26",
+   "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=27",
    "titulo": "Agentes encubiertos",
-   "subtitulo": "Otras reglas🡪 · Finalidad de la infiltración · Oculte su identidad",
+   "subtitulo": "Otras reglas · Finalidad de la infiltración · Oculte su identidad",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 27,
    "id": "AP-U3-L3-E27",
+   "nav": "Agentes encubiertos",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=28",
-   "titulo": "¿Qué tipo de control judicial requiere?",
-   "subtitulo": "Sometida a distintas modalidades de control judicial · Concluida la operación · Parágrafo del artículo 242B · …",
+   "titulo": "Agentes encubiertos",
+   "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "3.2. Agentes encubiertos",
    "escena": 28,
    "id": "AP-U3-L3-E28",
+   "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Agentes encubiertos"
   },
   {
@@ -292,6 +320,7 @@
    "seccion": "3.2. Agentes encubiertos",
    "escena": 29,
    "id": "AP-U3-L3-E29",
+   "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agentes encubiertos"
   },
   {
@@ -302,6 +331,7 @@
    "seccion": "3.2. Agentes encubiertos",
    "escena": 30,
    "id": "AP-U3-L3-E30",
+   "nav": "Problemas emergentes de las operaciones encubiertas",
    "indice": "Agentes encubiertos"
   },
   {
@@ -312,6 +342,7 @@
    "seccion": "3.2. Agentes encubiertos",
    "escena": 31,
    "id": "AP-U3-L3-E31",
+   "nav": "Límite: agente encubierto y agente provocador",
    "indice": "Agentes encubiertos"
   },
   {
@@ -322,76 +353,84 @@
    "seccion": "3.2. Agentes encubiertos",
    "escena": 32,
    "id": "AP-U3-L3-E32",
+   "nav": "Ejemplo para el caso del curso (Arts. 241, 242, 242A CPP; Sentencia C-156/16)",
    "indice": "Agentes encubiertos"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=33",
-   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
-   "subtitulo": "Artículo 243 de la Ley 906 de 2004 · Doctrina especializada · …",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
    "seccion": "3.3. Entrega vigilada",
    "escena": 33,
    "id": "AP-U3-L3-E33",
+   "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=34",
    "titulo": "Entrega vigilada",
-   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · Precisión🡪",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "3.3. Entrega vigilada",
    "escena": 34,
    "id": "AP-U3-L3-E34",
+   "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=35",
-   "titulo": "¿Cómo se desarrolla la actuación?",
-   "subtitulo": "Entrega vigilada · Ilegal · Intervención de terceros · Esencial de esta técnica",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "¿Cómo se desarrolla la actuación? · 1 de 2",
    "seccion": "3.3. Entrega vigilada",
    "escena": 35,
    "id": "AP-U3-L3-E35",
+   "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=36",
-   "titulo": "¿Cómo se desarrolla la actuación?",
-   "subtitulo": "Desarrollo de la entrega vigilada · Cuando la operación tenga origen · …",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "¿Cómo se desarrolla la actuación? · 2 de 2",
    "seccion": "3.3. Entrega vigilada",
    "escena": 36,
    "id": "AP-U3-L3-E36",
+   "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=37",
-   "titulo": "Jurisprudencia🡪",
-   "subtitulo": "Sujetos procesales · Artículo 243 del CPP · Control y coordinación de la policía",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "Jurisprudencia",
    "seccion": "3.3. Entrega vigilada",
    "escena": 37,
    "id": "AP-U3-L3-E37",
+   "nav": "Jurisprudencia",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=38",
-   "titulo": "Discusión🡪",
-   "subtitulo": "Existe una problemática de orden dogmático · Al respecto, existen tres hipótesis",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "Discusión",
    "seccion": "3.3. Entrega vigilada",
    "escena": 38,
    "id": "AP-U3-L3-E38",
+   "nav": "Discusión",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=39",
-   "titulo": "¿Qué tipo de control judicial requiere?",
-   "subtitulo": "Ante el JCG dentro de las treinta · Tensión constitucional · Autorización judicial para abrir paquetes",
+   "titulo": "Entrega vigilada",
+   "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "3.3. Entrega vigilada",
    "escena": 39,
    "id": "AP-U3-L3-E39",
+   "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Entrega vigilada"
   },
   {
@@ -402,66 +441,73 @@
    "seccion": "3.3. Entrega vigilada",
    "escena": 40,
    "id": "AP-U3-L3-E40",
+   "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Entrega vigilada"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=41",
-   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
-   "subtitulo": "Figura del agente encubierto informático",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · 1 de 3",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 41,
    "id": "AP-U3-L3-E41",
+   "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=42",
-   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
-   "subtitulo": "Características que permiten diferenciar la técnica · Sujeto cualificado · Modalidad · Ámbito de aplicación",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · 2 de 3",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 42,
    "id": "AP-U3-L3-E42",
+   "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=43",
-   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
-   "subtitulo": "Excepciones · Intervención · Conductas · Medios de actuación",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · 3 de 3",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 43,
    "id": "AP-U3-L3-E43",
+   "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=44",
-   "titulo": "¿Cuáles son sus requisitos de procedencia?",
-   "subtitulo": "Ley 1908 de 2018 · Regulación colombiana impone una carga",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia?",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 44,
    "id": "AP-U3-L3-E44",
+   "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=45",
-   "titulo": "¿Cómo se desarrolla la actuación?",
-   "subtitulo": "Intercambiar o enviar archivos ilícitos · Concierto para delinquir · En Colombia",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿Cómo se desarrolla la actuación?",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 45,
    "id": "AP-U3-L3-E45",
+   "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=46",
-   "titulo": "¿Qué tipo de control judicial requiere?",
-   "subtitulo": "STS 140/2019 de 13 de marzo · Legislación anterior · Trata de una injerencia fuerte",
+   "titulo": "Agente encubierto informático (TEI típica emergente)",
+   "subtitulo": "¿Qué tipo de control judicial requiere?",
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 46,
    "id": "AP-U3-L3-E46",
+   "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
@@ -472,6 +518,7 @@
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 47,
    "id": "AP-U3-L3-E47",
+   "nav": "Agente encubierto informático (TEI típica emergente)",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
@@ -482,6 +529,7 @@
    "seccion": "3.4. Agente encubierto informático (TEI típica emergente)",
    "escena": 48,
    "id": "AP-U3-L3-E48",
+   "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agente encubierto informático (TEI típica emergente)"
   },
   {
@@ -492,6 +540,7 @@
    "seccion": "",
    "escena": null,
    "id": "AP-U3-L3-F1",
+   "nav": "Representación gráfica No. 1: Síntesis sobre las TEI",
    "indice": "Representación gráfica No. 1: Síntesis sobre las TEI"
   },
   {
@@ -502,6 +551,7 @@
    "seccion": "3.6. Representación gráfica No. 2: Síntesis sobre las TEI",
    "escena": 49,
    "id": "AP-U3-L3-E49",
+   "nav": "Representación gráfica No. 2: Síntesis sobre las TEI",
    "indice": "Representación gráfica No. 2: Síntesis sobre las TEI"
   }
  ]
