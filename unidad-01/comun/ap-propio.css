@@ -1,13 +1,13 @@
 /* Audiencias preliminares · piezas propias de Sebastián (24/11/2026): caso con audio, mapas conceptuales completos.
-   Paleta de la portada del curso (menta, coral, petróleo, verde azulado) y, por la pauta de Juan del 24/11 («colores un poco
-   por fuera de la paleta»), dos acentos vecinos: arena y cielo. Montserrat en títulos, Roboto en el texto. Lienzo de
+   Paleta «Salvia y terracota» (elegida por Sebastián el 25/11/2026; los nombres de las variables son los de antes): verde
+   oscuro, salvia, terracota y crema, con un acento arena. Montserrat en títulos, Roboto en el texto. Lienzo de
    767 × 510 (el iframe de la plantilla), que crece con zoom en pantalla completa. */
 @font-face{font-family:Montserrat;src:url('assets/fonts/montserrat-latin.woff2') format('woff2');font-weight:400 800;font-display:swap}
 @font-face{font-family:Montserrat;src:url('assets/fonts/montserrat-latin-ext.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0100-02FF,U+1E00-1EFF}
 @font-face{font-family:Roboto;src:url('assets/fonts/roboto-latin.woff2') format('woff2');font-weight:400 700;font-display:swap}
 @font-face{font-family:Roboto;src:url('assets/fonts/roboto-latin-ext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-02FF,U+1E00-1EFF}
-:root{--petroleo:#003F5E;--verde:#569689;--menta:#C5E9E2;--coral:#EF767F;--crema:#FBDCDE;--niebla:#E2F4F0;--hielo:#F0F9F7;
-  --arena:#F5E6C8;--arena-borde:#D9B46A;--cielo:#DCEBF5;--cielo-borde:#7FA9C9;--tinta:#123B52;--suave:#4F6B7A}
+:root{--petroleo:#2F4F45;--verde:#587E6D;--menta:#CFE0D6;--coral:#C8754F;--coral-osc:#B05A35;--crema:#F6DDCB;--niebla:#E3EDE7;--hielo:#F7F5EF;
+  --arena:#F5E6C8;--arena-borde:#D9B46A;--cielo:#E3EDE7;--cielo-borde:#8FAE9F;--tinta:#243C35;--suave:#55695F}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:#fff;overflow:hidden}
 body{font-family:Roboto,system-ui,sans-serif;color:var(--tinta);display:flex;align-items:center;justify-content:center}
@@ -31,9 +31,9 @@ button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--coral);out
 .caso-fig img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .audio{background:var(--petroleo);color:#fff;border-radius:12px;padding:11px 12px 12px}
 .audio .fila{display:flex;align-items:center;gap:11px}
-.audio .play{width:48px;height:48px;border-radius:50%;border:0;background:var(--coral);color:#fff;font-size:18px;flex:none;box-shadow:0 0 0 0 #EF767F88;animation:late 1.8s infinite}
+.audio .play{width:48px;height:48px;border-radius:50%;border:0;background:var(--coral-osc);color:#fff;font-size:18px;flex:none;box-shadow:0 0 0 0 #C8754F88;animation:late 1.8s infinite}
 .audio.sonando .play,.audio.oido .play{animation:none}
-@keyframes late{0%{box-shadow:0 0 0 0 #EF767F99}70%{box-shadow:0 0 0 12px #EF767F00}100%{box-shadow:0 0 0 0 #EF767F00}}
+@keyframes late{0%{box-shadow:0 0 0 0 #C8754F99}70%{box-shadow:0 0 0 12px #C8754F00}100%{box-shadow:0 0 0 0 #C8754F00}}
 .audio .tit{font-family:Montserrat,sans-serif;font-weight:800;font-size:13.5px;line-height:1.2}
 .audio .sub{font-size:11px;opacity:.85;margin-top:2px}
 .barra{position:relative;height:8px;border-radius:99px;background:#ffffff33;margin:12px 0 5px;cursor:pointer}
@@ -66,15 +66,15 @@ button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--coral);out
 .nodo.raiz h3{color:#fff;font-size:14px}
 .nodo.raiz p{color:#E9F6F3}
 .nodo.t-menta{background:var(--hielo);border-color:var(--verde)}
-.nodo.t-coral{background:#FFF4F5;border-color:var(--coral)}.nodo.t-coral .ico{background:var(--coral)}
+.nodo.t-coral{background:#FCF1EA;border-color:var(--coral)}.nodo.t-coral .ico{background:var(--coral)}
 .nodo.t-arena{background:#FFFAF0;border-color:var(--arena-borde)}.nodo.t-arena .ico{background:#C99A3E}
-.nodo.t-cielo{background:#F4F9FD;border-color:var(--cielo-borde)}.nodo.t-cielo .ico{background:#4F82A8}
+.nodo.t-cielo{background:#F3F7F4;border-color:var(--cielo-borde)}.nodo.t-cielo .ico{background:#587E6D}
 .enlace{position:absolute;z-index:2;transform:translate(-50%,-50%);background:#fff;border:1px solid #cfdfdc;border-radius:99px;padding:2px 8px;font-size:10.5px;font-style:italic;color:var(--suave);white-space:nowrap}
 .nodo.abre{cursor:pointer}
 .nodo.abre:hover{border-width:2.2px}
-.nodo .leer{margin-top:5px;font-family:Montserrat,sans-serif;font-size:10.5px;font-weight:800;color:var(--coral);display:inline-flex;gap:5px;align-items:center}
+.nodo .leer{margin-top:5px;font-family:Montserrat,sans-serif;font-size:10.5px;font-weight:800;color:var(--coral-osc);display:inline-flex;gap:5px;align-items:center}
 .nodo.visto .leer{color:var(--verde)}
-.globo{position:absolute;z-index:9;width:330px;background:#fff;border:2px solid var(--petroleo);border-radius:12px;box-shadow:0 10px 26px #003F5E33;padding:11px 13px 12px;display:none}
+.globo{position:absolute;z-index:9;width:330px;background:#fff;border:2px solid var(--petroleo);border-radius:12px;box-shadow:0 10px 26px #2F4F4533;padding:11px 13px 12px;display:none}
 .globo.abierto{display:block}
 .globo .gcab{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
 .globo h3{margin:0;font-size:12.5px;color:var(--petroleo)}
@@ -82,3 +82,52 @@ button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--coral);out
 .globo .cerrar{border:0;background:var(--niebla);color:var(--petroleo);border-radius:99px;font-size:10.5px;font-weight:800;padding:3px 9px}
 .avance{position:absolute;right:14px;bottom:11px;font-size:11px;color:var(--suave);display:flex;gap:6px;align-items:center;z-index:5}
 .avance b{color:var(--petroleo)}
+
+/* ---------- Mapa conceptual genérico (raíz a la izquierda y ramas a la derecha; o raíz arriba y dos columnas) ---------- */
+.mc{position:absolute;inset:0;padding:14px 16px 42px;display:flex;gap:34px;align-items:center}
+.mc.arriba{flex-direction:column;gap:20px;align-items:stretch;padding-top:12px}
+.mc .raiz{flex:0 0 168px;background:var(--petroleo);color:#fff;border-radius:14px;padding:14px 12px;text-align:center;position:relative;z-index:1}
+.mc.arriba .raiz{flex:0 0 auto;align-self:center;max-width:470px;padding:9px 18px}
+.mc .raiz .rico{width:44px;height:44px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;margin:0 auto 8px;font-size:19px}
+.mc.arriba .raiz .rico{display:none}
+.mc .raiz h2{margin:0;font-size:14.5px;line-height:1.25;font-weight:800}
+.mc .ramas{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px;justify-content:center;position:relative;z-index:1}
+.mc.arriba .ramas{display:grid;grid-template-columns:1fr 1fr;gap:9px 44px;align-content:start}
+.mc .rama{border-radius:11px;border:1.6px solid var(--verde);background:#fff;padding:7px 11px 8px;text-align:left;width:100%;font-family:Roboto,sans-serif;color:var(--tinta);box-shadow:0 3px 0 #0000000d}
+.mc .rama h3{margin:0 0 2px;font-size:12.6px;line-height:1.22;font-weight:800;color:var(--petroleo);display:flex;gap:7px;align-items:flex-start}
+.mc .rama h3 .num{flex:none;width:20px;height:20px;border-radius:50%;background:var(--verde);color:#fff;font-size:10.5px;display:grid;place-items:center;margin-top:-1px}
+.mc .rama:nth-child(4n+2){border-color:var(--coral);background:#FCF1EA}.mc .rama:nth-child(4n+2) h3 .num{background:var(--coral-osc)}
+.mc .rama:nth-child(4n+3){border-color:var(--arena-borde);background:#FFFAF0}.mc .rama:nth-child(4n+3) h3 .num{background:#B5852B}
+.mc .rama:nth-child(4n+4){border-color:var(--cielo-borde);background:#F3F7F4}
+.mc .rama p{font-size:12.3px;line-height:1.42;margin:0}
+.mc .rama p + p{margin-top:4px}
+.mc .rama p.vin{padding-left:13px;position:relative}
+.mc .rama p.vin::before{content:"";position:absolute;left:3px;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--verde)}
+.mc .rama p.nota,.globo p.nota{font-size:10.8px;color:var(--suave)}
+.mc.resumen .rama{cursor:pointer}
+.mc.resumen .rama:hover{border-width:2.2px}
+.mc .rama .leer{margin-top:3px;font-family:Montserrat,sans-serif;font-size:10.5px;font-weight:800;color:var(--coral-osc);display:inline-flex;gap:5px;align-items:center}
+.mc .rama.visto .leer{color:var(--verde)}
+svg.trazos{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.globo{max-height:420px;overflow:auto;width:400px}
+.globo p + p{margin-top:6px}
+.globo p.vin{padding-left:14px;position:relative}
+.globo p.vin::before{content:"";position:absolute;left:3px;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--verde)}
+.globo .partes{display:flex;justify-content:space-between;align-items:center;margin-top:9px;font-size:11px;color:var(--suave)}
+/* ---------- Figura del autor (representación gráfica del documento) ---------- */
+.fig{position:absolute;inset:0;padding:12px 14px 44px;display:flex;flex-direction:column;gap:6px}
+.fig .marco{flex:1;min-height:0;border:1.5px solid var(--menta);border-radius:12px;background:#fff;overflow:hidden;position:relative;cursor:zoom-in}
+.fig .marco.zoom{cursor:grab}
+.fig .marco img{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+.fig .pie-fig{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--suave)}
+.fig .ctrl{display:flex;gap:6px}
+
+.mc .raiz{display:flex;flex-direction:column;gap:10px;align-items:center;background:none;padding:0;flex:0 0 190px}
+.mc .raiz h2{background:var(--petroleo);color:#fff;border-radius:14px;padding:12px 12px;width:100%}
+.mc .raiz .rilus{max-width:100%;max-height:250px;object-fit:contain;display:block}
+.mc.arriba .raiz{background:none;padding:0}.mc.arriba .raiz h2{padding:9px 18px}
+.mc .rama h3.solo{margin:0;font-weight:700;font-size:13.2px;line-height:1.35}
+.mc.g1 .rama p{font-size:13.6px}.mc.g1 .rama h3{font-size:13.8px}.mc.g1 .rama h3.solo{font-size:14.6px}.mc.g1 .rama{padding:10px 13px 11px}.mc.g1 .ramas{gap:12px}
+.mc.g2 .rama p{font-size:15px}.mc.g2 .rama h3{font-size:15px}.mc.g2 .rama h3.solo{font-size:16.2px}.mc.g2 .rama{padding:13px 15px 14px}.mc.g2 .ramas{gap:15px}
+.mc.g3 .rama p{font-size:16.4px}.mc.g3 .rama h3{font-size:16.2px}.mc.g3 .rama h3.solo{font-size:17.6px}.mc.g3 .rama{padding:16px 17px 17px}.mc.g3 .ramas{gap:18px}
+.mc.g1 .rama h3 .num,.mc.g2 .rama h3 .num,.mc.g3 .rama h3 .num{width:24px;height:24px;font-size:12px}

@@ -1,0 +1,584 @@
+{
+ "unidad": 3,
+ "leccion": 2,
+ "titulo": "Comprensión, práctica y control judicial de técnicas ordinarias de investigación",
+ "heading": "Lección 2. Comprensión, práctica y control judicial de técnicas ordinarias de investigación",
+ "paginas": [
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=1",
+   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "subtitulo": "Registro y allanamiento · Artículo 219 · Artículo 28",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 1,
+   "id": "AP-U3-L2-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Medida en comento · De no atenderse estos requisitos al momento · Corte Constitucional (2005)",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 2,
+   "id": "AP-U3-L2-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Orden de registro y allanamiento · Sentencia C-282/97 · Corte Constitucional (1997) · …",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 3,
+   "id": "AP-U3-L2-E03"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=4",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Habitaciones de hotel · Ley excluye de la diligencia · Término máximo de treinta (30) días",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 4,
+   "id": "AP-U3-L2-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Ejecución de la orden de registro · Podrá extenderse a otros lugares · Ocupación o incautación de bienes · …",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 5,
+   "id": "AP-U3-L2-E05"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=6",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Contenido del acta · Acompañamiento de la Procuraduría General",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 6,
+   "id": "AP-U3-L2-E06"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=7",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Reglas especiales de esta TOI · En las situaciones de flagrancia · Artículo 227 del CPP · Judicial",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 7,
+   "id": "AP-U3-L2-E07"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=8",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Artículo 230 del CPP · Consentimiento expreso del propietario · Ahora bien, cabe preguntarse lo siguiente · …",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 8,
+   "id": "AP-U3-L2-E08"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=9",
+   "titulo": "Registro y allanamiento",
+   "subtitulo": "¿Qué tipo de control judicial requiere?",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 9,
+   "id": "AP-U3-L2-E09"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=10",
+   "titulo": "Precisiones importantes:",
+   "subtitulo": "Sentencia reciente de la Corte Suprema · Quien sea considerado como indiciado o imputado",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 10,
+   "id": "AP-U3-L2-E10"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=11",
+   "titulo": "¿Qué debe fundamentar el fiscal ante el JCG?",
+   "subtitulo": "Artículo 221 del CPP · Observarse reglas específicas sobre su credibilidad · Testigo · Informante",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 11,
+   "id": "AP-U3-L2-E11"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=12",
+   "titulo": "¿Qué debe fundamentar el fiscal ante el JCG?",
+   "subtitulo": "Corte Constitucional (Sentencia C-673-05) · Argumento relevante · …",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 12,
+   "id": "AP-U3-L2-E12"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=13",
+   "titulo": "Registro y allanamiento",
+   "subtitulo": "Ejemplo para el caso del curso (Art. 219-232 CPP)",
+   "seccion": "2.1.1. Registro y allanamiento",
+   "escena": 13,
+   "id": "AP-U3-L2-E13"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=14",
+   "titulo": "Búsqueda selectiva en bases de datos",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 14,
+   "id": "AP-U3-L2-E14"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=15",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Acceso a esta información no siempre · Casos relacionados con el simple cotejo · …",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 15,
+   "id": "AP-U3-L2-E15"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=16",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Precedentes importantes al respecto · Providencia AP5288-2024 (Corte Suprema de Justicia, 2024) · …",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 16,
+   "id": "AP-U3-L2-E16"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=17",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Términos procesales · Plazo máximo para la práctica · Correspondiente a las actividades de investigación · …",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 17,
+   "id": "AP-U3-L2-E17"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=18",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Ejemplo No. 2 · Dato importante · STP1157-2020 · Ejemplo",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 18,
+   "id": "AP-U3-L2-E18"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=19",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Naturaleza de los días · Postura 1 · Postura 2",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 19,
+   "id": "AP-U3-L2-E19"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=20",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Corte Constitucional (2007) · Artículo 250 · Interferencia indebida · Así las cosas",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 20,
+   "id": "AP-U3-L2-E20"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=21",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Justifica en el principio de reserva judicial · Precisión importante No. 1🡪 · Precisión importante No. 2🡪 · …",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 21,
+   "id": "AP-U3-L2-E21"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=22",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Sentencia C-025 de 2009 · Cuando esta sepa · Audiencia de control posterior",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 22,
+   "id": "AP-U3-L2-E22"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=23",
+   "titulo": "Búsqueda selectiva en bases de datos",
+   "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · …",
+   "seccion": "2.1.2. Búsqueda selectiva en bases de datos",
+   "escena": 23,
+   "id": "AP-U3-L2-E23"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=24",
+   "titulo": "Interceptación de comunicaciones",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 24,
+   "id": "AP-U3-L2-E24"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=25",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Artículo 235 del CPP · Orden de interceptación · ¿Cómo se desarrolla la actuación? · …",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 25,
+   "id": "AP-U3-L2-E25"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=26",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Todas las personas · AP3439-2024 · Ejemplos de estos actos de liberalidad · En principio",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 26,
+   "id": "AP-U3-L2-E26"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=27",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Contiene la información (el celular) · (c) la decisión de grabar",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 27,
+   "id": "AP-U3-L2-E27"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=28",
+   "titulo": "Interceptación de comunicaciones",
+   "subtitulo": "¿Qué tipo de control judicial requiere? · Dentro de las veinticuatro (24) · Orden de interceptación · …",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 28,
+   "id": "AP-U3-L2-E28"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=29",
+   "titulo": "Algunas reglas jurisprudenciales🡪",
+   "subtitulo": "AP2236-2024 · AP3424-2023 · SP102-2023 · AP3439-2024",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 29,
+   "id": "AP-U3-L2-E29"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=30",
+   "titulo": "Interceptación de comunicaciones",
+   "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Precisiones: · Ejemplo para el caso del curso (Art. 235 CPP)",
+   "seccion": "2.1.3. Interceptación de comunicaciones",
+   "escena": 30,
+   "id": "AP-U3-L2-E30"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=31",
+   "titulo": "Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · ¿Cuáles son sus requisitos de procedencia? · …",
+   "seccion": "2.1.4. Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
+   "escena": 31,
+   "id": "AP-U3-L2-E31"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=32",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Artículo 236 del CPP · Precedentes al respecto · STP2633-2025 de la Sala de Decisión · Sitación · …",
+   "seccion": "2.1.4. Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
+   "escena": 32,
+   "id": "AP-U3-L2-E32"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=33",
+   "titulo": "Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
+   "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Ejemplo para el caso del curso (Art. 236 CPP)",
+   "seccion": "2.1.4. Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
+   "escena": 33,
+   "id": "AP-U3-L2-E33"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=34",
+   "titulo": "Retención de correspondencia",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · Esta medida · …",
+   "seccion": "2.1.5. Retención de correspondencia",
+   "escena": 34,
+   "id": "AP-U3-L2-E34"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=35",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Artículos 224 · Limita exclusivamente a la aprehensión del soporte",
+   "seccion": "2.1.5. Retención de correspondencia",
+   "escena": 35,
+   "id": "AP-U3-L2-E35"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=36",
+   "titulo": "Retención de correspondencia",
+   "subtitulo": "¿Cómo se desarrolla la actuación? · ¿Qué tipo de control judicial requiere? · …",
+   "seccion": "2.1.5. Retención de correspondencia",
+   "escena": 36,
+   "id": "AP-U3-L2-E36"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=37",
+   "titulo": "Vigilancia y seguimiento de personas",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · ¿Cuáles son sus requisitos de procedencia?",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 37,
+   "id": "AP-U3-L2-E37"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=38",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Respectiva orden de vigilancia · Tendrá una vigencia máxima de 1 año · Ley prohíbe expresamente",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 38,
+   "id": "AP-U3-L2-E38"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=39",
+   "titulo": "Vigilancia y seguimiento de personas",
+   "subtitulo": "¿Qué tipo de control judicial requiere?",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 39,
+   "id": "AP-U3-L2-E39"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=40",
+   "titulo": "Precisión importante🡪",
+   "subtitulo": "Sentencia de Segunda Instancia · Estudió la procedencia de una solicitud formulada · …",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 40,
+   "id": "AP-U3-L2-E40"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=41",
+   "titulo": "Precisión importante🡪",
+   "subtitulo": "Sentencia C-881/14 de la Corte Constitucional (2014) · Estudió una demanda de inconstitucionalidad parcial · …",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 41,
+   "id": "AP-U3-L2-E41"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=42",
+   "titulo": "Vigilancia y seguimiento de personas",
+   "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · …",
+   "seccion": "2.1.6. Vigilancia y seguimiento de personas",
+   "escena": 42,
+   "id": "AP-U3-L2-E42"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=43",
+   "titulo": "Vigilancia de cosas",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · Naves · ¿Cómo se desarrolla la actuación?",
+   "seccion": "2.1.7. Vigilancia de cosas",
+   "escena": 43,
+   "id": "AP-U3-L2-E43"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=44",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Orden expedida por el fiscal · Sentencia C-881/14 de la Corte Constitucional · …",
+   "seccion": "2.1.7. Vigilancia de cosas",
+   "escena": 44,
+   "id": "AP-U3-L2-E44"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=45",
+   "titulo": "¿Qué tipo de control judicial requiere?",
+   "subtitulo": "Dependiendo del grado de cesión · El derecho a la intimidad no es absoluto",
+   "seccion": "2.1.7. Vigilancia de cosas",
+   "escena": 45,
+   "id": "AP-U3-L2-E45"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=46",
+   "titulo": "Vigilancia de cosas",
+   "subtitulo": "¿Qué debe fundamentar el fiscal ante el JCG? · Ejemplo para el caso del curso (Art. 240 CPP)",
+   "seccion": "2.1.7. Vigilancia de cosas",
+   "escena": 46,
+   "id": "AP-U3-L2-E46"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=47",
+   "titulo": "Registro personal",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "seccion": "2.2.1. Registro personal",
+   "escena": 47,
+   "id": "AP-U3-L2-E47"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=48",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Elementos y áreas bajo su control físico · Registro del cuerpo desnudo de la víctima · Que esta facultad · …",
+   "seccion": "2.2.1. Registro personal",
+   "escena": 48,
+   "id": "AP-U3-L2-E48"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=49",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Práctica del registro · Compatible con la dignidad humana · Consentimiento · …",
+   "seccion": "2.2.1. Registro personal",
+   "escena": 49,
+   "id": "AP-U3-L2-E49"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=50",
+   "titulo": "Registro personal",
+   "subtitulo": "¿Qué tipo de control judicial requiere? · ¿Qué debe fundamentar el fiscal ante el JCG? · …",
+   "seccion": "2.2.1. Registro personal",
+   "escena": 50,
+   "id": "AP-U3-L2-E50"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=51",
+   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "subtitulo": "Artículo 247 de la Ley 906 · Grado de invasión · Término “registrar” · Inspección corporal",
+   "seccion": "2.2.2. Inspección corporal",
+   "escena": 51,
+   "id": "AP-U3-L2-E51"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=52",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Sólo cuando el Fiscal General · Aunque la Inspección corporal · (a) un mandato legal · …",
+   "seccion": "2.2.2. Inspección corporal",
+   "escena": 52,
+   "id": "AP-U3-L2-E52"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=53",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "(c) el consentimiento informado del · Registro · Realizarse · Darse en condiciones sanitarias adecuadas",
+   "seccion": "2.2.2. Inspección corporal",
+   "escena": 53,
+   "id": "AP-U3-L2-E53"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=54",
+   "titulo": "¿Cuáles son sus requisitos de procedencia?",
+   "subtitulo": "Sea llevada a cabo por autoridad competente · Realice de manera breve y eficiente · …",
+   "seccion": "2.2.2. Inspección corporal",
+   "escena": 54,
+   "id": "AP-U3-L2-E54"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=55",
+   "titulo": "Inspección corporal",
+   "subtitulo": "¿Cómo se desarrolla la actuación? · ¿Qué tipo de control judicial requiere?",
+   "seccion": "2.2.2. Inspección corporal",
+   "escena": 55,
+   "id": "AP-U3-L2-E55"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=56",
+   "titulo": "El fiscal deberá exponer los motivos razonablemente fundados para inferir que en el cuerpo del imputado existen elementos materiales probatorios o evidencia física necesarios para la investigación.",
+   "subtitulo": "Ejemplo para el caso del curso (Art. 247 CPP)",
+   "seccion": "El fiscal deberá exponer los motivos razonablemente fundados para inferir que en el cuerpo del imputado existen elementos materiales probatorios o evidencia física necesarios para la investigación.",
+   "escena": 56,
+   "id": "AP-U3-L2-E56"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=57",
+   "titulo": "Obtención de muestras",
+   "subtitulo": "¿En qué consiste la técnica y para qué se utiliza? · ¿Cuáles son sus requisitos de procedencia?",
+   "seccion": "2.2.3. Obtención de muestras",
+   "escena": 57,
+   "id": "AP-U3-L2-E57"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=58",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Examen grafotécnico · Cuando la diligencia tenga por objeto · …",
+   "seccion": "2.2.3. Obtención de muestras",
+   "escena": 58,
+   "id": "AP-U3-L2-E58"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=59",
+   "titulo": "Obtención de muestras",
+   "subtitulo": "¿Qué tipo de control judicial requiere? · ¿Qué debe fundamentar el fiscal ante el JCG? · …",
+   "seccion": "2.2.3. Obtención de muestras",
+   "escena": 59,
+   "id": "AP-U3-L2-E59"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=60",
+   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "subtitulo": "Exámenes de ADN · Sobre bienes o espacios · Artículo 249 de la Ley 906 de 2004 · Técnica sub examine · …",
+   "seccion": "2.2.4. Exámenes de ADN que involucren al indiciado o al imputado",
+   "escena": 60,
+   "id": "AP-U3-L2-E60"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=61",
+   "titulo": "Exámenes de ADN que involucren al indiciado o al imputado",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · ¿Cómo se desarrolla la actuación? · …",
+   "seccion": "2.2.4. Exámenes de ADN que involucren al indiciado o al imputado",
+   "escena": 61,
+   "id": "AP-U3-L2-E61"
+  },
+  {
+   "tipo": "figura",
+   "src": "figura.html?f=1",
+   "titulo": "Representación gráfica: Síntesis sobre las TOI",
+   "subtitulo": "Control judicial posterior y control judicial previo",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-U3-L2-F1"
+  },
+  {
+   "tipo": "figura",
+   "src": "figura.html?f=2",
+   "titulo": "Representación gráfica: Síntesis sobre las TOI",
+   "subtitulo": "Matriz de control judicial",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-U3-L2-F2"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=62",
+   "titulo": "Matriz comparativa de TOI",
+   "subtitulo": "TOI · FINALIDAD · DERECHOS FUNDAMENTALES INVOLUCRADOS · FUNDAMENTACIÓN · CONTROL JUDICIAL",
+   "seccion": "2.4. Matriz comparativa de TOI",
+   "escena": 62,
+   "id": "AP-U3-L2-E62"
+  }
+ ]
+}

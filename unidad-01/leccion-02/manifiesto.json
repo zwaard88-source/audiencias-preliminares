@@ -1,0 +1,53 @@
+{
+ "unidad": 1,
+ "leccion": 2,
+ "titulo": "Finalidad, principios y garantías que orientan las audiencias preliminares",
+ "heading": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
+ "paginas": [
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=1",
+   "titulo": "Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "subtitulo": "Audiencias preliminares corresponden a escenarios procesales · Exclusiva de los jueces de la República",
+   "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "escena": 1,
+   "id": "AP-U1-L2-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "subtitulo": "Desarrollo de las audiencias preliminares · Presunción de inocencia · Principio de no autoincriminación · …",
+   "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "escena": 2,
+   "id": "AP-U1-L2-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "subtitulo": "(a) fin legítimo · Medidas de aseguramiento · (b) idoneidad o utilidad · …",
+   "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "escena": 3,
+   "id": "AP-U1-L2-E03"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=4",
+   "titulo": "Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "subtitulo": "(d) proporcionalidad (en estricto sentido) · Merece la pena indicar · Relaciona con un método intermedio",
+   "seccion": "Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares",
+   "escena": 4,
+   "id": "AP-U1-L2-E04"
+  },
+  {
+   "tipo": "actividad",
+   "src": "index.html?escena=5",
+   "titulo": "Aplicación al expediente del curso",
+   "subtitulo": "",
+   "seccion": "Aplicación al expediente del curso",
+   "escena": 5,
+   "id": "AP-U1-L2-E05"
+  }
+ ]
+}

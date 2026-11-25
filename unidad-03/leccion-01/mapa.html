@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa conceptual · Lección 1. Caja de herramientas: presentación general de técnicas de investigación</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=408b8e1d">
+</head>
+<body>
+<main class="lienzo" id="lienzo">
+  <svg class="trazos" id="svg" aria-hidden="true"></svg>
+  <div class="mc" id="mc"></div>
+  <div class="globo" id="globo" role="dialog" aria-modal="false"><div class="gcab"><h3 id="gh"></h3><button class="cerrar" id="gx">Clic para cerrar <i class="fas fa-xmark" aria-hidden="true"></i></button></div><div id="gp"></div></div>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+  <div class="avance" id="avance"></div>
+</main>
+<script type="application/json" id="datos">{"1": {"t": "Técnicas de investigación y control judicial", "r": [{"h": "técnicas de investigación", "p": [["", "Las técnicas de investigación constituyen herramientas esenciales para el esclarecimiento de los hechos y la obtención de elementos materiales probatorios y evidencia física durante la actuación penal. No obstante, algunas de ellas pueden comportar una injerencia en el ejercicio de derechos fundamentales, circunstancia que demanda el sometimiento de su práctica a límites constitucionales y legales y, en algunos casos puntuales a que se refiere el CPP, al control del JCG."]]}, {"h": "alcance del control judicial", "p": [["", "A este respecto, el alcance del control judicial dependerá de la naturaleza de la actuación investigativa y del grado de injerencia sobre los derechos fundamentales a que haya lugar. De ahí que el ordenamiento jurídico establezca distintos mecanismos de intervención judicial, a fin de verificar la conjunción de los respectivos parámetros constitucionales y legales; los cuales pueden operar antes de la ejecución de la medida (control previo) o con posterioridad a esta (control posterior)."]]}, {"h": "divergencias entre ambas modalidades", "p": [["", "Para comprender las divergencias entre ambas modalidades, es preciso mencionar que, en el marco del control previo, el juez debe determinar la procedencia de la restricción del respectivo derecho fundamental (piénsese, por ejemplo, en la necesidad de una inspección corporal). En cambio, el control posterior implica que el juez debe establecer si una actuación se ajustó a los lineamientos constitucionales y legales que regulan su práctica (como sucede, entre otros supuestos, con la diligencia de interceptación de comunicaciones)."]]}, {"h": "el juez deberá determinar", "p": [["", "En este último evento, el juez deberá determinar: (a) si era posible realizar el procedimiento sin un control previo; (b) si la orden fue expedida por la autoridad facultada para ello, esto es, el fiscal; (c) si la orden contiene una motivación suficiente, incluyendo la aplicación del principio de proporcionalidad o, también denominado, prohibición de exceso; (d) si el procedimiento se ajustó a las disposiciones legales; (e) si se intervino en la menor proporción posible las garantías fundamentales, y (f) si el control se efectuó dentro del término fijados por la ley."]]}], "ilus": "investigacion-lupa.webp"}, "4": {"t": "Desarrollo general de las audiencias preliminares referentes a técnicas de investigación", "r": [{"h": "desarrollo propiamente dicho de las audiencias preliminares", "p": [["vin", "Ahora bien, en cuanto al desarrollo propiamente dicho de las audiencias preliminares, para estos efectos, es posible dividirlo metodológicamente en tres fases: (a) proceder jurisdiccional, (b) intervención de la fiscalía y (c) decisión judicial."]]}, {"h": "Proceder jurisdiccional", "p": [["vin", "En cuanto a la primera fase, se prevé que el juez instale la audiencia y, de tal forma, enuncie su objeto en los términos de la solicitud presentada, verifique la presencia del solicitante y establezca las pautas propias del procedimiento, a saber: (a) las intervenciones, dirigidas al juez o al imputado, deben ser concretas, claras, puntuales y sin argumentos repetitivos; (b) antes de iniciar las intervenciones, de común acuerdo con las partes, se fijará el tiempo necesario para su desarrollo; (c) la lectura de documentos se limita a lo estrictamente necesario;"], ["", "y (d) se requerirá para que la intervención de partes compuestas por pluralidad de sujetos se limite a los intereses de sus representados."]]}], "ilus": "captura-detenido.webp"}, "11": {"t": "Intervención de la fiscalía", "r": [{"h": "acta de la diligencia", "p": [["vin", "Asimismo, se exige presentar otro tipo de información relevante, como que los bienes incautados se limitaron a los señalados en la orden (salvo que se presente un caso de flagrancia), así como el acta de la diligencia, indicando los lugares registrados, los objetos ocupados o incautados y las personas capturadas. Para estos efectos, también resultará esencial el hecho de que la Fiscalía indique lo relevante en torno al desarrollo de la diligencia, precisando: (a) si la técnica de investigación se surtió dentro del horario de 6:00 a.m. a 6:00 p.m."], ["", "(en caso de realizarse fuera de este horario, deberá explicar los motivos que llevaron a esa decisión, y acreditar que hubo citación al Ministerio Público); y (b) si hubo oposición o medidas policivas y firma de personas que atendieron la diligencia."]]}, {"h": "informe de policía judicial", "p": [["", "En cualquier evento, esta parte procesal deberá exhibir el informe de policía judicial relativo a los resultados de diligencia, indicando que se allegó en término, y acreditar que se encuentra dentro del término de legalización de la diligencia de allanamiento (Art. 237 CPP)."]]}], "ilus": "captura-detenido.webp"}}</script>
+<script src="../comun/ap-propio.js?v=408b8e1d"></script>
+<script>
+/* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página a la izquierda y todas sus ramas a la vista.
+   Si el texto cabe, se lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana
+   pequeña junto a ella. Texto literal de la escena: datos[m] = {t: título, r: [{h: rótulo, p: [[clase, texto], …]}]}. */
+(function () {
+  var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
+  var lz = document.getElementById('lienzo'), mc = document.getElementById('mc'), svg = document.getElementById('svg'), G = document.getElementById('globo');
+  if (!d) { mc.textContent = ''; return; }
+  lz.setAttribute('aria-label', 'Mapa conceptual: ' + d.t);
+  function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function corta(t, n) { if (t.length <= n) return t; var c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:\s(]+$/, '') + '…'; }
+  function parrafos(p) { return p.map(function (x) { return '<p class="' + x[0] + '">' + esc(x[1]) + '</p>'; }).join(''); }
+  var arriba = d.r.length > 6;
+  mc.className = 'mc' + (arriba ? ' arriba' : '');
+  var raiz = document.createElement('div'); raiz.className = 'raiz';
+  raiz.innerHTML = '<h2>' + esc(may(d.t)) + '</h2>' + (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : '');
+  var ramas = document.createElement('div'); ramas.className = 'ramas';
+  mc.appendChild(raiz); mc.appendChild(ramas);
+  var leidos = {}, nodos = [];
+  function pintar(resumen) {
+    ramas.innerHTML = ''; nodos = [];
+    mc.classList.toggle('resumen', resumen);
+    d.r.forEach(function (r, k) {
+      var e = document.createElement(resumen ? 'button' : 'div'); e.className = 'rama' + (leidos[k] ? ' visto' : '');
+      if (resumen) e.type = 'button';
+      var todo = r.p.map(function (x) { return x[1]; }).join(' ');
+      var lim = arriba ? 78 : (d.r.length >= 5 ? 105 : 190);
+      var breve = !resumen && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
+      e.innerHTML = breve ? '<h3 class="solo"><span class="num">' + (k + 1) + '</span><span>' + esc(may(todo)) + '</span></h3>' :
+        '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>' +
+        (resumen ? '<p>' + esc(corta(todo, lim)) + '</p><span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(r.p));
+      if (resumen) e.addEventListener('click', function () { abrir(e, r, k); });
+      ramas.appendChild(e); nodos.push(e);
+    });
+  }
+  function cabe() { return mc.scrollHeight <= mc.clientHeight + 1 && ramas.scrollHeight <= ramas.clientHeight + 1 && nodos.every(function (n) { return n.offsetTop + n.offsetHeight <= ramas.offsetTop + ramas.clientHeight + 2 || arriba; }); }
+  pintar(false);
+  var total = d.r.reduce(function (a, r) { return a + r.p.reduce(function (b, x) { return b + x[1].length; }, 0); }, 0);
+  var alto = ramas.scrollHeight;
+  var resumen = total > 1250 || alto > (arriba ? 400 : 452) || mc.scrollHeight > mc.clientHeight + 1;
+  if (resumen) pintar(true);
+  /* sin huecos: si el mapa ocupa poco, la letra crece (hasta tres pasos) mientras quepa */
+  ['g1', 'g2', 'g3'].some(function (c) {
+    mc.classList.add(c);
+    if (ramas.scrollHeight > (arriba ? 400 : 440) || mc.scrollHeight > mc.clientHeight + 1) { mc.classList.remove(c); return true; }
+    return false;
+  });
+  /* ventana pequeña junto a la rama; el texto largo se lee por partes */
+  var partes = [], parte = 0, actual = null;
+  function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function mostrar() {
+    document.getElementById('gp').innerHTML = parrafos(partes[parte]) + (partes.length > 1 ? '<div class="partes"><button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span><button class="btn-chico" id="ps"' + (parte < partes.length - 1 ? '' : ' disabled') + '>Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>' : '');
+    var a = document.getElementById('pa'), s = document.getElementById('ps');
+    if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
+    if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
+    if (parte === partes.length - 1 && actual) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
+  }
+  function ubicar() {
+    var e = actual.e, W = lz.clientWidth, H = lz.clientHeight, r = e.getBoundingClientRect(), b = lz.getBoundingClientRect(), z = b.width / W;
+    var x = (r.left - b.left) / z, y = (r.top - b.top) / z, gw = G.offsetWidth, gh = G.offsetHeight;
+    var gx = Math.min(Math.max(10, x + e.offsetWidth / 2 - gw / 2), W - gw - 10), gy = y + e.offsetHeight + 6;
+    if (gy + gh > H - 8) gy = Math.max(8, y - gh - 6);
+    if (gy < 8 || (gy < y + e.offsetHeight && gy + gh > y)) { gy = Math.max(8, Math.min(H - gh - 8, y)); gx = x - gw - 8 > 8 ? x - gw - 8 : Math.min(W - gw - 8, x + 30); }
+    G.style.left = gx + 'px'; G.style.top = gy + 'px';
+  }
+  function abrir(e, r, k) { actual = { e: e, k: k }; partes = trozos(r.p); parte = 0; document.getElementById('gh').textContent = may(r.h); G.classList.add('abierto'); mostrar(); ubicar(); document.getElementById('gx').focus(); }
+  function cerrar() { G.classList.remove('abierto'); if (actual) actual.e.focus(); }
+  document.getElementById('gx').onclick = cerrar;
+  document.addEventListener('keydown', function (k) { if (k.key === 'Escape') cerrar(); });
+  lz.addEventListener('click', function (ev) { if (!G.contains(ev.target) && !ev.target.closest('.rama')) G.classList.remove('abierto'); });
+  function avance() { if (!resumen) return; var n = Object.keys(leidos).length; document.getElementById('avance').innerHTML = '<i class="fas fa-book-open-reader" aria-hidden="true"></i> Leído: <b>' + n + ' de ' + d.r.length + '</b>'; }
+  avance();
+  function trazar() {
+    var b = lz.getBoundingClientRect(), z = b.width / lz.clientWidth, R = raiz.getBoundingClientRect(), s = '';
+    function P(r) { return { l: (r.left - b.left) / z, t: (r.top - b.top) / z, w: r.width / z, h: r.height / z }; }
+    var a = P(R);
+    nodos.forEach(function (n, k) {
+      var c = P(n.getBoundingClientRect());
+      if (!arriba) { var x1 = a.l + a.w, y1 = a.t + a.h / 2, x2 = c.l, y2 = c.t + c.h / 2, xm = (x1 + x2) / 2; s += '<path d="M' + x1 + ',' + y1 + ' C' + xm + ',' + y1 + ' ' + xm + ',' + y2 + ' ' + x2 + ',' + y2 + '" />'; }
+      else { var xc = a.l + a.w / 2, izq = c.l + c.w / 2 < xc, y = c.t + c.h / 2, xb = izq ? c.l + c.w : c.l; s += '<path d="M' + xc + ',' + (a.t + a.h) + ' L' + xc + ',' + y + ' L' + xb + ',' + y + '" />'; }
+    });
+    svg.innerHTML = '<g fill="none" stroke="#587E6D" stroke-width="2" stroke-linecap="round">' + s + '</g>';
+  }
+  window.addEventListener('load', trazar); window.addEventListener('resize', function () { setTimeout(trazar, 80); }); setTimeout(trazar, 250); setTimeout(trazar, 900);
+})();
+</script>
+</body>
+</html>

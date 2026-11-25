@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa conceptual · Lección 5. Particularidades de la ley 1826 de 2017</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=408b8e1d">
+</head>
+<body>
+<main class="lienzo" id="lienzo">
+  <svg class="trazos" id="svg" aria-hidden="true"></svg>
+  <div class="mc" id="mc"></div>
+  <div class="globo" id="globo" role="dialog" aria-modal="false"><div class="gcab"><h3 id="gh"></h3><button class="cerrar" id="gx">Clic para cerrar <i class="fas fa-xmark" aria-hidden="true"></i></button></div><div id="gp"></div></div>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+  <div class="avance" id="avance"></div>
+</main>
+<script type="application/json" id="datos">{"2": {"t": "Procedimiento penal abreviado", "r": [{"h": "Reducción de etapas", "p": [["vin", "Reducción de etapas: Suprime la audiencia de formulación de imputación y la sustituye por el traslado del escrito de acusación, mediante el cual la Fiscalía comunica los cargos al indiciado en presencia de su defensor, en el despacho del fiscal, dejando constancia de ello en un acta. Asimismo, fusiona la audiencia de acusación con la preparatoria en una sola diligencia denominada audiencia concentrada."]]}, {"h": "Menos audiencias", "p": [["vin", "Menos audiencias: Pasa del sistema ordinario (5 audiencias) a un esquema de dos fases principales: la audiencia concentrada y el juicio oral."]]}, {"h": "Delitos aplicables", "p": [["vin", "Delitos aplicables: Aplica para conductas querellables y delitos oficiosos específicos de menor impacto como lesiones personales leves, hurto, estafa, injuria y falsedad en documento privado, excluyendo intereses del Estado o delitos que requieren de una atención célere por parte de la administración de justicia, como la violencia intrafamiliar."]]}, {"h": "Tiempos y plazos", "p": [["vin", "Tiempos y plazos:"]]}], "ilus": "clasificacion-carpetas.webp"}, "4": {"t": "El acusador privado", "r": [{"h": "Facultad de la víctima", "p": [["vin", "Facultad de la víctima: Permite a la víctima asumir la investigación y la acusación delegando funciones de la Fiscalía a través de un abogado de confianza o un consultorio jurídico."]]}, {"h": "Restricciones", "p": [["vin", "Restricciones: No procede cuando el delito afecta los intereses o el patrimonio del Estado."]]}, {"h": "Responsabilidad", "p": [["vin", "Responsabilidad: El acusador privado asume responsabilidades penales y disciplinarias equivalentes a las de un fiscal durante su gestión transitoria."]]}], "ilus": "clasificacion-carpetas.webp"}}</script>
+<script src="../comun/ap-propio.js?v=408b8e1d"></script>
+<script>
+/* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página a la izquierda y todas sus ramas a la vista.
+   Si el texto cabe, se lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana
+   pequeña junto a ella. Texto literal de la escena: datos[m] = {t: título, r: [{h: rótulo, p: [[clase, texto], …]}]}. */
+(function () {
+  var M = JSON.parse(document.getElementById('datos').textContent), q = /[?&]m=(\d+)/.exec(location.search), d = M[q ? q[1] : Object.keys(M)[0]];
+  var lz = document.getElementById('lienzo'), mc = document.getElementById('mc'), svg = document.getElementById('svg'), G = document.getElementById('globo');
+  if (!d) { mc.textContent = ''; return; }
+  lz.setAttribute('aria-label', 'Mapa conceptual: ' + d.t);
+  function may(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function corta(t, n) { if (t.length <= n) return t; var c = t.slice(0, n); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:\s(]+$/, '') + '…'; }
+  function parrafos(p) { return p.map(function (x) { return '<p class="' + x[0] + '">' + esc(x[1]) + '</p>'; }).join(''); }
+  var arriba = d.r.length > 6;
+  mc.className = 'mc' + (arriba ? ' arriba' : '');
+  var raiz = document.createElement('div'); raiz.className = 'raiz';
+  raiz.innerHTML = '<h2>' + esc(may(d.t)) + '</h2>' + (d.ilus && !arriba ? '<img class="rilus" alt="" src="../comun/ilustraciones-audiencias/' + d.ilus + '">' : '');
+  var ramas = document.createElement('div'); ramas.className = 'ramas';
+  mc.appendChild(raiz); mc.appendChild(ramas);
+  var leidos = {}, nodos = [];
+  function pintar(resumen) {
+    ramas.innerHTML = ''; nodos = [];
+    mc.classList.toggle('resumen', resumen);
+    d.r.forEach(function (r, k) {
+      var e = document.createElement(resumen ? 'button' : 'div'); e.className = 'rama' + (leidos[k] ? ' visto' : '');
+      if (resumen) e.type = 'button';
+      var todo = r.p.map(function (x) { return x[1]; }).join(' ');
+      var lim = arriba ? 78 : (d.r.length >= 5 ? 105 : 190);
+      var breve = !resumen && todo.length <= 170 && r.p.length === 1;   /* texto corto: va solo, sin repetir su rótulo encima */
+      e.innerHTML = breve ? '<h3 class="solo"><span class="num">' + (k + 1) + '</span><span>' + esc(may(todo)) + '</span></h3>' :
+        '<h3><span class="num">' + (k + 1) + '</span><span>' + esc(may(r.h)) + '</span></h3>' +
+        (resumen ? '<p>' + esc(corta(todo, lim)) + '</p><span class="leer">' + (leidos[k] ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer' : '<i class="fas fa-hand-pointer" aria-hidden="true"></i> Clic para leer completo') + '</span>' : parrafos(r.p));
+      if (resumen) e.addEventListener('click', function () { abrir(e, r, k); });
+      ramas.appendChild(e); nodos.push(e);
+    });
+  }
+  function cabe() { return mc.scrollHeight <= mc.clientHeight + 1 && ramas.scrollHeight <= ramas.clientHeight + 1 && nodos.every(function (n) { return n.offsetTop + n.offsetHeight <= ramas.offsetTop + ramas.clientHeight + 2 || arriba; }); }
+  pintar(false);
+  var total = d.r.reduce(function (a, r) { return a + r.p.reduce(function (b, x) { return b + x[1].length; }, 0); }, 0);
+  var alto = ramas.scrollHeight;
+  var resumen = total > 1250 || alto > (arriba ? 400 : 452) || mc.scrollHeight > mc.clientHeight + 1;
+  if (resumen) pintar(true);
+  /* sin huecos: si el mapa ocupa poco, la letra crece (hasta tres pasos) mientras quepa */
+  ['g1', 'g2', 'g3'].some(function (c) {
+    mc.classList.add(c);
+    if (ramas.scrollHeight > (arriba ? 400 : 440) || mc.scrollHeight > mc.clientHeight + 1) { mc.classList.remove(c); return true; }
+    return false;
+  });
+  /* ventana pequeña junto a la rama; el texto largo se lee por partes */
+  var partes = [], parte = 0, actual = null;
+  function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function mostrar() {
+    document.getElementById('gp').innerHTML = parrafos(partes[parte]) + (partes.length > 1 ? '<div class="partes"><button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span><button class="btn-chico" id="ps"' + (parte < partes.length - 1 ? '' : ' disabled') + '>Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>' : '');
+    var a = document.getElementById('pa'), s = document.getElementById('ps');
+    if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
+    if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
+    if (parte === partes.length - 1 && actual) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
+  }
+  function ubicar() {
+    var e = actual.e, W = lz.clientWidth, H = lz.clientHeight, r = e.getBoundingClientRect(), b = lz.getBoundingClientRect(), z = b.width / W;
+    var x = (r.left - b.left) / z, y = (r.top - b.top) / z, gw = G.offsetWidth, gh = G.offsetHeight;
+    var gx = Math.min(Math.max(10, x + e.offsetWidth / 2 - gw / 2), W - gw - 10), gy = y + e.offsetHeight + 6;
+    if (gy + gh > H - 8) gy = Math.max(8, y - gh - 6);
+    if (gy < 8 || (gy < y + e.offsetHeight && gy + gh > y)) { gy = Math.max(8, Math.min(H - gh - 8, y)); gx = x - gw - 8 > 8 ? x - gw - 8 : Math.min(W - gw - 8, x + 30); }
+    G.style.left = gx + 'px'; G.style.top = gy + 'px';
+  }
+  function abrir(e, r, k) { actual = { e: e, k: k }; partes = trozos(r.p); parte = 0; document.getElementById('gh').textContent = may(r.h); G.classList.add('abierto'); mostrar(); ubicar(); document.getElementById('gx').focus(); }
+  function cerrar() { G.classList.remove('abierto'); if (actual) actual.e.focus(); }
+  document.getElementById('gx').onclick = cerrar;
+  document.addEventListener('keydown', function (k) { if (k.key === 'Escape') cerrar(); });
+  lz.addEventListener('click', function (ev) { if (!G.contains(ev.target) && !ev.target.closest('.rama')) G.classList.remove('abierto'); });
+  function avance() { if (!resumen) return; var n = Object.keys(leidos).length; document.getElementById('avance').innerHTML = '<i class="fas fa-book-open-reader" aria-hidden="true"></i> Leído: <b>' + n + ' de ' + d.r.length + '</b>'; }
+  avance();
+  function trazar() {
+    var b = lz.getBoundingClientRect(), z = b.width / lz.clientWidth, R = raiz.getBoundingClientRect(), s = '';
+    function P(r) { return { l: (r.left - b.left) / z, t: (r.top - b.top) / z, w: r.width / z, h: r.height / z }; }
+    var a = P(R);
+    nodos.forEach(function (n, k) {
+      var c = P(n.getBoundingClientRect());
+      if (!arriba) { var x1 = a.l + a.w, y1 = a.t + a.h / 2, x2 = c.l, y2 = c.t + c.h / 2, xm = (x1 + x2) / 2; s += '<path d="M' + x1 + ',' + y1 + ' C' + xm + ',' + y1 + ' ' + xm + ',' + y2 + ' ' + x2 + ',' + y2 + '" />'; }
+      else { var xc = a.l + a.w / 2, izq = c.l + c.w / 2 < xc, y = c.t + c.h / 2, xb = izq ? c.l + c.w : c.l; s += '<path d="M' + xc + ',' + (a.t + a.h) + ' L' + xc + ',' + y + ' L' + xb + ',' + y + '" />'; }
+    });
+    svg.innerHTML = '<g fill="none" stroke="#587E6D" stroke-width="2" stroke-linecap="round">' + s + '</g>';
+  }
+  window.addEventListener('load', trazar); window.addEventListener('resize', function () { setTimeout(trazar, 80); }); setTimeout(trazar, 250); setTimeout(trazar, 900);
+})();
+</script>
+</body>
+</html>

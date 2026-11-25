@@ -1,0 +1,80 @@
+{
+ "unidad": 1,
+ "leccion": 3,
+ "titulo": "Clasificación de las audiencias preliminares nominadas y competencias del JCG",
+ "heading": "Lección 3. Clasificación de las audiencias preliminares nominadas y competencias del JCG",
+ "paginas": [
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=1",
+   "titulo": "Función del JCG en el proceso penal con tendencia acusatoria",
+   "subtitulo": "Conviene precisar · Figura del juez con funciones · Corte Constitucional (2014) · Control judicial ejercido",
+   "seccion": "3.1. Función del JCG en el proceso penal con tendencia acusatoria",
+   "escena": 1,
+   "id": "AP-U1-L3-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "Función del JCG en el proceso penal con tendencia acusatoria",
+   "subtitulo": "Diversidad de escenarios · Audiencias relacionadas con la libertad personal · …",
+   "seccion": "3.1. Función del JCG en el proceso penal con tendencia acusatoria",
+   "escena": 2,
+   "id": "AP-U1-L3-E02"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=3",
+   "titulo": "Articulación entre las comisarías de familia y la jurisdicción penal",
+   "subtitulo": "Ley 2126 de 2021 · Artículo 20 de la Ley 2126 · Jueces con función de control · …",
+   "seccion": "3.2 Articulación entre las comisarías de familia y la jurisdicción penal",
+   "escena": 3,
+   "id": "AP-U1-L3-E03"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=4",
+   "titulo": "Aplicación del enfoque de género en las audiencias preliminares",
+   "subtitulo": "Adecuada comprensión e interpretación · Enfoques diferencial",
+   "seccion": "3.3 aplicación del enfoque de género en las audiencias preliminares",
+   "escena": 4,
+   "id": "AP-U1-L3-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "Enfoque diferencial",
+   "subtitulo": "Permite reconocer cómo las características y necesidades · Siguientes aspectos · Género · …",
+   "seccion": "1. Enfoque diferencial",
+   "escena": 5,
+   "id": "AP-U1-L3-E05"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=6",
+   "titulo": "Enfoque diferencial",
+   "subtitulo": "Discapacidad · Ciclo vital o curso de vida · Étnico-indígena · Étnico-antirracista",
+   "seccion": "1. Enfoque diferencial",
+   "escena": 6,
+   "id": "AP-U1-L3-E06"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=7",
+   "titulo": "Enfoque interseccional",
+   "subtitulo": "Permite analizar la confluencia de dos",
+   "seccion": "2. Enfoque interseccional",
+   "escena": 7,
+   "id": "AP-U1-L3-E07"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=8",
+   "titulo": "Enfoque territorial",
+   "subtitulo": "Estudia las relaciones e interacciones sociales · Actuación de la FGN · Centralidad de sus derechos",
+   "seccion": "3. Enfoque territorial",
+   "escena": 8,
+   "id": "AP-U1-L3-E08"
+  }
+ ]
+}

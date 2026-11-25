@@ -17,11 +17,33 @@
   if (datos.paleta) Object.keys(datos.paleta).forEach(function (k) { O.C[k] = datos.paleta[k]; });
   var fijo = Number(new URLSearchParams(location.search).get('escena'));
   var embebido = Number.isInteger(fijo) && fijo >= 1 && fijo <= datos.scenes.length;
+  /* Dentro de Genially el título de la página va fuera del HTML: el primer párrafo que empieza con ese mismo título
+     («Referentes de la lección: …», «Tres escenarios frecuentes. …») no lo repite (Esteban, 24/11/2026: «demasiado redundante»).
+     Se quita solo al pintar; los datos (y la cobertura, que los lee) siguen con la oración completa. */
+  if (embebido) datos.scenes.forEach(function (e) {
+    var t = String(e.titulo_genially || e.titulo || '').trim().replace(/[.:…]+$/, '').toLowerCase();
+    if (!t || t.length < 4 || !e.segmentos) return;
+    for (var i = 0; i < e.segmentos.length; i++) {
+      var s = e.segmentos[i];
+      if (typeof s !== 'string' || !s.trim()) continue;
+      var m = s.match(/^(\s*)([^.:]+)([.:])\s+(\S[\s\S]*)$/);
+      if (m && m[2].trim().toLowerCase() === t) e.segmentos[i] = m[1] + m[4];
+      break;
+    }
+  });
   /* Dentro del SCORM del aula, la lección tiene su propio botón «Pantalla completa» en el centro del pie, en todas las páginas
      (JP, 14/11/2026: «navegar en pantalla completa siempre»): el de la escena, que hacía lo mismo, no se repite. */
   /* (la clase «pc-leccion» se pone al pintar la escena, con las demás de la raíz) */
   var actual = embebido ? fijo - 1 : 0;
   var escena, vistos, total, retornoFoco = null;
+  /* Pestañas dentro de la página (Juan, 19/11/2026, estándar de Justicia restaurativa: «una diapositiva por título… con sus
+     pestañas»): una escena con «pestanas» = [subescena, …] muestra arriba una pestaña por subtítulo de la ficha (A, B, C…, con su
+     marca de leído) y, debajo, la mediación de la pestaña elegida, que es una escena completa del motor. Sin «pestanas», nada cambia.
+     ?pestana=M abre la pestaña M (QA). */
+  var padre = null, pestana = 0, pHechas = {};
+  (function () { var p0 = Number(new URLSearchParams(location.search).get('pestana')); if (Number.isInteger(p0) && p0 >= 1) pestana = p0 - 1; })();
+  function subEscenas(e) { return e.pestanas && e.pestanas.length ? e.pestanas : [e]; }
+  function claveLectura() { return actual + (padre ? '.' + pestana : '') + ':'; }
   var esc = function (s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   };
@@ -47,11 +69,16 @@
     esquema: 'Recorra el mapa conceptual.',
     compara: 'Toque cada columna para compararla.',
     eje: 'Toque cada categoría del eje y compare las dos columnas.',
+    cuadro: 'Lea la tabla: «Seguir leyendo» muestra las filas siguientes.',
+    ramas: 'Toque cada entidad de las ramas para leer su contenido.',
     red: 'Abra cada institución de la red: al leerla se revela su papel en el sistema.',
     conexiones: 'Lea cada fragmento: cada uno revela una conexión del mapa.',
     condiciones: 'Lea los fragmentos y marque si cada requisito se cumple: la consecuencia cambia.',
+    apertura: 'Lea la pregunta que orienta la lección y las ideas que la responden.',
     actividad: 'Elija una respuesta: si no es la correcta, lea la retroalimentación e inténtelo de nuevo.'
   };
+  // Con datos.puntosSoloLeyenda (ver B.puntos), lo que se toca son los rótulos de la derecha.
+  if (datos.puntosSoloLeyenda) guias.puntos = 'Toque cada rótulo de la derecha; su número señala el lugar en la ilustración.';
   /* Juan (26–27/10/2026): mayúscula inicial en rótulos, títulos y en todo bloque de texto (párrafo, viñeta, celda, extracto);
      artículos, leyes, sentencias y la Corte se ven y titilan. Solo cambia la letra con que arranca el bloque: si empieza
      con un número no se toca, y la marca de una enumeración («(ii)», «a)», «b.», «1.») se conserva. Una dirección web
@@ -79,8 +106,42 @@
   function rot(s) { return (esRef(s) ? '<i class="fas fa-book-open ref-ico" aria-hidden="true"></i>' : '') + esc(may(s)); }
   /* Cada línea es un párrafo de la fuente; «[^n] …» al inicio es una nota al pie y «[^n]» en el texto, su llamada. */
   function marcado(s) {
-    return esc(s).replace(REF, function (m) { return '<mark class="ref-texto">' + m + '</mark>'; })
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[\^(\d+)\]/g, '<sup class="llamada">$1</sup>');
+    var h = esc(formatoFuente(s)).replace(REF, function (m) { return '<mark class="ref-texto">' + m + '</mark>'; })
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[\^(\d+)\]/g, '<sup class="llamada">$1</sup>')
+      .replace(//g, '<strong class="ff">').replace(//g, '</strong>').replace(//g, '<em class="ff">').replace(//g, '</em>');
+    /* «comillasCursiva» (Tráfico y trata, 21/11/2026: «los encomillados van en itálica»): lo citado entre «» va en cursiva; las
+       comillas quedan en redonda. El texto no cambia. */
+    /* Ley 1826 (21/11/2026): sus citas van entre “…” (“consta en la carpeta”); reciben el mismo trato. */
+    if (datos.comillasCursiva) h = h.replace(/«([^«»]+?)»/g, '«<em class="cita">$1</em>»').replace(/“([^“”<>]+?)”/g, '“<em class="cita">$1</em>”');
+    return h;
+  }
+  /* «formatoFuente» (Tráfico y trata, 21/11/2026: «faltan las negritas, cursivas…»): [{a, t, d, f}] con los tramos que la ficha
+     pone en negrita (f 'N'), cursiva ('C') o ambas, con un poco de texto antes (a) y después (d) para ubicarlos sin confundirlos
+     con otra aparición. Se marcan con caracteres privados antes de escapar y se vuelven <strong>/<em> al final. Si el contexto no
+     está en este tramo de lectura, se acepta el tramo solo cuando aparece una sola vez y es largo. El texto no cambia. */
+  function formatoFuente(s) {
+    var L = datos.formatoFuente;
+    s = String(s);
+    if (!L || !L.length) return s;
+    var bajo = s.toLowerCase(), marcas = [];
+    L.forEach(function (x) {
+      var t = x.t.toLowerCase(), i = -1, k;
+      if (x.a && (k = bajo.indexOf((x.a + x.t).toLowerCase())) >= 0) i = k + x.a.length;
+      else if (x.d && (k = bajo.indexOf((x.t + x.d).toLowerCase())) >= 0) i = k;
+      else if (t.length >= 12 && (k = bajo.indexOf(t)) >= 0 && bajo.indexOf(t, k + 1) < 0) i = k;
+      if (i < 0) return;
+      var f = i + t.length;
+      if (marcas.some(function (m) { return i < m[1] && f > m[0]; })) return;   // sin solapes
+      marcas.push([i, f, x.f]);
+    });
+    if (!marcas.length) return s;
+    marcas.sort(function (p, q) { return q[0] - p[0]; });
+    marcas.forEach(function (m) {
+      var ab = (m[2].indexOf('N') >= 0 ? '' : '') + (m[2].indexOf('C') >= 0 ? '' : '');
+      var ci = (m[2].indexOf('C') >= 0 ? '' : '') + (m[2].indexOf('N') >= 0 ? '' : '');
+      s = s.slice(0, m[0]) + ab + s.slice(m[0], m[1]) + ci + s.slice(m[1]);
+    });
+    return s;
   }
   /* Párrafos con aire (Bienes, revisión de Juan: «que haga respirar un poquitico el párrafo»): con datos.respiro (caracteres
      por tramo), un párrafo largo se muestra en tramos de pocas oraciones, cada uno como párrafo visual, sin cambiar una
@@ -101,7 +162,10 @@
     }
     oraciones.push(t.slice(desde).trim());
     /* Una oración muy larga (citas legales) se divide en sus punto y coma, que la cierran a medias: el texto no cambia. */
-    oraciones = oraciones.reduce(function (a, o) {
+    /* Con datos.desplazarLectura la lectura entera se desplaza y no hace falta: la oración queda en un solo bloque, sin salto de
+       línea tras el punto y coma (María Paula Hernández, Bienes, 22/11/2026: «mantener la continuación de la idea en el mismo
+       párrafo después del punto y coma»). */
+    if (!datos.desplazarLectura) oraciones = oraciones.reduce(function (a, o) {
       if (o.length <= lim * 1.3) return a.concat([o]);
       return a.concat(o.split(/(?<=;)\s+/).filter(function (x) { return x; }));
     }, []);
@@ -206,6 +270,21 @@
      «Pantalla completa» sin permiso) no cambia de composición (revisión de choques, 30/10/2026). */
   function marcoAncho() { return !!(datos.marco && datos.marco[0] >= 900); }
   function anchoReal() { return marcoAncho() && raiz.clientWidth >= 900; }
+  /* Recuadro «Alerta» (Juan, 19/11/2026: «un elemento muy llamativo que diga alerta» para las advertencias del documento): el ítem
+     que trae «alerta: true» en sus datos se marca con el rótulo «Alerta» y late; su ventana se abre con el mismo marco. Solo lo usa
+     el curso que lo pone en sus datos (Terminaciones). */
+  function marcarAlertas(b, el) {
+    (b.items || []).forEach(function (it, i) {
+      if (!it.alerta) return;
+      el.querySelectorAll('[data-i="' + i + '"],[data-n="' + i + '"]').forEach(function (x) {
+        if (x.classList.contains('es-alerta')) return;
+        x.classList.add('es-alerta');
+        (x.querySelector('.esq-tarjeta') || x).insertAdjacentHTML('afterbegin', '<span class="alerta-sello"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> Alerta</span>');
+      });
+    });
+  }
+  /* Letra mínima al encajar: con datos.desplazarLectura (Terminaciones) no baja de 15 px; lo que no cabe se desplaza. */
+  function pisoLetra() { return datos.desplazarLectura ? 15 : 11.5; }
   function topeLetra(normal) { return datos.sinHuecos ? Math.max(normal, 25) : normal; }
   /* Holgura del encaje: con datos.sinHuecos se deja 4 px libres, porque otro navegador dibuja la misma fuente 1–3 px más alta y
      el panel abriría una barra de desplazamiento. */
@@ -260,6 +339,13 @@
     caja.classList.remove('apretada', 'sin-arte', 'mini');
     quitarRelleno(caja);
     if (texto) for (var fs = topeLetra(24); fs > 14.2; fs -= 0.5) { caja.style.setProperty('--fs', fs + 'px'); if (cabe(texto, 4) && caja.scrollHeight <= caja.clientHeight + 1) { rellenar(caja, texto); return; } }
+    /* «huecosFinos» (Tráfico, 20/11/2026: «sin huecos»): en una caja baja, la ilustración grande no deja crecer la letra de un texto
+       breve; se prueba con la ilustración menor antes de achicarla. */
+    if (texto && datos.huecosFinos) {
+      caja.classList.add('apretada');
+      for (var f2 = topeLetra(24); f2 > 14.2; f2 -= 0.5) { caja.style.setProperty('--fs', f2 + 'px'); if (cabe(texto, 4) && caja.scrollHeight <= caja.clientHeight + 1) return; }
+      caja.classList.remove('apretada');
+    }
     caja.style.removeProperty('--fs'); ajustarLectura(caja);
   }
   function reanimar(el) { el.classList.remove('aparece'); void el.offsetWidth; el.classList.add('aparece'); }
@@ -297,10 +383,11 @@
     var b = e.bloques[0];
     return escasa(e) || (e.bloques.length === 1 && b.tipo === 'fichas') || (e.bloques.length === 1 && b.tipo === 'empareja' && b.items.length <= 2);
   }
-  var IMAGEN = datos.scenes.map(function (e) { return conFigura(e) ? tema(e) : null; });
+  var IMAGEN = datos.scenes.map(function (e) { return e.pestanas && e.pestanas.length ? e.pestanas.map(function (x) { return conFigura(x) ? tema(x) : null; }) : conFigura(e) ? tema(e) : null; });
+  function imagenActual() { var t = IMAGEN[actual]; return Array.isArray(t) ? t[pestana] || null : t; }
   IMAGEN.forEach(function (t, i) { if (t && i && IMAGEN[i - 1] === t) IMAGEN[i] = null; });
   function figura(objs, acomp) {
-    var t = IMAGEN[actual];
+    var t = imagenActual();
     if (t) return '<figure class="ctx-arte foto" aria-hidden="true"><img src="' + srcImagen(t) + '" alt=""></figure>';
     var C = O.C, n = Math.min(objs.length, 3), xs = [[150], [98, 206], [66, 150, 236]][n - 1], s = [1.85, 1.25, 0.95][n - 1];
     /* Lámina de un solo punto (segunda pasada de U3–U4): su objeto al centro y, detrás, dos objetos tomados de su mismo texto. */
@@ -343,10 +430,10 @@
   /* Curso gamificado (Esteban, 08/11/2026: «que el estudiante sienta que va ganando y va subiendo los puntos… avanzando de secciones»).
      Con «datos.juego» ({clave, niveles}), cada lectura suma 10 puntos y cada escena completa es un tramo superado (+25). Se guarda en
      este navegador, por lección, y se comparte entre las páginas. No es la calificación del aula. */
-  function juegoEstado() { var s = {}; try { s = JSON.parse(localStorage.getItem(datos.juego.clave) || '{}'); } catch (e) { /* sin almacenamiento */ } s.v = s.v || {}; s.t = s.t || {}; return s; }
+  function juegoEstado() { var s = {}; try { s = JSON.parse(localStorage.getItem(datos.juego.clave) || '{}'); } catch (e) { /* sin almacenamiento */ } s.v = s.v || {}; s.t = s.t || {}; s.p = s.p || {}; return s; }
   function juegoGuardar(s) { try { localStorage.setItem(datos.juego.clave, JSON.stringify(s)); } catch (e) { /* sin almacenamiento */ } }
   function juegoPuntos(s) { return Object.keys(s.v).length * 10 + Object.keys(s.t).length * 25; }
-  function juegoMax() { return datos.scenes.reduce(function (a, e) { return a + 25 + 10 * e.bloques.reduce(function (c, b) { return c + (b.items ? b.items.length : 2); }, 0); }, 0); }
+  function juegoMax() { return datos.scenes.reduce(function (a, e) { return a + 25 + subEscenas(e).reduce(function (d, x) { return d + 10 * x.bloques.reduce(function (c, b) { return c + (b.items ? b.items.length : 2); }, 0); }, 0); }, 0); }
   function juegoNivel(p) { var N = datos.juego.niveles, f = p / juegoMax(); return f >= 0.8 ? N.length - 1 : f >= 0.45 ? Math.min(2, N.length - 1) : f >= 0.15 ? 1 : 0; }
   function juegoHtml() {
     if (!datos.juego) return '';
@@ -369,7 +456,7 @@
   }
   function juegoLectura(id) {
     if (!datos.juego) return;
-    var s = juegoEstado(), k = actual + ':' + id; if (s.v[k]) return;
+    var s = juegoEstado(), k = claveLectura() + id; if (s.v[k]) return;
     var antes = juegoPuntos(s); s.v[k] = 1; juegoSuma(s, antes);
   }
   function juegoTramo() {
@@ -404,15 +491,37 @@
     barra.style.width = (100 * n / total) + '%';
     raiz.querySelector('.avance output').textContent = n + ' / ' + total;
     /* Con el visto diferido, «Exploración completa» llega después de encajar los textos: se vuelven a encajar. */
-    if (n === total) { celebrar(); juegoTramo(); if (datos.completar) window.dispatchEvent(new Event('resize')); }
+    if (n === total) { if (padre) completarPestana(); else { celebrar(); juegoTramo(); } if (datos.completar) window.dispatchEvent(new Event('resize')); }
+  }
+  function pestanaHecha(i) {
+    var c = actual + '.' + i; if (pHechas[c]) return true;
+    return !!(datos.juego && juegoEstado().p[c]);
+  }
+  /* Una pestaña leída por completo queda marcada; con todas leídas, la página es un tramo superado y «Exploración completa». */
+  function completarPestana() {
+    if (!padre) return;
+    var c = actual + '.' + pestana; pHechas[c] = true;
+    if (datos.juego) { var s = juegoEstado(); if (!s.p[c]) { s.p[c] = 1; juegoGuardar(s); } }
+    var b = raiz.querySelector('.pestana[data-p="' + pestana + '"]'); if (b) { b.classList.add('visto'); b.classList.remove('pulsa'); }
+    var falta = -1;
+    padre.pestanas.forEach(function (_, i) { if (falta < 0 && !pestanaHecha(i)) falta = i; });
+    if (falta < 0) { celebrar(); juegoTramo(); return; }
+    var av = raiz.querySelector('.avance');
+    if (av) { av.classList.add('completo'); av.querySelector('output').innerHTML = visto + ' Pestaña leída'; }
+    raiz.querySelectorAll('.tras-completar').forEach(function (e) { e.hidden = false; reanimar(e); });
+    raiz.querySelectorAll('.ruta-lectura').forEach(crecerLectura);
+    var sig = raiz.querySelector('.pestana[data-p="' + falta + '"]'); if (sig) sig.classList.add('pulsa');
+    if (!restaurando) juegoAviso('¡Pestaña leída! Siga con la pestaña ' + String.fromCharCode(65 + falta));
   }
   function celebrar() {
     var av = raiz.querySelector('.avance');
-    av.classList.add('completo');
-    av.querySelector('output').innerHTML = visto + ' Exploración completa';
+    if (av) {
+      av.classList.add('completo');
+      av.querySelector('output').innerHTML = visto + ' Exploración completa';
+    }
     /* El confeti va en su propia capa, por encima de toda la escena (antes nacía dentro del encabezado y la escena lo
        tapaba): sale del distintivo «Exploración completa», salta y cae sobre la escena. Sin animación si el usuario la reduce. */
-    if (!restaurando && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    if (av && !restaurando && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
       var caja = raiz.getBoundingClientRect(), insignia = av.querySelector('output').getBoundingClientRect();
       var c = document.createElement('div');
       c.className = 'confeti'; c.setAttribute('aria-hidden', 'true');
@@ -443,17 +552,30 @@
     var lim = limite || datos.pagina, t = caja && caja.querySelector('.lectura-texto'), viejo = caja && caja.querySelector('.lectura-paginas');
     if (viejo) viejo.remove();
     if (caja) caja.classList.remove('lectura-pendiente');
+    /* datos.desplazarLectura (Terminaciones; Esteban y Juan, 19/11/2026: «mucho Seguir leyendo… mucho clic, que es lo que no
+       quieren»): la lectura no se parte; va entera en su caja, con letra legible, y se desplaza. Las notas al pie, al final. */
+    if (datos.desplazarLectura && t) {
+      caja.classList.add('lectura-desplazable');
+      notasAlFinal(t, [].slice.call(t.querySelectorAll('.parr')));
+      return false;
+    }
     if (!lim || !t) return false;
     var partes = [].slice.call(t.querySelectorAll('.parr')), total = 0;
     partes.forEach(function (x) { x.hidden = false; total += x.textContent.length; });
-    if (total <= lim * 1.08) return false;
-    var paginas = [[]], largo = 0;
+    if (total <= lim * 1.08) { notasAlFinal(t, partes); return false; }
+    var paginas = [[]], largo = 0, previo = '';
     partes.forEach(function (x) {
-      var L = x.textContent.length;
-      if (paginas[paginas.length - 1].length && largo + L > lim && (largo >= lim * 0.3 || largo + L > lim * 1.08)) { paginas.push([]); largo = 0; }
+      var L = x.textContent.length, nota = x.classList.contains('nota-pie');
+      /* Una nota al pie se queda en la parte de su llamada. Con datos.ideasCompletas (Enfoque, revisión del 19/11/2026: «esta idea
+         no se puede cortar ni en idea, ni gráficamente»), tampoco se pasa de parte después de un texto que anuncia con «:» lo que
+         sigue ni de uno que queda colgando en «,». */
+      var pegado = nota || (datos.ideasCompletas && /[:,]\s*$/.test(previo));
+      if (!pegado && paginas[paginas.length - 1].length && largo + L > lim && (largo >= lim * 0.3 || largo + L > lim * 1.08)) { paginas.push([]); largo = 0; }
       paginas[paginas.length - 1].push(x); largo += L;
+      if (!nota) previo = x.textContent;
     });
-    if (paginas.length < 2) return false;
+    if (paginas.length < 2) { notasAlFinal(t, partes); return false; }
+    paginas.forEach(function (pg) { notasAlFinal(t, pg); });
     var pos = 0, nav = document.createElement('div');
     nav.className = 'lectura-paginas';
     nav.innerHTML = '<button type="button" class="pag-anterior" aria-label="Parte anterior"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>' +
@@ -485,6 +607,20 @@
     nav.querySelector('.pag-siguiente').addEventListener('click', function (e) { e.stopPropagation(); ir(Math.min(paginas.length - 1, pos + 1)); });
     ir(0);
     return true;
+  }
+  /* Notas al pie al final de su parte (Esteban, 19/11/2026: «Pie de página mal ubicado», Enfoque U4-L5: la nota 12 salía entre el
+     párrafo que la llama y el siguiente). Las notas («.nota-pie») de «grupo» pasan, en su orden, detrás del último párrafo del grupo
+     que no es nota; el texto no cambia. «grupo»: los párrafos de una parte, o todos si no hay partes. */
+  function notasAlFinal(t, grupo) {
+    var notas = grupo.filter(function (x) { return x.classList.contains('nota-pie'); });
+    var cuerpo = grupo.filter(function (x) { return !x.classList.contains('nota-pie'); });
+    if (!notas.length || !cuerpo.length) return;
+    var ultimo = cuerpo[cuerpo.length - 1];
+    if (grupo.indexOf(ultimo) < grupo.indexOf(notas[0])) return;   // ya están al final
+    /* Un párrafo dentro de un envoltorio (dos columnas de viñetas breves): la nota va detrás del envoltorio. */
+    while (ultimo.parentNode && ultimo.parentNode !== t && t.contains(ultimo.parentNode)) ultimo = ultimo.parentNode;
+    var ancla = ultimo.nextSibling;
+    notas.forEach(function (n) { ultimo.parentNode.insertBefore(n, ancla); });
   }
   /* Sin escritura en curso (lectura ya leída que se vuelve a abrir, «reducir movimiento» o texto ya mostrado completo), la parte
      a la vista también señala «Seguir leyendo» si hay otra después (Esteban, 01/11/2026: «que cuando termine de escribir le diga o
@@ -587,26 +723,102 @@
   /* «Siguiente» con candado: sigue activo para explicar qué falta, pero no avanza. */
   function candado(boton, si) { boton.classList.toggle('bloqueado', !!si); boton.setAttribute('aria-disabled', String(!!si)); }
   var alCerrarLector = null;
-  function leer(titulo, texto, obj, desde, hoja) {
+  /* Ventana con el video del caso (escena.boton_video). */
+  function abrirVideo(v, desde) {
     var l = raiz.querySelector('.lector');
+    retornoFoco = desde || null;
+    l.classList.remove('en-hoja'); l.classList.add('amplia', 'con-video-caso');
+    l.innerHTML = '<div class="lector-caja" role="dialog" aria-modal="true" aria-label="' + esc(may(v.titulo || 'Video del caso')) + '" tabindex="-1">' +
+      '<div class="hoja-cab"><p class="lectura-eyebrow">' + esc(may(v.titulo || 'Video del caso')) + '</p><button type="button" class="cerrar" aria-label="Cerrar el video">Cerrar ×</button></div>' +
+      '<video class="video-caso" controls autoplay playsinline src="' + esc(v.src) + '">' + (v.vtt ? '<track kind="subtitles" srclang="es" label="Español" src="' + esc(v.vtt) + '">' : '') + '</video></div>';
+    l.hidden = false;
+    l.querySelector('.cerrar').onclick = function () { var vid = l.querySelector('video'); if (vid) vid.pause(); l.classList.remove('con-video-caso'); cerrarLector(); };
+    l.firstChild.focus({ preventScroll: true });
+  }
+  /* «destacar» (Tráfico y trata; Juan, 20/11/2026: la «regla de decisión» como recuadro con negritas y fondo; los tips, con su
+     estilo propio): dentro de una ventana, el párrafo que empieza por «Regla…» o «TIP —» va en su recuadro, con sus tramos, y su
+     comienzo en negrita. Solo el curso que lo pone en sus datos; el texto no cambia. */
+  function destacarParrafos(cont) {
+    if (!datos.destacar || !cont) return;
+    var clase = '';
+    [].slice.call(cont.querySelectorAll('.parr')).forEach(function (p) {
+      if (p.classList.contains('nota-pie')) { clase = ''; return; }
+      if (!p.classList.contains('tramo')) {
+        var t = p.textContent;
+        clase = /^Regla\b/.test(t) ? 'parr-regla' : /^TIP\s+—/.test(t) ? 'parr-tip' : '';
+        if (clase) {
+          p.classList.add('parr-ini');
+          var m = /^(?:Regla[^.:]{0,90}[.:]|TIP\s+—[^.]{0,140}\.)/.exec(t), n0 = p.firstChild;
+          /* Negrita solo si el comienzo está en un nodo de texto (sin una referencia marcada dentro). */
+          if (m && n0 && n0.nodeType === 3 && n0.nodeValue.length >= m[0].length) {
+            var resto = n0.splitText(m[0].length), fuerte = document.createElement('strong');
+            fuerte.textContent = n0.nodeValue; p.replaceChild(fuerte, n0); void resto;
+          }
+        }
+      }
+      if (clase) p.classList.add(clase);
+    });
+  }
+  /* El párrafo de la ficha que empieza con su propio rótulo («Decisión sobre el servidor. Se adquiere…») no lo repite bajo el
+     título de la ventana (Esteban, 24/11/2026: «estás repitiendo… demasiado redundante»): el rótulo queda a la vista como título,
+     así que la oración se sigue leyendo completa. Solo si el rótulo va seguido de punto o dos puntos y queda texto después. */
+  function sinRotulo(titulo, texto) {
+    var t = String(titulo || '').trim().replace(/[.:…]+$/, '');
+    if (!t || t.length < 4) return texto;
+    var quitar = function (s) {
+      if (typeof s !== 'string') return s;
+      var m = s.match(/^(\s*)([^.:]+)([.:])\s+(\S[\s\S]*)$/);
+      return m && m[2].trim().toLowerCase() === t.toLowerCase() ? m[1] + m[4] : s;
+    };
+    if (Array.isArray(texto)) { if (!texto.length) return texto; var c = texto.slice(); c[0] = quitar(c[0]); return c; }
+    return quitar(texto);
+  }
+  function leer(titulo, texto, obj, desde, hoja, html) {
+    texto = sinRotulo(titulo, texto);
+    var l = raiz.querySelector('.lector');
+    l.classList.toggle('lector-alerta', !!(desde && desde.classList && desde.classList.contains('es-alerta')));
+    l.classList.toggle('lector-tip', !!(desde && desde.classList && desde.classList.contains('cmp-tip')));
     if (alCerrarLector && !hoja) { var f0 = alCerrarLector; alCerrarLector = null; f0(); }
     retornoFoco = desde || null;
     /* «hoja»: {izq}, la ventana como hoja de cuaderno a la derecha de la tarjeta que se abre (B.giro). */
     l.classList.toggle('en-hoja', !!hoja);
+    /* «ventanaAmplia» (Terminaciones, doctora Clara, 18/11/2026: «ventanas más amplias, más texto y menos clics»): la ventana es
+       grande, trae el texto completo de la idea y se desplaza si es largo, sin partes ni «Seguir leyendo»; queda leída al final. */
+    /* «escena.ventanaAmplia» (SRPA, revisora de la Fiscalía, 23/11/2026: la norma «en un solo punto… que no se fragmente»): la
+       misma ventana amplia solo en la página que la pide, sin cambiar las demás del curso. */
+    var amplia = !hoja && !!(datos.ventanaAmplia || (escena && escena.ventanaAmplia));
+    l.classList.toggle('amplia', amplia);
+    /* «html»: la ventana trae una tabla completa ya pintada (malla de la página compacta); solo con ventana amplia. */
+    if (!amplia) html = null;
+    l.classList.toggle('con-tabla', !!html);
     if (hoja) l.style.setProperty('--hoja-izq', hoja.izq + 'px'); else l.style.removeProperty('--hoja-izq');
     var cerrar = '<button type="button" class="cerrar" aria-label="Cerrar lectura">Cerrar ×</button>', arte = obj ? '<span class="lector-arte">' + svgObjeto(obj, 78) + '</span>' : '';
-    l.innerHTML = '<div class="lector-caja" role="dialog" aria-modal="true" aria-label="' + esc(may(titulo)) + '" tabindex="-1">' + (hoja
+    l.innerHTML = '<div class="lector-caja" role="dialog" aria-modal="true" aria-label="' + esc(may(titulo)) + '" tabindex="-1">' + (hoja || amplia
       /* La hoja de cuaderno del giro (Esteban, 30/10/2026: «en el de seguir leyendo, en la vista escritorio, que sea scroll»): el
          texto completo se desplaza dentro de la hoja, con su avance; queda leído al llegar al final. */
       ? '<div class="hoja-cab"><p class="lectura-eyebrow">' + esc(may(titulo)) + '</p>' + arte + cerrar + '</div>' +
-        '<div class="lectura-texto hoja-texto desplazable" tabindex="0">' + rico(texto) + '</div><p class="hoja-pie" aria-live="polite"></p>'
+        '<div class="lectura-texto hoja-texto desplazable" tabindex="0">' + (html || rico(texto)) + '</div><p class="hoja-pie" aria-live="polite"></p>'
       : cerrar + arte + '<p class="lectura-eyebrow">' + esc(may(titulo)) + '</p><p class="lectura-texto">' + rico(texto) + '</p>') + '</div>';
     l.hidden = false;
     /* La ventana también se escribe letra por letra y, al terminar cada parte, «Seguir leyendo» dice «¡Siga aquí!» (Esteban,
        31/10/2026: prioridad 1 del diagnóstico de detalles, el lector del esquema, los puntos, la lámina, el mapa mental y el mapa).
        Las letras se envuelven antes de medir y repartir la lectura, para que nada cambie de lugar al escribirse. */
-    var lt = !hoja && !quieto ? l.firstChild.querySelector('.lectura-texto') : null, letras = lt ? envolverLetras(lt) : null, partes = false;
-    if (hoja) { leerDesplazando(l.firstChild); rellenarHoja(l.firstChild); }
+    var lt = !hoja && !amplia && !quieto ? l.firstChild.querySelector('.lectura-texto') : null, letras = lt ? envolverLetras(lt) : null, partes = false;
+    if ((hoja || amplia) && !html) { var ht = l.firstChild.querySelector('.lectura-texto'); notasAlFinal(ht, [].slice.call(ht.querySelectorAll('.parr'))); destacarParrafos(ht); }
+    if (hoja) { leerDesplazando(l.firstChild, !!datos.ventanaAmplia); rellenarHoja(l.firstChild); }   // con ventana amplia, sin escribir letra por letra
+    else if (amplia) {
+      /* «huecosFinos» (Tráfico, 20/11/2026): una ventana amplia con poco texto, o con renglones cortos (una lista), dejaba vacía la
+         mitad derecha; lleva el objeto de su tema a la derecha y, si es breve, letra más grande. */
+      if (datos.huecosFinos && !html) {
+        var hx = l.firstChild.querySelector('.hoja-texto'), ps = [].slice.call(hx.querySelectorAll('.parr')), tot = hx.textContent.length;
+        if (tot < 420) hx.classList.add('hoja-breve');
+        else if (ps.length >= 4 && tot / ps.length < 120) {
+          var fg = document.createElement('span'); fg.className = 'lector-figura'; fg.setAttribute('aria-hidden', 'true');
+          fg.innerHTML = svgObjeto(obj || 'documento', 170); hx.insertBefore(fg, hx.firstChild);
+        }            
+      }
+      leerDesplazando(l.firstChild, true);
+    }
     else if (!(partes = !!dosificar(l.firstChild, function () { encajarLector(l.firstChild); }))) encajarLector(l.firstChild);
     if (!animarApertura(l, desde)) reanimar(l.firstChild);
     if (letras) escribirVentana(lt, letras, partes);
@@ -717,13 +929,13 @@
     });
     return true;
   }
-  /* Lectura con desplazamiento dentro de la hoja: un indicador dice cuánto falta («Deslice para seguir leyendo · 40 %») y la línea del
+  /* Lectura con desplazamiento dentro de la hoja: un indicador dice cuánto falta («Baje con la barra de desplazamiento para ver el contenido completo · 40 %»; reuniones con Juan del 20/11/2026: el aviso del scroll, siempre a la vista) y la línea del
      margen se llena con lo leído. Con datos.completar, el visto llega al llegar al final del texto (leer el 100 %). */
-  function leerDesplazando(caja) {
+  function leerDesplazando(caja, sinEscribir) {
     var t = caja.querySelector('.hoja-texto'), pie = caja.querySelector('.hoja-pie');
     var L = { partes: 1, leidas: {}, completa: false, turno: turno, alCompletar: [] };
     if (datos.completar) ultimaLectura = L;
-    var escribiendo = true;
+    var escribiendo = !sinEscribir;
     function revisar() {
       if (!t.isConnected) return;
       if (escribiendo) {
@@ -736,11 +948,12 @@
         if (!L.completa) { L.completa = true; L.alCompletar.splice(0).forEach(function (f) { f(); }); }
         caja.classList.add('hoja-leida');
         pie.innerHTML = visto + ' Leído completo';
-      } else pie.innerHTML = '<i class="fas fa-angles-down" aria-hidden="true"></i> Deslice para seguir leyendo · ' + pct + ' %';
+      } else pie.innerHTML = '<i class="fas fa-angles-down" aria-hidden="true"></i> Baje con la barra de desplazamiento para ver el contenido completo · ' + pct + ' %';
     }
     t.addEventListener('scroll', revisar, { passive: true });
     revisar();
-    escribir(t, function () { escribiendo = false; revisar(); });
+    if (sinEscribir) requestAnimationFrame(revisar);
+    else escribir(t, function () { escribiendo = false; revisar(); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(revisar);
   }
   /* El texto de la hoja se va escribiendo, palabra por palabra, con un cursor que parpadea, y la hoja baja sola siguiéndolo
@@ -778,6 +991,8 @@
      escritura espera hasta que esa parte se muestre con «Seguir leyendo». */
   function escribirLetras(t, letras, fin) {
     if (!letras || !letras.length) { fin(); return; }
+    /* Si una nota al pie pasó al final de su parte (notasAlFinal), las letras se escriben en el orden en que se ven. */
+    if (t.querySelector && t.querySelector('.nota-pie')) letras.sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
     if (!escrituraAnimada() || escritos.indexOf(huella(t)) >= 0) {
       /* Escritura apagada o texto ya escrito antes: aparece completo de una vez. */
       letras.forEach(function (s) {
@@ -974,13 +1189,17 @@
       boton('nucleo', centro, k, 0, 'left:50%;top:52%') + nodos + '</div>';
   };
   function boton(clase, item, k, i, estilo) {
+    /* «fijo» (SRPA U1-L2, revisora del 23/11/2026: «toque cada rama… y si uno toca solo está el título»): la rama que la ficha
+       solo nombra, sin desarrollo, se ve como rótulo y no se toca ni cuenta para el avance. */
+    if (item.fijo) return '<div class="nodo ' + clase + ' fijo" style="' + estilo + '">' +
+      '<span class="nodo-arte">' + svgObjeto(item.obj, 48) + '</span><span class="nodo-rotulo">' + rot(item.label) + '</span></div>';
     return '<button type="button" class="nodo ' + clase + refc(item.label) + '" data-id="' + k + '-' + i + '" data-b="' + k + '" data-i="' + i + '" style="' + estilo + '">' +
       '<span class="nodo-arte">' + svgObjeto(item.obj, clase === 'nucleo' ? 70 : 48) + '</span><span class="nodo-rotulo">' + rot(item.label) + '</span>' +
       '<span class="nodo-marca">' + mano + visto + '</span>' + estado + '</button>';
   }
   B.mapa.activar = function (b, k, el) {
     var orden = [b.items.filter(function (x) { return x.centro; })[0]].concat(b.items.filter(function (x) { return !x.centro; }));
-    el.querySelectorAll('.nodo').forEach(function (n) {
+    el.querySelectorAll('button.nodo').forEach(function (n) {
       n.addEventListener('click', function () {
         var it = orden[Number(n.dataset.i)];
         leer(it.label, segs(it.segs), it.obj, n); marcar(n.dataset.id);
@@ -1046,7 +1265,8 @@
       /* Con datos.sinHuecos, el extracto completo crece (hasta 17 px) mientras quepa en su tarjeta: la tarjeta no queda medio
          vacía con letra pequeña («no dejar esos espacios en blanco»). */
       var tarjeta = e.closest('.cara') || e.closest('button');
-      if (datos.sinHuecos && tarjeta && !e.classList.contains('giro-extracto') && cabe()) {
+      /* Con «ventanaAmplia» (Terminaciones, doctora Clara) los extractos no crecen: todas las tarjetas con la misma letra. */
+      if (datos.sinHuecos && !datos.ventanaAmplia && tarjeta && !e.classList.contains('giro-extracto') && cabe()) {
         var fs0 = parseFloat(getComputedStyle(e).fontSize), mejor = 0;
         e.style.webkitLineClamp = 'unset';
         for (var fs = 17; fs > fs0; fs -= 0.5) {
@@ -1285,7 +1505,7 @@
         '<span class="ficha-estado ficha-por-leer">Por leer</span><span class="ficha-estado ficha-falta"><i class="fas fa-book-open" aria-hidden="true"></i> Falta leer</span>' +
         '<span class="ficha-estado ficha-leida"><i class="fas fa-circle-check" aria-hidden="true"></i> Leída</span></button>';
     }).join('') + '</div><div class="panel-fichas' + (conFigura(escena) ? ' con-figura' : '') + '" role="tabpanel" tabindex="-1">' +
-      (conFigura(escena) && IMAGEN[actual] ? figura([]) : '<span class="panel-arte"></span>') +
+      (conFigura(escena) && imagenActual() ? figura([]) : '<span class="panel-arte"></span>') +
       '<div class="panel-texto"><p class="panel-vacio">' + mano + ' Elija una ficha para leer su contenido.</p></div></div>';
   };
   B.fichas.activar = function (b, k, el) {
@@ -1487,7 +1707,7 @@
              espacio que sobra (si el texto es largo, se achica o desaparece). La imagen de contexto de la escena, o el objeto
              del elemento en grande si la escena ya muestra su imagen al lado o no tiene tema. */
           if (!d.querySelector('.def-ilus')) {
-            var tm = conFigura(escena) ? null : (IMAGEN[actual] || tema(escena));
+            var tm = conFigura(escena) ? null : (imagenActual() || tema(escena));
             d.querySelector('.def-ranura').insertAdjacentHTML('beforebegin', '<span class="def-ilus" aria-hidden="true">' +
               (tm ? '<img src="' + srcImagen(tm) + '" alt="">' : svgObjeto(it.obj, 170)) + '</span>');
           }
@@ -1727,6 +1947,476 @@
     });
   };
 
+  /* Cuadro visible por partes (delitos ambientales, revisor experto de la Fiscalía, 18/11/2026: «las tablas, los cuadros resumen
+     y las matrices… deben verse como tablas, con sus columnas a la vista»; Juan, 18:10: «tablas e infografías»). Solo lo usa el
+     curso que lo pone en sus datos ({tipo:'cuadro'}); ningún otro cambia. El encabezado de columnas queda siempre a la vista y las
+     filas se muestran por partes («Filas 1 a 2»…), con «Anterior» y «Seguir leyendo»: así la lectura a la vista no pasa de 520
+     caracteres y nada se recorta (una celda nunca lleva «…»; si no cabe, la parte es más corta). Cada parte queda vista al
+     mostrarse (puntos y avance como las demás mediaciones). En pantalla angosta (@container), cada fila es una ficha con los
+     rótulos de sus columnas.
+     Datos: {tipo:'cuadro', columnas:[seg|texto…], items:[{label:'Filas 1 a 2', segs:[…], celdas:[[seg|texto, …], …]}], titulo:[seg…]}
+     «columnas»: encabezado; cada item es una parte, con sus filas en «celdas» (la primera celda de la fila es su encabezado, <th
+     scope="row">); «segs» reúne los segmentos de la parte (cobertura). */
+  /* Rótulo de una parte de la tabla (DDHH, Esteban, 20/11/2026: «eso de las filas no se entiende»): nunca «Fila N» ni «Filas N a M»,
+     sino lo que contiene, con el texto de la primera columna de sus filas («Respetar», «Respetar y garantizar», «Prevenir, investigar
+     y sancionar»), cortado por palabras completas con «…» si es largo. Un rótulo propio de los datos que no sea «Fila…» se respeta. */
+  function rotuloParte(it, total, extra) {
+    var lim = (total > 3 ? 22 : 30) + (extra || 0);   // con muchas partes, la barra de partes cabe en un renglón
+    // Solo en los cursos con «huecosFinos» (DDHH y Tráfico): en ambiental, ya aprobado, los rótulos más largos apretaban la tabla (QA).
+    if (!datos.huecosFinos || !/^Filas? \d+( a \d+)?$/.test(String(it.label || ''))) return it.label;
+    var nombres = (it.celdas || []).map(function (f) {
+      return Array.isArray(f) ? celdaTexto(f[0]) : (f && f.grupo) || '';
+    }).map(function (x) { return String(x).replace(/\s+/g, ' ').replace(/[.:;,]+$/, '').trim(); }).filter(Boolean);
+    if (!nombres.length) return it.label;
+    // «Respetar y garantizar»: un nombre de una sola palabra, después del primero, va en minúscula; los demás (nombres propios), igual.
+    nombres = nombres.map(function (x, i) { return i && !/\s/.test(x) ? x.replace(/^[A-ZÁÉÍÓÚÑ](?=[a-záéíóúñ]+$)/, function (c) { return c.toLowerCase(); }) : x; });
+    var t = nombres.length === 1 ? nombres[0] : nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1];
+    if (t.length <= lim) return t;
+    var w = t.split(' '), out = '';
+    for (var i = 0; i < w.length && (out + ' ' + w[i]).trim().length <= lim - 2; i++) out = (out + ' ' + w[i]).trim();
+    return (out || w[0]).replace(/[,;:]$/, '') + '…';
+  }
+  B.cuadro = function (b, k) {
+    var cols = (b.columnas || []).map(function (c) { return may(celdaTexto(c)); }), cap = b.titulo && b.titulo.length ? segs(b.titulo) : (escena.titulo_genially || '');
+    var n = 0;
+    var filas = b.items.map(function (it, i) {
+      return it.celdas.map(function (fila) {
+        n++;
+        /* Fila de grupo ({grupo: texto}): el título del grupo de filas que sigue, a todo lo ancho (U4-L3: tipo de afectación). */
+        if (!Array.isArray(fila)) return '<tr class="cuadro-fila cuadro-grupo" data-parte="' + i + '"' + (i ? ' hidden' : '') + '><th scope="colgroup" colspan="' + cols.length + '">' + rot(fila.grupo) + '</th></tr>';
+        return '<tr class="cuadro-fila" data-parte="' + i + '"' + (i ? ' hidden' : '') + '>' + fila.map(function (c, j) {
+          var t = '<span class="lectura-texto">' + rico(celdaTexto(c) || '–') + '</span>';
+          /* «pares» (SRPA U4-L1, tabla 2: «Justicia Penal | Justicia Restaurativa»): las columnas se comparan entre sí y ninguna es
+             el encabezado de la fila; la primera celda es una celda más y las columnas miden lo mismo. */
+          return j || b.pares ? '<td data-rot="' + esc(cols[j] || '') + '">' + t + '</td>' : '<th scope="row" data-rot="' + esc(cols[0] || '') + '">' + t + '</th>';
+        }).join('') + '</tr>';
+      }).join('');
+    }).join('');
+    var partes = b.items.length > 1;
+    /* Dos partes con el mismo rótulo cortado («Peligro para la…»): esas dos se alargan hasta distinguirse. */
+    var rotP = b.items.map(function (it) { return rotuloParte(it, b.items.length); });
+    for (var ex = 6; ex <= 36; ex += 6) {
+      var rep = rotP.filter(function (x, i) { return rotP.indexOf(x) !== i; });
+      if (!rep.length) break;
+      rotP = rotP.map(function (x, i) { return rep.indexOf(x) >= 0 ? rotuloParte(b.items[i], b.items.length, ex) : x; });
+    }
+    /* Párrafo que presenta la tabla y su fuente («Tabla 1. Construcción propia»), a la vista en la misma figura (SRPA U4-L1; Jennifer,
+       FGN, 20/11/2026: «la fuente de la tabla… aparece de forma separada en la siguiente diapositiva»; «el párrafo que da entrada a la
+       siguiente tabla debería estar acompañado de la tabla»). Solo si el bloque los trae: roles.entrada y roles.fuente (segmentos). */
+    var rolC = b.roles || {};
+    var entradaC = rolC.entrada && rolC.entrada.length ? '<p class="cuadro-entrada">' + rico(segs(rolC.entrada)) + '</p>' : '';
+    var fuenteC = rolC.fuente && rolC.fuente.length ? '<p class="cuadro-fuente">' + esc(may(segs(rolC.fuente))) + '</p>' : '';
+    return tituloBloque(b, k) + '<div class="cuadro' + (partes ? ' con-partes' : '') + (b.pares ? ' pares' : '') + '">' + entradaC +
+      (partes ? '<div class="cuadro-partes" role="group" aria-label="Partes de la tabla">' + b.items.map(function (it, i) {
+        return '<button type="button" class="cuadro-tab" data-id="' + k + '-' + i + '" data-i="' + i + '" aria-pressed="' + (i ? 'false' : 'true') + '">' +
+          '<span class="cuadro-tab-n">' + (i + 1) + '</span>' + esc(may(rotP[i])) + '<span class="cuadro-tab-visto">' + visto + '</span></button>';
+      }).join('') + '</div>' : '') +
+      '<div class="cuadro-caja"><table class="cuadro-tabla">' + (cap ? '<caption class="sr-only">' + esc(may(cap)) + '</caption>' : '') +
+      '<thead><tr>' + cols.map(function (c) { return '<th scope="col">' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' + filas + '</tbody></table></div>' + fuenteC +
+      (partes ? '<div class="cuadro-nav"><button type="button" class="cuadro-ant"><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button>' +
+        '<span class="cuadro-donde" aria-live="polite"></span>' +
+        '<button type="button" class="cuadro-sig">Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>' : '') + '</div>';
+  };
+  /* La letra crece hasta 19 px si la parte es breve y baja de a medio punto (hasta 11,5 px) hasta caber: nunca desplazamiento. */
+  function encajarCuadro(el) {
+    var c = el.querySelector('.cuadro-caja');
+    if (!c || !c.getClientRects().length) return;
+    /* Con «ventanaAmplia» (Terminaciones; Juan, 18/11/2026: «una tablita bien organizada… con desplazamiento») la tabla va entera en
+       un solo escenario, con letra legible fija, y se desplaza si tiene muchas filas. */
+    /* Con «cuadroAjuste» (Tráfico, 20/11/2026: «simplificar las tablas largas que se desplazaban»), la tabla larga llega partida en
+       partes de pocas filas y cada parte se encaja sin desplazamiento (letra de 16 a 13 px); solo si una parte no cabe, se desplaza. */
+    var ajuste = datos.cuadroAjuste && (datos.huecosFinos || el.querySelector('.cuadro.con-partes'));
+    if (datos.ventanaAmplia && !ajuste) { c.style.setProperty('--fs', '15px'); c.classList.add('desplazable'); return; }
+    var tope = ajuste ? 16 : 19, piso = ajuste ? 13 : 11.5;
+    if (ajuste) c.classList.remove('desplazable');
+    /* Con «huecosFinos» (DDHH, 20/11/2026: «tablas… la gente no tiene que dar clics»): columnas equilibradas para que la tabla quepa
+       entera. La primera (la que nombra la fila) toma su ancho natural, entre el 12 y el 30 %; las demás se reparten por igual (antes
+       una columna ancha y otra angosta hacían filas de muchos renglones). En pantalla angosta la tabla es de fichas: no se toca. */
+    if (datos.huecosFinos) {
+      var tb = c.querySelector('.cuadro-tabla'), ths = tb ? tb.querySelectorAll('thead th') : [];
+      if (tb) { tb.style.tableLayout = ''; ths.forEach(function (x) { x.style.width = ''; }); }
+      if (tb && ths.length >= 3 && ths[0].getBoundingClientRect().width > 0) {
+        c.style.setProperty('--fs', tope + 'px');
+        /* Ninguna palabra de la primera columna se parte («Contradicció-n», «Indisponibilid-ad»; Tráfico U5-L2, 20/11/2026): la
+           columna mide al menos su palabra más larga, de todas las partes de la tabla (así no cambia de ancho entre partes). */
+        var th0 = tb.querySelector('tbody th'), largo = 0;
+        if (th0) {
+          var med = document.createElement('span');
+          med.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;left:-9999px;top:0';
+          med.style.font = getComputedStyle(th0).font;
+          c.appendChild(med);
+          tb.querySelectorAll('tbody th[scope="row"]').forEach(function (x) {
+            x.textContent.split(/[\s/]+/).forEach(function (pal) { if (pal.length > 8) { med.textContent = pal; largo = Math.max(largo, med.getBoundingClientRect().width); } });
+          });
+          c.removeChild(med);
+        }
+        var w = tb.clientWidth, p = Math.min(Math.max(ths[0].getBoundingClientRect().width, w * 0.12, largo ? largo + 30 : 0), w * 0.3);
+        tb.style.tableLayout = 'fixed';
+        ths.forEach(function (x, i) { x.style.width = (i ? (w - p) / (ths.length - 1) : p) + 'px'; });
+      }
+    }
+    for (var fs = tope; fs >= piso; fs -= 0.5) { c.style.setProperty('--fs', fs + 'px'); if (c.scrollHeight <= c.clientHeight + 1) break; }
+    if (ajuste && c.scrollHeight > c.clientHeight + 1) c.classList.add('desplazable');
+  }
+  B.cuadro.activar = function (b, k, el) {
+    var actualP = 0, tabs = el.querySelectorAll('.cuadro-tab'), ant = el.querySelector('.cuadro-ant'), sig = el.querySelector('.cuadro-sig'), donde = el.querySelector('.cuadro-donde');
+    function mostrar(i) {
+      actualP = i;
+      el.querySelectorAll('.cuadro-fila').forEach(function (tr) { tr.hidden = Number(tr.dataset.parte) !== i; });
+      tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(Number(t.dataset.i) === i)); });
+      if (ant) ant.disabled = i === 0;
+      if (sig) { sig.disabled = i === b.items.length - 1; sig.classList.toggle('late', i < b.items.length - 1); }
+      if (donde) donde.textContent = 'Parte ' + (i + 1) + ' de ' + b.items.length + (i < b.items.length - 1 ? ' · La tabla continúa' : ' · Fin de la tabla');
+      encajarCuadro(el);
+      reanimar(el.querySelector('.cuadro-caja'));
+      marcar(k + '-' + i);
+    }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { mostrar(Number(t.dataset.i)); }); });
+    if (ant) ant.addEventListener('click', function () { if (actualP > 0) mostrar(actualP - 1); });
+    if (sig) sig.addEventListener('click', function () { if (actualP < b.items.length - 1) mostrar(actualP + 1); });
+    mostrar(0); /* la primera parte a la vista desde el inicio */
+    if (document.fonts) document.fonts.ready.then(function () { encajarCuadro(el); });
+    window.addEventListener('resize', function () { encajarCuadro(el); });
+  };
+
+  /* Infografía de ramas (delitos ambientales, Juan, 18/11/2026, U1-L3: «Sector central» y «Sector descentralizado» en una sola
+     diapositiva, cada rama abre sus entidades): un eje al centro y dos o tres ramas, cada una con su título de la ficha, su frase de
+     entrada y su nota a la vista; cada entidad es un botón que abre su texto literal en el lector y queda vista. Solo lo usa el
+     curso que lo pone en sus datos.
+     Datos: {tipo:'ramas', grupos:[{titulo:'2.1. Sector central', intro:[seg…], nota:[seg…]}], items:[{label, segs, obj, grupo}],
+     roles:{intro:[…], nota:[…]}} («roles» solo para la cobertura). */
+  B.ramas = function (b, k) {
+    var grupos = b.grupos.map(function (g, j) {
+      var its = b.items.map(function (it, i) { return [it, i]; }).filter(function (p) { return (p[0].grupo || 0) === j; });
+      return '<section class="rama-grupo g' + (j + 1) + '" style="--d:' + (0.15 + j * 0.2) + 's"><p class="rama-titulo"><span class="rama-num">' + (j + 1) + '</span>' + esc(may(g.titulo)) + '</p>' +
+        (g.intro && g.intro.length ? '<p class="rama-intro">' + esc(may(segs(g.intro))) + '</p>' : '') +
+        '<ul class="rama-entidades n' + its.length + '">' + its.map(function (p, m) {
+          var it = p[0], i = p[1];
+          return '<li style="--d:' + (0.3 + j * 0.2 + m * 0.06) + 's"><button type="button" class="rama-entidad' + refc(it.label) + '" data-id="' + k + '-' + i + '" data-i="' + i + '">' +
+            '<span class="rama-ent-arte">' + svgObjeto(it.obj, 30) + '</span><span class="rama-ent-rotulo">' + rot(it.label) + '</span><span class="rama-ent-marca">' + mano + visto + '</span>' + estado + '</button></li>';
+        }).join('') + '</ul>' +
+        (g.nota && g.nota.length ? '<p class="rama-nota"><i class="fas fa-circle-info" aria-hidden="true"></i><span>' + esc(may(segs(g.nota))) + '</span></p>' : '') + '</section>';
+    });
+    return '<div class="ramas n' + b.grupos.length + '">' + grupos[0] + '<div class="ramas-eje" aria-hidden="true"><span class="ramas-hub"><i class="fas fa-sitemap"></i></span></div>' + grupos.slice(1).join('') + '</div>';
+  };
+  B.ramas.activar = function (b, k, el) { abreLector(el, b); };
+
+  /* Página compacta (Tráfico y trata; Juan, 20/11/2026, 19:01–22:15, al revisar la Lección 1.1 en el aula: «quedó con mucho texto»,
+     menos pestañas y ventanas, «una tablita completa sin segmentar… baje con el scroll para ver el contenido completo», «los tips hay
+     que dejarlos aparte… por aquí a un lado», la «regla de decisión» como recuadro con negritas y fondo, la pregunta y la respuesta
+     «en un solo texto… un pequeño scroll», un popup por verbo sobre las fases). Solo lo usa el curso que lo pone en sus datos.
+     Una columna de lectura que se desplaza (es la excepción pedida por Juan a «nunca hay desplazamiento») y, a un lado, los tips:
+     Datos: {tipo:'compacta', flujo:[pieza…], items:[{label, segs, clase:'flujo'|'tip'|'celda', obj, extracto}], lado:[ítem…],
+     objetos:[…]}. Piezas del flujo: {t:'p', s:[seg…], c:''|'regla'|'alerta'|'tip'|'clave', n: letras en negrita de la ficha},
+     {t:'sub', x}, {t:'lista', s:[seg…], n:[negrita…]}, {t:'tabla'|'flechas', cols:[seg…], filas:[[seg…]…]}, {t:'malla', cols:[texto…], filas:[{rot, celdas:[[ítem…]…]}],
+     intro}. El ítem «flujo» (el primero, si hay lectura) queda leído al llegar al final de la columna; los demás, al abrir su ventana. */
+  var CMP_SELLO = { regla: ['fa-code-branch', 'Regla de decisión'], alerta: ['fa-triangle-exclamation', 'Alerta'], tip: ['fa-lightbulb', 'Tip'], clave: ['fa-star', 'Elemento clave'] };
+  function cmpTexto(ss, n) {
+    return ss.map(function (i, j) {
+      var t = seg(i);
+      return !j && n > 0 && n < t.length ? '**' + may(t.slice(0, n)) + '**' + t.slice(n) : t;
+    }).join('\n');
+  }
+  function cmpExtracto(t, lim) {
+    t = String(t).replace(/\s+/g, ' ');
+    if (t.length <= lim) return t;
+    var c = t.slice(0, lim), u = c.lastIndexOf(' ');
+    return cerrarSignos(c.slice(0, u > 40 ? u : lim).replace(/[\s,;:.(«“]+$/, '') + '…');
+  }
+  /* La tabla completa de la página compacta. También va dentro de una ventana (Juan, 20/11/2026, Tráfico 2.1, 1.1.1: «metámosle
+     un pop-up "Estereotipos que excluyen a la víctima real" y que se abra la tablita completa»). */
+  function cmpTabla(z) {
+    function celda(c) { return c === null || c === undefined ? '' : seg(c); }
+      /* Ancho de cada columna según lo que trae (raíz del largo medio de sus celdas): una columna de «Sí», «No» o «a)» no ocupa
+         lo mismo que la de las notas (antes, un hueco de 288 px en la columna de la Ley 2608; QA del 21/11/2026). */
+      var pesos = z.cols.map(function (c, j) {
+        var suma = z.filas.reduce(function (a, f) { return a + celda(f[j]).length; }, 0) / Math.max(1, z.filas.length);
+        return Math.max(2.4, Math.min(10, Math.sqrt(suma)), Math.sqrt(celda(c).length) * 0.85);
+      }), totalP = pesos.reduce(function (a, x) { return a + x; }, 0);
+      /* Ninguna columna queda más angosta que su palabra más larga («Desistimiento», «Resarcimiento»: se partían en cualquier
+         letra; Terminaciones 2.1, 22/11/2026). Se calcula sobre unos 900 px de tabla y nunca pasa de un 30 % por columna; lo que
+         una columna gana se lo ceden las demás en proporción. En pantalla angosta la tabla ya pasa a fichas. */
+      var partes = pesos.map(function (p) { return p / totalP; });
+      var piso = z.cols.map(function (c, j) {
+        var largo = 0;
+        [celda(c)].concat(z.filas.map(function (f) { return celda(f[j]); })).forEach(function (x) {
+          String(x).split(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/).forEach(function (w) { if (w.length > largo) largo = w.length; });
+        });
+        return Math.min(0.3, (largo * 9.2 + 24) / 900);
+      });
+      var fijas = partes.map(function (s, j) { return s < piso[j]; });
+      if (fijas.some(Boolean) && !fijas.every(Boolean)) {
+        var sumaFijas = piso.reduce(function (a, x, j) { return a + (fijas[j] ? x : 0); }, 0);
+        var sumaLibres = partes.reduce(function (a, x, j) { return a + (fijas[j] ? 0 : x); }, 0);
+        if (sumaFijas < 0.8) partes = partes.map(function (s, j) { return fijas[j] ? piso[j] : s * (1 - sumaFijas) / sumaLibres; });
+      }
+      pesos = partes; totalP = 1;
+      /* Matriz para diligenciar (Tráfico U3, 1.2): si la ficha trae vacías todas las celdas menos la primera columna, van en blanco. */
+      var vacia = z.filas.every(function (f) { return f.slice(1).every(function (c) { return !celda(c); }); });
+      /* La primera columna va en negrita solo si es el rótulo de la fila: corta frente a las demás, o la de una matriz por
+         diligenciar. En una tabla que compara dos textos parejos («Legítimo | Ilegítimo», «Bloque 1 | Bloque 2») todas las celdas
+         van igual (Juan, 20/11/2026: «una columna en negrilla y la otra no»). */
+      var largoCol = function (j) { return z.filas.reduce(function (a, f) { return a + celda(f[j]).length; }, 0) / Math.max(1, z.filas.length); };
+      var m0 = largoCol(0), mr = z.cols.slice(1).reduce(function (a, c, j) { return a + largoCol(j + 1); }, 0) / Math.max(1, z.cols.length - 1);
+      /* Con dos columnas la tabla suele comparar: la primera solo es rótulo si es mucho más corta que la segunda. */
+      var rotFila = z.filas.length > 1 && (vacia || (z.cols.length > 2 ? m0 <= 48 || m0 <= 0.6 * mr : m0 <= 0.4 * mr));
+      return '<div class="cmp-tabla-caja"><table class="cmp-tabla c' + z.cols.length + (vacia ? ' vacia' : '') + '"><colgroup>' + pesos.map(function (p) { return '<col style="width:' + (100 * p / totalP).toFixed(1) + '%">'; }).join('') + '</colgroup><thead><tr>' + z.cols.map(function (c) { return '<th scope="col">' + esc(may(celda(c))) + '</th>'; }).join('') +
+        '</tr></thead><tbody>' + z.filas.map(function (f) {
+          return '<tr>' + f.map(function (c, j) {
+            /* «a)», «b)»… en una celda es el literal del artículo, no una enumeración: va tal cual, en minúscula. */
+            /* Una celda que la ficha dibuja como árbol («┌── Obstrucción… ├── Peligro… └── No comparecencia», Tráfico U4, 2.2):
+               cada rama en su renglón, con su marca, en vez de los trazos seguidos en una línea. Las palabras no cambian. */
+            var crudo = celda(c), ramas = /[┌├└]─+/.test(crudo) ? crudo.split(/\s*[┌├└]─+\s*/).filter(function (x) { return x.trim(); }) : null;
+            /* Una celda que la ficha dibuja como cadena («Medio ──► Hecho indicador ──► HJR», Tráfico U5, 1.4): cada eslabón en
+               su recuadro, unidos por una flecha. Las palabras no cambian. */
+            var cadena = !ramas && /─+►/.test(crudo) ? crudo.split(/\s*─+►\s*/).filter(function (x) { return x.trim(); }) : null;
+            var t = ramas ? '<ul class="cmp-arbol">' + ramas.map(function (x) { return '<li><span class="lectura-texto">' + rico(x) + '</span></li>'; }).join('') + '</ul>' :
+              cadena ? '<span class="cmp-cadena">' + cadena.map(function (x) { return '<span class="cmp-eslabon lectura-texto">' + rico(x) + '</span>'; }).join('<i class="fas fa-arrow-right" aria-hidden="true"></i>') + '</span>' :
+              '<span class="lectura-texto">' + (/^[a-zñ]\)$/.test(crudo.trim()) ? '<span class="parr">' + esc(crudo.trim()) + '</span>' : (crudo || !vacia ? rico(crudo || '–') : '')) + '</span>';
+            var r = ' data-rot="' + esc(may(celda(z.cols[j]))) + '"';
+            /* En una tabla de una sola fila la primera celda no es el rótulo de la fila: todas van igual (Juan, 20/11/2026:
+               «una columna en negrilla y la otra no»). */
+            return j || !rotFila ? '<td' + r + '>' + t + '</td>' : '<th scope="row"' + r + '>' + t + '</th>';
+          }).join('') + '</tr>';
+        }).join('') + '</tbody></table></div>';
+  }
+  function cmpVentanaTabla(it) {
+    return (it.tabla.antes || []).map(function (i) { return '<div class="cmp-p"><p class="lectura-texto">' + rico(seg(i)) + '</p></div>'; }).join('') + cmpTabla(it.tabla);
+  }
+  /* Cita textual larga entre comillas inglesas, en cursiva (Clara Vargas, 21/11/2026: «las menciones a citas textuales deben
+     resaltarse con letra cursiva o negrilla… se pierde la distinción entre dos voces: la de la Corte y la del autor»). Solo donde la
+     hoja lo pide («citasCursiva») y si el tramo no parte ninguna etiqueta. */
+  function cmpCitas(html) {
+    return html.replace(/“[^“”]{60,}”/g, function (m) {
+      if (/<[/]?(?:p|div|li|td|th)[ >]/.test(m)) return m;
+      /* La cita puede cruzar tramos de lectura (cada uno es un «span.parr»): la cursiva va por tramo, sin partir etiquetas. */
+      var partes = m.split(/(<[/]span><span class="parr[^"]*">)/), bien = true;
+      partes.forEach(function (x, i) {
+        if (i % 2) return;
+        if ((x.match(/<span[ >]/g) || []).length !== (x.match(/<[/]span>/g) || []).length) bien = false;
+      });
+      if (!bien) return m;
+      return partes.map(function (x, i) { return i % 2 || !x ? x : '<em class="cmp-cita-txt">' + x + '</em>'; }).join('');
+    });
+  }
+  B.compacta = function (b, k) {
+    var hayFlujo = !!(b.items.length && b.items[0].clase === 'flujo');
+    function celda(c) { return c === null || c === undefined ? '' : seg(c); }
+    var oculto = false;   // en la malla con rótulo de fila y de columna, el rótulo del recuadro solo lo lee el lector de pantalla
+    function boton(i) {
+      var it = b.items[i], txt = segs(it.segs);
+      return '<button type="button" class="cmp-celda' + refc(it.label) + '" data-id="' + k + '-' + i + '" data-i="' + i + '">' +
+        '<span class="cmp-celda-rot' + (oculto ? ' sr-only' : '') + '">' + rot(it.label) + '</span>' +
+        (it.extracto ? '<span class="cmp-celda-ext">' + esc(may(cmpExtracto(txt, 150))) + '</span>' : '') +
+        '<span class="cmp-celda-pie">' + mano + '<span class="cmp-pie-por">' + (it.tabla ? 'Clic para ver la tabla' : 'Clic para leer') + '</span><span class="cmp-pie-visto">Leído · clic para releer</span>' + visto + '</span></button>';
+    }
+    /* Árbol de decisión de la ficha como infografía (Juan, 20/11/2026, Tráfico 1.3, 3.4: «hagamos una infografía y le colocamos
+       el resto, la regla de decisión»): nodo {q (pregunta) | x (resultado), ramas:[{r:'Sí'|'No', …nodo}], hojas:[…]}. */
+    function arbol(n) {
+      var hijos = n.ramas ? '<div class="arb-ramas">' + n.ramas.map(function (h) { return '<div class="arb-rama"><span class="arb-r">' + esc(h.r) + '</span>' + arbol(h) + '</div>'; }).join('') + '</div>'
+        : n.hojas ? '<div class="arb-hojas">' + n.hojas.map(function (h) { return '<span class="arb-hoja">' + esc(may(h)) + '</span>'; }).join('') + '</div>' : '';
+      return '<div class="arb-nodo"><div class="arb-caja ' + (n.q ? 'arb-q' : 'arb-x') + '">' + esc(may(n.q || n.x)) + '</div>' + hijos + '</div>';
+    }
+    var cuerpo = b.flujo.map(function (z) {
+      if (z.t === 'sub') return '<h3 class="cmp-sub">' + esc(may(z.x)) + '</h3>';
+      if (z.t === 'arbol') return '<div class="cmp-arbolq">' + arbol(z.raiz) + '</div>';
+      /* Pasos con dos salidas (Juan, 20/11/2026, Tráfico 1.3, 3.4.1: «el flujo de proceso 0, 1… de izquierda a derecha; cuando le
+         da clic aparece este sí o no»): la tabla «Paso y pregunta | Si la respuesta es sí | Si la respuesta es no» de la ficha, un
+         botón por paso y, al elegirlo, su pregunta y sus dos salidas. Texto literal de las celdas. */
+      if (z.t === 'pasos') {
+        return '<div class="cmp-pasos" data-pasos><div class="cmp-pasos-fila" role="tablist" aria-label="' + esc(celda(z.cols[0])) + '">' + z.filas.map(function (f, j) {
+          var m = /^\((\d+)\)/.exec(celda(f.c[0]).trim()), n = m ? m[1] : String(j + 1);
+          return '<button type="button" class="cmp-paso" role="tab" aria-selected="false" data-id="' + k + '-' + f.i + '" data-paso="' + j + '"><span class="cmp-paso-n">' + esc(n) + '</span>' +
+            '<span class="sr-only">' + esc(celda(f.c[0])) + '</span>' + visto + '</button>' + (j < z.filas.length - 1 ? '<i class="cmp-paso-con" aria-hidden="true"></i>' : '');
+        }).join('') + '</div><p class="cmp-pasos-guia">' + mano + ' Elija cada paso, de izquierda a derecha, para ver su pregunta y sus dos salidas.</p>' +
+          z.filas.map(function (f, j) {
+            return '<div class="cmp-paso-panel" role="tabpanel" data-panel="' + j + '" hidden><p class="cmp-paso-q lectura-texto">' + rico(celda(f.c[0])) + '</p><div class="cmp-paso-sal">' +
+              '<div class="cmp-paso-si"><span class="cmp-paso-rot"><i class="fas fa-check" aria-hidden="true"></i> ' + esc(may(celda(z.cols[1]))) + '</span><span class="lectura-texto">' + rico(celda(f.c[1])) + '</span></div>' +
+              '<div class="cmp-paso-no"><span class="cmp-paso-rot"><i class="fas fa-xmark" aria-hidden="true"></i> ' + esc(may(celda(z.cols[2]))) + '</span><span class="lectura-texto">' + rico(celda(f.c[2])) + '</span></div></div></div>';
+          }).join('') + '</div>';
+      }
+      /* «ord» (Delitos informáticos, hoja de Juan del 23/11/2026: «LISTA ORDENADA HTML»): lista numerada 1, 2, 3… con <ol>. Sin «ord», nada cambia. */
+      if (z.t === 'lista' && z.ord) return '<ol class="cmp-lista ord">' + z.s.map(function (i, j) { return '<li><span class="lectura-texto">' + rico(cmpTexto([i], (z.n || [])[j] || 0)) + '</span></li>'; }).join('') + '</ol>';
+      if (z.t === 'lista') return '<ul class="cmp-lista' + (z.num ? ' num' : '') + (z.cadena ? ' cadena' : '') + (z.dos ? ' dos' : '') + '">' + z.s.map(function (i, j) { return '<li><span class="lectura-texto">' + rico(cmpTexto([i], (z.n || [])[j] || 0)) + '</span></li>'; }).join('') + '</ul>';
+      if (z.t === 'p') {
+        var s = CMP_SELLO[z.c];
+        /* El texto de la ficha ya dice «Regla de decisión» y «TIP —»: su sello es solo el icono (no se repite el rótulo). */
+        var solo = z.c === 'regla' || z.c === 'tip';
+        return '<div class="cmp-p' + (z.c ? ' cmp-c-' + z.c : '') + '">' + (s ? '<span class="cmp-sello' + (solo ? ' solo' : '') + '"><i class="fas ' + s[0] + '" aria-hidden="true"></i>' + (solo ? '' : ' ' + s[1]) + '</span>' : '') +
+          '<p class="lectura-texto">' + (b.citasCursiva ? cmpCitas(rico(cmpTexto(z.s, z.n))) : rico(cmpTexto(z.s, z.n))) + '</p></div>';
+      }
+      if (z.t === 'tabla') return cmpTabla(z);
+      if (z.t === 'flechas') {
+        /* Tabla de la ficha con columnas de flecha («→»): cada fila es un recorrido de cajas unidas por flechas. */
+        var esFlecha = function (c) { return /^[→➔➜>]+$/.test(celda(c).trim()); };
+        /* La flecha puede venir en las celdas de cada fila (U1 L1) o solo en el encabezado, con las celdas vacías (U2 L2, 2.1). */
+        var colF = z.cols.map(function (c, j) { return esFlecha(c) || (z.filas.length > 0 && z.filas.every(function (f) { return esFlecha(f[j]); })); });
+        var cab = z.cols.map(function (c, j) { return { j: j, t: celda(c) }; }).filter(function (x) { return x.t && !colF[x.j]; });
+        return '<div class="cmp-flechas n' + cab.length + '"><div class="cmp-fl-cab" aria-hidden="true">' + cab.map(function (x) { return '<span>' + esc(may(x.t)) + '</span>'; }).join('<i></i>') + '</div>' +
+          z.filas.map(function (f, m) {
+            return '<div class="cmp-fl-fila" style="--d:' + (0.15 + m * 0.15) + 's">' + f.map(function (c, j) {
+              if (colF[j]) return '<span class="cmp-fl-flecha"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">' + esc(celda(c) || celda(z.cols[j])) + '</span></span>';
+              return '<div class="cmp-fl-caja p' + j + '"><span class="sr-only">' + esc(may(celda(z.cols[j]))) + ': </span><span class="lectura-texto">' + rico(celda(c)) + '</span></div>';
+            }).join('') + '</div>';
+          }).join('') + '</div>';
+      }
+      if (z.t === 'malla') {
+        var conRot = z.filas.some(function (f) { return f.rot; });
+        oculto = conRot;
+        /* Sin columnas («cols» vacío): recuadros apilados, uno por fila, sin encabezado (escenario con recuadros, Tráfico 1.2). */
+        return '<div class="cmp-malla c' + (z.cols.length || z.columnas || 1) + (conRot ? ' con-rot' : '') + (z.cols.length ? '' : ' sin-cab') + '">' + (z.intro ? '<p class="cmp-malla-intro">' + esc(may(z.intro)) + '</p>' : '') +
+          (z.cols.length ? '<div class="cmp-malla-cab">' + (conRot ? '<span></span>' : '') + z.cols.map(function (c, j) { return '<span class="cmp-malla-col t' + (j % 3) + '">' + esc(may(c)) + '</span>'; }).join('') + '</div>' : '') +
+          z.filas.map(function (f) {
+            return '<div class="cmp-malla-fila">' + (conRot ? '<p class="cmp-malla-rot">' + rot(f.rot || '') + '</p>' : '') +
+              f.celdas.map(function (c, j) { return '<div class="cmp-malla-celda t' + (j % 3) + ' n' + c.length + '">' + c.map(boton).join('') + '</div>'; }).join('') + '</div>';
+          }).join('') + '</div>';
+      }
+      /* Lista de verificación con simulación (Juan, hoja de virtualización de Derecho de petición, 22/11/2026: «lista de chequeo
+         con simulación para que la persona haga click en cada uno de los ítems»): cada ítem, con su texto literal completo, se
+         marca con un clic (o con Enter o la barra espaciadora), queda visto, avanza la barra de la lista y, con todos marcados,
+         aparece el aviso de lista completa. Solo si la hoja de la página la pide («chequeo»). Datos: {t:'chequeo', i:[ítems]}. */
+      if (z.t === 'chequeo') {
+        return '<div class="cmp-chequeo" data-chequeo><p class="cmp-chq-guia">' + mano + ' Haga clic en cada ítem para marcarlo como revisado.</p>' +
+          '<ul class="cmp-chq-lista">' + z.i.map(function (i) {
+            var it = b.items[i];
+            return '<li><button type="button" class="cmp-chq" role="checkbox" aria-checked="false" data-id="' + k + '-' + i + '" data-chq="' + i + '">' +
+              '<span class="cmp-chq-caja" aria-hidden="true"><i class="fas fa-check"></i></span><span class="lectura-texto">' + rico(cmpTexto(it.segs, 0)) + '</span></button></li>';
+          }).join('') + '</ul><div class="cmp-chq-avance"><span class="cmp-chq-barra" aria-hidden="true"><i></i></span><output aria-live="polite">0 de ' + z.i.length + ' ítems revisados</output></div>' +
+          '<p class="cmp-chq-fin" role="status" hidden><i class="fas fa-circle-check" aria-hidden="true"></i> Lista completa: todos los ítems quedaron revisados.</p></div>';
+      }
+      return '';
+    }).join('');
+    var lado = b.lado || [], objs = b.objetos || ['documento', 'lupa', 'carpetas'];
+    /* Curso con ilustraciones aprobadas (Bienes, piloto del 21/11/2026): en una página sin tips, la ilustración de la escena va
+       entera a un lado de la lectura, en vez de los tres objetos, y la columna de texto queda más angosta y cómoda de leer. */
+    var ilus = !lado.length && datos.ilustraciones && escena.ilustracion ? escena.ilustracion : null;
+    /* A un lado pueden ir, además de los tips, una regla de decisión o una advertencia que la hoja mande allí (Juan, 20/11/2026,
+       Tráfico 1.3: «al lado derecho los tres tips»; «"Advertencia sobre precedentes"… como un clic de algo especial»). */
+    /* … y un documento del expediente que la ficha manda insertar en la lección (Desaparición forzada, 24/11/2026: «Documento I-03…
+       (A insertar en Lección 2)»), con su título y su texto en la ventana. */
+    var claseLado = function (i) { var c = b.items[i].clase; return c === 'regla' || c === 'alerta' || c === 'documento' ? c : 'tip'; };
+    var nLado = { tip: 0, regla: 0, alerta: 0, documento: 0 };
+    lado.forEach(function (i) { nLado[claseLado(i)]++; });
+    var titLado = [nLado.tip ? (nLado.tip > 1 ? 'Tips' : 'Tip') : '', nLado.regla ? (nLado.regla > 1 ? 'reglas de decisión' : 'regla de decisión') : '', nLado.alerta ? (nLado.alerta > 1 ? 'advertencias' : 'advertencia') : '',
+      nLado.documento ? (nLado.documento > 1 ? 'documentos del expediente' : 'documento del expediente') : '']
+      .filter(Boolean).join(' y ');
+    var verLado = { tip: 'Clic para ver el tip', regla: 'Clic para ver la regla', alerta: 'Clic para ver la advertencia', documento: 'Clic para ver el documento' };
+    var icoLado = nLado.tip ? 'fa-lightbulb' : nLado.regla ? 'fa-code-branch' : nLado.alerta ? 'fa-triangle-exclamation' : 'fa-file-lines';
+    /* «escenario» (Juan, 20/11/2026, Tráfico 1.2, 2.5 y 2.6: «esta figura, una persona y con un par de pop-ups»; «le metería un
+       fondo… y con esto al frente»): los dibujos del tema, grandes, en un panel a la izquierda, y los recuadros apilados al frente. */
+    var esc_ = !!b.escenario && !lado.length;
+    return '<div class="compacta' + (lado.length ? ' con-tips' : ' sin-tips') + (ilus ? ' con-ilus' : '') + (esc_ ? ' cmp-esc' : '') + (lado.length > 2 ? ' muchos-tips' : '') + (hayFlujo ? '' : ' sin-lectura') + '">' +
+      '<div class="cmp-col"><div class="cmp-flujo lectura-desplazable" tabindex="0"' + (hayFlujo ? ' data-id="' + k + '-0"' : '') + '>' + cuerpo + '</div>' +
+      '<p class="cmp-baje" hidden><i class="fas fa-angles-down" aria-hidden="true"></i> Baje con la barra de desplazamiento para ver el contenido completo</p></div>' +
+      '<aside class="cmp-lado"' + (lado.length ? ' aria-label="Tips de esta página"' : ' aria-hidden="true"') + '>' +
+      (ilus ? '<figure class="cmp-ilus" aria-hidden="true"><img src="' + srcImagen(ilus) + '" alt=""></figure>' : '') +
+      '<div class="cmp-arte" aria-hidden="true"' + (ilus ? ' hidden' : '') + '>' +
+      objs.slice(0, lado.length > 2 ? 1 : esc_ ? 2 : 3).map(function (o, i) { return '<span style="--d:' + (0.2 + i * 0.15) + 's">' + svgObjeto(o, esc_ ? 150 : 64) + '</span>'; }).join('') + '</div>' +
+      (lado.length ? '<p class="cmp-lado-tit"><i class="fas ' + icoLado + '" aria-hidden="true"></i> ' + esc(may(titLado)) + '</p>' + lado.map(function (i) {
+        var it = b.items[i], cl = claseLado(i);
+        return '<button type="button" class="cmp-tip' + (cl === 'tip' ? '' : ' cmp-lado-' + cl + (cl === 'alerta' ? ' es-alerta' : '')) + refc(it.label) + '" data-id="' + k + '-' + i + '" data-i="' + i + '"><span class="cmp-tip-rot">' + esc(may(String(it.label).replace(/^TIP\s+—\s*/, ''))) + '</span>' +
+          '<span class="cmp-tip-ver">' + mano + '<span class="cmp-pie-por">' + verLado[cl] + '</span><span class="cmp-pie-visto">Visto · clic para releer</span>' + visto + '</span></button>';
+      }).join('') : '') + '</aside></div>';
+  };
+  B.compacta.activar = function (b, k, el) {
+    var caja = el.querySelector('.cmp-flujo'), aviso = el.querySelector('.cmp-baje'), hayFlujo = caja.hasAttribute('data-id'), g = generacion;
+    el.querySelectorAll('button[data-i]').forEach(function (c) {
+      c.addEventListener('click', function () {
+        if (!quieto && c.animate) c.animate([{ scale: '1' }, { scale: '.96' }, { scale: '1.02' }, { scale: '1' }], { duration: 320, easing: 'ease-out' });
+        var it = b.items[Number(c.dataset.i)];
+        leer(it.label, segs(it.segs), it.obj, c, null, it.tabla ? cmpVentanaTabla(it) : null); marcar(c.dataset.id);
+      });
+    });
+    el.querySelectorAll('[data-pasos]').forEach(function (p) {
+      var bs = p.querySelectorAll('.cmp-paso'), ps = p.querySelectorAll('.cmp-paso-panel'), guia = p.querySelector('.cmp-pasos-guia');
+      bs.forEach(function (bt) {
+        bt.addEventListener('click', function () {
+          bs.forEach(function (x) { x.classList.toggle('activo', x === bt); x.setAttribute('aria-selected', x === bt ? 'true' : 'false'); });
+          ps.forEach(function (x) { x.hidden = x.dataset.panel !== bt.dataset.paso; });
+          guia.hidden = true;
+          marcarYa(bt.dataset.id);
+          setTimeout(revisar, 60);
+        });
+      });
+    });
+    el.querySelectorAll('[data-chequeo]').forEach(function (q) {
+      var bs = q.querySelectorAll('.cmp-chq'), out = q.querySelector('output'), barra = q.querySelector('.cmp-chq-barra i'), fin = q.querySelector('.cmp-chq-fin');
+      function cuenta() {
+        var n = q.querySelectorAll('.cmp-chq[aria-checked="true"]').length, todo = n === bs.length;
+        out.textContent = n + ' de ' + bs.length + ' ítems revisados';
+        barra.style.width = (100 * n / bs.length) + '%';
+        if (todo && fin.hidden && !quieto && fin.animate) fin.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 360, easing: 'ease-out' });
+        fin.hidden = !todo;
+        q.classList.toggle('completa', todo);
+      }
+      bs.forEach(function (bt) {
+        bt.addEventListener('click', function () {
+          var si = bt.getAttribute('aria-checked') !== 'true';
+          bt.setAttribute('aria-checked', String(si));
+          if (si) { if (!quieto && bt.animate) bt.animate([{ scale: '1' }, { scale: '.98' }, { scale: '1' }], { duration: 240, easing: 'ease-out' }); marcarYa(bt.dataset.id); }
+          cuenta();
+          setTimeout(revisar, 60);
+        });
+      });
+    });
+    function revisar() {
+      if (g !== generacion || !caja.getClientRects().length) return;
+      var desborda = caja.scrollHeight > caja.clientHeight + 6, falta = caja.scrollHeight - caja.clientHeight - caja.scrollTop;
+      var fin = !desborda || falta < 28;
+      aviso.hidden = fin;
+      caja.classList.toggle('desborda', desborda);
+      if (hayFlujo && fin) marcarYa(k + '-0');
+    }
+    /* Página breve, solo de lectura (sin tabla, malla ni infografía): la letra crece hasta ocupar la columna, sin llegar a
+       desplazarse (AGENTS.md: «la letra crece si el texto es breve»; QA del 21/11/2026: hueco bajo un solo párrafo). */
+    function crecer() {
+      /* También crece la página que es solo una tabla breve (Tráfico 1.3, 3.3: la tabla del artículo 188C con sus recuadros a un lado). */
+      if (g !== generacion || !caja.getClientRects().length || caja.querySelector('.cmp-malla,.cmp-flechas,.cmp-pasos,.cmp-arbolq,.cmp-chequeo')) return;
+      if (getComputedStyle(caja).overflowY === 'visible') return;   /* variante angosta: la página se desplaza entera */
+      caja.style.fontSize = '';
+      if (caja.scrollHeight > caja.clientHeight + 2) return;
+      var base = parseFloat(getComputedStyle(caja).fontSize), fs = base;
+      while (fs < 22) {
+        caja.style.fontSize = (fs + 0.5) + 'px';
+        if (caja.scrollHeight > caja.clientHeight + 2) { caja.style.fontSize = fs === base ? '' : fs + 'px'; break; }
+        fs += 0.5;
+      }
+    }
+    crecer();
+    if (document.fonts) document.fonts.ready.then(crecer);
+    caja.addEventListener('scroll', revisar, { passive: true });
+    setTimeout(revisar, 1100);
+    /* Respaldo del aviso de desplazamiento: en un iframe en segundo plano el navegador puede no avisar del desplazamiento; mientras
+       falte llegar al final, se comprueba cada tanto. */
+    var reloj = setInterval(function () {
+      if (g !== generacion || !document.body.contains(caja)) { clearInterval(reloj); return; }
+      revisar();
+      if (aviso.hidden) clearInterval(reloj);
+    }, 800);
+    if (document.fonts) document.fonts.ready.then(function () { setTimeout(revisar, 1100); });
+    window.addEventListener('resize', function () { if (g === generacion && aviso.hidden === false) revisar(); });
+  };
+
+  /* Apertura de la lección (Terminaciones; Esteban, 19/11/2026: «estaba muy simple, ¿la podrías mejorar su presentación?»): la
+     pregunta orientadora en un recuadro destacado, los objetos del tema y las ideas que la responden, unidas por flechas, con su
+     texto literal completo a la vista (sin «…» ni clic para leer lo esencial). Solo lo usa el curso que lo pone en sus datos.
+     Datos: {tipo:'apertura', pregunta:[seg…], items:[{label, segs, obj}], objetos:['carpetas', …]}. */
+  B.apertura = function (b, k) {
+    var objs = b.objetos || ['carpetas', 'lupa', 'expediente'];
+    return '<div class="apertura n' + b.items.length + '"><div class="ap-cab"><div class="ap-pregunta"><p class="ap-sello"><i class="fas fa-circle-question" aria-hidden="true"></i> Pregunta orientadora</p>' +
+      '<p class="lectura-texto">' + rico(segs(b.pregunta)) + '</p></div><div class="ap-arte" aria-hidden="true">' + objs.map(function (o, i) {
+        return '<span style="--d:' + (0.2 + i * 0.15) + 's">' + svgObjeto(o, 96) + '</span>';
+      }).join('') + '</div></div><div class="ap-ideas">' + b.items.map(function (it, i) {
+        return (i ? '<span class="ap-flecha" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>' : '') +
+          '<section class="ap-idea" data-id="' + k + '-' + i + '" style="--d:' + (0.35 + i * 0.2) + 's"><p class="ap-rotulo"><span class="ap-n">' + (i + 1) + '</span>' + rot(it.label) + '</p>' +
+          '<p class="lectura-texto">' + rico(segs(it.segs)) + '</p></section>';
+      }).join('') + '</div></div>';
+  };
+  B.apertura.activar = function (b, k, el) {
+    /* Todo está a la vista: las ideas quedan leídas al mostrarse, sin clics. */
+    b.items.forEach(function (_, i) { setTimeout(function () { marcarYa(k + '-' + i); }, 600 + i * 300); });
+  };
+
   /* ---------- Mediaciones para variar (Juan, 27/10/2026: «varíe con mapas conceptuales, mapa mental, acordeones, grids,
      una imagen de fondo con hotspots») ----------
      Rejilla que llena el marco, acordeón, puntos sobre la ilustración aprobada, mapa mental y mapa conceptual jerárquico.
@@ -1767,7 +2457,7 @@
   /* El apartado abierto ocupa el espacio que dejan los demás; la letra crece si el texto es breve (hasta 22 px) y se reduce hasta que cabe: nunca desplazamiento. */
   function encajarPanel(p) {
     quitarRelleno(p);
-    for (var fs = topeLetra(22); fs >= 11.5; fs -= 0.5) { p.style.setProperty('--fs', fs + 'px'); if (entra(p)) break; }
+    for (var fs = topeLetra(22); fs >= pisoLetra(); fs -= 0.5) { p.style.setProperty('--fs', fs + 'px'); if (entra(p)) break; }
     rellenar(p);
   }
   B.acordeon.activar = function (b, k, el) {
@@ -1796,8 +2486,14 @@
     var img = escena.ilustracion, a = (datos.anclas && datos.anclas[img]) || { r: 1.5, p: [] }, n = b.items.length, circulos = '', leyenda = '';
     b.items.forEach(function (it, i) {
       var p = a.p[i] || [12 + 76 * i / Math.max(1, n - 1), 90], id = k + '-' + i;
-      circulos += '<button type="button" class="hotspot" data-id="' + id + '" data-i="' + i + '" tabindex="-1" aria-hidden="true" style="left:' + p[0] + '%;top:' + p[1] + '%;--d:' + (0.25 + i * 0.12) + 's">' +
-        '<span class="hotspot-n">' + (i + 1) + '</span></button>';
+      /* datos.puntosSoloLeyenda (SRPA, observación de la Fiscalía del 18/11/2026: el número sobre la ilustración y el cajón de la
+         derecha abrían lo mismo): el número solo señala el objeto (no abre nada; se pone en verde cuando su cajón ya se leyó) y
+         el texto se abre únicamente desde la leyenda. Sin la opción, como siempre: círculo y rótulo abren el mismo texto. */
+      circulos += datos.puntosSoloLeyenda
+        ? '<span class="hotspot hotspot-marca" data-id="' + id + '" aria-hidden="true" style="left:' + p[0] + '%;top:' + p[1] + '%;--d:' + (0.25 + i * 0.12) + 's">' +
+          '<span class="hotspot-n">' + (i + 1) + '</span></span>'
+        : '<button type="button" class="hotspot" data-id="' + id + '" data-i="' + i + '" tabindex="-1" aria-hidden="true" style="left:' + p[0] + '%;top:' + p[1] + '%;--d:' + (0.25 + i * 0.12) + 's">' +
+          '<span class="hotspot-n">' + (i + 1) + '</span></button>';
       leyenda += '<li><button type="button" class="punto-leyenda' + refc(it.label) + '" data-id="' + id + '" data-i="' + i + '" style="--d:' + (0.2 + i * 0.08) + 's">' +
         '<span class="hotspot-n">' + (i + 1) + '</span><span class="leyenda-rotulo">' + rot(it.label) + '</span><span class="hotspot-visto">' + visto + '</span>' + estado + '</button></li>';
     });
@@ -1844,13 +2540,18 @@
     b.items.forEach(function (it, i) {
       var der = i >= izq, fila = der ? i - izq : i, filas = der ? n - izq : izq;
       var y = filas === 1 ? 50 : conTexto ? 25 + 50 * fila / (filas - 1) : 13 + 74 * fila / (filas - 1), x = der ? 82 : 18, borde = der ? 66 : 34;
+      if (datos.ventanaAmplia && filas === 2 && !conTexto) y = fila ? 72 : 28;   // Terminaciones: sin hueco a media altura (QA)
       lineas += '<path d="M50 50 C ' + (der ? 60 : 40) + ' 50, ' + (der ? 60 : 40) + ' ' + y.toFixed(1) + ', ' + borde + ' ' + y.toFixed(1) + '" style="--d:' + (0.15 + i * 0.1) + 's"/>';
       nodos += '<button type="button" class="rama-mental' + (der ? ' der' : '') + refc(it.label) + '" data-id="' + k + '-' + i + '" data-i="' + i + '" style="left:' + x + '%;top:' + y.toFixed(1) + '%;--d:' + (0.3 + i * 0.1) + 's">' +
         '<span class="rama-arte">' + svgObjeto(it.obj, 40) + '</span><span class="rama-rotulo">' + rot(it.label) + '</span><span class="rama-marca">' + mano + visto + '</span>' +
         (conTexto ? '<span class="rama-extracto">' + esc(may(extracto(segs(it.segs), n <= 2 ? 330 : 130))) + '</span>' : '') + estado + '</button>';
     });
     return '<div class="mental n' + n + (conTexto ? ' con-extracto' : '') + '"><svg class="mental-lineas" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">' + lineas + '</svg>' +
-      '<div class="mental-centro">' + (arteEn('centro') ? '<img class="mental-arte" src="' + srcImagen(escena.arte.img) + '" alt="">' : '<i class="fas fa-lightbulb" aria-hidden="true"></i>') +
+      /* Sin ilustración al centro y con «objetos_raiz» (Terminaciones, ajuste de Clara y Juan, 18/11/2026: el curso no tiene
+         ilustraciones de escena y el centro quedaba vacío en la QA), van los objetos dibujados del tema, como en la raíz del mapa. */
+      '<div class="mental-centro' + (!arteEn('centro') && escena.objetos_raiz ? ' con-objetos' : '') + '">' + (arteEn('centro') ? '<img class="mental-arte" src="' + srcImagen(escena.arte.img) + '" alt="">'
+        : escena.objetos_raiz ? '<span class="mental-objetos" aria-hidden="true">' + escena.objetos_raiz.map(function (o) { return svgObjeto(o, 92); }).join('') + '</span>'
+        : '<i class="fas fa-lightbulb" aria-hidden="true"></i>') +
       (datos.tituloFuera ? '' : '<span>' + esc(may(centroTitulo())) + '</span>') + '</div>' + nodos + '</div>';
   };
   B.mental.activar = function (b, k, el) { abreLector(el, b); };
@@ -2140,6 +2841,7 @@
     /* Sin ilustración aprobada del tema (SRPA: solo cinco), la raíz es el objeto dibujado del tema («objeto_raiz»), no el
        título: el título ya está en la barra de Genially (Esteban, 29/10/2026: «no mezcles más la información»). */
     var objeto = !arte && datos.tituloFuera && escena.objeto_raiz, y = arte || objeto ? [31, 36, 41] : [21, 31, 40];
+    if (datos.ventanaAmplia && !arte && !objeto) y = [14, 22, 30];   // Terminaciones (Juan, 18/11/2026): más alto para las ramas
     var lineas = '<line x1="50" y1="' + y[0] + '" x2="50" y2="' + y[1] + '"/>' + (n > 1 ? '<line x1="' + xs[0] + '" y1="' + y[1] + '" x2="' + xs[n - 1] + '" y2="' + y[1] + '"/>' : '') +
       xs.map(function (x) { return '<line x1="' + x + '" y1="' + y[1] + '" x2="' + x + '" y2="' + y[2] + '"/>'; }).join('');
     var cabeza = arte ? '<div class="esquema-raiz con-arte" aria-hidden="true"><img src="' + srcImagen(escena.ilustracion) + '" alt=""></div>'
@@ -2262,7 +2964,7 @@
     }).join('');
     var cita = function (t) { return '«…' + esc(t) + (/[.;:]$/.test(t) ? '' : '…') + '»'; };
     var resultado = '<div class="cond-resultado" data-estado="pendiente"><span class="cond-icono"><i class="fas fa-lock" aria-hidden="true"></i></span><div class="cond-res-texto" aria-live="polite">' +
-      '<p class="cond-pista">Marque si se cumple cada requisito para ver la consecuencia que prevé la ficha.</p>' +
+      '<p class="cond-pista">Marque si se cumple cada requisito para ver su consecuencia.</p>' +
       S.map(function (s, j) { return '<p class="cond-cons" data-e="' + j + '" hidden><span class="cond-cons-de">' + esc(may(s.titulo)) + '</span> ' + cita(s.consecuencia) + '</p>'; }).join('') +
       (O ? '<p class="cond-cons otro" data-e="otro" hidden>' + cita(O.consecuencia) + '</p>' : '') + '</div></div>';
     return '<div class="condiciones"><div class="cond-lista">' + lista + '</div><div class="cond-panel"><div class="cond-escenarios n' + S.length + '">' + escenarios + '</div>' + resultado + '</div></div>';
@@ -2293,11 +2995,15 @@
      comiso»): columnas lado a lado; la que se toca se ensancha con su texto completo y las demás se compactan. Usa los
      estilos .columnas del motor. */
   B.compara = function (b, k) {
-    return tituloBloque(b, k) + '<div class="columnas comparador c' + b.items.length + '">' + b.items.map(function (it, i) {
+    /* «ilus» en los elementos (hoja de virtualización de Derecho de petición, 22/11/2026: «imágenes verticales que al tocarse se
+       despliegan horizontalmente»): cada columna cerrada es una franja vertical con su ilustración aprobada; la que se toca se
+       ensancha con su texto. Sin «ilus» (los demás cursos), el objeto dibujado de siempre. */
+    var conIlus = !!datos.ilustraciones && b.items.some(function (it) { return it.ilus; });
+    return tituloBloque(b, k) + '<div class="columnas comparador c' + b.items.length + (conIlus ? ' con-ilus' : '') + '">' + b.items.map(function (it, i) {
       return '<div class="columna tono' + (i % 3 + 1) + refc(it.label) + '" data-id="' + k + '-' + i + '" data-i="' + i + '" style="--d:' + (i * 0.08) + 's">' +
         '<button type="button" class="col-boton" aria-expanded="false"><span class="col-cabeza"><span class="col-n">' + (i + 1) + '</span>' +
-        '<span class="col-visto">' + visto + ' Leído</span></span><span class="col-arte">' + svgObjeto(it.obj, 104) + '</span>' +
-        '<span class="col-rotulo">' + rot(it.label) + '</span><span class="col-toca">' + mano + ' Comparar</span></button>' +
+        '<span class="col-visto">' + visto + ' Leído</span></span><span class="col-arte">' + (conIlus && it.ilus ? '<img src="' + srcImagen(it.ilus) + '" alt="">' : svgObjeto(it.obj, 104)) + '</span>' +
+        '<span class="col-rotulo">' + rot(it.label) + '</span><span class="col-toca">' + mano + (conIlus ? ' Clic para desplegar' : ' Comparar') + '</span></button>' +
         '<div class="col-lectura" hidden></div></div>';
     }).join('') + '</div>';
   };
@@ -2367,7 +3073,7 @@
     var zona = caja.querySelector('.tr-texto'), t = zona && zona.querySelector('.lectura-texto');
     if (!t) return;
     /* Con datos.sinHuecos, la retroalimentación breve crece hasta 24 px y llena su zona (sin franja vacía sobre el botón). */
-    for (var fs = datos.sinHuecos ? 24 : 17; fs >= 11.5; fs -= 0.5) {
+    for (var fs = datos.sinHuecos ? 24 : 17; fs >= pisoLetra(); fs -= 0.5) {
       t.style.fontSize = fs + 'px';
       if (zona.scrollHeight <= zona.clientHeight + 1 && caja.scrollHeight <= caja.clientHeight + 1) return;
     }
@@ -2380,14 +3086,15 @@
         '<div class="tr-meme"><img src="' + srcImagen(op.meme.img) + '" alt="' + esc(op.meme.alt) + '">' +
         '<button type="button" class="tr-volver-img">' + esc(op.boton) + '</button>' +
         '<button type="button" class="tr-x-img" aria-label="Cerrar y volver a la pregunta"></button></div>' +
-        (op.texto ? '<p class="tr-pie"><button type="button" class="tr-leer"><i class="fas fa-book-open" aria-hidden="true"></i> Leer la retroalimentación de la ficha</button></p>' : '') +
+        (op.texto ? '<p class="tr-pie"><button type="button" class="tr-leer"><i class="fas fa-book-open" aria-hidden="true"></i> Leer la retroalimentación</button></p>' : '') +
         '</div>';
     } else {
       var bien = op.tipo === 'bien';
       var pers = bien ? RR.acierto[n % RR.acierto.length] : RR.reacciones[n % RR.reacciones.length];
       var globo = bien ? ['¡Muy bien!', '¡Eso es!', '¡Así es!'][n % 3] : RR.frases[n % RR.frases.length];
       var titulo = bien ? '¡Respuesta <b>correcta!</b>' : op.clasifica ? '¿Esa <b>categoría?</b>' : '¿La opción <b>' + esc(op.letra) + '?</b>';
-      var sub = bien ? (op.texto ? 'Así lo explica la ficha:' : '¡Muy bien!') : op.clasifica ? '¡Esa no es la clasificación!' : '¡No es la respuesta! Revise por qué:';
+      /* «Explicación:» y no «Así lo explica la ficha:» (Jennifer, FGN, 20/11/2026, SRPA U4-L2): «la ficha» es jerga de producción. */
+      var sub = bien ? (op.texto ? 'Explicación:' : '¡Muy bien!') : op.clasifica ? '¡Esa no es la clasificación!' : op.texto ? '¡No es la respuesta! Revise por qué:' : '¡No es la respuesta!';   // sin explicación de la ficha no hay «por qué» que revisar
       /* Sin texto de la ficha: el acierto nombra la categoría elegida; nunca muestra el aviso de error (antes, «¡Respuesta
          correcta!» con «Esta afirmación no corresponde a esa categoría…», en las clasificaciones de U5). */
       var texto = op.texto || (bien ? (op.categoria ? 'Esta afirmación corresponde a la categoría «' + op.categoria + '».' : '')
@@ -2472,6 +3179,7 @@
     var c = pg.querySelector('.act-encaja'), ops = pg.querySelector('.act-opciones');
     if (!c) return;
     pg.classList.remove('sin-arte');
+    if (ops) c.classList.remove('lectura-desplazable');
     quitarRelleno(c);
     /* datos.filaOpciones (Justicia restaurativa: 3): hasta cuántas opciones van en fila desde el comienzo; las demás cursos, 2. */
     if (ops) ops.classList.toggle('en-fila', ops.children.length <= (datos.filaOpciones || 2));
@@ -2481,13 +3189,16 @@
       var enun = c.querySelector('.act-enunciado');
       pg.classList.toggle('act-dos', !!ops && !!enun && enun.textContent.length <= datos.preguntaDosColumnas);
     }
-    for (var fs = datos.sinHuecos ? 22 : 19; fs >= 11.5; fs -= 0.5) {
+    for (var fs = datos.sinHuecos ? 22 : 19; fs >= pisoLetra(); fs -= 0.5) {
       c.style.setProperty('--fs', fs + 'px');
       if (c.scrollHeight <= c.clientHeight + 1 && pg.scrollHeight <= pg.clientHeight + 1) { if (!ops && c.classList.contains('act-hoja')) rellenar(c); return; }
-      if (fs <= 14 && !pg.classList.contains('sin-arte') && pg.querySelector('.act-figura')) { pg.classList.add('sin-arte'); fs = 19.5; }
+      if (fs <= (datos.desplazarLectura ? 17 : 14) && !pg.classList.contains('sin-arte') && pg.querySelector('.act-figura')) { pg.classList.add('sin-arte'); fs = 19.5; }
       /* Opciones largas que no caben una debajo de otra: van en dos columnas. */
       else if (fs <= 12.5 && ops && !ops.classList.contains('en-fila')) { ops.classList.add('en-fila'); fs = 16.5; }
     }
+    /* Con datos.desplazarLectura la letra no baja de 15 px: si la pregunta con sus opciones aún no cabe, la página se desplaza
+       (como la lectura) en lugar de cortar el texto (Terminaciones 1.1, pregunta de la absolución perentoria, 22/11/2026). */
+    if (datos.desplazarLectura && ops) c.classList.add('lectura-desplazable');
   }
   B.actividad.activar = function (b, k, el) {
     var pags = el.querySelectorAll('.act-pagina'), puntos = el.querySelectorAll('.act-punto'), ant = el.querySelector('.act-ant'), sig = el.querySelector('.act-sig');
@@ -2629,13 +3340,25 @@
     b.querySelector('i').className = 'fas ' + (on ? 'fa-compress' : 'fa-expand');
     b.querySelector('span').textContent = on ? 'Salir' : 'Pantalla completa';
     b.setAttribute('aria-label', on ? 'Salir de pantalla completa' : 'Ver en pantalla completa');
+    franjaBotones();
   }
+  /* Los botones de abajo a la izquierda van uno tras otro, con aire entre ellos (Ley 1826, 22/11/2026, commit 9e49de8; llevado a
+     Desaparición forzada el 24/11/2026): «Clic para texto fijo» estaba a 158 px fijos y «Pantalla completa», con la Montserrat ya
+     cargada, mide unos 148 px desde los 12: se tocaban. */
+  function franjaBotones() {
+    var pc = raiz.querySelector('.pantalla-completa'), es = raiz.querySelector('.escritura-btn');
+    if (!pc || !es) return;
+    es.style.left = '';
+    if (!embebido || getComputedStyle(pc).display === 'none' || getComputedStyle(pc).position !== 'absolute') return;
+    es.style.left = (pc.offsetLeft + pc.offsetWidth + 8) + 'px';
+  }
+  if (document.fonts) document.fonts.ready.then(function () { franjaBotones(); });
   document.addEventListener('fullscreenchange', estadoPantalla);
   document.addEventListener('webkitfullscreenchange', estadoPantalla);
   /* La lección avisa a sus escenas cuando entra o sale de pantalla completa (genially_scorm.py). */
   window.addEventListener('message', function (e) { if (e.data && e.data.ova === 'pantalla') estadoPantalla(); });
   window.addEventListener('resize', zoomPantalla);
-  window.addEventListener('resize', function () { midiendo(function () { organizarGiros(); encajarTarjetas(); ajustarExtractos(); }); });
+  window.addEventListener('resize', function () { franjaBotones(); midiendo(function () { organizarGiros(); encajarTarjetas(); ajustarExtractos(); }); });
 
   /* ---------- Caso de estudio (patrón de Juan, caso1.html; Esteban, 27/10/2026) ----------
      «Aplicación al expediente del curso» como un expediente en páginas: El caso → Su tarea → Su respuesta, con puntos de
@@ -2665,6 +3388,10 @@
          en su orden; como situación salía antes de las preguntas (31/10/2026). */
       r.parrafos.forEach(function (i) {
         if (m.tareas.length && /^Nota\s*:/.test(seg(i))) { m.tareas.push(seg(i)); return; }
+        /* 24/11/2026 (Fiscalía, Enfoque diferencial): una pregunta numerada de la ficha («9. …? Por ejemplo: ¿…?») es una sola
+           tarea; su número lo pone el círculo y no se repite en el texto. */
+        var numerada = datos.bitacora && /^\d{1,2}\.\s+(?=[¿¡A-ZÁÉÍÓÚÑ])/.exec(seg(i));
+        if (numerada) { m.tareas.push(seg(i).slice(numerada[0].length)); return; }
         oraciones(seg(i)).forEach(function (o) { clasificar(o); });
       });
     } else {
@@ -2684,9 +3411,15 @@
     /* Caso y tarea breves comparten página («El caso y su tarea»); si no, cada uno tiene la suya. */
     m.junto = m.situacion.length > 0 && (m.situacion.join(' ') + m.tareas.join(' ') + m.pista.join(' ')).length <= 460;
     m.paginas = m.junto ? ['caso', 'respuesta'] : (m.situacion.length ? ['caso'] : []).concat(['tarea', 'respuesta']);
+    /* «reflexionUnica» (revisora de la Fiscalía en el SRPA, 23/11/2026, U1-L2: «leo las preguntas… y si le doy siguiente… están
+       las mismas preguntas. Siento que esta explicación debería ser antes de plantearles las preguntas y solo una de las dos
+       opciones»): la actividad de reflexión es una sola página, con la instrucción arriba y las preguntas una sola vez debajo;
+       el caso, si lo hay, sigue en la suya antes. Sin «Su tarea» aparte ni «Su tarea» repetida junto a la pausa. */
+    if (unaReflexion(b)) { m.junto = false; m.paginas = (m.situacion.length ? ['caso'] : []).concat(['respuesta']); }
     return m;
   }
-  function totalCaso(b) { var m = modeloCaso(b); return m.paginas.length + m.tareas.length; }
+  function unaReflexion(b) { return !!datos.reflexionUnica && !b.practica && reflexion(); }
+  function totalCaso(b) { var m = modeloCaso(b); return m.paginas.length + (unaReflexion(b) ? 0 : m.tareas.length); }
 
   /* Pregunta abierta = «Actividad de reflexión» (JP, 14/11/2026: «todo lo que son preguntas abiertas deben quedar como actividad
      de reflexión… no le das espacio para que registre nada… ni copiar ni descargar»; docs/directrices-cursos.md, sección 19;
@@ -2697,6 +3430,23 @@
      reflexione profundamente»); cada curso la registra en plan/observaciones-fuente.md. Las preguntas siguen literales en
      «Su tarea». datos.reflexion === false conserva la respuesta escrita. */
   function reflexion() { return datos.reflexion !== false; }
+  /* Una sola página (datos.reflexionUnica): ficha, instrucción de reflexión, las preguntas literales una vez (se encajan y, si no
+     caben, se leen por partes como todo texto de la hoja) y «Clic aquí cuando termine de reflexionar». */
+  function reflexionUnicaHtml(m, ficha, arte) {
+    var una = m.tareas.length === 1;
+    return '<div class="caso-hoja caso-hoja-reflexion">' + ficha +
+      '<p class="caso-instruccion caso-instruccion-reflexion"><i class="fas fa-brain" aria-hidden="true"></i> ' +
+      (una ? 'La siguiente pregunta es' : 'Las siguientes preguntas son') + ' para la reflexión. Tómese un tiempo corto para ' +
+      'reflexionar profundamente sobre ' + (una ? 'ella' : 'ellas') + ' a partir de lo estudiado en la lección y de su labor en la ' +
+      'Fiscalía. No necesita escribir ni enviar una respuesta.</p>' +
+      '<div class="caso-tareas caso-encaja">' + m.tareas.map(function (t, i) {
+        return '<p class="caso-refl-pregunta"><span class="caso-n">' + (i + 1) + '</span><span class="lectura-texto">' + rico(t) + '</span></p>';
+      }).join('') +
+      m.pista.map(function (t) { return '<p class="caso-pista"><i class="fas fa-lightbulb" aria-hidden="true"></i><span class="lectura-texto">' + rico(t) + '</span></p>'; }).join('') +
+      m.nota.map(function (t) { return '<p class="caja-clave lectura-texto">' + rico(t) + '</p>'; }).join('') + '</div>' +
+      '<button type="button" class="caso-reflexion-listo" aria-pressed="false"><i class="fas fa-circle-check" aria-hidden="true"></i> ' +
+      '<span class="crl-pendiente">Clic aquí cuando termine de reflexionar</span><span class="crl-hecho">Reflexión terminada</span></button></div>';
+  }
   function reflexionHtml(m) {
     var una = m.tareas.length === 1;
     var pasos = ['Lea de nuevo ' + (una ? 'la pregunta' : 'las preguntas') + ' de su tarea.',
@@ -2715,13 +3465,35 @@
       m.tareas.map(function (t) { return '<li>' + rico(t) + '</li>'; }).join('') + '</ol>' +
       m.nota.map(function (t) { return '<p class="caja-clave">' + rico(t) + '</p>'; }).join('') + '</aside>';
   }
+  /* Pregunta de control abierta = «Actividad práctica» (Juan, Ley 1826, 21/11/2026: «las preguntas de control siempre son
+     actividad práctica»): b.practica. Misma forma que la reflexión, sin cuadro de respuesta, con el rompecabezas; la pausa pide
+     pensar la respuesta y, si la ficha la trae en la página siguiente (b.siguiente), compararla con ella. */
+  function practicaHtml(m, b) {
+    var una = m.tareas.length === 1;
+    var pasos = ['Lea de nuevo ' + (una ? 'la pregunta' : 'las preguntas') + ' de su tarea.',
+      'Piense su respuesta a partir de lo estudiado en la lección.',
+      b.siguiente ? 'Compárela con la respuesta del documento, en la página siguiente.' : 'Relacione su respuesta con su labor en la Fiscalía.'];
+    return '<div class="caso-escribir caso-reflexion caso-practica">' +
+      '<div class="caso-pausa"><span class="caso-pausa-icono" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></span>' +
+      '<p class="caso-eyebrow">Actividad práctica</p>' +
+      '<p class="caso-pausa-tit">Ponga a prueba lo aprendido</p>' +
+      '<p class="caso-instruccion">Responda ' + (una ? 'la pregunta' : 'las preguntas') + ' con sus propias palabras. No necesita escribir ni ' +
+      'enviar la respuesta: piénsela con calma a partir de los contenidos estudiados' + (b.siguiente ? ' y luego compárela.' : '.') + '</p>' +
+      '<ol class="caso-pausa-pasos">' + pasos.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ol></div>' +
+      '<button type="button" class="caso-reflexion-listo" aria-pressed="false"><i class="fas fa-circle-check" aria-hidden="true"></i> ' +
+      '<span class="crl-pendiente">Clic aquí cuando tenga su respuesta</span><span class="crl-hecho">Respuesta pensada</span></button></div>' +
+      '<aside class="caso-recuerde"><p class="caso-eyebrow"><i class="fas fa-list-check" aria-hidden="true"></i> Su tarea</p><ol>' +
+      m.tareas.map(function (t) { return '<li>' + rico(t) + '</li>'; }).join('') + '</ol>' +
+      m.nota.map(function (t) { return '<p class="caja-clave">' + rico(t) + '</p>'; }).join('') + '</aside>';
+  }
   B.caso = function (b, k) {
     /* La imagen del caso sale del texto del propio caso; si no hay tema, del de la escena y la lección. */
     var m = modeloCaso(b), tm = temaDeTexto(m.situacion.concat(m.tareas).join(' ')) || tema(escena) || (datos.ilustraciones ? null : 'fundamento');
     var arte = tm ? '<figure class="ctx-arte foto caso-figura" aria-hidden="true"><img src="' + srcImagen(tm) + '" alt=""></figure>'
       : '<figure class="caso-figura caso-objeto" aria-hidden="true">' + svgObjeto(b.obj || 'expediente', 170) + '</figure>';
-    var ficha = '<p class="caso-eyebrow"><i class="fas fa-folder-open" aria-hidden="true"></i> ' + esc(m.encabezado) + '</p><p class="caso-nombre">' + esc(m.nombre) + '</p>';
-    var nombres = { caso: m.junto ? 'El caso y su tarea' : 'El caso', tarea: 'Su tarea', respuesta: reflexion() ? 'Su reflexión' : 'Su respuesta' };
+    var ficha = '<p class="caso-eyebrow"><i class="fas ' + (b.practica ? 'fa-puzzle-piece' : 'fa-folder-open') + '" aria-hidden="true"></i> ' + esc(m.encabezado) + '</p><p class="caso-nombre">' + esc(m.nombre) + '</p>';
+    var nombres = b.practica ? { caso: 'La pregunta', tarea: 'La pregunta', respuesta: 'Su respuesta' }
+      : { caso: m.junto ? 'El caso y su tarea' : 'El caso', tarea: 'Su tarea', respuesta: reflexion() ? 'Su reflexión' : 'Su respuesta' };
     /* Cada pregunta o consigna es una tarjeta que se marca como revisada; la pista de la fuente va resaltada debajo. */
     function tareasHtml() {
       return m.tareas.map(function (t, i) {
@@ -2734,7 +3506,9 @@
         (m.junto ? tareasHtml() : '') + '</div></div>' + arte,
       tarea: '<div class="caso-hoja">' + ficha + '<div class="caso-tareas caso-encaja">' + tareasHtml() + '</div></div>' +
         (m.situacion.length ? '<figure class="caso-figura caso-objeto" aria-hidden="true">' + svgObjeto(b.obj && b.obj !== 'expediente' ? b.obj : 'documento', 170) + '</figure>' : arte),
-      respuesta: reflexion() ? reflexionHtml(m) : '<div class="caso-escribir">' + m.instruccion.map(function (t) { return '<p class="caso-instruccion">' + rico(t) + '</p>'; }).join('') +
+      respuesta: b.practica ? practicaHtml(m, b) : unaReflexion(b) ? reflexionUnicaHtml(m, ficha, m.situacion.length ?
+        '<figure class="caso-figura caso-objeto" aria-hidden="true">' + svgObjeto(b.obj && b.obj !== 'expediente' ? b.obj : 'documento', 170) + '</figure>' : arte) :
+        reflexion() ? reflexionHtml(m) : '<div class="caso-escribir">' + m.instruccion.map(function (t) { return '<p class="caso-instruccion">' + rico(t) + '</p>'; }).join('') +
         '<label class="caso-respuesta"><span class="sr-only">Su respuesta</span><textarea placeholder="Escriba aquí su respuesta…"></textarea></label>' +
         '<div class="caso-pie"><span class="caso-cuenta"><output>0</output> / 500 palabras</span><span class="caso-barra"><i></i></span>' +
         '<button type="button" class="caso-copiar"><i class="fas fa-copy" aria-hidden="true"></i> Copiar respuesta</button></div></div>' +
@@ -2743,7 +3517,7 @@
         m.nota.map(function (t) { return '<p class="caja-clave">' + rico(t) + '</p>'; }).join('') + '</aside>'
     };
     return '<div class="caso2" data-paginas="' + m.paginas.length + '">' + m.paginas.map(function (p, i) {
-      return '<section class="caso-pagina pag-' + p + (i ? '' : ' activa') + '" data-p="' + i + '" data-id="' + k + '-p' + i + '" aria-label="' + nombres[p] + '"' + (i ? ' hidden' : '') + '>' + pag[p] + '</section>';
+      return '<section class="caso-pagina pag-' + p + (p === 'respuesta' && unaReflexion(b) ? ' sin-arte' : '') + (i ? '' : ' activa') + '" data-p="' + i + '" data-id="' + k + '-p' + i + '" aria-label="' + nombres[p] + '"' + (i ? ' hidden' : '') + '>' + pag[p] + '</section>';
     }).join('') +
       '<nav class="caso-nav" aria-label="Páginas del caso"><button type="button" class="caso-ant"><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button>' +
       '<span class="caso-puntos">' + m.paginas.map(function (p, i) { return '<button type="button" class="caso-punto" data-ir="' + i + '" aria-label="' + nombres[p] + '"><span>' + nombres[p] + '</span>' + estado + '</button>'; }).join('') + '</span>' +
@@ -2769,7 +3543,7 @@
     function avisarSalida(j) {
       if (!datos.completar || j < 0 || completa(j)) return;
       var nombre = esc(paginas[j].getAttribute('aria-label')), tareas = [].filter.call(paginas[j].querySelectorAll('.caso-tarea'), function (t) { return !vistos[t.dataset.id]; }).length;
-      if (reflexion() && paginas[j].classList.contains('pag-respuesta') && !vistos[k + '-p' + j]) { avisarFalta(null, 'En «' + nombre + '» falta hacer clic en «Clic aquí cuando termine de reflexionar».'); return; }
+      if ((b.practica || reflexion()) && paginas[j].classList.contains('pag-respuesta') && !vistos[k + '-p' + j]) { avisarFalta(null, 'En «' + nombre + '» falta hacer clic en «' + (b.practica ? 'Clic aquí cuando tenga su respuesta' : 'Clic aquí cuando termine de reflexionar') + '».'); return; }
       avisarFalta(null, vistos[k + '-p' + j] || !abiertas[j] ? 'En «' + nombre + '» falta marcar «Lo tendré en cuenta» en ' + (tareas === 1 ? '1 pregunta' : tareas + ' preguntas') + '.'
         : 'Falta leer «' + nombre + '». Vuelva a esa página para terminar.');
     }
@@ -2792,7 +3566,7 @@
       else if (lecturas[i] && !lecturas[i].completa) { lecturas[i].turno = turno; ultimaLectura = lecturas[i]; }
       else for (var j in lecturas) if (Number(j) !== i && lecturas[j] === ultimaLectura) ultimaLectura = null;   // la de otra página no decide el visto de esta
       /* La página de reflexión queda leída con «Clic aquí cuando termine de reflexionar», no al entrar. */
-      if (!(reflexion() && pg.classList.contains('pag-respuesta'))) marcar(k + '-p' + i);
+      if (!((b.practica || reflexion()) && pg.classList.contains('pag-respuesta'))) marcar(k + '-p' + i);
       if (datos.completar) candado(sig, !sig.disabled && !!faltaLeer(pg));
       if (antes !== i) avisarSalida(antes);
       estadoPuntos();
@@ -2921,13 +3695,71 @@
     if (img && !img.complete) img.addEventListener('load', function () { encajarTexto(cont, caja); });
   }
 
+  /* ---------- Mapa conceptual para descargar (hoja de virtualización de Derecho de petición, 22/11/2026: «mapa conceptual con
+     imagen para descarga») ----------
+     Con «?escena=N&lamina=mapa», la escena se dibuja como lámina estática para la imagen PNG que se genera al producir
+     (herramientas/lamina_mapa.js, Chrome local, sin servicios externos): la idea de la escena arriba, sus ramas unidas por líneas y,
+     en cada rama, su rótulo y su texto literal completo; la entrada y la idea clave, si las hay. Nadie navega esta vista: el
+     estudiante descarga la imagen con el botón de la escena («descarga»). */
+  var modoLamina = new URLSearchParams(location.search).get('lamina') === 'mapa';
+  function laminaMapa() {
+    var b = escena.bloques.filter(function (x) { return x.items && x.items.length; })[0] || { items: [] }, n = b.items.length;
+    var cols = n <= 4 ? n : n === 5 || n === 6 ? 3 : 4, titulo = centroTitulo();
+    raiz.className = 'ova lamina-modo';
+    document.documentElement.classList.add('modo-lamina');
+    raiz.innerHTML = '<div class="lamina-mapa"><header class="lm-cab"><p class="lm-leccion">Unidad ' + esc(String(datos.unit)) + ' · Lección ' + esc(String(datos.lesson)) + '</p>' +
+      '<p class="lm-curso">' + esc(may(String(datos.heading || '').replace(/^Lección\s+[\d.]+\.?\s*/, ''))) + '</p></header>' +
+      (escena.lead.length ? '<p class="lm-intro">' + rico(segs(escena.lead)) + '</p>' : '') +
+      '<div class="lm-raiz"><span class="lm-raiz-arte" aria-hidden="true">' + (b.items.slice(0, 1).map(function (it) { return svgObjeto(it.obj, 54); }).join('')) + '</span>' +
+      '<span class="lm-raiz-rot">' + esc(may(titulo)) + '</span></div>' +
+      '<div class="lm-ramas" style="--c:' + cols + '">' + b.items.map(function (it, i) {
+        return '<section class="lm-rama t' + (i % 3) + '"><p class="lm-rot"><span class="lm-n">' + (i + 1) + '</span><span class="lm-obj" aria-hidden="true">' + svgObjeto(it.obj, 40) + '</span>' +
+          '<span>' + rot(it.label) + '</span></p><p class="lm-texto">' + rico(segs(it.segs)) + '</p></section>';
+      }).join('') + '</div>' +
+      (escena.tail.length ? '<p class="lm-clave"><span class="clave-rotulo"><i class="fas fa-star" aria-hidden="true"></i> Idea clave</span> ' + rico(segs(escena.tail)) + '</p>' : '') +
+      '<svg class="lm-lineas" aria-hidden="true"></svg></div>';
+    function lineas() {
+      var lam = raiz.querySelector('.lamina-mapa'), svg = lam.querySelector('.lm-lineas'), r0 = lam.getBoundingClientRect();
+      var rr = lam.querySelector('.lm-raiz').getBoundingClientRect(), x0 = rr.left + rr.width / 2 - r0.left, y0 = rr.bottom - r0.top;
+      svg.setAttribute('width', r0.width); svg.setAttribute('height', r0.height);
+      /* La primera fila de ramas cuelga de la idea central; cada rama de las filas siguientes, de la que tiene encima en su columna,
+         con un trazo corto. Antes todas salían de la idea central y la curva hacia la segunda fila asomaba por el espacio entre dos
+         recuadros como una línea suelta (Derecho de petición, U1 L4, 22/11/2026). */
+      var cajas = [].map.call(lam.querySelectorAll('.lm-rama'), function (s) {
+        var r = s.getBoundingClientRect();
+        return { x: r.left + r.width / 2 - r0.left, top: r.top - r0.top, bottom: r.bottom - r0.top };
+      });
+      var primeraFila = cajas.length ? Math.min.apply(null, cajas.map(function (c) { return c.top; })) : 0;
+      svg.innerHTML = cajas.map(function (c) {
+        if (c.top - primeraFila < 4) {
+          var m = (y0 + c.top) / 2;
+          return '<path d="M' + x0 + ' ' + y0 + ' C' + x0 + ' ' + m + ' ' + c.x + ' ' + m + ' ' + c.x + ' ' + c.top + '"/>';
+        }
+        var arriba = cajas.filter(function (o) { return o.bottom <= c.top + 1 && Math.abs(o.x - c.x) < 4; })
+          .sort(function (a, z) { return z.bottom - a.bottom; })[0];
+        return arriba ? '<path d="M' + c.x + ' ' + arriba.bottom + ' L' + c.x + ' ' + c.top + '"/>' : '';
+      }).join('');
+      window.ovaLaminaLista = true;
+    }
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { requestAnimationFrame(lineas); });
+  }
+
   /* ---------- Escena ---------- */
   function render() {
-    escena = datos.scenes[actual]; vistos = {}; retornoFoco = null; generacion++; ultimaLectura = null;
-    total = escena.bloques.reduce(function (a, b) { return a + (b.tipo === 'caso' ? totalCaso(b) : tablaBreve(b) ? 0 : b.items.length) + (b.titulo && b.titulo.length && segs(b.titulo).length > 110 ? 1 : 0); }, 0) + (escena.lead.length ? 1 : 0);
+    var propia = datos.scenes[actual];
+    padre = propia.pestanas && propia.pestanas.length ? propia : null;
+    if (padre && (pestana < 0 || pestana >= padre.pestanas.length)) pestana = 0;
+    escena = padre ? padre.pestanas[pestana] : propia; vistos = {}; retornoFoco = null; generacion++; ultimaLectura = null;
+    if (modoLamina) { laminaMapa(); return; }
+    total =escena.bloques.reduce(function (a, b) { return a + (b.tipo === 'caso' ? totalCaso(b) : tablaBreve(b) ? 0 : b.items.filter(function (x) { return !x.fijo; }).length) + (b.titulo && b.titulo.length && segs(b.titulo).length > 110 ? 1 : 0); }, 0) + (escena.lead.length ? 1 : 0);
     var ctx = escasa(escena) ? contexto(0) : null;
     var guia = ctx ? (ctx.lista.length > 1 ? 'Elija cada punto y lea su contenido junto a la ilustración.' : 'Lea el contenido junto a la ilustración.') : guias[escena.layout === 'balanza' ? 'fichas' : escena.layout];
+    /* El cuadro de una sola parte no tiene «Seguir leyendo»: su guía no lo nombra (SRPA U4-L1, 20/11/2026). */
+    if (escena.layout === 'cuadro' && escena.bloques.every(function (x) { return x.tipo !== 'cuadro' || x.items.length === 1; })) guia = 'Lea la tabla: todas sus filas están a la vista.';
     if (escena.guia) guia = escena.guia;
+    /* El scroll se anuncia una sola vez, con la píldora «Baje con la barra de desplazamiento…» al pie de la caja (.cmp-baje): la
+       guía de arriba no lo repite (Esteban, 24/11/2026: «esta con scroll se repite demasiado»). */
+    guia = String(guia || '').replace(/;\s*si contin[úu]a, baje con la barra de desplazamiento para verlo completo\./i, ' completo.');
     /* La tabla breve se ve completa: no hay pestañas que elegir. */
     if (escena.layout === 'tabla' && escena.bloques.length && escena.bloques.every(tablaBreve)) guia = 'Lea la tabla completa.';
     /* Sin nada que explorar (un solo texto a la vista o un caso) no hay barra de avance y la idea clave se ve desde el inicio. */
@@ -2937,7 +3769,13 @@
     var cab = '<header class="guia"><p class="guia-texto">' + mano + '<span' + (angosta ? ' class="guia-ancha"' : '') + '>' + guia + '</span>' + angosta + '</p>' + juegoHtml() +
       (conAvance ? '<div class="avance" role="status"><span class="avance-rotulo">Exploración</span><span class="barra"><i></i></span><output>0 / ' + total + '</output></div>' : '') +
       '<button type="button" class="pantalla-completa" aria-label="Ver en pantalla completa"><i class="fas fa-expand" aria-hidden="true"></i><span>Pantalla completa</span></button>' +
-      '<button type="button" class="escritura-btn" aria-pressed="true"><i class="fas fa-keyboard" aria-hidden="true"></i><span>Clic para texto fijo</span></button></header>';
+      '<button type="button" class="escritura-btn" aria-pressed="true"><i class="fas fa-keyboard" aria-hidden="true"></i><span>Clic para texto fijo</span></button>' +
+      /* Mapa o imagen para descargar (Juan, Ley 1826, 21/11/2026: «un botoncito que diga Descargar imagen, Descargar mapa»):
+         escena.descargaMapa = {archivo, nombre, boton}; el archivo va en la carpeta de la lección. Ícono de descarga de la hoja de JP.
+         Distinto de escena.descarga (SRPA, documento que la ficha remite a consultar, dentro de la escena). */
+      (escena.descargaMapa ? '<a class="descarga-btn" href="' + esc(escena.descargaMapa.archivo) + '" download="' + esc(escena.descargaMapa.nombre || '') + '" target="_blank" rel="noopener">' +
+        '<i class="fas fa-file-arrow-down" aria-hidden="true"></i><span>' + esc(escena.descargaMapa.boton || 'Clic para descargar') + '</span></a>' : '') +
+      '</header>';
     var cuerpo = '';
     if (escena.titulo.length) cuerpo += '<p class="escena-titulo">' + esc(may(segs(escena.titulo))) + '</p>';
     if (escena.lead.length && !ctx) {
@@ -2952,10 +3790,15 @@
     }).join('') + '</ul>';
     /* Pie de una tabla de la ficha («Fuente. Elaboración propia», Derechos humanos, 31/10/2026): en la franja de abajo. */
     if (escena.pie && escena.pie.length) cuerpo += '<p class="escena-pie">' + esc(may(segs(escena.pie))) + '</p>';
+    /* Documento que la ficha remite a consultar («(ver informes)», SRPA U2-L3, revisión del 18/11/2026): un botón que dice lo que
+       hace y descarga la copia local que viaja en el paquete, con el nombre completo del documento al pie. Solo si la escena lo trae. */
+    if (escena.descarga) cuerpo += '<p class="escena-descarga"><a class="boton-descarga" href="' + esc(escena.descarga.href) + '" download>' +
+      '<i class="fas fa-file-arrow-down" aria-hidden="true"></i> ' + esc(escena.descarga.rotulo) + '</a><span class="descarga-nombre">' +
+      esc(escena.descarga.nombre) + '</span></p>';
     if (escena.tail.length) cuerpo += '<p class="caja-clave' + (conAvance ? ' tras-completar" hidden' : '"') + '><span class="clave-rotulo"><i class="fas fa-star" aria-hidden="true"></i> ' +
       (conAvance ? 'Idea clave desbloqueada' : 'Idea clave') + '</span>' + rico(segs(escena.tail)) + '</p>';
     raiz.className = 'ova layout-' + (ctx ? 'contexto' : escena.layout === 'balanza' ? 'fichas' : escena.layout) + (embebido ? ' embebido' : '') + (embebido && leccionPadre() ? ' pc-leccion' : '') + (datos.sinHuecos ? ' sin-huecos' : '') +
-      (marcoAncho() ? ' marco-ancho' : '') + (escena.siluetas ? ' con-siluetas' : '');
+      (marcoAncho() ? ' marco-ancho' : '') + (escena.siluetas ? ' con-siluetas' : '') + (datos.ventanaAmplia ? ' ventana-amplia' : '') + (datos.huecosFinos ? ' huecos-finos' : '') + (escena.descargaMapa ? ' con-descarga' : '');
     /* Ilustración de la escena en un lugar que varía (Estándares interamericanos; Esteban, 28/10/2026: «a la izquierda, a la
        derecha, en el medio o atrás… de forma embebida para que no sea invasivo»). «arte» = {img, pos}: «izq» o «der», una columna
        propia junto a la mediación; «fondo», la ilustración tenue en la esquina inferior, detrás y sin recibir clics; «centro», en
@@ -2964,7 +3807,7 @@
     var claseArte = '';
     if (datos.tituloFuera && escena.layout === 'esquema') { /* la ilustración es la raíz del mapa conceptual */ }
     else if (arteEn('izq') || arteEn('der')) {
-      if (IMAGEN[actual]) claseArte = ' arte-volteado';
+      if (imagenActual()) claseArte = ' arte-volteado';
       else {
         cuerpo = '<figure class="arte-escena' + (escena.arte.alta ? ' arte-alta' : '') + '" aria-hidden="true"><img src="' + srcImagen(escena.arte.img) + '" alt=""></figure><div class="escenario-contenido">' + cuerpo + '</div>';
         claseArte = ' arte-lado arte-' + escena.arte.pos;
@@ -2973,19 +3816,78 @@
       cuerpo = '<figure class="arte-escena arte-fondo-fig" aria-hidden="true"><img src="' + srcImagen(escena.arte.img) + '" alt=""></figure>' + cuerpo;
       claseArte = ' arte-fondo';
     }
-    raiz.innerHTML = cab + '<section class="escenario' + claseArte + '" aria-label="Escena ' + (actual + 1) + '">' + cuerpo + '<div class="lector" hidden></div></section>' +
+    /* Video dentro de la escena (Terminaciones; Juan, 18/11/2026: «el video a la izquierda y las afirmaciones… a la derecha, como en
+       Enfoque diferencial»): «escena.video» = {src, vtt, titulo}. El botón «Ver el video del caso» («escena.boton_video») lo abre en
+       una ventana. Solo si la escena lo trae. */
+    if (escena.video) {
+      cuerpo = '<figure class="escena-video"><video controls preload="metadata" playsinline src="' + esc(escena.video.src) + '">' +
+        (escena.video.vtt ? '<track kind="subtitles" srclang="es" label="Español" src="' + esc(escena.video.vtt) + '">' : '') + '</video>' +
+        (escena.video.titulo ? '<figcaption>' + esc(may(escena.video.titulo)) + '</figcaption>' : '') + '</figure><div class="escenario-contenido">' + cuerpo + '</div>';
+      claseArte += ' con-video';
+    }
+    /* Varios videos (Terminaciones; Juan, 19/11/2026: la actividad práctica «en una sola diapositiva, el video con un popup que abra y
+       al ladito las preguntas»): «escena.videos» = [{src, vtt, titulo, etiqueta}], botones a la izquierda que abren cada uno en una
+       ventana. Solo si la escena lo trae. */
+    if (escena.videos && escena.videos.length) {
+      cuerpo = '<aside class="escena-videos" aria-label="Videos de la actividad"><p class="ev-titulo"><i class="fas fa-film" aria-hidden="true"></i> Videos de la actividad</p>' +
+        escena.videos.map(function (v, i) {
+          return '<button type="button" class="ev-boton" data-v="' + i + '"><i class="fas fa-circle-play" aria-hidden="true"></i><span>Ver video · ' + esc(may(v.etiqueta || v.titulo || '')) + '</span>' +
+            '<i class="fas fa-circle-check ev-visto" aria-hidden="true"></i></button>';
+        }).join('') + '<p class="ev-nota">Clic para abrir el video en una ventana; al cerrarlo, siga con las afirmaciones de la derecha.</p></aside>' +
+        '<div class="escenario-contenido">' + cuerpo + '</div>';
+      claseArte += ' con-videos';
+    }
+    if (escena.boton_video) cuerpo += '<p class="escena-descarga escena-video-boton"><button type="button" class="boton-descarga boton-video">' +
+      '<i class="fas fa-circle-play" aria-hidden="true"></i> Ver el video del caso</button><span class="descarga-nombre">' + esc(may(escena.boton_video.titulo || '')) + '</span></p>';
+    var barraP = padre ? '<div class="pestanas n' + padre.pestanas.length + '" role="tablist" aria-label="Apartados de esta página">' + padre.pestanas.map(function (p, i) {
+      return '<button type="button" role="tab" id="pestana-' + i + '" class="pestana' + (i === pestana ? ' activa' : '') + (pestanaHecha(i) ? ' visto' : '') + '" data-p="' + i + '" aria-selected="' + (i === pestana) +
+        '" aria-controls="panel-pestana" tabindex="' + (i === pestana ? 0 : -1) + '"><span class="pestana-letra">' + String.fromCharCode(65 + i) + '</span><span class="pestana-rotulo">' + esc(may(p.pestana || '')) +
+        '</span><span class="pestana-visto">' + visto + '</span></button>';
+    }).join('') + '</div>' : '';
+    /* Casos con audio (Ley 1826, Samir, 22/11/2026: «que no ocupe la diapositiva sino que sea un pop up de botón con el ícono de
+       audio»; «no se ve casi la ubicación… organízalo mejor»): una cinta propia debajo de la escena, sin tapar nada, con una tarjeta por
+       caso (número, nombre y tema, ícono «Audio» de la hoja de JP); cada una abre el caso en una ventana. escena.casosAudio = [{id, titulo, url}]. */
+    var cinta = '';
+    if (escena.casosAudio && escena.casosAudio.length) {
+      var palabrasHasta = function (s, n) { if (s.length <= n) return s; var c = s.slice(0, n).replace(/\s+\S*$/, ''); return c.replace(/[,;:]$/, '') + '…'; };
+      cinta = '<div class="cinta-casos' + (escena.casosAudio.length > 2 ? ' muchos' : '') + '" role="group" aria-label="Casos con audio"><p class="cc-rot"><span class="cc-ico" aria-hidden="true"><i class="fas fa-headphones"></i></span>' +
+        '<span><b>' + (escena.casosAudio.length === 1 ? 'Caso con audio' : 'Casos con audio') + '</b><small>Clic para escuchar' + (escena.casosAudio.length === 1 ? 'lo' : 'los') + '</small></span></p>' +
+        '<div class="cc-lista">' + escena.casosAudio.map(function (c, k) {
+          var m = /^([^:]+):\s*(.+)$/.exec(c.titulo), nombre = m ? m[1] : c.titulo, tema = m ? may(m[2]) : '';
+          return '<button type="button" class="caso-audio-btn cc-caso" data-i="' + k + '" title="' + esc(c.titulo) + '" aria-label="Clic para escuchar el ' + esc(c.titulo) + '">' +
+            '<span class="cc-num" aria-hidden="true">' + (k + 1) + '</span><span class="cc-txt"><b>' + esc(nombre) + '</b>' + (tema ? '<small>' + esc(palabrasHasta(tema, escena.casosAudio.length > 3 ? 20 : escena.casosAudio.length > 2 ? 32 : 44)) + '</small>' : '') + '</span></button>';
+        }).join('') + '</div></div>';
+    }
+    raiz.className += cinta ? ' con-casos' : '';
+    raiz.innerHTML = cab + barraP + '<section class="escenario' + claseArte + '"' + (padre ? ' id="panel-pestana" role="tabpanel" aria-labelledby="pestana-' + pestana + '"' : '') + ' aria-label="Escena ' + (actual + 1) + '">' + cuerpo + '<div class="lector" hidden></div></section>' + cinta +
       (embebido ? '' : '<nav class="nav-local" aria-label="Escenas de la lección"><button type="button" data-ir="-1"><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button>' +
         '<span>' + (actual + 1) + ' de ' + datos.scenes.length + '</span><button type="button" data-ir="1">Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i></button></nav>');
-    if (!conAvance) setTimeout(juegoTramo, 1200);
+    var botonVideo = raiz.querySelector('.boton-video');
+    if (botonVideo) botonVideo.addEventListener('click', function () { abrirVideo(escena.boton_video, botonVideo); });
+    raiz.querySelectorAll('.ev-boton').forEach(function (bt) {
+      bt.addEventListener('click', function () { bt.classList.add('visto'); abrirVideo(escena.videos[Number(bt.dataset.v)], bt); });
+    });
+    if (!conAvance) { var gP = generacion; setTimeout(function () { if (gP === generacion) { if (padre) completarPestana(); else juegoTramo(); } }, 1200); }
+    if (padre) {
+      var irP = function (i) { if (i === pestana) return; pestana = i; render(); var n = raiz.querySelector('.pestana[data-p="' + i + '"]'); if (n) n.focus(); };
+      raiz.querySelectorAll('.pestana').forEach(function (bt) {
+        bt.addEventListener('click', function () { irP(Number(bt.dataset.p)); });
+        bt.addEventListener('keydown', function (e) {
+          var n = padre.pestanas.length, i = Number(bt.dataset.p), j = e.key === 'ArrowRight' ? (i + 1) % n : e.key === 'ArrowLeft' ? (i + n - 1) % n : e.key === 'Home' ? 0 : e.key === 'End' ? n - 1 : -1;
+          if (j < 0) return; e.preventDefault(); irP(j);
+        });
+      });
+    }
     raiz.querySelectorAll('.bloque').forEach(function (el) {
       var k = Number(el.dataset.k), b = escena.bloques[k];
       if (ctx) activarContexto(el, ctx.lista); else B[tipo(b)].activar(b, k, el);
+      marcarAlertas(b, el);
     });
     /* Lo ya leído en este navegador se conserva al volver a la página (revisora del SRPA, 13/11/2026: «me devolví para revisar
        algunos cuadros y me indicaba de nuevo leer elementos que ya había leído»). Los puntos ya estaban guardados por lección
        («datos.juego»); ahora también la marca de visto, el avance y lo que desbloquea, sin repetir el confeti ni los puntos. */
     if (datos.juego) {
-      var previo = juegoEstado(), pref = actual + ':';
+      var previo = juegoEstado(), pref = claveLectura();
       restaurando = true;
       Object.keys(previo.v).forEach(function (c) {
         var id = c.slice(pref.length);
@@ -3002,6 +3904,26 @@
        Revisión de la Fiscalía del 13/11/2026 (Jennifer: «le coloquemos ahí texto fijo… o texto animado… bajar un poquito el tamaño
        de la fuente y escribirle allí: clic para texto animado, clic para texto fijo»; «siempre mencionar el clic»): el botón dice
        lo que hace el clic, no el modo en que está. */
+    /* Ventana del caso con audio: el reproductor del caso (casos/index.html?caso=…) sobre la escena, con «Cerrar» visible y Escape. */
+    raiz.querySelectorAll('.caso-audio-btn').forEach(function (bt) {
+      bt.addEventListener('click', function () {
+        var c = escena.casosAudio[Number(bt.dataset.i)], previo = document.activeElement;
+        var v = document.createElement('div');
+        v.className = 'ventana-caso'; v.setAttribute('role', 'dialog'); v.setAttribute('aria-modal', 'true'); v.setAttribute('aria-label', c.titulo);
+        v.innerHTML = '<div class="vc-caja"><div class="vc-cab"><i class="fas fa-headphones" aria-hidden="true"></i><span class="vc-tit">Caso con audio</span>' +
+          '<button type="button" class="vc-cerrar"><i class="fas fa-xmark" aria-hidden="true"></i> Cerrar</button></div>' +
+          '<iframe src="' + esc(c.url) + '" title="' + esc(c.titulo) + '" allow="fullscreen; autoplay" allowfullscreen></iframe></div>';
+        raiz.appendChild(v);
+        bt.classList.add('visto');
+        var nu = bt.querySelector('.cc-num'); if (nu) nu.innerHTML = '<i class="fas fa-check"></i>';
+        var cerrar = function () { document.removeEventListener('keydown', tecla); v.remove(); if (previo && previo.focus) previo.focus(); };
+        var tecla = function (e) { if (e.key === 'Escape') cerrar(); };
+        v.querySelector('.vc-cerrar').addEventListener('click', cerrar);
+        v.addEventListener('click', function (e) { if (e.target === v) cerrar(); });
+        document.addEventListener('keydown', tecla);
+        v.querySelector('.vc-cerrar').focus();
+      });
+    });
     var bEsc = raiz.querySelector('.escritura-btn');
     function pintarEscritura() {
       var on = escrituraAnimada();
@@ -3032,7 +3954,7 @@
       nav.querySelector('[data-ir="1"]').disabled = actual === datos.scenes.length - 1;
       nav.addEventListener('click', function (e) {
         var b = e.target.closest('button[data-ir]'); if (!b) return;
-        actual = Math.max(0, Math.min(datos.scenes.length - 1, actual + Number(b.dataset.ir))); render();
+        actual = Math.max(0, Math.min(datos.scenes.length - 1, actual + Number(b.dataset.ir))); pestana = 0; render();
       });
     }
   }

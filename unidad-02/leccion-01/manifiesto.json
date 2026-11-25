@@ -1,0 +1,44 @@
+{
+ "unidad": 2,
+ "leccion": 1,
+ "titulo": "Solicitud de orden de captura",
+ "heading": "Lección 1. Solicitud de orden de captura",
+ "paginas": [
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=1",
+   "titulo": "Solicitud de orden de captura",
+   "subtitulo": "Solicitud de orden de captura",
+   "seccion": "Lección 1. Solicitud de orden de captura",
+   "escena": 1,
+   "id": "AP-U2-L1-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "Fundamento",
+   "subtitulo": "Fundamento legal",
+   "seccion": "1.1. Fundamento",
+   "escena": 2,
+   "id": "AP-U2-L1-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "Requisitos",
+   "subtitulo": "Orden escrita · Motivos razonablemente fundados · Individualización · Delito susceptible",
+   "seccion": "1.2. Requisitos",
+   "escena": 3,
+   "id": "AP-U2-L1-E03"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=4",
+   "titulo": "Trámite",
+   "subtitulo": "Solicitud de la Fiscalía · Audiencia preliminar · Emisión y vigencia · Ejecución y control",
+   "seccion": "1.3. Trámite",
+   "escena": 4,
+   "id": "AP-U2-L1-E04"
+  }
+ ]
+}

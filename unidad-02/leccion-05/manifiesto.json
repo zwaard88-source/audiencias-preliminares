@@ -1,0 +1,80 @@
+{
+ "unidad": 2,
+ "leccion": 5,
+ "titulo": "Particularidades de la ley 1826 de 2017",
+ "heading": "Lección 5. Particularidades de la ley 1826 de 2017",
+ "paginas": [
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=1",
+   "titulo": "Particularidades de la ley 1826 de 2017",
+   "subtitulo": "Ley 1826 de 2017",
+   "seccion": "Lección 5. Particularidades de la ley 1826 de 2017",
+   "escena": 1,
+   "id": "AP-U2-L5-E01"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=2",
+   "titulo": "Procedimiento penal abreviado",
+   "subtitulo": "Reducción de etapas · Menos audiencias · Delitos aplicables · Tiempos y plazos",
+   "seccion": "5.1. Procedimiento penal abreviado",
+   "escena": 2,
+   "id": "AP-U2-L5-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "Procedimiento penal abreviado",
+   "subtitulo": "Traslado de la acusación otorga 60 días · Medidas de aseguramiento privativas de la libertad",
+   "seccion": "5.1. Procedimiento penal abreviado",
+   "escena": 3,
+   "id": "AP-U2-L5-E03"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=4",
+   "titulo": "El acusador privado",
+   "subtitulo": "Facultad de la víctima · Restricciones · Responsabilidad",
+   "seccion": "5.2. El acusador privado",
+   "escena": 4,
+   "id": "AP-U2-L5-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "Beneficios punitivos por aceptación de cargos",
+   "subtitulo": "Reducción de pena de hasta el 50% · Reducción de hasta el 33% · Reducción del 16.6% · …",
+   "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
+   "escena": 5,
+   "id": "AP-U2-L5-E05"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=6",
+   "titulo": "Beneficios punitivos por aceptación de cargos",
+   "subtitulo": "Delitos cometidos contra niños, niñas y adolescentes · Terrorismo · Feminicidio",
+   "seccion": "5.3. Beneficios punitivos por aceptación de cargos",
+   "escena": 6,
+   "id": "AP-U2-L5-E06"
+  },
+  {
+   "tipo": "figura",
+   "src": "figura.html?f=1",
+   "titulo": "Mapa conceptual",
+   "subtitulo": "Libertad por vencimiento de términos y solicitudes de libertad",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-U2-L5-F1"
+  },
+  {
+   "tipo": "figura",
+   "src": "figura.html?f=2",
+   "titulo": "Diagrama de flujo",
+   "subtitulo": "Audiencia preliminar de libertad por vencimiento de términos",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-U2-L5-F2"
+  }
+ ]
+}

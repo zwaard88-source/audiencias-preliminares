@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Representación gráfica · Lección 2. Sustentación probatoria y respuesta estratégica a las controversias de las partes</title>
+<link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
+<link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=408b8e1d">
+</head>
+<body>
+<main class="lienzo" id="lienzo">
+  <div class="fig">
+    <div class="marco" id="marco" tabindex="0" role="img"><img id="img" alt=""></div>
+    <div class="pie-fig"><span id="fuente"></span>
+      <span class="ctrl"><button class="btn-chico" id="menos"><i class="fas fa-magnifying-glass-minus" aria-hidden="true"></i> Clic para alejar</button><button class="btn-chico" id="mas"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> Clic para acercar</button><a class="btn-chico" id="baja" download style="text-decoration:none"><i class="fas fa-download" aria-hidden="true"></i> Clic para descargar</a></span></div>
+  </div>
+  <div class="pie"><button class="btn-chico" data-pantalla></button></div>
+</main>
+<script type="application/json" id="datos">{"1": {"src": "../medios/fig-u4-l2-19.png", "alt": "Estrategia para responder objeciones en sala", "fuente": ""}}</script>
+<script src="../comun/ap-propio.js?v=408b8e1d"></script>
+<script>
+/* Representación gráfica del autor, tal como viene en el documento: entera al abrir; se acerca con clic o con los botones y se
+   arrastra para recorrerla. No se redibuja ni se resume. */
+(function () {
+  var F = JSON.parse(document.getElementById('datos').textContent), q = /[?&]f=(\d+)/.exec(location.search), d = F[q ? q[1] : Object.keys(F)[0]];
+  var m = document.getElementById('marco'), im = document.getElementById('img'), k = 1, x = 0, y = 0, base = 1;
+  if (!d) return;
+  im.src = d.src; im.alt = d.alt; m.setAttribute('aria-label', d.alt);
+  document.getElementById('fuente').textContent = d.fuente || '';
+  document.getElementById('baja').href = d.src;
+  function z() { var l = document.getElementById('lienzo'); return l.getBoundingClientRect().width / l.clientWidth; }
+  function pinta() {
+    var W = m.clientWidth, H = m.clientHeight, w = im.naturalWidth * base * k, h = im.naturalHeight * base * k;
+    x = w <= W ? (W - w) / 2 : Math.min(0, Math.max(W - w, x)); y = h <= H ? (H - h) / 2 : Math.min(0, Math.max(H - h, y));
+    im.style.width = im.naturalWidth * base * k + 'px'; im.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    m.classList.toggle('zoom', k > 1);
+  }
+  function ajusta() { base = Math.min(m.clientWidth / im.naturalWidth, m.clientHeight / im.naturalHeight); pinta(); }
+  function acercar(f, cx, cy) { var W = m.clientWidth, H = m.clientHeight; cx = cx === undefined ? W / 2 : cx; cy = cy === undefined ? H / 2 : cy; var k2 = Math.max(1, Math.min(5, k * f)); x = cx - (cx - x) * k2 / k; y = cy - (cy - y) * k2 / k; k = k2; pinta(); }
+  im.onload = ajusta; window.addEventListener('resize', function () { setTimeout(ajusta, 80); });
+  document.getElementById('mas').onclick = function () { acercar(1.6); };
+  document.getElementById('menos').onclick = function () { acercar(1 / 1.6); };
+  var arr = null, movio = false;
+  m.addEventListener('pointerdown', function (e) { arr = { x: e.clientX, y: e.clientY, x0: x, y0: y }; movio = false; m.setPointerCapture(e.pointerId); });
+  m.addEventListener('pointermove', function (e) { if (!arr) return; var dx = (e.clientX - arr.x) / z(), dy = (e.clientY - arr.y) / z(); if (Math.abs(dx) + Math.abs(dy) > 4) movio = true; x = arr.x0 + dx; y = arr.y0 + dy; pinta(); });
+  m.addEventListener('pointerup', function (e) { if (arr && !movio) { var r = m.getBoundingClientRect(); acercar(k >= 4.9 ? 1 / 5 : 1.8, (e.clientX - r.left) / z(), (e.clientY - r.top) / z()); } arr = null; });
+  m.addEventListener('keydown', function (e) { if (e.key === '+' || e.key === 'Enter') acercar(1.6); if (e.key === '-') acercar(1 / 1.6); if (e.key === 'ArrowLeft') { x += 60; pinta(); } if (e.key === 'ArrowRight') { x -= 60; pinta(); } if (e.key === 'ArrowUp') { y += 60; pinta(); } if (e.key === 'ArrowDown') { y -= 60; pinta(); } });
+})();
+</script>
+</body>
+</html>

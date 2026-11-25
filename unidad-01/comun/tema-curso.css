@@ -1,47 +1,48 @@
+/* Paleta «Salvia y terracota» (Sebastián, 25/11/2026) */
 /* Audiencias preliminares y medidas de aseguramiento · colores de la PORTADA de la plantilla de Genially del curso
    Leídos con geniallyAPI el 29/10/2026 en «Portada» de la creación de la Unidad 1 (las de U2–U4 son copias):
-     menta #C5E9E2 (fondo)        coral #EF767F (franja del título)        petróleo #003F5E («Curso», «Comenzar»)
-     verde azulado #569689 (detalle de la franja)                         blanco
+     menta #CFE0D6 (fondo)        coral #C8754F (franja del título)        petróleo #2F4F45 («Curso», «Comenzar»)
+     verde azulado #587E6D (detalle de la franja)                         blanco
    Los claros son tintes de esos colores. Contraste: menta y coral van en fondos, bordes, barras y círculos; nunca en letra
    pequeña ni bajo texto blanco. Se carga después de base.css (lo enlaza herramientas/pulir_cursos.py) y solo cambia colores. */
 :root{
-  --teal:#569689;--marino:#003F5E;--oxido:#003F5E;--coral:#EF767F;--crema:#FBDCDE;--niebla:#E2F4F0;
-  --hielo:#F0F9F7;--fondo:#FFFFFF;--piso:#C5E9E2;--tinta:#003F5E;--clave-fondo:#F0F9F7;--clave-borde:#EF767F
+  --teal:#587E6D;--marino:#2F4F45;--oxido:#2F4F45;--coral:#C8754F;--crema:#F6DDCB;--niebla:#E3EDE7;
+  --hielo:#F7F5EF;--fondo:#FFFFFF;--piso:#CFE0D6;--tinta:#2F4F45;--clave-fondo:#F7F5EF;--clave-borde:#C8754F
 }
-.ova{border-color:#C5E9E2;box-shadow:0 6px 18px #003F5E1f}
+.ova{border-color:#CFE0D6;box-shadow:0 6px 18px #2F4F451f}
 
 /* Sobre los paneles oscuros, los rótulos claros van en menta. */
-.panel .lectura-eyebrow,.panel-texto .lectura-eyebrow,.tabla-enc,.panel .panel-vacio i,.panel-fichas .panel-vacio i,.chips li i{color:#C5E9E2}
+.panel .lectura-eyebrow,.panel-texto .lectura-eyebrow,.tabla-enc,.panel .panel-vacio i,.panel-fichas .panel-vacio i,.chips li i{color:#CFE0D6}
 
 /* Tarjetas y columnas: tintes de la portada (menta, coral claro, petróleo claro y blanco). */
-.giro:nth-child(4n+2) .frente{background:#C5E9E2;border-color:#569689;box-shadow:0 5px 0 #569689}
-.giro:nth-child(4n+3) .frente{background:#FBDCDE;border-color:#EF767F;box-shadow:0 5px 0 #EF767F}
-.giro:nth-child(4n+4) .frente{background:#FFFFFF;border-color:#003F5E55;box-shadow:0 5px 0 #003F5E55}
-.columna.tono1{background:#C5E9E2;border-color:#569689;box-shadow:0 6px 0 #569689}
-.columna.tono2{background:#FBDCDE;border-color:#EF767F;box-shadow:0 6px 0 #EF767F}
-.columna.tono3{background:#FFFFFF;border-color:#003F5E55;box-shadow:0 6px 0 #003F5E55}
+.giro:nth-child(4n+2) .frente{background:#CFE0D6;border-color:#587E6D;box-shadow:0 5px 0 #587E6D}
+.giro:nth-child(4n+3) .frente{background:#F6DDCB;border-color:#C8754F;box-shadow:0 5px 0 #C8754F}
+.giro:nth-child(4n+4) .frente{background:#FFFFFF;border-color:#2F4F4555;box-shadow:0 5px 0 #2F4F4555}
+.columna.tono1{background:#CFE0D6;border-color:#587E6D;box-shadow:0 6px 0 #587E6D}
+.columna.tono2{background:#F6DDCB;border-color:#C8754F;box-shadow:0 6px 0 #C8754F}
+.columna.tono3{background:#FFFFFF;border-color:#2F4F4555;box-shadow:0 6px 0 #2F4F4555}
 
 /* Fondos de lámina y mapa, caminos y líneas: menta de la portada. */
-.lamina{background:linear-gradient(180deg,#E2F4F0 0%,#FFFFFF 75%)}
-.mapa{background:radial-gradient(circle at 50% 52%,#FFFFFF 0,#FFFFFF 40%,#E2F4F0 78%)}
-.camino,.linea .camino{border-top-color:#569689}
-.mapa-lineas line{stroke:#569689}
+.lamina{background:linear-gradient(180deg,#E3EDE7 0%,#FFFFFF 75%)}
+.mapa{background:radial-gradient(circle at 50% 52%,#FFFFFF 0,#FFFFFF 40%,#E3EDE7 78%)}
+.camino,.linea .camino{border-top-color:#587E6D}
+.mapa-lineas line{stroke:#587E6D}
 
 /* Emparejar, notas, casos y referencias. */
-.def{border-color:#C5E9E2}
-.def.acierto,.caso-tarea.visto{background:#F0F9F7}
-.def.sobre{background:#003F5E14}
-.empareja.amplio .def-ranura{border-color:#C5E9E2;background:#FFFFFF}
+.def{border-color:#CFE0D6}
+.def.acierto,.caso-tarea.visto{background:#F7F5EF}
+.def.sobre{background:#2F4F4514}
+.empareja.amplio .def-ranura{border-color:#CFE0D6;background:#FFFFFF}
 .nota-pie{color:var(--tinta)}
-mark.ref-texto{background:#FBDCDE;box-shadow:inset 0 -2px 0 #EF767F}
-.confeti i:nth-child(5n+1){background:#EF767F}
-@keyframes latidoBorde{0%,100%{box-shadow:0 0 0 0 #003F5E00}50%{box-shadow:0 0 0 6px #003F5E33}}
+mark.ref-texto{background:#F6DDCB;box-shadow:inset 0 -2px 0 #C8754F}
+.confeti i:nth-child(5n+1){background:#C8754F}
+@keyframes latidoBorde{0%,100%{box-shadow:0 0 0 0 #2F4F4500}50%{box-shadow:0 0 0 6px #2F4F4533}}
 
 /* Sombras con el petróleo de la portada (el motor las trae en su verde por defecto, fuera de la paleta: qa_paleta). */
-.panel,.panel-fichas{box-shadow:0 8px 20px #003F5E33}
-.avance.completo output{box-shadow:0 0 0 0 #003F5E66}
-@keyframes brillo{0%{box-shadow:0 0 0 0 #003F5E66}100%{box-shadow:0 0 0 12px #003F5E00}}
-.caso-respuesta textarea:focus{box-shadow:0 0 0 3px #003F5E22}
+.panel,.panel-fichas{box-shadow:0 8px 20px #2F4F4533}
+.avance.completo output{box-shadow:0 0 0 0 #2F4F4566}
+@keyframes brillo{0%{box-shadow:0 0 0 0 #2F4F4566}100%{box-shadow:0 0 0 12px #2F4F4500}}
+.caso-respuesta textarea:focus{box-shadow:0 0 0 3px #2F4F4522}
 
 /* Ilustraciones nítidas al escalarse en Genially: sin sombra. */
 .ctx-arte img,.arte-escena img,.celda-foto img,.puntos-lienzo img,.act-figura img,.caso-figura img,.def-ilus img{filter:none}
@@ -50,28 +51,28 @@ mark.ref-texto{background:#FBDCDE;box-shadow:inset 0 -2px 0 #EF767F}
 .caja-clave{background:var(--clave-fondo);border-color:var(--clave-borde)}
 
 /* == Estándar del 08/11/2026: escenario de oficina y ciudad y juego por lección (herramientas/estandar_curso.py) == */
-/* Colores de este curso: {"#07415C": "#003F5E", "#2E6780": "#569689", "#85451B": "#003F5E", "#AD5920": "#EF767F", "#C9DBE2": "#E2F4F0", "#E9F0F3": "#F0F9F7", "#FDFDDE": "#FBDCDE", "#568DA3": "#88B5AC", "#8FAAB6": "#809FAE", "#E4CA96": "#F7BABF", "#C6BB92": "#F5A9AF", "#4A2613": "#002334", "#7C401A": "#003650", "#FBFBC8": "#FBDCDE", "#EDDACE": "#FCE4E5", "#D6AC90": "#F8C1C5"} */
+/* Colores de este curso: {"#07415C": "#2F4F45", "#2E6780": "#587E6D", "#85451B": "#2F4F45", "#AD5920": "#C8754F", "#C9DBE2": "#E3EDE7", "#E9F0F3": "#FAF3F0", "#FDFDDE": "#F0DACF", "#568DA3": "#88A697", "#8FAAB6": "#97A7A2", "#E4CA96": "#E4BAA7", "#C6BB92": "#DCA78F", "#4A2613": "#1A2B26", "#7C401A": "#28433B", "#FBFBC8": "#F0DACF", "#EDDACE": "#F4E3DC", "#D6AC90": "#E6C1B0"} */
 /* Mapa conceptual inmersivo (Juan, 08/11/2026): paisaje en SVG y CSS con la paleta de la portada; el motor pinta las paradas. */
 .layout-esquema .escenario:has(.esq-esc){padding:0}
 .bloque:has(>.esq-esc){flex:1;min-height:0;display:flex}
-.esq-esc{position:relative;flex:1;min-height:0;width:100%;overflow:hidden;border-radius:14px;background:#F0F9F7}
+.esq-esc{position:relative;flex:1;min-height:0;width:100%;overflow:hidden;border-radius:14px;background:#FAF3F0}
 .esq-paisaje{position:absolute;inset:0;width:100%;height:100%;display:block}
-.esq-cielo{fill:#F0F9F7}.esq-sol{fill:#F7BABF}.esq-halo{fill:#F7BABF;opacity:.3;transform-box:fill-box;transform-origin:center;animation:esq-sol 5s ease-in-out infinite}
+.esq-cielo{fill:#FAF3F0}.esq-sol{fill:#E4BAA7}.esq-halo{fill:#E4BAA7;opacity:.3;transform-box:fill-box;transform-origin:center;animation:esq-sol 5s ease-in-out infinite}
 .esq-nube ellipse{fill:#fff}.esq-nube{animation:esq-nube 26s linear infinite}.esq-nube.n2{animation-duration:34s;animation-delay:-12s}.esq-nube.n3{animation-duration:40s;animation-delay:-20s}
-.esq-ave{fill:none;stroke:#003F5E;stroke-width:2;stroke-linecap:round;animation:esq-ave 9s ease-in-out infinite}.esq-ave.a2{animation-delay:-3s}
-.esq-monte.m1{fill:#809FAE;opacity:.55}.esq-monte.m2{fill:#88B5AC;opacity:.55}.esq-suelo.s1{fill:#569689}.esq-suelo.s2{fill:#F5A9AF}.esq-rio{fill:#E2F4F0}
-.esq-arbol rect,.esq-pino rect{fill:#002334}.esq-arbol circle{fill:#569689}.esq-arbol.b circle{fill:#F5A9AF}.esq-pino path{fill:#F5A9AF}
-.esq-tocon path{fill:#003F5E}.esq-tocon ellipse{fill:#809FAE}.esq-tronco{stroke:#002334;stroke-width:6;stroke-linecap:round;fill:none}
-.h-0 .esq-cielo{fill:#FBDCDE}.h-1 .esq-cielo{fill:#F0F9F7}.h-2 .esq-cielo{fill:#E2F4F0}.h-3 .esq-cielo{fill:#FCE4E5}
-.esq-barca path:first-child{fill:#002334}.esq-barca path:last-child{fill:#fff}.esq-barca{animation:esq-barca 7s ease-in-out infinite}
-.esq-terraza.t1{fill:#003F5E;opacity:.75}.esq-terraza.t2{fill:#EF767F;opacity:.8}.esq-terraza.t3{fill:#002334}.esq-pila{fill:#809FAE}
-.esq-draga rect{fill:#F7BABF;stroke:#000;stroke-width:2}.esq-draga path{stroke:#003F5E;stroke-width:7;stroke-linecap:round}.esq-draga circle{fill:#003F5E}
-.esq-edificio{fill:#88B5AC}.esq-ventana{stroke:#F7BABF;stroke-width:4;stroke-dasharray:6 7}.esq-chimenea{fill:#003F5E}.esq-humo circle{fill:#809FAE;opacity:.55;animation:esq-humo 4s ease-in-out infinite}.esq-humo circle:nth-child(2){animation-delay:-1.3s}.esq-humo circle:nth-child(3){animation-delay:-2.6s}
-.esq-frontis{fill:#fff;stroke:#003F5E;stroke-width:3}.esq-friso{fill:#003F5E}.esq-columna{fill:#fff;stroke:#003F5E;stroke-width:2}.esq-mastil{stroke:#003F5E;stroke-width:3}.esq-bandera{fill:#F7BABF;stroke:#003F5E;stroke-width:2;transform-box:fill-box;transform-origin:left center;animation:esq-flama 2.4s ease-in-out infinite}
-.esq-casa rect{fill:#fff;stroke:#003F5E;stroke-width:2}.esq-casa rect.p{fill:#002334}.esq-casa path{fill:#EF767F;stroke:#003F5E;stroke-width:2}.esq-molino .poste{stroke:#003F5E;stroke-width:5}.esq-molino .aspas{fill:#F7BABF;stroke:#003F5E;stroke-width:2;transform-origin:0 -96px;animation:esq-gira 9s linear infinite}
-.esq-carpa path{fill:#F7BABF;stroke:#003F5E;stroke-width:3}.esq-carpa path.p{fill:#002334}.esq-testigo path{stroke:#003F5E;stroke-width:3;fill:none}.esq-testigo path.f{fill:#EF767F;stroke:none}
-.esq-lupa circle{fill:rgba(255,255,255,.5);stroke:#003F5E;stroke-width:7}.esq-lupa path{stroke:#003F5E;stroke-width:9;stroke-linecap:round}.esq-lupa{animation:esq-lupa 8s ease-in-out infinite}
-.esq-nieve{fill:#fff;opacity:.85}.esq-meta path{stroke:#000;stroke-width:4}.esq-meta path.f{fill:#F7BABF;stroke:#000;stroke-width:2}
+.esq-ave{fill:none;stroke:#2F4F45;stroke-width:2;stroke-linecap:round;animation:esq-ave 9s ease-in-out infinite}.esq-ave.a2{animation-delay:-3s}
+.esq-monte.m1{fill:#97A7A2;opacity:.55}.esq-monte.m2{fill:#88A697;opacity:.55}.esq-suelo.s1{fill:#587E6D}.esq-suelo.s2{fill:#DCA78F}.esq-rio{fill:#E3EDE7}
+.esq-arbol rect,.esq-pino rect{fill:#1A2B26}.esq-arbol circle{fill:#587E6D}.esq-arbol.b circle{fill:#DCA78F}.esq-pino path{fill:#DCA78F}
+.esq-tocon path{fill:#2F4F45}.esq-tocon ellipse{fill:#97A7A2}.esq-tronco{stroke:#1A2B26;stroke-width:6;stroke-linecap:round;fill:none}
+.h-0 .esq-cielo{fill:#F0DACF}.h-1 .esq-cielo{fill:#FAF3F0}.h-2 .esq-cielo{fill:#E3EDE7}.h-3 .esq-cielo{fill:#F4E3DC}
+.esq-barca path:first-child{fill:#1A2B26}.esq-barca path:last-child{fill:#fff}.esq-barca{animation:esq-barca 7s ease-in-out infinite}
+.esq-terraza.t1{fill:#2F4F45;opacity:.75}.esq-terraza.t2{fill:#C8754F;opacity:.8}.esq-terraza.t3{fill:#1A2B26}.esq-pila{fill:#97A7A2}
+.esq-draga rect{fill:#E4BAA7;stroke:#000;stroke-width:2}.esq-draga path{stroke:#2F4F45;stroke-width:7;stroke-linecap:round}.esq-draga circle{fill:#2F4F45}
+.esq-edificio{fill:#88A697}.esq-ventana{stroke:#E4BAA7;stroke-width:4;stroke-dasharray:6 7}.esq-chimenea{fill:#2F4F45}.esq-humo circle{fill:#97A7A2;opacity:.55;animation:esq-humo 4s ease-in-out infinite}.esq-humo circle:nth-child(2){animation-delay:-1.3s}.esq-humo circle:nth-child(3){animation-delay:-2.6s}
+.esq-frontis{fill:#fff;stroke:#2F4F45;stroke-width:3}.esq-friso{fill:#2F4F45}.esq-columna{fill:#fff;stroke:#2F4F45;stroke-width:2}.esq-mastil{stroke:#2F4F45;stroke-width:3}.esq-bandera{fill:#E4BAA7;stroke:#2F4F45;stroke-width:2;transform-box:fill-box;transform-origin:left center;animation:esq-flama 2.4s ease-in-out infinite}
+.esq-casa rect{fill:#fff;stroke:#2F4F45;stroke-width:2}.esq-casa rect.p{fill:#1A2B26}.esq-casa path{fill:#C8754F;stroke:#2F4F45;stroke-width:2}.esq-molino .poste{stroke:#2F4F45;stroke-width:5}.esq-molino .aspas{fill:#E4BAA7;stroke:#2F4F45;stroke-width:2;transform-origin:0 -96px;animation:esq-gira 9s linear infinite}
+.esq-carpa path{fill:#E4BAA7;stroke:#2F4F45;stroke-width:3}.esq-carpa path.p{fill:#1A2B26}.esq-testigo path{stroke:#2F4F45;stroke-width:3;fill:none}.esq-testigo path.f{fill:#C8754F;stroke:none}
+.esq-lupa circle{fill:rgba(255,255,255,.5);stroke:#2F4F45;stroke-width:7}.esq-lupa path{stroke:#2F4F45;stroke-width:9;stroke-linecap:round}.esq-lupa{animation:esq-lupa 8s ease-in-out infinite}
+.esq-nieve{fill:#fff;opacity:.85}.esq-meta path{stroke:#000;stroke-width:4}.esq-meta path.f{fill:#E4BAA7;stroke:#000;stroke-width:2}
 @keyframes esq-barca{0%,100%{transform:translateX(-14px)}50%{transform:translateX(18px)}}
 @keyframes esq-humo{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-14px);opacity:.7}}
 @keyframes esq-flama{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.82)}}
@@ -83,7 +84,7 @@ mark.ref-texto{background:#FBDCDE;box-shadow:inset 0 -2px 0 #EF767F}
 @keyframes esq-nube{0%,100%{transform:translateX(-60px)}50%{transform:translateX(60px)}}
 @keyframes esq-ave{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,-12px)}}
 @keyframes esq-camino{to{stroke-dashoffset:-36}}
-.esq-lamina{position:absolute;left:50%;top:5%;width:27%;aspect-ratio:1;max-height:58%;transform:translateX(-50%);border-radius:50%;overflow:hidden;border:3px solid #000;background:#F0F9F7;box-shadow:4px 5px 0 #000}
+.esq-lamina{position:absolute;left:50%;top:5%;width:27%;aspect-ratio:1;max-height:58%;transform:translateX(-50%);border-radius:50%;overflow:hidden;border:3px solid #000;background:#FAF3F0;box-shadow:4px 5px 0 #000}
 .esq-lamina img{width:100%;height:100%;object-fit:contain;display:block}
 .esq-esc .esquema-hijos{position:absolute;inset:0;height:auto;margin:0;display:block}
 .esq-esc .esq-parada,.esq-esc .esq-parada:nth-child(even),.esq-esc .esq-parada.visto,.esq-esc .esq-parada.visto:nth-child(even){position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-100%);margin:0;padding:0;width:300px;max-width:30%;min-height:0;background:none;border:0;border-radius:0;box-shadow:none;display:flex;flex-direction:column;align-items:center;gap:6px;font:inherit;color:inherit;cursor:pointer;animation:none}
@@ -91,16 +92,16 @@ mark.ref-texto{background:#FBDCDE;box-shadow:inset 0 -2px 0 #EF767F}
 .esq-esc.n3 .esq-parada,.esq-esc.n3 .esq-parada:nth-child(even),.esq-esc.n3 .esq-parada.visto{width:270px}.esq-esc.n4 .esq-parada,.esq-esc.n4 .esq-parada:nth-child(even),.esq-esc.n4 .esq-parada.visto{width:236px;max-width:23%}.esq-esc.n5 .esq-parada,.esq-esc.n5 .esq-parada:nth-child(even),.esq-esc.n5 .esq-parada.visto{width:190px;max-width:19%}
 .esq-tarjeta{display:flex;flex-direction:column;align-items:center;gap:5px;width:100%;box-sizing:border-box;padding:10px 12px;text-align:center;background:#fff;border:2px solid #000;border-radius:14px;box-shadow:4px 5px 0 #000;transition:transform .2s,box-shadow .2s}
 .esq-parada:hover .esq-tarjeta,.esq-parada:focus-visible .esq-tarjeta{transform:translate(-2px,-3px);box-shadow:6px 8px 0 #000}
-.esq-parada:focus-visible{outline:none}.esq-parada:focus-visible .esq-tarjeta{outline:3px solid #EF767F;outline-offset:3px}
+.esq-parada:focus-visible{outline:none}.esq-parada:focus-visible .esq-tarjeta{outline:3px solid #C8754F;outline-offset:3px}
 .esq-esc .esquema-rotulo{font-size:14px;line-height:1.22;color:#000}.esq-esc .esquema-extracto{display:none!important}.esq-esc .esquema-arte .obj-svg{width:40px}
 .esq-esc .esquema-marca{margin:2px 0 0;background:#fff;border:1.5px solid #000}
-.esq-esc .esq-parada.visto .esq-tarjeta{background:#F0F9F7}
+.esq-esc .esq-parada.visto .esq-tarjeta{background:#FAF3F0}
 .esq-yo{position:absolute;left:var(--x,10%);top:var(--y,90%);width:26px;height:38px;margin:-52px 0 0 24px;z-index:2;pointer-events:none;transition:left .9s cubic-bezier(.5,0,.3,1),top .9s cubic-bezier(.5,0,.3,1);animation:esq-yo 1.1s ease-in-out infinite}
-.esq-yo svg{width:100%;height:100%;display:block}.esq-yo circle{fill:#EF767F;stroke:#000;stroke-width:2}.esq-yo path{fill:#F7BABF;stroke:#000;stroke-width:2}.esq-yo path.pierna{fill:none;stroke:#000;stroke-width:4;stroke-linecap:round}
+.esq-yo svg{width:100%;height:100%;display:block}.esq-yo circle{fill:#C8754F;stroke:#000;stroke-width:2}.esq-yo path{fill:#E4BAA7;stroke:#000;stroke-width:2}.esq-yo path.pierna{fill:none;stroke:#000;stroke-width:4;stroke-linecap:round}
 @keyframes esq-yo{0%,100%{translate:0 0}50%{translate:0 -4px}}
-.esq-pin{position:relative;flex:none;width:30px;height:30px;border-radius:50%;background:#F7BABF;border:3px solid #000;display:flex;align-items:center;justify-content:center;font:800 13px Montserrat,Arial,sans-serif;color:#000}
-.esq-parada:not(.visto) .esq-pin::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid #F7BABF;animation:esq-onda 1.8s ease-out infinite}
-.esq-parada.visto .esq-pin{background:#E2F4F0}
+.esq-pin{position:relative;flex:none;width:30px;height:30px;border-radius:50%;background:#E4BAA7;border:3px solid #000;display:flex;align-items:center;justify-content:center;font:800 13px Montserrat,Arial,sans-serif;color:#000}
+.esq-parada:not(.visto) .esq-pin::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid #E4BAA7;animation:esq-onda 1.8s ease-out infinite}
+.esq-parada.visto .esq-pin{background:#E3EDE7}
 @keyframes esq-onda{from{opacity:.95;transform:scale(1)}to{opacity:0;transform:scale(2.5)}}
 @media (prefers-reduced-motion:reduce){.esq-halo,.esq-nube,.esq-ave,.esq-camino,.esq-pin::after{animation:none!important}}
 @container ova (max-width:600px){
@@ -111,64 +112,64 @@ mark.ref-texto{background:#FBDCDE;box-shadow:inset 0 -2px 0 #EF767F}
 }
 
 /* Juego por lección: tramos, nivel y puntos en el encabezado (motor: juegoHtml). */
-.juego{display:flex;align-items:center;gap:10px;margin-left:auto;font:800 11.5px Montserrat,Arial,sans-serif;color:#003F5E;flex:none}
+.juego{display:flex;align-items:center;gap:10px;margin-left:auto;font:800 11.5px Montserrat,Arial,sans-serif;color:#2F4F45;flex:none}
 .guia .juego+.avance{margin-left:0;min-width:170px}
-.j-tramos{display:flex;gap:3px;align-items:center}.j-tramos i{display:block;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px #003F5E}
-.j-tramos i.hecho{background:#569689;box-shadow:inset 0 0 0 2px #003F5E}.j-tramos i.aqui{background:#F7BABF;transform:scale(1.35)}
-.j-nivel{display:inline-flex;gap:4px;align-items:center;background:#F0F9F7;border-radius:99px;padding:2px 9px}.j-nivel i{color:#003F5E}
-.j-puntos{display:inline-flex;gap:4px;align-items:center;background:#F7BABF;border:2px solid #000;border-radius:99px;padding:1px 9px}.j-puntos i{color:#000}
+.j-tramos{display:flex;gap:3px;align-items:center}.j-tramos i{display:block;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px #2F4F45}
+.j-tramos i.hecho{background:#587E6D;box-shadow:inset 0 0 0 2px #2F4F45}.j-tramos i.aqui{background:#E4BAA7;transform:scale(1.35)}
+.j-nivel{display:inline-flex;gap:4px;align-items:center;background:#FAF3F0;border-radius:99px;padding:2px 9px}.j-nivel i{color:#2F4F45}
+.j-puntos{display:inline-flex;gap:4px;align-items:center;background:#E4BAA7;border:2px solid #000;border-radius:99px;padding:1px 9px}.j-puntos i{color:#000}
 .j-puntos.sube{animation:j-sube .5s cubic-bezier(.3,1.7,.5,1)}
 @keyframes j-sube{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
-.j-aviso{position:absolute;left:50%;top:44%;z-index:60;transform:translate(-50%,-50%);background:#003F5E;color:#fff;font:800 19px Montserrat,Arial,sans-serif;padding:12px 26px;border-radius:14px;border:3px solid #F7BABF;pointer-events:none;animation:j-aviso 2.6s ease both}
-.j-aviso.nivel{background:#F7BABF;color:#000;border-color:#000;top:58%}
+.j-aviso{position:absolute;left:50%;top:44%;z-index:60;transform:translate(-50%,-50%);background:#2F4F45;color:#fff;font:800 19px Montserrat,Arial,sans-serif;padding:12px 26px;border-radius:14px;border:3px solid #E4BAA7;pointer-events:none;animation:j-aviso 2.6s ease both}
+.j-aviso.nivel{background:#E4BAA7;color:#000;border-color:#000;top:58%}
 @keyframes j-aviso{0%{opacity:0;transform:translate(-50%,-30%) scale(.8)}12%,80%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-70%)}}
 @container ova (max-width:900px){.j-tramos{display:none}.guia .juego+.avance{min-width:110px}}
 @container ova (max-width:600px){.j-nivel{display:none}.juego{margin-left:0}}
 @media (prefers-reduced-motion:reduce){.esq-yo,.esq-barca,.esq-humo circle,.esq-bandera,.esq-molino .aspas,.esq-lupa,.j-aviso,.j-puntos.sube{animation:none!important}}
 /* Escenarios de Justicia restaurativa (biomaRestaurativa en el motor): oficina y ciudad, no paisaje (JP, 10/11/2026) */
-.esq-per .cuerpo{stroke:#003F5E;stroke-width:1.5}.esq-per.r1 .cuerpo{fill:#003F5E}.esq-per.r2 .cuerpo{fill:#EF767F}.esq-per.r3 .cuerpo{fill:#88B5AC}.esq-per.r4 .cuerpo{fill:#002334}
-.esq-per .cara{stroke:#003F5E;stroke-width:1.5}.esq-per.k1 .cara{fill:#FCE4E5}.esq-per.k2 .cara{fill:#F8C1C5}.esq-per.k3 .cara{fill:#003650}
-.esq-per .rueda{fill:none;stroke:#003F5E;stroke-width:3}.esq-per .silla{fill:none;stroke:#003F5E;stroke-width:3;stroke-linejoin:round}.esq-per .piernas{fill:none;stroke:#569689;stroke-width:5;stroke-linecap:round}
-.esq-per .baston{stroke:#002334;stroke-width:3;stroke-linecap:round}.esq-per .sombrero{stroke:#F5A9AF;stroke-width:4;stroke-linecap:round;fill:none}.esq-per .sombrero.copa{fill:#F5A9AF}
-.jr-pared{fill:#FBDCDE}.jr-zocalo{fill:#F5A9AF}.jr-piso{fill:#F7BABF}.jr-junta{stroke:#F5A9AF;stroke-width:2;fill:none;opacity:.7}
-.jr-interior .esq-cielo{fill:#FBDCDE}
-.jr-lejos{fill:#E2F4F0;opacity:.8}.jr-anden{fill:#F5A9AF}.jr-calle{fill:#809FAE}
-.jr-edificio rect{stroke:#003F5E;stroke-width:2}.jr-edificio.c1>rect:first-child{fill:#FBDCDE}.jr-edificio.c2>rect:first-child{fill:#FCE4E5}.jr-edificio.c3>rect:first-child{fill:#E2F4F0}
-.jr-edificio .v{fill:#FFFFFF;stroke-width:1.5}.jr-edificio .p{fill:#003F5E}
-.jr-silla .pata{stroke:#003F5E;stroke-width:3;fill:none;stroke-linecap:round}.jr-silla .asiento{fill:#003F5E}.jr-silla .espaldar{fill:#88B5AC;stroke:#003F5E;stroke-width:2}
-.jr-silla.c1 .espaldar{fill:#EF767F}.jr-silla.c2 .espaldar{fill:#F7BABF}.jr-silla.giratoria .espaldar{fill:#003F5E}.jr-silla.alta .espaldar{fill:#002334;stroke:#003F5E}
-.jr-planta .hoja{fill:#569689}.jr-planta .matera{fill:#EF767F;stroke:#003F5E;stroke-width:2}
-.jr-sede .ala{fill:#FBDCDE;stroke:#003F5E;stroke-width:2}.jr-sede .cuerpo{fill:#FFFFFF;stroke:#003F5E;stroke-width:2}.jr-sede .cornisa{fill:#003F5E}.jr-sede .columna{fill:#E2F4F0;stroke:#003F5E;stroke-width:1.5}
-.jr-sede .v{fill:#E2F4F0;stroke:#003F5E;stroke-width:1.5}.jr-sede .p{fill:#003F5E}.jr-sede .escalon{fill:none;stroke:#003F5E;stroke-width:3}.jr-sede .mastil{stroke:#003F5E;stroke-width:3}.jr-sede .bandera{fill:#EF767F}
-.jr-farol .poste{stroke:#003F5E;stroke-width:4}.jr-farol .luz{fill:#F7BABF;stroke:#003F5E;stroke-width:2}
-.jr-tienda rect{fill:#FFFFFF;stroke:#003F5E;stroke-width:2}.jr-tienda .toldo{fill:#EF767F;stroke:#003F5E;stroke-width:2}.jr-tienda .vitrina{fill:#E2F4F0}.jr-tienda rect.p{fill:#003F5E}
-.jr-cancha .arco{fill:none;stroke:#003F5E;stroke-width:4;stroke-linejoin:round}.jr-cancha .malla{fill:none;stroke:#809FAE;stroke-width:1.5}
-.jr-banca path{stroke:#002334;stroke-width:4;stroke-linecap:round;fill:none}
-.jr-paradero .techo{stroke:#003F5E;stroke-width:8;stroke-linecap:round}.jr-paradero .poste{stroke:#003F5E;stroke-width:4}.jr-paradero .vidrio{fill:#F0F9F7;stroke:#003F5E;stroke-width:1.5}.jr-paradero .banco{stroke:#002334;stroke-width:5;stroke-linecap:round}
-.jr-semaforo .poste{stroke:#003F5E;stroke-width:4}.jr-semaforo rect{fill:#003F5E}.jr-semaforo .l1{fill:#EF767F}.jr-semaforo .l2{fill:#F7BABF;animation:jr-luz 3s steps(1) infinite}
+.esq-per .cuerpo{stroke:#2F4F45;stroke-width:1.5}.esq-per.r1 .cuerpo{fill:#2F4F45}.esq-per.r2 .cuerpo{fill:#C8754F}.esq-per.r3 .cuerpo{fill:#88A697}.esq-per.r4 .cuerpo{fill:#1A2B26}
+.esq-per .cara{stroke:#2F4F45;stroke-width:1.5}.esq-per.k1 .cara{fill:#F4E3DC}.esq-per.k2 .cara{fill:#E6C1B0}.esq-per.k3 .cara{fill:#28433B}
+.esq-per .rueda{fill:none;stroke:#2F4F45;stroke-width:3}.esq-per .silla{fill:none;stroke:#2F4F45;stroke-width:3;stroke-linejoin:round}.esq-per .piernas{fill:none;stroke:#587E6D;stroke-width:5;stroke-linecap:round}
+.esq-per .baston{stroke:#1A2B26;stroke-width:3;stroke-linecap:round}.esq-per .sombrero{stroke:#DCA78F;stroke-width:4;stroke-linecap:round;fill:none}.esq-per .sombrero.copa{fill:#DCA78F}
+.jr-pared{fill:#F0DACF}.jr-zocalo{fill:#DCA78F}.jr-piso{fill:#E4BAA7}.jr-junta{stroke:#DCA78F;stroke-width:2;fill:none;opacity:.7}
+.jr-interior .esq-cielo{fill:#F0DACF}
+.jr-lejos{fill:#E3EDE7;opacity:.8}.jr-anden{fill:#DCA78F}.jr-calle{fill:#97A7A2}
+.jr-edificio rect{stroke:#2F4F45;stroke-width:2}.jr-edificio.c1>rect:first-child{fill:#F0DACF}.jr-edificio.c2>rect:first-child{fill:#F4E3DC}.jr-edificio.c3>rect:first-child{fill:#E3EDE7}
+.jr-edificio .v{fill:#FFFFFF;stroke-width:1.5}.jr-edificio .p{fill:#2F4F45}
+.jr-silla .pata{stroke:#2F4F45;stroke-width:3;fill:none;stroke-linecap:round}.jr-silla .asiento{fill:#2F4F45}.jr-silla .espaldar{fill:#88A697;stroke:#2F4F45;stroke-width:2}
+.jr-silla.c1 .espaldar{fill:#C8754F}.jr-silla.c2 .espaldar{fill:#E4BAA7}.jr-silla.giratoria .espaldar{fill:#2F4F45}.jr-silla.alta .espaldar{fill:#1A2B26;stroke:#2F4F45}
+.jr-planta .hoja{fill:#587E6D}.jr-planta .matera{fill:#C8754F;stroke:#2F4F45;stroke-width:2}
+.jr-sede .ala{fill:#F0DACF;stroke:#2F4F45;stroke-width:2}.jr-sede .cuerpo{fill:#FFFFFF;stroke:#2F4F45;stroke-width:2}.jr-sede .cornisa{fill:#2F4F45}.jr-sede .columna{fill:#E3EDE7;stroke:#2F4F45;stroke-width:1.5}
+.jr-sede .v{fill:#E3EDE7;stroke:#2F4F45;stroke-width:1.5}.jr-sede .p{fill:#2F4F45}.jr-sede .escalon{fill:none;stroke:#2F4F45;stroke-width:3}.jr-sede .mastil{stroke:#2F4F45;stroke-width:3}.jr-sede .bandera{fill:#C8754F}
+.jr-farol .poste{stroke:#2F4F45;stroke-width:4}.jr-farol .luz{fill:#E4BAA7;stroke:#2F4F45;stroke-width:2}
+.jr-tienda rect{fill:#FFFFFF;stroke:#2F4F45;stroke-width:2}.jr-tienda .toldo{fill:#C8754F;stroke:#2F4F45;stroke-width:2}.jr-tienda .vitrina{fill:#E3EDE7}.jr-tienda rect.p{fill:#2F4F45}
+.jr-cancha .arco{fill:none;stroke:#2F4F45;stroke-width:4;stroke-linejoin:round}.jr-cancha .malla{fill:none;stroke:#97A7A2;stroke-width:1.5}
+.jr-banca path{stroke:#1A2B26;stroke-width:4;stroke-linecap:round;fill:none}
+.jr-paradero .techo{stroke:#2F4F45;stroke-width:8;stroke-linecap:round}.jr-paradero .poste{stroke:#2F4F45;stroke-width:4}.jr-paradero .vidrio{fill:#FAF3F0;stroke:#2F4F45;stroke-width:1.5}.jr-paradero .banco{stroke:#1A2B26;stroke-width:5;stroke-linecap:round}
+.jr-semaforo .poste{stroke:#2F4F45;stroke-width:4}.jr-semaforo rect{fill:#2F4F45}.jr-semaforo .l1{fill:#C8754F}.jr-semaforo .l2{fill:#E4BAA7;animation:jr-luz 3s steps(1) infinite}
 .jr-cebra rect{fill:#FFFFFF;opacity:.9}
-.jr-ventanal .marco{fill:#F0F9F7;stroke:#003F5E;stroke-width:4}.jr-ventanal .ciudad{fill:#E2F4F0}.jr-ventanal .cruz{stroke:#003F5E;stroke-width:3;fill:none}
-.jr-estante>rect:first-child{fill:#FFFFFF;stroke:#003F5E;stroke-width:3}.jr-estante .tabla{stroke:#003F5E;stroke-width:3;fill:none}.jr-estante .az{stroke:#003F5E;stroke-width:1.2}
-.jr-estante .a0{fill:#003F5E}.jr-estante .a1{fill:#EF767F}.jr-estante .a2{fill:#88B5AC}.jr-estante .caja{fill:#F7BABF;stroke:#003F5E;stroke-width:1.5}
-.jr-escritorio .tapa{fill:#002334}.jr-escritorio .pata{stroke:#002334;stroke-width:6;fill:none}.jr-escritorio .cajon{fill:#F8C1C5;stroke:#002334;stroke-width:2}
-.jr-escritorio .pantalla{fill:#003F5E;stroke:#003F5E;stroke-width:2}.jr-escritorio .pie{stroke:#003F5E;stroke-width:4;stroke-linecap:round;fill:none}.jr-escritorio .papel{fill:#FFFFFF;stroke:#003F5E;stroke-width:1.2}
-.jr-reloj circle{fill:#FFFFFF;stroke:#003F5E;stroke-width:3}.jr-reloj path{stroke:#003F5E;stroke-width:3;stroke-linecap:round;fill:none}
-.jr-tablero rect{fill:#FFFFFF;stroke:#003F5E;stroke-width:3}.jr-tablero .trazo{stroke:#88B5AC;stroke-width:4;stroke-linecap:round;fill:none}.jr-tablero .pata{stroke:#003F5E;stroke-width:3;fill:none}
-.jr-tapete{fill:#F8C1C5;opacity:.55}.jr-mesita ellipse{fill:#002334}.jr-mesita path{stroke:#002334;stroke-width:5}.jr-mesita .objeto{fill:#FBDCDE;stroke:#003F5E;stroke-width:1.5}
-.jr-estrado .panel{fill:#E2F4F0;stroke:#003F5E;stroke-width:2}.jr-estrado .escudo{fill:#FBDCDE;stroke:#003F5E;stroke-width:3}.jr-estrado .tarima{fill:#F5A9AF;stroke:#003F5E;stroke-width:2}
-.jr-estrado .mesa{fill:#002334}.jr-estrado .frente{fill:#003F5E}
-.jr-asta .palo{stroke:#002334;stroke-width:4;stroke-linecap:round}.jr-asta .tela{stroke:#003F5E;stroke-width:1.5}.jr-asta .t0{fill:#EF767F}.jr-asta .t1{fill:#88B5AC}.jr-asta .base{fill:#002334}
-.jr-mesa-parte rect{fill:#002334}.jr-mesa-parte path{stroke:#002334;stroke-width:5;fill:none}
-.jr-baranda{stroke:#002334;stroke-width:4;stroke-linecap:round;fill:none;opacity:.85}
+.jr-ventanal .marco{fill:#FAF3F0;stroke:#2F4F45;stroke-width:4}.jr-ventanal .ciudad{fill:#E3EDE7}.jr-ventanal .cruz{stroke:#2F4F45;stroke-width:3;fill:none}
+.jr-estante>rect:first-child{fill:#FFFFFF;stroke:#2F4F45;stroke-width:3}.jr-estante .tabla{stroke:#2F4F45;stroke-width:3;fill:none}.jr-estante .az{stroke:#2F4F45;stroke-width:1.2}
+.jr-estante .a0{fill:#2F4F45}.jr-estante .a1{fill:#C8754F}.jr-estante .a2{fill:#88A697}.jr-estante .caja{fill:#E4BAA7;stroke:#2F4F45;stroke-width:1.5}
+.jr-escritorio .tapa{fill:#1A2B26}.jr-escritorio .pata{stroke:#1A2B26;stroke-width:6;fill:none}.jr-escritorio .cajon{fill:#E6C1B0;stroke:#1A2B26;stroke-width:2}
+.jr-escritorio .pantalla{fill:#2F4F45;stroke:#2F4F45;stroke-width:2}.jr-escritorio .pie{stroke:#2F4F45;stroke-width:4;stroke-linecap:round;fill:none}.jr-escritorio .papel{fill:#FFFFFF;stroke:#2F4F45;stroke-width:1.2}
+.jr-reloj circle{fill:#FFFFFF;stroke:#2F4F45;stroke-width:3}.jr-reloj path{stroke:#2F4F45;stroke-width:3;stroke-linecap:round;fill:none}
+.jr-tablero rect{fill:#FFFFFF;stroke:#2F4F45;stroke-width:3}.jr-tablero .trazo{stroke:#88A697;stroke-width:4;stroke-linecap:round;fill:none}.jr-tablero .pata{stroke:#2F4F45;stroke-width:3;fill:none}
+.jr-tapete{fill:#E6C1B0;opacity:.55}.jr-mesita ellipse{fill:#1A2B26}.jr-mesita path{stroke:#1A2B26;stroke-width:5}.jr-mesita .objeto{fill:#F0DACF;stroke:#2F4F45;stroke-width:1.5}
+.jr-estrado .panel{fill:#E3EDE7;stroke:#2F4F45;stroke-width:2}.jr-estrado .escudo{fill:#F0DACF;stroke:#2F4F45;stroke-width:3}.jr-estrado .tarima{fill:#DCA78F;stroke:#2F4F45;stroke-width:2}
+.jr-estrado .mesa{fill:#1A2B26}.jr-estrado .frente{fill:#2F4F45}
+.jr-asta .palo{stroke:#1A2B26;stroke-width:4;stroke-linecap:round}.jr-asta .tela{stroke:#2F4F45;stroke-width:1.5}.jr-asta .t0{fill:#C8754F}.jr-asta .t1{fill:#88A697}.jr-asta .base{fill:#1A2B26}
+.jr-mesa-parte rect{fill:#1A2B26}.jr-mesa-parte path{stroke:#1A2B26;stroke-width:5;fill:none}
+.jr-baranda{stroke:#1A2B26;stroke-width:4;stroke-linecap:round;fill:none;opacity:.85}
 /* Lecciones largas (la 2.1 tiene 41 páginas): los puntos de tramo de la barra se achican para que «Exploración completa» quepa
    en el marco (QA: letra cortada por el iframe con 21 puntos). */
-.j-tramos:has(i:nth-child(17)){gap:2px}.j-tramos:has(i:nth-child(17)) i{width:6px;height:6px;box-shadow:inset 0 0 0 1.5px #003F5E}
-.j-tramos:has(i:nth-child(30)){gap:1.5px}.j-tramos:has(i:nth-child(30)) i{width:4.5px;height:4.5px;box-shadow:inset 0 0 0 1px #003F5E}
+.j-tramos:has(i:nth-child(17)){gap:2px}.j-tramos:has(i:nth-child(17)) i{width:6px;height:6px;box-shadow:inset 0 0 0 1.5px #2F4F45}
+.j-tramos:has(i:nth-child(30)){gap:1.5px}.j-tramos:has(i:nth-child(30)) i{width:4.5px;height:4.5px;box-shadow:inset 0 0 0 1px #2F4F45}
 /* 40 páginas o más (SRPA U1 L3: 47): puntos más pequeños y la barra de avance no se encoge, para que «Exploración completa»
    quepa en el marco (QA del 11/11/2026: letra cortada por el iframe). */
-.j-tramos:has(i:nth-child(40)){gap:1px}.j-tramos:has(i:nth-child(40)) i{width:3.5px;height:3.5px;box-shadow:inset 0 0 0 1px #003F5E}
+.j-tramos:has(i:nth-child(40)){gap:1px}.j-tramos:has(i:nth-child(40)) i{width:3.5px;height:3.5px;box-shadow:inset 0 0 0 1px #2F4F45}
 .guia .juego+.avance{flex-shrink:0}
-@keyframes jr-luz{0%{fill:#F7BABF}50%{fill:#569689}}
+@keyframes jr-luz{0%{fill:#E4BAA7}50%{fill:#587E6D}}
 @media (prefers-reduced-motion:reduce){.jr-semaforo .l2{animation:none!important}}
 
 /* Celular (QA del 11/11/2026, SRPA): en las escenas inmersivas la guía va sobre la ilustración y la fila del juego la hacía más

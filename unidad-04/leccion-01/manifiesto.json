@@ -1,0 +1,80 @@
+{
+ "unidad": 4,
+ "leccion": 1,
+ "titulo": "Los motivos fundados y audiencias preliminares",
+ "heading": "Lección 1. Los motivos fundados y audiencias preliminares",
+ "paginas": [
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=1",
+   "titulo": "Los motivos fundados y audiencias preliminares",
+   "subtitulo": "Diligencias de afectación a derechos fundamentales · Sentencia C-1092 de 2003 · …",
+   "seccion": "Lección 1. Los motivos fundados y audiencias preliminares",
+   "escena": 1,
+   "id": "AP-U4-L1-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "La relevancia de los motivos fundados",
+   "subtitulo": "Afectación a derechos fundamentales en la fase de investigación · Motivos fundados · …",
+   "seccion": "1.1. La relevancia de los motivos fundados",
+   "escena": 2,
+   "id": "AP-U4-L1-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "La relevancia de los motivos fundados",
+   "subtitulo": "Referencias al umbral probatorio · Secreto pre-sumarial · Motivos fundados · Dos aspectos concretos",
+   "seccion": "1.1. La relevancia de los motivos fundados",
+   "escena": 3,
+   "id": "AP-U4-L1-E03"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=4",
+   "titulo": "Una aproximación al concepto “motivos fundados”",
+   "subtitulo": "Tratamiento dado en el CPP · Motivos razonables · Hacerse registros · …",
+   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
+   "escena": 4,
+   "id": "AP-U4-L1-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "Una aproximación al concepto “motivos fundados”",
+   "subtitulo": "En concreto respecto al fundamento · Véase Art · Art. 300 CPP: “Captura excepcional · …",
+   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
+   "escena": 5,
+   "id": "AP-U4-L1-E05"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=6",
+   "titulo": "Una aproximación al concepto “motivos fundados”",
+   "subtitulo": "Ley 906 de 2004 · Tratamiento de la Corte Constitucional · Discusión legislativa · Sentencia C-805 de 2002",
+   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
+   "escena": 6,
+   "id": "AP-U4-L1-E06"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=7",
+   "titulo": "Una aproximación al concepto “motivos fundados”",
+   "subtitulo": "Sentencia C-024 de 1994 · Motivos de la captura · Conceptualización del término motivos fundados · …",
+   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
+   "escena": 7,
+   "id": "AP-U4-L1-E07"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=8",
+   "titulo": "Una aproximación al concepto “motivos fundados”",
+   "subtitulo": "Artículo 7 · Sentencia T-508 de 2011 · Conceptualización de la Corte Constitucional · …",
+   "seccion": "1.2. Una aproximación al concepto “motivos fundados”",
+   "escena": 8,
+   "id": "AP-U4-L1-E08"
+  }
+ ]
+}

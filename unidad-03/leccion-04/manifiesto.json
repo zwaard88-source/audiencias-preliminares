@@ -1,0 +1,80 @@
+{
+ "unidad": 3,
+ "leccion": 4,
+ "titulo": "Comprensión, práctica y control judicial de nuevas técnicas de investigación",
+ "heading": "Lección 4. Comprensión, práctica y control judicial de nuevas técnicas de investigación",
+ "paginas": [
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=1",
+   "titulo": "¿En qué consiste la técnica y para qué se utiliza?",
+   "subtitulo": "Lucha eficiente contra la DOT · Uso y la gestión de información · Técnicas de investigación articuladas",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 1,
+   "id": "AP-U3-L4-E01"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=2",
+   "titulo": "Conceptos🡪",
+   "subtitulo": "Priorización · Investigación y análisis de contexto",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 2,
+   "id": "AP-U3-L4-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "subtitulo": "¿Cuáles son sus requisitos de procedencia? · En el marco jurídico para la paz · …",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 3,
+   "id": "AP-U3-L4-E03"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=4",
+   "titulo": "¿Cómo se desarrolla la actuación?",
+   "subtitulo": "Investigación y análisis de contexto · Estrategia de priorización de casos · Identificar",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 4,
+   "id": "AP-U3-L4-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "subtitulo": "¿Qué tipo de control judicial requiere? · Es en este contexto · Resolución 1810 de 2012",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 5,
+   "id": "AP-U3-L4-E05"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=6",
+   "titulo": "¿Qué debe fundamentar el fiscal ante el JCG?",
+   "subtitulo": "Es de obligatoria consultar la resolución 00562 · Art. 3 de la Resolución · Criterios objetivos · …",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 6,
+   "id": "AP-U3-L4-E06"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=7",
+   "titulo": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
+   "subtitulo": "Análisis de casos · En lugar de tramitar la denuncia · Priorización",
+   "seccion": "4.1 Análisis en contexto y priorización de casos (TEI atípica o innominada)",
+   "escena": 7,
+   "id": "AP-U3-L4-E07"
+  },
+  {
+   "tipo": "figura",
+   "src": "figura.html?f=1",
+   "titulo": "Técnicas especiales de investigación (TEI)",
+   "subtitulo": "Síntesis gráfica",
+   "seccion": "",
+   "escena": null,
+   "id": "AP-U3-L4-F1"
+  }
+ ]
+}

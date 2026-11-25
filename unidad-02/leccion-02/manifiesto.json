@@ -1,0 +1,80 @@
+{
+ "unidad": 2,
+ "leccion": 2,
+ "titulo": "Control de legalidad de captura (orden judicial y flagrancia)",
+ "heading": "Lección 2. Control de legalidad de captura (orden judicial y flagrancia)",
+ "paginas": [
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=1",
+   "titulo": "Control de legalidad de captura (orden judicial y flagrancia)",
+   "subtitulo": "Control de legalidad de la captura",
+   "seccion": "Lección 2. Control de legalidad de captura (orden judicial y flagrancia)",
+   "escena": 1,
+   "id": "AP-U2-L2-E01"
+  },
+  {
+   "tipo": "mapa",
+   "src": "mapa.html?m=2",
+   "titulo": "Fundamento constitucional y legal",
+   "subtitulo": "Artículo 28 · Ley 906 de 2004 (CPP)",
+   "seccion": "2.1. Fundamento constitucional y legal",
+   "escena": 2,
+   "id": "AP-U2-L2-E02"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=3",
+   "titulo": "Requisitos",
+   "subtitulo": "Presupuestos materiales · Derechos fundamentales · Término perentorio",
+   "seccion": "2.2. Requisitos",
+   "escena": 3,
+   "id": "AP-U2-L2-E03"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=4",
+   "titulo": "Trámite de la audiencia",
+   "subtitulo": "Instalación",
+   "seccion": "2.3. Trámite de la audiencia",
+   "escena": 4,
+   "id": "AP-U2-L2-E04"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=5",
+   "titulo": "Captura en flagrancia",
+   "subtitulo": "Individualización y/o identificación del capturado · Estricta flagrancia · Cuasiflagrancia · …",
+   "seccion": "2.3. Trámite de la audiencia",
+   "escena": 5,
+   "id": "AP-U2-L2-E05"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=6",
+   "titulo": "Captura en flagrancia",
+   "subtitulo": "Videoflagrancia · Flagrancia por huida en vehículo",
+   "seccion": "2.3. Trámite de la audiencia",
+   "escena": 6,
+   "id": "AP-U2-L2-E06"
+  },
+  {
+   "tipo": "escena",
+   "src": "index.html?escena=7",
+   "titulo": "Trámite de la audiencia",
+   "subtitulo": "Intervención de la defensa · Decisión del juez · Recursos",
+   "seccion": "2.3. Trámite de la audiencia",
+   "escena": 7,
+   "id": "AP-U2-L2-E07"
+  },
+  {
+   "tipo": "actividad",
+   "src": "index.html?escena=8",
+   "titulo": "Aplicación al expediente del curso",
+   "subtitulo": "",
+   "seccion": "Aplicación al expediente del curso",
+   "escena": 8,
+   "id": "AP-U2-L2-E08"
+  }
+ ]
+}
