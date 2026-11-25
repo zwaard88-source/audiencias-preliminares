@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U3-L4-E01",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
-   "indice": "¿En qué consiste la técnica y para qué se utiliza?"
+   "indice": "¿En qué consiste la técnica y para qué se utiliza?",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U3-L4-E02",
    "nav": "Conceptos",
-   "indice": "Conceptos"
+   "indice": "Conceptos",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U3-L4-E03",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
-   "indice": "¿Cuáles son sus requisitos de procedencia?"
+   "indice": "¿Cuáles son sus requisitos de procedencia?",
+   "ilus": "revisan-documento"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U3-L4-E04",
    "nav": "¿Cómo se desarrolla la actuación?",
-   "indice": "¿Cómo se desarrolla la actuación?"
+   "indice": "¿Cómo se desarrolla la actuación?",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U3-L4-E05",
    "nav": "¿Qué tipo de control judicial requiere?",
-   "indice": "¿Qué tipo de control judicial requiere?"
+   "indice": "¿Qué tipo de control judicial requiere?",
+   "ilus": "p-alto-documento-2"
   },
   {
    "tipo": "mapa",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U3-L4-E06",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
-   "indice": "¿Qué debe fundamentar el fiscal ante el JCG?"
+   "indice": "¿Qué debe fundamentar el fiscal ante el JCG?",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U3-L4-E07",
    "nav": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
-   "indice": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)"
+   "indice": "Ejemplo para el caso del curso (Resolución 00562 de 2024 de la FGN)",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "figura",
@@ -90,7 +97,8 @@
    "escena": null,
    "id": "AP-U3-L4-F1",
    "nav": "Técnicas especiales de investigación (TEI)",
-   "indice": "Técnicas especiales de investigación (TEI)"
+   "indice": "Técnicas especiales de investigación (TEI)",
+   "ilus": "investigacion-lupa"
   }
  ]
 }

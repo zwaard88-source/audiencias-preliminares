@@ -1,4 +1,4 @@
-/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v5.
+/* Audiencias preliminares · montaje en Genially desde manifiesto.json (Sebastián, 25/11/2026) · v6.
    Se pega en la consola del editor (o lo inyecta Claude) y deja window.AP: AP.color() pasa la plantilla a «Salvia y terracota»;
    AP.montar(u, l) deja una página por entrada del manifiesto (iframe, título, subtítulo), la portadita y el índice por apartado.
    No publica: solo guarda. Las páginas que sobran se ocultan, no se borran. */
@@ -73,6 +73,13 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{c
    await d(80);A.updateItemPosition(gr.id,{x:i<filas?24:607,y:173+(i%filas)*(H+7)});await d(40)}
   r.push('índice '+U+' apartados, alto '+H)}else if(ind)r.push('índice sin tocar: '+U+' apartados');
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
+/* Ilustración de la columna izquierda: la que el manifiesto asigna a la página (juego aprobado del curso, por tema). La primera vez
+   Genially la sube; las siguientes páginas reutilizan esa dirección. Después hay que correr acomodar(). */
+async function ilustrar(desde=0,hasta=1e9){const P=window.APM.paginas,E=esc(),K='ap_ilus_'+location.pathname.split('/').pop();let cache={};try{cache=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}let c=0,f=0,err='';
+ for(let k=desde;k<Math.min(P.length,E.length,hasta);k++){const n=P[k].ilus;if(!n)continue;const img=its(E[k].id).filter(i=>i.type==='image'&&!i.parentGroupId&&i.position.x<300&&i.position.y>140&&i.size.width>100)[0];if(!img)continue;
+  const it=[...st(E[k].id).unorderedItems].find(x=>x.data&&x.data.Id===img.id),url=BASE+'unidad-01/medios/ilus/'+n+'.png';if(it&&(it.data.Source===url||(cache[n]&&it.data.Source===cache[n])))continue;
+  try{await A.replaceImage(img.id,cache[n]||url,{box:'fit'});await d(220);const s=it&&it.data.Source;if(s&&s!==url&&!cache[n]){cache[n]=s;try{localStorage.setItem(K,JSON.stringify(cache))}catch(e){}}c++}catch(e){f++;err=String(e).slice(0,80)}}
+ return 'ilustraciones '+c+(f?' · fallas '+f+' '+err:'')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v5'
+return{color,montar,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v6'

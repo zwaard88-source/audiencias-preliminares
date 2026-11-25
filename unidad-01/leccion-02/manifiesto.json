@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U1-L2-E01",
    "nav": "Finalidad de las audiencias preliminares",
-   "indice": "Finalidad de las audiencias preliminares"
+   "indice": "Finalidad de las audiencias preliminares",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U1-L2-E02",
    "nav": "Principios y garantías que las orientan",
-   "indice": "Principios y garantías que las orientan"
+   "indice": "Principios y garantías que las orientan",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U1-L2-E03",
    "nav": "Principio de proporcionalidad",
-   "indice": "Principio de proporcionalidad"
+   "indice": "Principio de proporcionalidad",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U1-L2-E04",
    "nav": "Principio de proporcionalidad",
-   "indice": "Principio de proporcionalidad"
+   "indice": "Principio de proporcionalidad",
+   "ilus": "p-explica-brazos"
   },
   {
    "tipo": "actividad",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U1-L2-E05",
    "nav": "Aplicación al expediente del curso",
-   "indice": "Aplicación al expediente del curso"
+   "indice": "Aplicación al expediente del curso",
+   "ilus": "clasificacion-carpetas"
   }
  ]
 }

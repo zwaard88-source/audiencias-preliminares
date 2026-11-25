@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U2-L1-E01",
    "nav": "Solicitud de orden de captura",
-   "indice": "Solicitud de orden de captura"
+   "indice": "Solicitud de orden de captura",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U2-L1-E02",
    "nav": "Fundamento",
-   "indice": "Fundamento"
+   "indice": "Fundamento",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U2-L1-E03",
    "nav": "Requisitos",
-   "indice": "Requisitos"
+   "indice": "Requisitos",
+   "ilus": "revisan-documento"
   },
   {
    "tipo": "mapa",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U2-L1-E04",
    "nav": "Trámite",
-   "indice": "Trámite"
+   "indice": "Trámite",
+   "ilus": "entrega-carpeta"
   }
  ]
 }

@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U4-L1-E01",
    "nav": "Diligencias de afectación a derechos fundamentales",
-   "indice": "Diligencias de afectación a derechos fundamentales"
+   "indice": "Diligencias de afectación a derechos fundamentales",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U4-L1-E02",
    "nav": "La relevancia de los motivos fundados",
-   "indice": "La relevancia de los motivos fundados"
+   "indice": "La relevancia de los motivos fundados",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U4-L1-E03",
    "nav": "La relevancia de los motivos fundados",
-   "indice": "La relevancia de los motivos fundados"
+   "indice": "La relevancia de los motivos fundados",
+   "ilus": "p-alto-documento-2"
   },
   {
    "tipo": "mapa",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U4-L1-E04",
    "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”"
+   "indice": "Una aproximación al concepto “motivos fundados”",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U4-L1-E05",
    "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”"
+   "indice": "Una aproximación al concepto “motivos fundados”",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U4-L1-E06",
    "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”"
+   "indice": "Una aproximación al concepto “motivos fundados”",
+   "ilus": "lee-libro-explica"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U4-L1-E07",
    "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”"
+   "indice": "Una aproximación al concepto “motivos fundados”",
+   "ilus": "terminos-reloj"
   },
   {
    "tipo": "mapa",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U4-L1-E08",
    "nav": "Una aproximación al concepto “motivos fundados”",
-   "indice": "Una aproximación al concepto “motivos fundados”"
+   "indice": "Una aproximación al concepto “motivos fundados”",
+   "ilus": "p-lee-libro"
   }
  ]
 }

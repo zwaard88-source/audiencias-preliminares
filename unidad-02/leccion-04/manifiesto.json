@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U2-L4-E01",
    "nav": "Fundamento constitucional y legal",
-   "indice": "Fundamento constitucional y legal"
+   "indice": "Fundamento constitucional y legal",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U2-L4-E02",
    "nav": "Requisitos y plazos (Ley 906 de 2004)",
-   "indice": "Requisitos y plazos (Ley 906 de 2004)"
+   "indice": "Requisitos y plazos (Ley 906 de 2004)",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "mapa",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U2-L4-E03",
    "nav": "Duplicación y excepciones",
-   "indice": "Duplicación y excepciones"
+   "indice": "Duplicación y excepciones",
+   "ilus": "p-alto-documento"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U2-L4-E04",
    "nav": "Duplicación y excepciones",
-   "indice": "Duplicación y excepciones"
+   "indice": "Duplicación y excepciones",
+   "ilus": "terminos-reloj"
   },
   {
    "tipo": "mapa",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U2-L4-E05",
    "nav": "Trámite de la solicitud",
-   "indice": "Trámite de la solicitud"
+   "indice": "Trámite de la solicitud",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U2-L4-E06",
    "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
-   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
+   "ilus": "entrega-carpeta"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U2-L4-E07",
    "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
-   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
+   "ilus": "p-dialogo-carpeta-2"
   },
   {
    "tipo": "escena",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U2-L4-E08",
    "nav": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
-   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)"
+   "indice": "Otras solicitudes: revocatoria de la medida de aseguramiento (art. 318)",
+   "ilus": "p-explica-brazos"
   },
   {
    "tipo": "escena",
@@ -101,7 +109,8 @@
    "escena": 9,
    "id": "AP-U2-L4-E09",
    "nav": "Sustitución de la detención preventiva (art. 314)",
-   "indice": "Sustitución de la detención preventiva (art. 314)"
+   "indice": "Sustitución de la detención preventiva (art. 314)",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "mapa",
@@ -112,7 +121,8 @@
    "escena": 10,
    "id": "AP-U2-L4-E10",
    "nav": "Causales de Procedencia",
-   "indice": "Sustitución de la detención preventiva (art. 314)"
+   "indice": "Sustitución de la detención preventiva (art. 314)",
+   "ilus": "p-trio-1"
   },
   {
    "tipo": "escena",
@@ -123,7 +133,8 @@
    "escena": 11,
    "id": "AP-U2-L4-E11",
    "nav": "Causales de Procedencia",
-   "indice": "Sustitución de la detención preventiva (art. 314)"
+   "indice": "Sustitución de la detención preventiva (art. 314)",
+   "ilus": "p-lee-libro"
   },
   {
    "tipo": "escena",
@@ -134,7 +145,8 @@
    "escena": 12,
    "id": "AP-U2-L4-E12",
    "nav": "Exclusiones y Prohibiciones (Parágrafo)",
-   "indice": "Sustitución de la detención preventiva (art. 314)"
+   "indice": "Sustitución de la detención preventiva (art. 314)",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "escena",
@@ -145,7 +157,8 @@
    "escena": 13,
    "id": "AP-U2-L4-E13",
    "nav": "Obligaciones y control",
-   "indice": "Sustitución de la detención preventiva (art. 314)"
+   "indice": "Sustitución de la detención preventiva (art. 314)",
+   "ilus": "p-trio-2"
   },
   {
    "tipo": "mapa",
@@ -156,7 +169,8 @@
    "escena": 14,
    "id": "AP-U2-L4-E14",
    "nav": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
+   "ilus": "terminos-reloj"
   },
   {
    "tipo": "escena",
@@ -167,7 +181,8 @@
    "escena": 15,
    "id": "AP-U2-L4-E15",
    "nav": "Prórroga del término inicial",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "mapa",
@@ -178,7 +193,8 @@
    "escena": 16,
    "id": "AP-U2-L4-E16",
    "nav": "Excepciones y suspensiones de términos",
-   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)"
+   "indice": "El término máximo de las medidas privativas (art. 307, parágrafo 1)",
+   "ilus": "alto-documento"
   }
  ]
 }

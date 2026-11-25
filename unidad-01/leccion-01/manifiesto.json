@@ -9,49 +9,63 @@
    "src": "index.html?escena=1",
    "titulo": "Audiencias preliminares",
    "subtitulo": "Le corresponden siempre a un juez con funciones de control de garantías",
-   "id": "AP-U1-L1-E01"
+   "id": "AP-U1-L1-E01",
+   "indice": "Audiencias preliminares",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=2",
    "titulo": "El control previo y el control posterior",
    "subtitulo": "Someter a control y autorización judicial",
-   "id": "AP-U1-L1-E02"
+   "id": "AP-U1-L1-E02",
+   "indice": "El control previo y el control posterior",
+   "ilus": "revisan-documento"
   },
   {
    "tipo": "escena",
    "src": "index.html?escena=3",
    "titulo": "Principio de publicidad",
    "subtitulo": "El carácter reservado de ciertos tipos de audiencias preliminares",
-   "id": "AP-U1-L1-E03"
+   "id": "AP-U1-L1-E03",
+   "indice": "Principio de publicidad",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=4",
    "titulo": "Sentencia SU-141/20",
    "subtitulo": "Una acción de tutela contra un juzgado",
-   "id": "AP-U1-L1-E04"
+   "id": "AP-U1-L1-E04",
+   "indice": "Sentencia SU-141/20",
+   "ilus": "lee-libro-explica"
   },
   {
    "tipo": "mapa",
    "src": "mapa.html?m=5",
    "titulo": "Juicio sesudo a nivel constitucional",
    "subtitulo": "(a) La legalidad, (b) la razonabilidad, (c) la necesidad y (d) la proporcionalidad",
-   "id": "AP-U1-L1-E05"
+   "id": "AP-U1-L1-E05",
+   "indice": "Juicio sesudo a nivel constitucional",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "caso",
    "src": "caso.html",
    "titulo": "Caso de estudio",
    "subtitulo": "El caso de Beatriz Elena Morales",
-   "id": "AP-U1-L1-E06"
+   "id": "AP-U1-L1-E06",
+   "indice": "Caso de estudio",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "actividad",
    "src": "index.html?escena=6",
    "titulo": "Aplicación al caso práctico",
    "subtitulo": "",
-   "id": "AP-U1-L1-E07"
+   "id": "AP-U1-L1-E07",
+   "indice": "Aplicación al caso práctico",
+   "ilus": "terminos-reloj"
   }
  ]
 }

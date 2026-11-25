@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U2-L5-E01",
    "nav": "Ley 1826 de 2017",
-   "indice": "Ley 1826 de 2017"
+   "indice": "Ley 1826 de 2017",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "mapa",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U2-L5-E02",
    "nav": "Procedimiento penal abreviado",
-   "indice": "Procedimiento penal abreviado"
+   "indice": "Procedimiento penal abreviado",
+   "ilus": "terminos-reloj"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U2-L5-E03",
    "nav": "Procedimiento penal abreviado",
-   "indice": "Procedimiento penal abreviado"
+   "indice": "Procedimiento penal abreviado",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "mapa",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U2-L5-E04",
    "nav": "El acusador privado",
-   "indice": "El acusador privado"
+   "indice": "El acusador privado",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U2-L5-E05",
    "nav": "Beneficios punitivos por aceptación de cargos",
-   "indice": "Beneficios punitivos por aceptación de cargos"
+   "indice": "Beneficios punitivos por aceptación de cargos",
+   "ilus": "p-explica-brazos-2"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U2-L5-E06",
    "nav": "Beneficios punitivos por aceptación de cargos",
-   "indice": "Beneficios punitivos por aceptación de cargos"
+   "indice": "Beneficios punitivos por aceptación de cargos",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "figura",
@@ -79,7 +85,8 @@
    "escena": null,
    "id": "AP-U2-L5-F1",
    "nav": "Mapa conceptual",
-   "indice": "Mapa conceptual"
+   "indice": "Mapa conceptual",
+   "ilus": "entrega-carpeta"
   },
   {
    "tipo": "figura",
@@ -90,7 +97,8 @@
    "escena": null,
    "id": "AP-U2-L5-F2",
    "nav": "Diagrama de flujo",
-   "indice": "Diagrama de flujo"
+   "indice": "Diagrama de flujo",
+   "ilus": "terminos-reloj"
   }
  ]
 }

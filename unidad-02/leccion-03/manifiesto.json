@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U2-L3-E01",
    "nav": "Fundamento legal",
-   "indice": "Fundamento legal"
+   "indice": "Fundamento legal",
+   "ilus": "p-explica-brazos"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U2-L3-E02",
    "nav": "Requisitos de procedibilidad y materiales",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "indice": "Requisitos de procedibilidad y materiales",
+   "ilus": "revisan-documento"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U2-L3-E03",
    "nav": "Requisitos de procedibilidad y materiales",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "indice": "Requisitos de procedibilidad y materiales",
+   "ilus": "p-alto-documento"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U2-L3-E04",
    "nav": "Requisitos de procedibilidad y materiales",
-   "indice": "Requisitos de procedibilidad y materiales"
+   "indice": "Requisitos de procedibilidad y materiales",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "mapa",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U2-L3-E05",
    "nav": "Medidas privativas de la libertad",
-   "indice": "Tipos de medidas no privativas y la sustitución"
+   "indice": "Tipos de medidas no privativas y la sustitución",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U2-L3-E06",
    "nav": "Medidas no privativas de la libertad",
-   "indice": "Tipos de medidas no privativas y la sustitución"
+   "indice": "Tipos de medidas no privativas y la sustitución",
+   "ilus": "p-trio-2"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U2-L3-E07",
    "nav": "Medidas no privativas de la libertad",
-   "indice": "Tipos de medidas no privativas y la sustitución"
+   "indice": "Tipos de medidas no privativas y la sustitución",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "mapa",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U2-L3-E08",
    "nav": "Medidas no privativas de la libertad",
-   "indice": "Tipos de medidas no privativas y la sustitución"
+   "indice": "Tipos de medidas no privativas y la sustitución",
+   "ilus": "p-lee-libro"
   },
   {
    "tipo": "escena",
@@ -101,7 +109,8 @@
    "escena": 9,
    "id": "AP-U2-L3-E09",
    "nav": "Particularidades del artículo 307 CPP",
-   "indice": "Particularidades del artículo 307 CPP"
+   "indice": "Particularidades del artículo 307 CPP",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "mapa",
@@ -112,7 +121,8 @@
    "escena": 10,
    "id": "AP-U2-L3-E10",
    "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN"
+   "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
+   "ilus": "entrega-carpeta"
   },
   {
    "tipo": "escena",
@@ -123,7 +133,8 @@
    "escena": 11,
    "id": "AP-U2-L3-E11",
    "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN"
+   "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "escena",
@@ -134,7 +145,8 @@
    "escena": 12,
    "id": "AP-U2-L3-E12",
    "nav": "Trámite de la audiencia",
-   "indice": "Trámite de la audiencia"
+   "indice": "Trámite de la audiencia",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "mapa",
@@ -145,7 +157,8 @@
    "escena": 13,
    "id": "AP-U2-L3-E13",
    "nav": "Solicitud de la Fiscalía",
-   "indice": "Solicitud de la Fiscalía"
+   "indice": "Solicitud de la Fiscalía",
+   "ilus": "p-dialogo-carpeta-2"
   },
   {
    "tipo": "escena",
@@ -156,7 +169,8 @@
    "escena": 14,
    "id": "AP-U2-L3-E14",
    "nav": "Solicitud de la Fiscalía",
-   "indice": "Solicitud de la Fiscalía"
+   "indice": "Solicitud de la Fiscalía",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
@@ -167,7 +181,8 @@
    "escena": 15,
    "id": "AP-U2-L3-E15",
    "nav": "Solicitud de la Fiscalía",
-   "indice": "Solicitud de la Fiscalía"
+   "indice": "Solicitud de la Fiscalía",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -178,7 +193,8 @@
    "escena": 16,
    "id": "AP-U2-L3-E16",
    "nav": "Intervención de otros sujetos",
-   "indice": "Intervención de otros sujetos"
+   "indice": "Intervención de otros sujetos",
+   "ilus": "p-trio-3"
   },
   {
    "tipo": "escena",
@@ -189,7 +205,8 @@
    "escena": 17,
    "id": "AP-U2-L3-E17",
    "nav": "Controversia de la defensa",
-   "indice": "Controversia de la defensa"
+   "indice": "Controversia de la defensa",
+   "ilus": "p-explica-brazos-2"
   },
   {
    "tipo": "mapa",
@@ -200,7 +217,8 @@
    "escena": 18,
    "id": "AP-U2-L3-E18",
    "nav": "Decisión del juez",
-   "indice": "Decisión del juez"
+   "indice": "Decisión del juez",
+   "ilus": "captura-detenido"
   }
  ]
 }

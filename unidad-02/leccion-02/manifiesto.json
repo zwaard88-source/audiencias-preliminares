@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U2-L2-E01",
    "nav": "Control de legalidad de la captura",
-   "indice": "Control de legalidad de la captura"
+   "indice": "Control de legalidad de la captura",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "mapa",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U2-L2-E02",
    "nav": "Fundamento constitucional y legal",
-   "indice": "Fundamento constitucional y legal"
+   "indice": "Fundamento constitucional y legal",
+   "ilus": "p-explica-brazos"
   },
   {
    "tipo": "escena",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U2-L2-E03",
    "nav": "Requisitos",
-   "indice": "Requisitos"
+   "indice": "Requisitos",
+   "ilus": "dialogo-carpeta"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U2-L2-E04",
    "nav": "Trámite de la audiencia",
-   "indice": "Trámite de la audiencia"
+   "indice": "Trámite de la audiencia",
+   "ilus": "p-explica-brazos-2"
   },
   {
    "tipo": "escena",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U2-L2-E05",
    "nav": "Captura en flagrancia",
-   "indice": "Trámite de la audiencia"
+   "indice": "Trámite de la audiencia",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U2-L2-E06",
    "nav": "Captura en flagrancia",
-   "indice": "Trámite de la audiencia"
+   "indice": "Trámite de la audiencia",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U2-L2-E07",
    "nav": "Trámite de la audiencia",
-   "indice": "Trámite de la audiencia"
+   "indice": "Trámite de la audiencia",
+   "ilus": "p-trio-1"
   },
   {
    "tipo": "actividad",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U2-L2-E08",
    "nav": "Aplicación al expediente del curso",
-   "indice": "Aplicación al expediente del curso"
+   "indice": "Aplicación al expediente del curso",
+   "ilus": "investigacion-lupa"
   }
  ]
 }

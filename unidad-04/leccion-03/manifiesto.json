@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U4-L3-E01",
    "nav": "Inferencias razonables de autoría y participación",
-   "indice": "Inferencias razonables de autoría y participación"
+   "indice": "Inferencias razonables de autoría y participación",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U4-L3-E02",
    "nav": "Inferencias razonables de autoría y participación",
-   "indice": "Inferencias razonables de autoría y participación"
+   "indice": "Inferencias razonables de autoría y participación",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "mapa",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U4-L3-E03",
    "nav": "Desarrollo conceptual y dogmático",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U4-L3-E04",
    "nav": "Desarrollo conceptual y dogmático",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "p-alto-documento-2"
   },
   {
    "tipo": "mapa",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U4-L3-E05",
    "nav": "Inferencias vinculadas a expectativas de hallazgo probatorio",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U4-L3-E06",
    "nav": "Inferencias razonables acerca de la realización de hechos punibles",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "entrega-carpeta"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U4-L3-E07",
    "nav": "Inferencias razonables acerca de la realización de hechos punibles",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "terminos-reloj"
   },
   {
    "tipo": "mapa",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U4-L3-E08",
    "nav": "Inferencias razonables acerca de la realización de hechos punibles",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "escena",
@@ -101,7 +109,8 @@
    "escena": 9,
    "id": "AP-U4-L3-E09",
    "nav": "Inferencias razonables sobre la existencia de información útil",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "corren-carpetas"
   },
   {
    "tipo": "escena",
@@ -112,7 +121,8 @@
    "escena": 10,
    "id": "AP-U4-L3-E10",
    "nav": "Inferencias razonables sobre la existencia de información útil",
-   "indice": "Desarrollo conceptual y dogmático"
+   "indice": "Desarrollo conceptual y dogmático",
+   "ilus": "lee-libro-explica"
   },
   {
    "tipo": "arrastrar",
@@ -123,7 +133,8 @@
    "escena": null,
    "id": "AP-U4-L3-A1",
    "nav": "Ejercicio No. 1: Silogismo probatorio",
-   "indice": "Ejercicio integrador: comprensión de conceptos"
+   "indice": "Ejercicio integrador: comprensión de conceptos",
+   "ilus": "captura-detenido"
   },
   {
    "tipo": "actividad",
@@ -134,7 +145,8 @@
    "escena": 13,
    "id": "AP-U4-L3-E13",
    "nav": "Ejercicio No. 1: Silogismo probatorio",
-   "indice": "Ejercicio integrador: comprensión de conceptos"
+   "indice": "Ejercicio integrador: comprensión de conceptos",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -145,7 +157,8 @@
    "escena": 14,
    "id": "AP-U4-L3-E14",
    "nav": "Aplicación práctica: construcción de inferencias razonables",
-   "indice": "Aplicación práctica: construcción de inferencias razonables"
+   "indice": "Aplicación práctica: construcción de inferencias razonables",
+   "ilus": "revisan-documento"
   },
   {
    "tipo": "actividad",
@@ -156,7 +169,8 @@
    "escena": 15,
    "id": "AP-U4-L3-E15",
    "nav": "Aplicación al expediente del curso",
-   "indice": "Aplicación al expediente del curso"
+   "indice": "Aplicación al expediente del curso",
+   "ilus": "entrega-carpeta"
   }
  ]
 }

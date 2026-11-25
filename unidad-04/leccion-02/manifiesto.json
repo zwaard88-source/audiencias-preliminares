@@ -13,7 +13,8 @@
    "escena": 1,
    "id": "AP-U4-L2-E01",
    "nav": "Implementación del modelo procesal penal acusatorio",
-   "indice": "Implementación del modelo procesal penal acusatorio"
+   "indice": "Implementación del modelo procesal penal acusatorio",
+   "ilus": "lee-libro-explica"
   },
   {
    "tipo": "escena",
@@ -24,7 +25,8 @@
    "escena": 2,
    "id": "AP-U4-L2-E02",
    "nav": "Finalidad y concreción de los motivos fundados",
-   "indice": "Finalidad y concreción de los motivos fundados"
+   "indice": "Finalidad y concreción de los motivos fundados",
+   "ilus": "fundamento-documento"
   },
   {
    "tipo": "mapa",
@@ -35,7 +37,8 @@
    "escena": 3,
    "id": "AP-U4-L2-E03",
    "nav": "Respaldo probatorio a los motivos fundados",
-   "indice": "Respaldo probatorio a los motivos fundados"
+   "indice": "Respaldo probatorio a los motivos fundados",
+   "ilus": "p-lee-libro"
   },
   {
    "tipo": "escena",
@@ -46,7 +49,8 @@
    "escena": 4,
    "id": "AP-U4-L2-E04",
    "nav": "De la reserva en las audiencias de control de legalidad",
-   "indice": "De la reserva en las audiencias de control de legalidad"
+   "indice": "De la reserva en las audiencias de control de legalidad",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "mapa",
@@ -57,7 +61,8 @@
    "escena": 5,
    "id": "AP-U4-L2-E05",
    "nav": "Cómo responder en audiencia a las objeciones de la defensa",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "p-explica-brazos-2"
   },
   {
    "tipo": "escena",
@@ -68,7 +73,8 @@
    "escena": 6,
    "id": "AP-U4-L2-E06",
    "nav": "Categorías habituales de objeciones",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "sustentacion-audiencia"
   },
   {
    "tipo": "escena",
@@ -79,7 +85,8 @@
    "escena": 7,
    "id": "AP-U4-L2-E07",
    "nav": "Categorías habituales de objeciones",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "p-trio-1"
   },
   {
    "tipo": "mapa",
@@ -90,7 +97,8 @@
    "escena": 8,
    "id": "AP-U4-L2-E08",
    "nav": "Formas técnicas de contestar",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -101,7 +109,8 @@
    "escena": 9,
    "id": "AP-U4-L2-E09",
    "nav": "Reformular la pregunta",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "p-explica-brazos-2"
   },
   {
    "tipo": "mapa",
@@ -112,7 +121,8 @@
    "escena": 10,
    "id": "AP-U4-L2-E10",
    "nav": "Retirar la pregunta",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "p-trio-1"
   },
   {
    "tipo": "escena",
@@ -123,7 +133,8 @@
    "escena": 11,
    "id": "AP-U4-L2-E11",
    "nav": "Reglas de Oro en Sala",
-   "indice": "Cómo responder en audiencia a las objeciones de la defensa"
+   "indice": "Cómo responder en audiencia a las objeciones de la defensa",
+   "ilus": "p-alto-documento-2"
   },
   {
    "tipo": "figura",
@@ -134,7 +145,8 @@
    "escena": null,
    "id": "AP-U4-L2-F1",
    "nav": "Estrategia para responder objeciones en sala",
-   "indice": "Estrategia para responder objeciones en sala"
+   "indice": "Estrategia para responder objeciones en sala",
+   "ilus": "clasificacion-carpetas"
   },
   {
    "tipo": "mapa",
@@ -145,7 +157,8 @@
    "escena": 12,
    "id": "AP-U4-L2-E12",
    "nav": "Fundamento de la reserva judicial",
-   "indice": "Fundamento de la reserva judicial"
+   "indice": "Fundamento de la reserva judicial",
+   "ilus": "alto-documento"
   },
   {
    "tipo": "escena",
@@ -156,7 +169,8 @@
    "escena": 13,
    "id": "AP-U4-L2-E13",
    "nav": "Fundamento de la reserva judicial",
-   "indice": "Fundamento de la reserva judicial"
+   "indice": "Fundamento de la reserva judicial",
+   "ilus": "terminos-reloj"
   }
  ]
 }
