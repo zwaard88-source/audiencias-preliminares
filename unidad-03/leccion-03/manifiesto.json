@@ -63,7 +63,7 @@
    "id": "AP-U3-L3-E05",
    "nav": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "investigacion-lupa",
+   "ilus": "m-vigilancia",
    "ancho": true
   },
   {
@@ -76,7 +76,7 @@
    "id": "AP-U3-L3-E06",
    "nav": "Intervención de las comunicaciones telefónicas y telemáticas",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": ""
+   "ilus": "m-interceptacion"
   },
   {
    "tipo": "escena",
@@ -113,7 +113,7 @@
    "id": "AP-U3-L3-E09",
    "nav": "Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": ""
+   "ilus": "m-interceptacion"
   },
   {
    "tipo": "mapa",
@@ -125,7 +125,7 @@
    "id": "AP-U3-L3-E10",
    "nav": "Utilización de dispositivos técnicos de captación de imagen, de seguimiento y de localización",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "",
+   "ilus": "m-vigilancia",
    "ancho": true
   },
   {
@@ -138,7 +138,7 @@
    "id": "AP-U3-L3-E11",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "escena",
@@ -162,7 +162,7 @@
    "id": "AP-U3-L3-E13",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "p-alto-documento"
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "escena",
@@ -174,7 +174,7 @@
    "id": "AP-U3-L3-E14",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "mapa",
@@ -211,7 +211,7 @@
    "id": "AP-U3-L3-E17",
    "nav": "Marco normativo internacional, transnacional y nacional",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": ""
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "mapa",
@@ -285,7 +285,7 @@
    "id": "AP-U3-L3-E23",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agentes encubiertos",
-   "ilus": "",
+   "ilus": "m-encubierto",
    "ancho": true
   },
   {
@@ -322,7 +322,7 @@
    "id": "AP-U3-L3-E26",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Agentes encubiertos",
-   "ilus": ""
+   "ilus": "m-encubierto"
   },
   {
    "tipo": "escena",
@@ -358,7 +358,7 @@
    "id": "AP-U3-L3-E29",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agentes encubiertos",
-   "ilus": "p-explica-brazos"
+   "ilus": "m-encubierto"
   },
   {
    "tipo": "escena",
@@ -394,7 +394,7 @@
    "id": "AP-U3-L3-E32",
    "nav": "Ejemplo para el caso del curso (Arts. 241, 242, 242A CPP; Sentencia C-156/16)",
    "indice": "Agentes encubiertos",
-   "ilus": ""
+   "ilus": "m-encubierto"
   },
   {
    "tipo": "mapa",
@@ -406,7 +406,7 @@
    "id": "AP-U3-L3-E33",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Entrega vigilada",
-   "ilus": "investigacion-lupa",
+   "ilus": "m-entrega-vigilada",
    "ancho": true
   },
   {
@@ -443,7 +443,7 @@
    "id": "AP-U3-L3-E36",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Entrega vigilada",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-entrega-vigilada"
   },
   {
    "tipo": "escena",
@@ -467,7 +467,7 @@
    "id": "AP-U3-L3-E38",
    "nav": "Discusión",
    "indice": "Entrega vigilada",
-   "ilus": "",
+   "ilus": "investigacion-lupa",
    "ancho": true
   },
   {
@@ -480,7 +480,7 @@
    "id": "AP-U3-L3-E39",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Entrega vigilada",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-entrega-vigilada"
   },
   {
    "tipo": "escena",
@@ -504,7 +504,7 @@
    "id": "AP-U3-L3-E41",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": ""
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "escena",
@@ -516,7 +516,7 @@
    "id": "AP-U3-L3-E42",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": ""
+   "ilus": "m-encubierto"
   },
   {
    "tipo": "escena",
@@ -540,7 +540,7 @@
    "id": "AP-U3-L3-E44",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "p-alto-documento",
+   "ilus": "m-dispositivos",
    "ancho": true
   },
   {
@@ -553,7 +553,7 @@
    "id": "AP-U3-L3-E45",
    "nav": "¿Cómo se desarrolla la actuación?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": ""
+   "ilus": "m-encubierto"
   },
   {
    "tipo": "escena",
@@ -577,7 +577,7 @@
    "id": "AP-U3-L3-E47",
    "nav": "Agente encubierto informático (TEI típica emergente)",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-dispositivos"
   },
   {
    "tipo": "escena",
@@ -589,7 +589,7 @@
    "id": "AP-U3-L3-E48",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "p-dialogo-carpeta-2"
+   "ilus": "investigacion-lupa"
   },
   {
    "tipo": "figura",
@@ -614,7 +614,7 @@
    "id": "AP-U3-L3-E49",
    "nav": "Representación gráfica No. 2: Síntesis sobre las TEI",
    "indice": "Representación gráfica No. 2: Síntesis sobre las TEI",
-   "ilus": "investigacion-lupa"
+   "ilus": "m-vigilancia"
   }
  ]
 }

@@ -14,7 +14,7 @@
    "id": "AP-U4-L4-E01",
    "nav": "Génesis de los motivos fundados",
    "indice": "Génesis de los motivos fundados",
-   "ilus": "p-alto-documento-2"
+   "ilus": "m-inferencia"
   },
   {
    "tipo": "mapa",
@@ -39,7 +39,7 @@
    "id": "AP-U4-L4-E03",
    "nav": "Del control de un concepto jurídico indeterminado",
    "indice": "Limitaciones del control judicial de los motivos fundados",
-   "ilus": ""
+   "ilus": "p-alto-documento-2"
   },
   {
    "tipo": "escena",
@@ -63,7 +63,7 @@
    "id": "AP-U4-L4-E05",
    "nav": "Del control de un concepto jurídico indeterminado",
    "indice": "Limitaciones del control judicial de los motivos fundados",
-   "ilus": "p-alto-documento-2"
+   "ilus": ""
   },
   {
    "tipo": "escena",
@@ -186,7 +186,7 @@
    "id": "AP-U4-L4-E15",
    "nav": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": "sustentacion-audiencia"
+   "ilus": "m-restaurativa"
   },
   {
    "tipo": "escena",
@@ -222,7 +222,7 @@
    "id": "AP-U4-L4-E18",
    "nav": "Conciliación preprocesal (Art. 522 CPP)",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": "",
+   "ilus": "m-restaurativa",
    "ancho": true
   },
   {
@@ -260,7 +260,7 @@
    "id": "AP-U4-L4-E21",
    "nav": "Alcance de la justicia restaurativa en las audiencias preliminares",
    "indice": "Justicia restaurativa en las audiencias preliminares: mecanismos de aplicación y ejemplos prácticos",
-   "ilus": "p-explica-brazos-2"
+   "ilus": "m-restaurativa"
   },
   {
    "tipo": "video",

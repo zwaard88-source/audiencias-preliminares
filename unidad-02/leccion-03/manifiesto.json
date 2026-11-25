@@ -63,7 +63,7 @@
    "id": "AP-U2-L3-E05",
    "nav": "Medidas privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "",
+   "ilus": "m-aseguramiento",
    "ancho": true
   },
   {
@@ -76,7 +76,7 @@
    "id": "AP-U2-L3-E06",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": ""
+   "ilus": "m-vigilancia"
   },
   {
    "tipo": "escena",
@@ -100,7 +100,7 @@
    "id": "AP-U2-L3-E08",
    "nav": "Medidas no privativas de la libertad",
    "indice": "Tipos de medidas no privativas y la sustitución",
-   "ilus": "alto-documento",
+   "ilus": "m-aseguramiento",
    "ancho": true
   },
   {
@@ -138,7 +138,7 @@
    "id": "AP-U2-L3-E11",
    "nav": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
    "indice": "Lineamientos de la Directiva 0001 de 2020 de la FGN",
-   "ilus": ""
+   "ilus": "m-aseguramiento"
   },
   {
    "tipo": "escena",
