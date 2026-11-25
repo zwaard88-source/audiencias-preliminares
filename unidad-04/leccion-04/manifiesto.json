@@ -274,19 +274,6 @@
    "indice": "Cierre de la unidad 4",
    "ilus": "",
    "ancho": true
-  },
-  {
-   "tipo": "video",
-   "src": "../videos/index.html?video=ap-cierre",
-   "titulo": "Cierre del curso",
-   "subtitulo": "Video con su transcripción",
-   "seccion": "",
-   "escena": null,
-   "id": "AP-V-ap-cierre",
-   "nav": "Cierre del curso",
-   "indice": "Cierre del curso",
-   "ilus": "",
-   "ancho": true
   }
  ]
 }
