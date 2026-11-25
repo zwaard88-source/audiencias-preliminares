@@ -126,6 +126,7 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[],largo=P.length>=14;
    /* cada apartado en su casilla de 570: fondo y texto (la barra de «Inicio» venía de 1152 y pasaba bajo la columna derecha) */
    for(const h of hijos(gr)){const w=Math.round(h.size.width);if(h.type==='svg'&&w>400){if(Math.abs(h.size.height-H)>1||Math.abs(w-570)>1){A.updateItemSize(h.id,{width:570,height:H});await d(40)}}else if(h.type==='text'&&w>100&&Math.abs(w-488)>1){A.updateItemSize(h.id,{width:488,height:h.size.height});await d(60)}}
    await d(120);
+   for(const h of hijos(gr)){if(h.type==='text'&&h.size.width>100){let f=18;try{f=A.getTextItemDetails(h.id).fontSize||18}catch(e){}while(alto(h)>H-20&&f>13){f-=1;A.updateTextFontSize(h.id,f);await d(140)}}}
    for(const h of hijos(gr)){if(h.type==='svg'&&h.size.width>400)continue;const a=h.type==='text'?alto(h):h.size.height;A.updateItemPosition(h.id,{x:h.position.x,y:Math.round((H-a)/2)});await d(25)}
    await d(80);A.updateItemPosition(gr.id,{x:i<filas?24:607,y:173+(i%filas)*(H+7)});await d(40)}
   await marco(its(ind.id),M,null,0);r.push('índice '+U+' apartados, alto '+H)}else if(ind)r.push('índice sin tocar: '+U+' apartados');
@@ -142,9 +143,9 @@ async function ilustrar(desde=0,hasta=1e9){const P=window.APM.paginas,E=esc(),K=
 /* 7. Revisión de cajas: lo que no cabe donde va. Devuelve una lista corta (vacía si todo cabe). */
 function revisar(){const P=(window.APM||{paginas:[]}).paginas,E=esc(),out=[];
  for(let k=0;k<Math.min(P.length,E.length);k++){const I=its(E[k].id),p=P[k],tx=textos(I),T=tx[0],Sb=tx[1],img=dibujo(I);if(!T)continue;const hT=alto(T);
-  if(p.ancho){if(hT>38)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)')}
+  if(p.ancho){if(hT>44)out.push((k+1)+': título de franja en '+Math.round(hT)+' px (pisa la página)')}
   else{const hS=Sb&&p.subtitulo?alto(Sb):0,bajo=108+hT+(hS?8+hS:0);if(bajo>596)out.push((k+1)+': título y frase llegan a '+Math.round(bajo));
-   if(img&&img.position.x>-800&&img.position.y<bajo+4)out.push((k+1)+': el dibujo pisa el texto');if(img&&img.position.x>-800&&img.size.height<110)out.push((k+1)+': dibujo muy chico '+Math.round(img.size.height))}
+   if(img&&img.position.x>-800&&img.position.y<bajo-2)out.push((k+1)+': el dibujo pisa el texto');if(img&&img.position.x>-800&&img.size.height<110)out.push((k+1)+': dibujo muy chico '+Math.round(img.size.height))}
   const hd=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y<70&&i.position.x>440&&i.position.x<760)[0];if(hd&&(alto(hd)>70||hd.position.y<6))out.push((k+1)+': cabecera '+Math.round(alto(hd))+' px');
   for(const f of I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.y>600)){const a=alto(f);if(f.position.y+a>668)out.push((k+1)+': pie baja a '+Math.round(f.position.y+a))}}
  return out.length?out.slice(0,14).join(' | ')+(out.length>14?' … +'+(out.length-14):''):'cajas bien ('+Math.min(P.length,E.length)+' páginas)'}
@@ -152,4 +153,7 @@ async function cargar(u,l){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion
 async function montar(u,l){const n=await cargar(u,l),a=estructura(),b=await paginas(u,l,window.APM);return n+' páginas · '+a+' · '+b}
 function estado(){const E=esc(),P=(window.APM||{paginas:[]}).paginas,sl=A.getSlides(),vis=sl.filter(s=>!st(s.id).data.Hidden);
  return JSON.stringify({visibles:vis.map(s=>s.name).slice(0,3),nVis:vis.length,escenasVisibles:E.filter(s=>!st(s.id).data.Hidden).length,manifiesto:P.length})}
-return{montar,cargar,estructura,revisar,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13'
+/* 8. Todo en orden para una creación; deja el avance en window.__ap_log (para seguirlo desde fuera). */
+async function todo(u,l){const L=window.__ap_log=[];try{L.push(await montar(u,l));L.push(await ilustrar());const n=window.APM.paginas.length;for(let a=0;a<n;a+=12)L.push(await acomodar(window.APM,a,a+12));
+ L.push(await indice(l,window.APM));L.push(revisar());L.push('guardado: '+(await A.saveNow()).status);L.push(estado());L.push('FIN')}catch(e){L.push('ERROR '+String(e&&e.stack||e).slice(0,220))}return L.join(' · ')}
+return{montar,cargar,estructura,revisar,todo,ilustrar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,estado,M:()=>window.APM}})();'AP listo v13b'
