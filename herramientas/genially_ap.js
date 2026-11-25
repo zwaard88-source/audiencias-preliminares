@@ -33,17 +33,17 @@ async function paginas(u,l,M,desde=0,hasta=1e9){const P=M.paginas,n=P.length;A.s
   const rc=[...S.unorderedItems].find(i=>i.data&&i.data.setSource),ifr='<iframe src="'+BASE+'unidad-0'+u+'/leccion-0'+l+'/'+p.src+'" width="767" height="510" style="border:0" title="'+p.id+'" allowfullscreen></iframe>';
   if(rc&&String(rc.data.Source).indexOf(BASE+'unidad-0'+u+'/leccion-0'+l+'/'+p.src+'"')<0){rc.data.setSource('<div class="card-iframe">'+ifr+'</div>');if(rc.data.setOriginalUrl)rc.data.setOriginalUrl(ifr);c++}
   const tx=its(sid).filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<300&&i.position.y>90&&i.position.y<330).sort((a,b)=>a.position.y-b.position.y),T=tx[0],Sb=tx[1];
-  if(T)c+=pon(T.id,p.titulo);if(Sb){if(p.subtitulo){c+=pon(Sb.id,p.subtitulo);A.updateItemOpacity(Sb.id,1)}else A.updateItemOpacity(Sb.id,0)}await d(60)}
+  if(T){c+=pon(T.id,p.titulo);const L=p.titulo.length,fs=L<=30?30:L<=48?26:L<=75?22:19;try{if(A.getTextItemDetails(T.id).fontSize!==fs)A.updateTextFontSize(T.id,fs)}catch(e){}}if(Sb){if(p.subtitulo){c+=pon(Sb.id,p.subtitulo);A.updateItemOpacity(Sb.id,1)}else A.updateItemOpacity(Sb.id,0)}await d(60)}
  return 'páginas '+n+' de '+E.length+' · cambios '+c}
 async function acomodar(M,desde=0,hasta=1e9){const P=M.paginas,E=esc();let c=0;
- for(let k=desde;k<Math.min(P.length,E.length,hasta);k++){const I=its(E[k].id),tx=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<300&&i.position.y>90&&i.position.y<330).sort((a,b)=>a.position.y-b.position.y),T=tx[0],Sb=tx[1];if(!T)continue;
+ for(let k=desde;k<Math.min(P.length,E.length,hasta);k++){A.selectSlide(E[k].id);await d(480);const I=its(E[k].id),tx=I.filter(i=>i.type==='text'&&!i.parentGroupId&&i.position.x<300&&i.position.y>90&&i.position.y<330).sort((a,b)=>a.position.y-b.position.y),T=tx[0],Sb=tx[1];if(!T)continue;
   const img=I.filter(i=>i.type==='image'&&!i.parentGroupId&&i.position.x<300&&i.position.y>140&&i.size.width>150)[0];
   const sy=T.position.y+T.size.height+8;if(Sb&&Math.abs(Sb.position.y-sy)>2){A.updateItemPosition(Sb.id,{x:Sb.position.x,y:sy});c++}
   const bajo=Sb&&P[k].subtitulo?sy+Sb.size.height:T.position.y+T.size.height;
   if(img){const top=bajo+12,mh=592-top,r=img.size.width/img.size.height;let h=Math.min(329,mh),w=h*r;if(w>359){w=359;h=w/r}
    if(Math.abs(img.size.height-h)>3){A.updateItemSize(img.id,{width:w,height:h});await d(50);c++}
    const y=top+(mh-h)/2,x=28+(359-w)/2;if(Math.abs(img.position.y-y)>3||Math.abs(img.position.x-x)>3){A.updateItemPosition(img.id,{x,y});c++}}await d(30)}
- return 'acomodadas '+c}
+ A.selectSlide(A.getSlides()[0].id);await d(250);return 'acomodadas '+c}
 async function pegar(slideId,gid){const antes=its(slideId).map(i=>i.id);A.selectSlide(slideId);await d(350);A.copyItems([gid]);await d(250);A.pasteItems();await d(1100);return its(slideId).filter(i=>!antes.includes(i.id)&&i.type==='group'&&!i.parentGroupId)[0]}
 const ir=(id,dest)=>{try{A.deleteItemInteractivity(id,'goToSlide')}catch(e){}A.setGoToSlideInteractivity({itemId:id,target:{slideId:dest}})};
 async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{if(!secs.length||secs[secs.length-1].t!==p.titulo)secs.push({t:p.titulo,k})});
@@ -64,4 +64,4 @@ async function indice(l,M){const P=M.paginas,E=esc(),secs=[];P.forEach((p,k)=>{i
  A.selectSlide(A.getSlides()[0].id);await d(250);return r.join(' · ')}
 async function montar(u,l,desde,hasta){const M=await(await fetch(BASE+'unidad-0'+u+'/leccion-0'+l+'/manifiesto.json?'+Date.now())).json();window.APM=M;
  const a=await paginas(u,l,M,desde,hasta);await d(1200);const b=await acomodar(M,desde,hasta);return a+' · '+b}
-return{color,montar,indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo'
+return{color,montar,acomodar:async(a,b)=>acomodar(window.APM,a,b),indice:async l=>indice(l,window.APM),guardar:async()=>(await A.saveNow()).status,esc,M:()=>window.APM}})();'AP listo v3'
