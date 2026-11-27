@@ -204,3 +204,12 @@ mark.ref-texto{background:#F6DDCB;box-shadow:inset 0 -2px 0 #C8754F}
 .avance.completo .avance-rotulo{display:none}
 /* Franja ancha de las escenas del motor (25/11/2026): en pantalla completa conserva su marco de 1150 × 462. */
 html.en-pantalla-completa.ap-ancho .ova{width:1150px;height:462px}
+/* Tabla por pestañas en franja ancha con título de la tabla (U3 L3, «Clasificación de TEI»; revisión completa del 26/11/2026): el
+   título ocupaba la primera celda de la rejilla y empujaba las pestañas y el panel, que quedaban encimados. El título va en su fila. */
+.marco-ancho .bloque:has(> .panel-fichas):has(> .bloque-titulo){grid-template-rows:auto minmax(0,1fr)}
+.marco-ancho .bloque:has(> .panel-fichas) > .bloque-titulo{grid-column:1/-1;margin:0}
+/* Cinco fichas o más en franja ancha (U3 L2 «Exámenes de ADN…», U3 L3; revisión completa del 26/11/2026): en dos columnas la
+   segunda quedaba debajo del panel y el rótulo largo se cortaba. Van en una columna, más compactas y sin el icono. */
+.marco-ancho .bloque:has(> .panel-fichas) > .fichas:has(> .ficha:nth-child(5)){grid-template-columns:1fr;gap:5px;align-content:start}
+.marco-ancho .bloque:has(> .panel-fichas) > .fichas:has(> .ficha:nth-child(5)) > .ficha{min-height:0;padding-top:6px;padding-bottom:6px}
+.marco-ancho .bloque:has(> .panel-fichas) > .fichas:has(> .ficha:nth-child(5)) > .ficha .ficha-icono{display:none}
