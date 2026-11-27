@@ -129,7 +129,7 @@
    "id": "AP-U3-L2-E10",
    "nav": "Precisiones importantes",
    "indice": "Registro y allanamiento",
-   "ilus": "m-allanamiento"
+   "ilus": "i-u3l2p10"
   },
   {
    "tipo": "mapa",
@@ -206,7 +206,7 @@
    "id": "AP-U3-L2-E16",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": "p-alto-documento"
+   "ilus": "i-u3l2p16"
   },
   {
    "tipo": "escena",
@@ -256,7 +256,7 @@
    "id": "AP-U3-L2-E20",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Búsqueda selectiva en bases de datos",
-   "ilus": "m-bases-datos"
+   "ilus": "i-u3l2p20"
   },
   {
    "tipo": "escena",
@@ -332,7 +332,7 @@
    "id": "AP-U3-L2-E26",
    "nav": "¿Cuáles son sus requisitos de procedencia?",
    "indice": "Interceptación de comunicaciones",
-   "ilus": "revisan-documento"
+   "ilus": "i-u3l2p26"
   },
   {
    "tipo": "mapa",
@@ -357,7 +357,7 @@
    "id": "AP-U3-L2-E28",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Interceptación de comunicaciones",
-   "ilus": "investigacion-lupa"
+   "ilus": "i-u3l2p28"
   },
   {
    "tipo": "escena",
@@ -369,7 +369,7 @@
    "id": "AP-U3-L2-E29",
    "nav": "Algunas reglas jurisprudenciales",
    "indice": "Interceptación de comunicaciones",
-   "ilus": "lee-libro-explica"
+   "ilus": "i-u3l2p29"
   },
   {
    "tipo": "escena",
@@ -406,7 +406,7 @@
    "id": "AP-U3-L2-E32",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Recuperación de información producto de la transmisión de datos a través de las redes de comunicaciones",
-   "ilus": "p-trio-2"
+   "ilus": "i-u3l2p32"
   },
   {
    "tipo": "mapa",
@@ -509,7 +509,7 @@
    "id": "AP-U3-L2-E40",
    "nav": "Precisión importante",
    "indice": "Vigilancia y seguimiento de personas",
-   "ilus": "m-vigilancia"
+   "ilus": "i-u3l2p40"
   },
   {
    "tipo": "escena",
@@ -560,7 +560,7 @@
    "id": "AP-U3-L2-E44",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Vigilancia de cosas",
-   "ilus": "p-alto-documento-2"
+   "ilus": "i-u3l2p44"
   },
   {
    "tipo": "escena",
@@ -572,7 +572,7 @@
    "id": "AP-U3-L2-E45",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Vigilancia de cosas",
-   "ilus": "investigacion-lupa"
+   "ilus": "i-u3l2p45"
   },
   {
    "tipo": "escena",
@@ -584,7 +584,7 @@
    "id": "AP-U3-L2-E46",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Vigilancia de cosas",
-   "ilus": "m-vigilancia"
+   "ilus": "i-u3l2p46"
   },
   {
    "tipo": "escena",
@@ -725,7 +725,7 @@
    "id": "AP-U3-L2-E58",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Obtención de muestras",
-   "ilus": "m-muestras-adn"
+   "ilus": "i-u3l2p57"
   },
   {
    "tipo": "mapa",
@@ -783,7 +783,7 @@
    "tipo": "matriz",
    "src": "matriz.html?m=61",
    "titulo": "Matriz comparativa de TOI",
-   "subtitulo": "FINALIDAD",
+   "subtitulo": "Finalidad",
    "seccion": "2.4. Matriz comparativa de TOI",
    "escena": 61,
    "id": "AP-U3-L2-E61",

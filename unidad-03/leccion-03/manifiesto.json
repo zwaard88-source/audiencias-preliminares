@@ -79,7 +79,7 @@
    "id": "AP-U3-L3-E06",
    "nav": "Intervención de las comunicaciones telefónicas y telemáticas",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "m-interceptacion"
+   "ilus": "i-u3l3p06"
   },
   {
    "tipo": "escena",
@@ -117,7 +117,7 @@
    "id": "AP-U3-L3-E09",
    "nav": "Captación y grabación de comunicaciones orales mediante la utilización de dispositivos electrónicos",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "m-interceptacion"
+   "ilus": "i-u3l3p09"
   },
   {
    "tipo": "mapa",
@@ -168,7 +168,7 @@
    "id": "AP-U3-L3-E13",
    "nav": "Registro de dispositivos de almacenamiento masivo de información",
    "indice": "Vigilancia electrónica y otras formas de vigilancia (TEI típica nominada)",
-   "ilus": "investigacion-lupa"
+   "ilus": "i-u3l3p13"
   },
   {
    "tipo": "escena",
@@ -373,7 +373,7 @@
    "id": "AP-U3-L3-E29",
    "nav": "¿Qué debe fundamentar el fiscal ante el JCG?",
    "indice": "Agentes encubiertos",
-   "ilus": "m-encubierto"
+   "ilus": "i-u3l3p29"
   },
   {
    "tipo": "escena",
@@ -397,7 +397,7 @@
    "id": "AP-U3-L3-E31",
    "nav": "Límite: agente encubierto y agente provocador",
    "indice": "Agentes encubiertos",
-   "ilus": "p-alto-documento"
+   "ilus": "i-u3l3p31"
   },
   {
    "tipo": "escena",
@@ -409,7 +409,7 @@
    "id": "AP-U3-L3-E32",
    "nav": "Ejemplo para el caso del curso (Arts. 241, 242, 242A CPP; Sentencia C-156/16)",
    "indice": "Agentes encubiertos",
-   "ilus": "m-encubierto"
+   "ilus": "i-u3l3p32"
   },
   {
    "tipo": "mapa",
@@ -524,7 +524,7 @@
    "id": "AP-U3-L3-E41",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "m-dispositivos"
+   "ilus": "i-u3l3p41"
   },
   {
    "tipo": "escena",
@@ -536,7 +536,7 @@
    "id": "AP-U3-L3-E42",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "m-encubierto"
+   "ilus": "i-u3l3p42"
   },
   {
    "tipo": "escena",
@@ -548,7 +548,7 @@
    "id": "AP-U3-L3-E43",
    "nav": "¿En qué consiste la técnica y para qué se utiliza?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "investigacion-lupa"
+   "ilus": "i-u3l3p43"
   },
   {
    "tipo": "mapa",
@@ -586,7 +586,7 @@
    "id": "AP-U3-L3-E46",
    "nav": "¿Qué tipo de control judicial requiere?",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "p-trio-2"
+   "ilus": "i-u3l3p46"
   },
   {
    "tipo": "escena",
@@ -598,7 +598,7 @@
    "id": "AP-U3-L3-E47",
    "nav": "Agente encubierto informático (TEI típica emergente)",
    "indice": "Agente encubierto informático (TEI típica emergente)",
-   "ilus": "investigacion-lupa"
+   "ilus": "i-u3l3p47"
   },
   {
    "tipo": "escena",
