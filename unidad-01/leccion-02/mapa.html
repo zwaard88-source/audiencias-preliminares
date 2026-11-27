@@ -5,7 +5,7 @@
 <title>Mapa conceptual · Lección 2. Finalidad, principios y garantías que orientan las audiencias preliminares</title>
 <link rel="stylesheet" href="../comun/assets/vendor/fontawesome.min.css">
 <link rel="stylesheet" href="../comun/assets/vendor/solid.min.css">
-<link rel="stylesheet" href="../comun/ap-propio.css?v=7266fa43">
+<link rel="stylesheet" href="../comun/ap-propio.css?v=f09c2316">
 </head>
 <body>
 <main class="lienzo" id="lienzo">
@@ -16,10 +16,10 @@
   <div class="avance" id="avance"></div>
 </main>
 <script type="application/json" id="datos">{"1": {"t": "Finalidad, principios y garantías que orientan las audiencias preliminares", "r": [{"h": "escenarios procesales propios del sistema penal acusatorio", "p": [["", "Las audiencias preliminares corresponden a escenarios procesales propios del sistema penal acusatorio en los que se someten a consideración del juez determinadas actuaciones y decisiones que, por su naturaleza o incidencia en los derechos de los sujetos procesales, requieren intervención judicial."], ["", "De esta manera, como expresión concreta de la función de garantía atribuida al JCG, constituyen un mecanismo fundamental para articular las necesidades propias de la investigación penal con el respeto de las garantías constitucionales, asegurando que las actuaciones de los sujetos procesales se desarrollen dentro de los límites establecidos por la CN y la ley."]]}, {"h": "función jurisdiccional", "p": [["", "La función jurisdiccional, exclusiva de los jueces de la República, debe estar guiada por los principios constitucionales que, bajo ciertas generalidades, regulan la administración de justicia. Las actuaciones ante jueces con función de control de garantía, propias de la Ley 906 de 2004, no son la excepción: resulta de vital importancia que el fiscal, al momento de someter sus actuaciones al control judicial, ejerza un examen perspicaz en torno a estos mandatos superiores."], ["", "Por consiguiente, el fiscal debe encontrarse en la capacidad de explicar, por ejemplo, la legalidad (en sentido amplio) y la proporcionalidad del acto investigativo, con miras a que el juez pueda conceder la respectiva autorización."]]}], "ilus": "sustentacion-audiencia.webp", "raiz": ""}}</script>
-<script src="../comun/ap-propio.js?v=7266fa43"></script>
+<script src="../comun/ap-propio.js?v=f09c2316"></script>
 <script>
 /* Mapa conceptual completo (pauta de Juan, 24/11/2026): la idea de la página y todas sus ramas a la vista. Si el texto cabe, se
-   lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana pequeña junto a ella.
+   lee entero en el mapa; si no, cada rama muestra su comienzo y abre su texto completo en una ventana amplia (26/11/2026).
    Texto literal de la escena: datos[m] = {t: título, raiz: texto del nodo central ('' si Genially ya lo dice), ilus, r: [{h: rótulo,
    p: [[clase, texto], …]}]}.
    Tercera pasada (Sebastián, 24/11/2026): en la franja ancha de Genially el mapa va con la idea al centro y las ramas a los dos
@@ -103,9 +103,11 @@
     if (ramas.scrollHeight > TOPE - 12 || mc.scrollHeight > mc.clientHeight + 1) { mc.classList.remove(c); return true; }
     return false;
   });
-  /* ventana pequeña junto a la rama; el texto largo se lee por partes */
+  /* Ventana amplia (Sebastián, 26/11/2026: «hacer los pop-ups más grandes para evitar muchos clicks»; estándar 2.3f): el concepto
+     abre su texto completo en una ventana grande al centro del mapa, sin partes ni «Seguir leyendo»; si es largo, se desplaza y
+     queda leído al llegar al final. Antes era una ventana pequeña junto a la rama que partía el texto cada 620 caracteres. */
   var partes = [], parte = 0, actual = null;
-  function trozos(p) { var out = [], act = [], n = 0; p.forEach(function (x) { if (act.length && n + x[1].length > 620) { out.push(act); act = []; n = 0; } act.push(x); n += x[1].length; }); if (act.length) out.push(act); return out; }
+  function trozos(p) { return [p]; }
   function prox(k) { for (var j = k + 1; j < N; j++) if (!d.r[j].entero) return j; return N; }
   function sigue() {   /* al terminar un concepto: pasar al siguiente o terminar; nunca un botón que no lleva a nada */
     return prox(actual.k) < N
@@ -115,23 +117,28 @@
   function mostrar() {
     var ult = parte === partes.length - 1;
     document.getElementById('gp').innerHTML = parrafos(partes[parte], parte === 0 && actual.i >= 0 ? actual.r.h : null, actual.i) +
-      '<div class="partes">' + (partes.length > 1 ? '<button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span>' : '<span></span>') +
+      '<div class="partes">' + (partes.length > 1 ? '<button class="btn-chico" id="pa"' + (parte ? '' : ' disabled') + '><i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior</button><span>Parte ' + (parte + 1) + ' de ' + partes.length + '</span>' : '<span class="pq" aria-live="polite"></span>') +
       (ult ? sigue() : '<button class="btn-chico" id="ps">Seguir leyendo <i class="fas fa-arrow-right" aria-hidden="true"></i></button>') + '</div>';
     var a = document.getElementById('pa'), s = document.getElementById('ps'), sg = document.getElementById('psig');
     if (a) a.onclick = function () { parte--; mostrar(); ubicar(); };
     if (s) s.onclick = function () { parte++; mostrar(); ubicar(); };
     if (sg) sg.onclick = function () { var k = prox(actual.k); if (k < N) abrir(nodos[k], d.r[k], k); else cerrar(); };
-    if (ult) { leidos[actual.k] = 1; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance(); }
+    G.scrollTop = 0;
+    if (ult) requestAnimationFrame(function () {
+      if (G.scrollHeight <= G.clientHeight + 4) marcar();
+      else if (!leidos[actual.k]) { var pq = G.querySelector('.pq'); if (pq) pq.innerHTML = '<i class="fas fa-angles-down" aria-hidden="true"></i> Baje para leer el texto completo'; }
+    });
   }
+  function marcar() {
+    if (!actual || leidos[actual.k] === 2) return;
+    var pq = G.querySelector('.pq'); if (pq) pq.innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído completo';
+    leidos[actual.k] = 2; actual.e.classList.add('visto'); actual.e.querySelector('.leer').innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Leído · clic para releer'; avance();
+  }
+  G.addEventListener('scroll', function () { if (G.classList.contains('abierto') && G.scrollTop + G.clientHeight >= G.scrollHeight - 4) marcar(); }, { passive: true });
   function ubicar() {
-    var e = actual.e, W = lz.clientWidth, H = lz.clientHeight, r = e.getBoundingClientRect(), b = lz.getBoundingClientRect(), z = b.width / W;
-    var x = (r.left - b.left) / z, y = (r.top - b.top) / z, gw = G.offsetWidth, gh = G.offsetHeight, ew = e.offsetWidth;
-    /* al lado de la rama si hay sitio (en la franja ancha casi siempre lo hay); si no, debajo o encima */
-    var gx, gy = Math.max(8, Math.min(H - gh - 8, y + e.offsetHeight / 2 - gh / 2));
-    if (x + ew + 10 + gw <= W - 8) gx = x + ew + 10;
-    else if (x - 10 - gw >= 8) gx = x - 10 - gw;
-    else { gx = Math.min(Math.max(10, x + ew / 2 - gw / 2), W - gw - 10); gy = y + e.offsetHeight + 6; if (gy + gh > H - 8) gy = Math.max(8, y - gh - 6); if (gy < 8 || (gy < y + e.offsetHeight && gy + gh > y)) gy = Math.max(8, Math.min(H - gh - 8, y)); }
-    G.style.left = gx + 'px'; G.style.top = gy + 'px';
+    /* ventana amplia: al centro del mapa (26/11/2026) */
+    var W = lz.clientWidth, H = lz.clientHeight, gw = G.offsetWidth, gh = G.offsetHeight;
+    G.style.left = Math.max(8, (W - gw) / 2) + 'px'; G.style.top = Math.max(8, (H - gh) / 2) + 'px';
   }
   function abrir(e, r, k) { actual = { e: e, k: k, r: r, i: donde(r) }; partes = trozos(r.p); parte = 0; document.getElementById('gh').textContent = actual.i >= 0 ? 'Concepto ' + (k + 1) + ' de ' + N : may(r.h); G.classList.add('abierto'); mostrar(); ubicar(); document.getElementById('gx').focus(); }
   function cerrar() { G.classList.remove('abierto'); if (actual) actual.e.focus(); }

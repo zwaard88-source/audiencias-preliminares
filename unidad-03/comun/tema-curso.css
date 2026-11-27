@@ -184,17 +184,15 @@ mark.ref-texto{background:#F6DDCB;box-shadow:inset 0 -2px 0 #C8754F}
    de la ruta se desplazaban 4 px): pastillas de 14 px, como la barra de avance. */
 .j-puntos,.j-nivel{padding-top:0;padding-bottom:0;line-height:12px}.j-puntos{border-width:1.5px}
 /* == fin del estándar del 08/11/2026 == */
-/* Sebastián, 25/11/2026 · pauta de Juan del 24/11: «hot spots con pop-ups más pequeños». En los puntos sobre la ilustración y
-   en la rejilla, la ventana de lectura es una tarjeta compacta (no tapa toda la escena) y la escena se oscurece menos. */
-.layout-puntos .lector,.layout-rejilla .lector{background:#003F5E26}
-.layout-puntos .lector-caja,.layout-rejilla .lector-caja{max-width:400px;width:auto;max-height:300px;padding:14px 16px;border-radius:12px;box-shadow:0 10px 24px #003F5E33}
-.layout-puntos .lector-caja p,.layout-rejilla .lector-caja p{font-size:14px;line-height:1.5}
+/* Sebastián, 25/11/2026 · pauta de Juan del 24/11: «hot spots con pop-ups más pequeños». Quedó sin efecto el 26/11/2026.
+   26/11/2026 (Sebastián: «hacer los pop-ups más grandes para evitar muchos clicks»; estándar 2.3f: «una ventana amplia con todo su
+   texto… sin "Seguir leyendo" dentro de la ventana»). Toda ventana del motor es la ventana amplia (escena.ventanaAmplia en los datos
+   de cada escena, que pone postproceso.py): ancha, con el texto completo de la idea, que se desplaza si es largo y queda leído al
+   llegar al final. Se quitó la tarjeta compacta de los puntos y la rejilla (máx. 400 px), que obligaba a leer por partes. */
+.lector.amplia .lector-caja{max-width:none;box-shadow:0 14px 34px color-mix(in srgb,var(--marino) 25%,transparent)}
 /* Cuarta pasada (revisión como usuario, 25/11/2026): el texto, dentro de su caja.
-   · La ventana compacta crece hasta donde haga falta, dentro del marco (antes paraba en 300 px y a cinco ventanas les salía barra
-     de desplazamiento por unos renglones).
    · «¡Siga aquí!» va sobre la esquina del botón (como la etiqueta «Por leer» de las fichas): a su izquierda tapaba «Parte 1 de 2».
    · La nota al pie dentro del panel verde se lee en claro (iba en gris sobre verde). */
-.layout-puntos .lector-caja,.layout-rejilla .lector-caja{max-height:100%}
 .pag-siguiente.sigue-aqui::after{right:8px;top:-3px;padding:1px 9px;font-size:10.5px;box-shadow:0 2px 5px #0002}
 .panel-fichas .nota-pie,.panel .nota-pie,.panel-texto .nota-pie{color:#EEF4F0;border-top-color:#ffffff66}
 .panel-fichas .nota-pie sup,.panel .nota-pie sup,.panel-texto .nota-pie sup{color:#F6DDCB}

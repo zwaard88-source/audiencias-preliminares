@@ -251,3 +251,17 @@ html.ancho .mz{grid-template-columns:336px minmax(0,1fr);padding:14px 18px 42px;
 .mz .celda h5{margin:0 0 3px;font:800 10.8px Montserrat,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-osc)}
 .mz .celda p{margin:0;font-size:var(--fz,13.4px);line-height:1.42}
 .mz .celda p + p{margin-top:4px}
+/* Ventana amplia del mapa conceptual (Sebastián, 26/11/2026: «hacer los pop-ups más grandes para evitar muchos clicks»): el concepto
+   abre su texto completo en una ventana grande al centro del mapa, con letra de lectura; si es largo, se desplaza. El mapa queda
+   detrás, atenuado. Antes: ventana de 400–470 px junto a la rama y el texto por partes de 620 caracteres. */
+.globo{width:calc(100% - 48px);max-width:720px;max-height:calc(100% - 40px);padding:14px 20px 14px;border-radius:14px;box-shadow:0 0 0 2000px color-mix(in srgb,var(--petroleo) 22%,transparent),0 14px 34px color-mix(in srgb,var(--petroleo) 30%,transparent)}
+html.ancho .globo{width:calc(100% - 64px);max-width:1000px;max-height:calc(100% - 40px)}
+.globo .gcab{border-bottom:2px solid var(--menta);padding-bottom:6px;margin-bottom:9px}
+.globo h3{font-size:15px}
+.globo p{font-size:15.5px;line-height:1.6}
+.globo p + p{margin-top:.6em}
+.globo p.nota{font-size:13px}
+.globo .partes{margin-top:12px;font-size:12px}
+/* La fila de abajo (aviso de lectura y «Clic para leer el concepto siguiente») queda siempre a la vista, aunque el texto se desplace. */
+.globo .partes{position:sticky;bottom:-14px;background:#fff;margin:10px -20px -14px;padding:8px 20px 12px;border-top:1px solid var(--niebla)}
+.globo .pq{font-weight:700;color:var(--petroleo)}
